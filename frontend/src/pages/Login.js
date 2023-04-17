@@ -35,7 +35,7 @@ const Login = () => {
               value={password}
               className="p-2 pl-2 rounded-lg"
             />
-            <button disabled={isLoading} className="rounded-lg bg-green-600 p-1">
+            <button disabled={isLoading} className="rounded-lg bg-[#FBAE3C] p-1">
               Login
             </button>
             {error && <p>{error}</p>}
