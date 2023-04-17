@@ -13,27 +13,29 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-login bg-cover">
+    <div className="min-h-screen bg-login bg-cover flex items-center justify-center px-4 md:px-0">
       <div className="container mx-auto">
-        <div className="flex items-center justify-center">
+        <div className="flex justify-center">
           <form
             onSubmit={handleSubmit}
-            className="bg-red-600 p-4 grid grid-cols-2"
+            className="bg-slate-200 p-4 grid gap-4 md:w-1/2 w-full rounded-lg shadow-lg"
           >
-            <h2 className="col-span-2">Login</h2>
+            <h2 className="text-center text-4xl">Login</h2>
             <input
               type="text"
-              placeholder="email"
+              placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
+              className="p-2 pl-2 rounded-lg"
             />
             <input
               type="password"
-              placeholder="password"
+              placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
+              className="p-2 pl-2 rounded-lg"
             />
-            <button disabled={isLoading} className="col-span-2">
+            <button disabled={isLoading} className="rounded-lg bg-green-600 p-1">
               Login
             </button>
             {error && <p>{error}</p>}
