@@ -28,7 +28,10 @@ const Home = () => {
   }, [dispatch, user])
 
   return (
-    <div className="home">
+    <div className="h-screen">
+      <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
       <div className="workouts">
         {workouts && workouts.map((workout) => (
           <WorkoutDetails key={workout._id} workout={workout} />
