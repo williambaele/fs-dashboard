@@ -19,7 +19,7 @@ const Login = () => {
         <h2>Login</h2>
         <input type="text" placeholder='email' onChange={(e) => setEmail(e.target.value)} value={email}/>
         <input type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)} value={password}/>
-        <button disabled={isLoading}>Signup</button>
+        <button disabled={isLoading}>Login</button>
         { error &&
         <p>{error}</p>}
       </form>
