@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const HeroBanner = () => {
   return (
@@ -23,13 +24,13 @@ const HeroBanner = () => {
                 soluta minus veniam tempora deserunt? Molestiae eius quidem quam
                 repellat.
               </p>
-
+              <Link to="/plan">
               <p
-
                 class="mt-8 inline-block rounded bg-[#FBAE3C] px-12 py-3 text-sm font-medium text-white transition hover:bg-[#fbb650]"
               >
                 Plan your holdiay
               </p>
+            </Link>
             </div>
           </div>
         </div>
