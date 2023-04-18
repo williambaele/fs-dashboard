@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
+import { useItemsContext } from "../hooks/useItemsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
-const WorkoutForm = () => {
-  const { dispatch } = useWorkoutsContext();
+const ItemForm = () => {
+  const { dispatch } = useItemsContext();
   const { user } = useAuthContext();
 
   const [title, setTitle] = useState("");
@@ -20,11 +20,11 @@ const WorkoutForm = () => {
       return;
     }
 
-    const workout = { title, load, reps };
+    const item = { title, load, reps };
 
-    const response = await fetch("/api/workouts", {
+    const response = await fetch("/api/items", {
       method: "POST",
-      body: JSON.stringify(workout),
+      body: JSON.stringify(item),
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${user.token}`,
@@ -42,7 +42,7 @@ const WorkoutForm = () => {
       setReps("");
       setError(null);
       setEmptyFields([]);
-      dispatch({ type: "CREATE_WORKOUT", payload: json });
+      dispatch({ type: "CREATE_ITEM", payload: json });
     }
   };
 
@@ -115,4 +115,4 @@ const WorkoutForm = () => {
   );
 };
 
-export default WorkoutForm;
+export default ItemForm;

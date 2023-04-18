@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import Card from "../components/Card";
 import { useAuthContext } from "../hooks/useAuthContext";
-import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
+import { useItemsContext } from "../hooks/useItemsContext";
 import Navbar from "../components/Navbar";
 
 const Items = () => {
-  const { workouts, dispatch } = useWorkoutsContext();
+  const { items, dispatch } = useItemsContext();
   const { user } = useAuthContext();
   useEffect(() => {
-    const fetchWorkouts = async () => {
-      const response = await fetch("/api/workouts", {
+    const fetchItems = async () => {
+      const response = await fetch("/api/items", {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
@@ -17,20 +17,20 @@ const Items = () => {
       const json = await response.json();
 
       if (response.ok) {
-        dispatch({ type: "SET_WORKOUTS", payload: json });
+        dispatch({ type: "SET_ITEMS", payload: json });
       }
     };
     if (user) {
-      fetchWorkouts();
+      fetchItems();
     }
   }, [dispatch, user]);
   return (
     <div>
       <Navbar />
-      <div className="workouts grid md:grid-cols-3 gap-4 container mx-auto">
-        {workouts &&
-          workouts.map((workout) => (
-            <Card key={workout._id} workout={workout} />
+      <div className="grid md:grid-cols-3 gap-4 container mx-auto">
+        {items &&
+          items.map((item) => (
+            <Card key={item._id} item={item} />
           ))}
       </div>
     </div>

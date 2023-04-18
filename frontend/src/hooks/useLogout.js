@@ -1,10 +1,10 @@
 import { useAuthContext } from "./useAuthContext"
-import { useWorkoutsContext } from "./useWorkoutsContext"
+import { useItemsContext } from "./useItemsContext"
 
 
 export const useLogout =  () => {
   const { dispatch } = useAuthContext()
-  const { dispatch: workoutsDispatch } = useWorkoutsContext()
+  const { dispatch: itemsDispatch } = useItemsContext()
 
   const logout = () => {
     localStorage.removeItem('user')
@@ -12,7 +12,7 @@ export const useLogout =  () => {
 
 
     dispatch({type: 'LOGOUT'})
-    workoutsDispatch({type: 'SET_WORKOUTS', payload: null})
+    itemsDispatch({type: 'SET_ITEMS', payload: null})
   }
 
   return { logout }

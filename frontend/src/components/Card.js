@@ -1,9 +1,9 @@
 import React from "react";
-import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
+import { useItemsContext } from "../hooks/useItemsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
-const Card = ({ workout }) => {
-  const { dispatch } = useWorkoutsContext();
+const Card = ({ item }) => {
+  const { dispatch } = useItemsContext();
   const { user } = useAuthContext();
 
   const handleClick = async () => {
@@ -11,7 +11,7 @@ const Card = ({ workout }) => {
       return;
     }
 
-    const response = await fetch("/api/workouts/" + workout._id, {
+    const response = await fetch("/api/items/" + item._id, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${user.token}`,
@@ -20,7 +20,7 @@ const Card = ({ workout }) => {
     const json = await response.json();
 
     if (response.ok) {
-      dispatch({ type: "DELETE_WORKOUT", payload: json });
+      dispatch({ type: "DELETE_ITEM", payload: json });
     }
   };
   return (
@@ -37,7 +37,7 @@ const Card = ({ workout }) => {
             <div>
               <dt class="sr-only">Name</dt>
 
-              <dd class="text-sm text-gray-500">{workout.title}</dd>
+              <dd class="text-sm text-gray-500">{item.title}</dd>
             </div>
 
             <div>
