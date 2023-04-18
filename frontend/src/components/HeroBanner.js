@@ -10,13 +10,13 @@ const HeroBanner = () => {
             <div class="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
               <img
                 alt="Party"
-                src="https://images.pexels.com/photos/5226483/pexels-photo-5226483.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="https://global-uploads.webflow.com/624260f56bd430bc07d61693/6280fca6a8b80c19cf52889a_Untitzzled-2-p-1600.jpeg"
                 class="absolute inset-0 h-full w-full object-cover"
               />
             </div>
 
             <div class="lg:py-24">
-              <h2 class="text-3xl font-bold sm:text-4xl">Plan your holiday seemless</h2>
+              <h2 class="text-3xl font-bold sm:text-4xl">Find your gem seemless</h2>
 
               <p class="mt-4 text-gray-600">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut
@@ -28,7 +28,7 @@ const HeroBanner = () => {
               <p
                 class="mt-8 inline-block rounded bg-[#FBAE3C] px-12 py-3 text-sm font-medium text-white transition hover:bg-[#fbb650]"
               >
-                Plan your holdiay
+                Search a pair
               </p>
             </Link>
             </div>
