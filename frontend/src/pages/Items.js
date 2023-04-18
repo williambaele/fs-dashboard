@@ -33,7 +33,6 @@ const Items = () => {
             <Card key={workout._id} workout={workout} />
           ))}
       </div>
-      <p>Hi</p>
     </div>
   );
 };

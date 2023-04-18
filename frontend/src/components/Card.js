@@ -1,29 +1,28 @@
 import React from "react";
-import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
-import { useAuthContext } from '../hooks/useAuthContext'
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 
-
-const Card = ({workout}) => {
-  const { dispatch } = useWorkoutsContext()
-  const { user } = useAuthContext()
+const Card = ({ workout }) => {
+  const { dispatch } = useWorkoutsContext();
+  const { user } = useAuthContext();
 
   const handleClick = async () => {
     if (!user) {
-      return
+      return;
     }
 
-    const response = await fetch('/api/workouts/' + workout._id, {
-      method: 'DELETE',
+    const response = await fetch("/api/workouts/" + workout._id, {
+      method: "DELETE",
       headers: {
-        'Authorization': `Bearer ${user.token}`
-      }
-    })
-    const json = await response.json()
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+    const json = await response.json();
 
     if (response.ok) {
-      dispatch({type: 'DELETE_WORKOUT', payload: json})
+      dispatch({ type: "DELETE_WORKOUT", payload: json });
     }
-  }
+  };
   return (
     <div>
       <div class="block rounded-lg p-4 shadow-sm shadow-indigo-100">
@@ -69,9 +68,10 @@ const Card = ({workout}) => {
                 <p class="text-gray-500">Parking</p>
 
                 <p class="font-medium">2 spaces</p>
-                <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
-
               </div>
+              <span className="material-symbols-outlined" onClick={handleClick}>
+                delete
+              </span>
             </div>
 
             <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
