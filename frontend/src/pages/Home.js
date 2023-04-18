@@ -6,6 +6,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 import Navbar from "../components/Navbar";
+import HeroBanner from "../components/HeroBanner";
 
 
 const Home = () => {
@@ -30,8 +31,9 @@ const Home = () => {
   }, [dispatch, user]);
 
   return (
-    <div className="h-screen">
+    <div className="min-h-screen">
       <Navbar />
+      <HeroBanner/>
       <div className="workouts">
         {workouts &&
           workouts.map((workout) => (
