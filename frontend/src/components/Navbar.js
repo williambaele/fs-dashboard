@@ -11,39 +11,33 @@ const Navbar = () => {
   };
 
   return (
-    <header aria-label="Site Header" class="shadow-sm">
-      <div class="mx-auto max-w-screen-xl p-4">
-        <div class="flex items-center justify-between gap-4 lg:gap-10">
+    <header aria-label="Site Header" className="shadow-sm bg-[#001220]">
+      <div class="mx-auto max-w-screen-xl p-4 ">
+        <div class="flex items-center justify-between gap-4 lg:gap-10 ">
           <div class="flex lg:w-0 lg:flex-1">
             <Link to="/">
               <span class="sr-only">Logo</span>
-              <span class="inline-block h-10 w-32 rounded-lg bg-gray-200"></span>
+              <span class="inline-block h-10 w-32 rounded-lg bg-[#FBAE3C] flex items-center justify-center text-white font-bold">
+                T-Budy
+              </span>
             </Link>
           </div>
 
           <nav
             aria-label="Site Nav"
-            class="hidden gap-8 text-sm font-medium md:flex"
+            class="hidden gap-8 text-sm font-medium md:flex text-white"
           >
-            <p class="text-gray-500" href="">
-              About
-            </p>
-            <p class="text-gray-500" href="">
-              Blog
-            </p>
-            <p class="text-gray-500" href="">
-              Projects
-            </p>
-            <p class="text-gray-500" href="">
-              Contact
-            </p>
+            <p href="">About</p>
+            <p href="">Blog</p>
+            <p href="">Projects</p>
+            <p href="">Contact</p>
           </nav>
 
           <div class="hidden flex-1 items-center justify-end gap-4 sm:flex">
             {user && (
               <button
                 onClick={handleClick}
-                class="rounded-lg bg-gray-100 px-5 py-2 text-sm font-medium text-gray-500"
+                class="rounded-lg bg-[#FBAE3C] px-5 py-2 text-sm font-medium text-white"
                 href=""
               >
                 Log out
