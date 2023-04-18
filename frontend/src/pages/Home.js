@@ -10,44 +10,19 @@ import Navbar from "../components/Navbar";
 import HeroBanner from "../components/HeroBanner";
 import Footer from "../components/Footer";
 
-
 const Home = () => {
-  const { workouts, dispatch } = useWorkoutsContext();
-  const { user } = useAuthContext();
-  useEffect(() => {
-    const fetchWorkouts = async () => {
-      const response = await fetch("/api/workouts", {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
-      const json = await response.json();
 
-      if (response.ok) {
-        dispatch({ type: "SET_WORKOUTS", payload: json });
-      }
-    };
-    if (user) {
-      fetchWorkouts();
-    }
-  }, [dispatch, user]);
 
   return (
     <div className="min-h-screen">
       <Navbar />
-      <HeroBanner/>
-      <div className="workouts">
-        {workouts &&
-          workouts.map((workout) => (
-            <WorkoutDetails key={workout._id} workout={workout} />
-          ))}
-      </div>
+      <HeroBanner />
       <div className="grid grid-cols-3 gap-2 container mx-auto mb-10">
-        <Card/>
-        <Card/>
-        <Card/>
+        <Card />
+        <Card />
+        <Card />
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
