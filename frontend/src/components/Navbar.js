@@ -35,7 +35,7 @@ const Navbar = () => {
 
           <div class="hidden flex-1 items-center justify-end gap-4 sm:flex">
             {user && (
-              <div>
+              <div className="flex items-center">
                 <button
                   onClick={handleClick}
                   class="rounded-lg bg-[#FBAE3C] px-5 py-2 text-sm font-medium text-white"
@@ -47,8 +47,8 @@ const Navbar = () => {
                 <button className="px-5 py-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
+                    width="30"
+                    height="30"
                     fill="#FBAE3C"
                     class="bi bi-plus-square-fill"
                     viewBox="0 0 16 16"
