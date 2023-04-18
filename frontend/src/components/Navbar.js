@@ -35,13 +35,29 @@ const Navbar = () => {
 
           <div class="hidden flex-1 items-center justify-end gap-4 sm:flex">
             {user && (
-              <button
-                onClick={handleClick}
-                class="rounded-lg bg-[#FBAE3C] px-5 py-2 text-sm font-medium text-white"
-                href=""
-              >
-                Log out
-              </button>
+              <div>
+                <button
+                  onClick={handleClick}
+                  class="rounded-lg bg-[#FBAE3C] px-5 py-2 text-sm font-medium text-white"
+                  href=""
+                >
+                  Log out
+                </button>
+                <Link to="/new-item">
+                <button className="px-5 py-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="#FBAE3C"
+                    class="bi bi-plus-square-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                  </svg>
+                </button>
+                </Link>
+              </div>
             )}
             {!user && (
               <div>
