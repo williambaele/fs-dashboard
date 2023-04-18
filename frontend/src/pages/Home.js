@@ -7,6 +7,7 @@ import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 import Navbar from "../components/Navbar";
 import HeroBanner from "../components/HeroBanner";
+import Footer from "../components/Footer";
 
 
 const Home = () => {
@@ -41,6 +42,7 @@ const Home = () => {
           ))}
       </div>
       <WorkoutForm />
+      <Footer/>
     </div>
   );
 };

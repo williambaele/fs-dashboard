@@ -47,7 +47,7 @@ const WorkoutForm = () => {
   }
 
   return (
-    <form className="create" onSubmit={handleSubmit}>
+    <form className="create py-10 mx-auto container" onSubmit={handleSubmit}>
       <h3>Add a New Workout</h3>
 
       <label>Excersize Title:</label>
