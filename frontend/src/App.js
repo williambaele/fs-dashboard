@@ -24,7 +24,10 @@ function App() {
               path="/new-item"
               element={user ? <NewItem /> : <Navigate to="/login" />}
             />
-            <Route path="/items" element={<Items/>}/>
+            <Route
+              path="/items"
+              element={user ? <Items /> : <Navigate to="/login" />}
+            />
             <Route
               path="/plan"
               element={user ? <Plan /> : <Navigate to="/login" />}

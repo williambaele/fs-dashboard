@@ -24,7 +24,7 @@ const HeroBanner = () => {
                 soluta minus veniam tempora deserunt? Molestiae eius quidem quam
                 repellat.
               </p>
-              <Link to="/plan">
+              <Link to="/items">
               <p
                 class="mt-8 inline-block rounded bg-[#FBAE3C] px-12 py-3 text-sm font-medium text-white transition hover:bg-[#fbb650]"
               >

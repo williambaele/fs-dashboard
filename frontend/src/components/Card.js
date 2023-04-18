@@ -1,9 +1,32 @@
 import React from "react";
+import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
+import { useAuthContext } from '../hooks/useAuthContext'
 
-const Card = () => {
+
+const Card = ({workout}) => {
+  const { dispatch } = useWorkoutsContext()
+  const { user } = useAuthContext()
+
+  const handleClick = async () => {
+    if (!user) {
+      return
+    }
+
+    const response = await fetch('/api/workouts/' + workout._id, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${user.token}`
+      }
+    })
+    const json = await response.json()
+
+    if (response.ok) {
+      dispatch({type: 'DELETE_WORKOUT', payload: json})
+    }
+  }
   return (
     <div>
-      <a href="#" class="block rounded-lg p-4 shadow-sm shadow-indigo-100">
+      <div class="block rounded-lg p-4 shadow-sm shadow-indigo-100">
         <img
           alt="Home"
           src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
@@ -13,9 +36,9 @@ const Card = () => {
         <div class="mt-2">
           <dl>
             <div>
-              <dt class="sr-only">Price</dt>
+              <dt class="sr-only">Name</dt>
 
-              <dd class="text-sm text-gray-500">$240,000</dd>
+              <dd class="text-sm text-gray-500">{workout.title}</dd>
             </div>
 
             <div>
@@ -46,6 +69,8 @@ const Card = () => {
                 <p class="text-gray-500">Parking</p>
 
                 <p class="font-medium">2 spaces</p>
+                <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
+
               </div>
             </div>
 
@@ -96,7 +121,7 @@ const Card = () => {
             </div>
           </div>
         </div>
-      </a>
+      </div>
     </div>
   );
 };
