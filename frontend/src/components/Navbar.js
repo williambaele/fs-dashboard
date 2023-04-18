@@ -15,15 +15,15 @@ const Navbar = () => {
 
   return (
     <header>
-      <div className="container">
+      <div className="flex">
         <Link to="/">
           <h1>Workout Buddy</h1>
         </Link>
-        {user && (<div>
+        {user && (<div className="flex">
           <span>{user.email}</span>
           <button onClick={handleClick}>Logout</button>
         </div>)}
-        {!user && (<div>
+        {!user && (<div className="flex">
           <Link to="/login">
             <h1>Login</h1>
           </Link>

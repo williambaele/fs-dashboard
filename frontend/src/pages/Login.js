@@ -18,7 +18,7 @@ const Login = () => {
         <div className="flex justify-center">
           <form
             onSubmit={handleSubmit}
-            className="bg-slate-200 p-4 grid gap-4 md:w-1/2 w-full rounded-lg shadow-lg"
+            className="bg-slate-200 p-8 grid gap-5 md:w-1/3 w-full rounded-lg shadow-lg"
           >
             <h2 className="text-center text-4xl">Login</h2>
             <input
