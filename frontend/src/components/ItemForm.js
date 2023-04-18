@@ -73,8 +73,12 @@ const WorkoutForm = () => {
         className={emptyFields.includes("reps") ? "error" : "p-2 rounded-lg"}
         placeholder="Reps"
       />
-      <select name="" id="">
+      <select name="" id="" className="p-2 border-0 rounded-lg">
         <option value="">Nike</option>
+        <option value="">Adidas</option>
+      </select>
+      <select name="" id="" className="p-2 border-0 rounded-lg">
+        <option value="">35.5</option>
         <option value="">Adidas</option>
       </select>
       <div class="max-w">
