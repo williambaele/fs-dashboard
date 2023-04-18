@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 const NewItem = () => {
   return (
-    <div className="h-screen bg-slate-100">
+    <div className="min-h-screen bg-slate-100">
       <Navbar />
       <div className="mx-auto container">
         <WorkoutForm />

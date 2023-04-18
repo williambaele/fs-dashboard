@@ -81,6 +81,10 @@ const WorkoutForm = () => {
         <option value="">35.5</option>
         <option value="">Adidas</option>
       </select>
+       <select name="" id="" className="p-2 border-0 rounded-lg">
+        <option value="">Used</option>
+        <option value="">New</option>
+      </select>
       <div class="max-w">
         <label htmlFor="">Picures</label>
         <div class="md:flex">
@@ -100,6 +104,11 @@ const WorkoutForm = () => {
           </div>
         </div>
       </div>
+      <input
+        type="number"
+        className="p-2 rounded-lg"
+        placeholder="Price"
+      />
       <button className="rounded-lg bg-[#FBAE3C] p-1 hover:bg-[#fbb650] text-center text-xl">
         Publish item
       </button>
