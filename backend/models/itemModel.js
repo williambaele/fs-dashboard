@@ -7,11 +7,19 @@ const itemSchema = new Schema({
     type: String,
     required: true
   },
-  reps: {
+  brand: {
+    type: String,
+    required: true
+  },
+   state: {
+    type: String,
+    required: true
+  },
+  size: {
     type: Number,
     required: true
   },
-  load: {
+  price: {
     type: Number,
     required: true
   },
