@@ -14,7 +14,7 @@ const Card = ({ item }) => {
               src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
             />
           </div>
-          <div class="mt-4 px-5 pb-5">
+          <div class="pt-4 px-1 pb-3">
             <div className="flex justify-between mb-4">
               <h5 class="text-xl text-slate-900">{item.title}</h5>
               <span class="text-xl font-bold text-slate-900">
