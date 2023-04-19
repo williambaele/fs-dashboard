@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import NewItem from "./pages/NewItem";
 import Items from "./pages/Items";
+import Item from "./pages/Item";
 
 function App() {
   const { user } = useAuthContext();
@@ -36,6 +37,8 @@ function App() {
               path="/login"
               element={!user ? <Login /> : <Navigate to="/" />}
             />
+            <Route path="/item/:id" element={<Item/>} />
+
           </Routes>
         </div>
       </BrowserRouter>

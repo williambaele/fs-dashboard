@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <header aria-label="Site Header" className="shadow-sm bg-[#001220]">
       <div class="mx-auto max-w-screen-xl p-4 ">
-        <div class="flex items-center justify-between gap-4 lg:gap-10 ">
+        <div class="flex items-center justify-between gap-4 lg:gap-10">
           <div class="flex lg:w-0 lg:flex-1">
             <Link to="/">
               <span class="sr-only">Logo</span>
