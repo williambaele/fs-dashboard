@@ -27,11 +27,11 @@ const Items = () => {
   return (
     <div>
       <Navbar />
-      <div className="grid md:grid-cols-3 gap-4 container mx-auto">
-        {items &&
-          items.map((item) => (
-            <Card key={item._id} item={item} />
-          ))}
+      <div className="min-h-screen gap-4 container mx-auto">
+        <div className="bg-red-400 h-20"></div>
+        <div className="grid md:grid-cols-3">
+          {items && items.map((item) => <Card key={item._id} item={item} />)}
+        </div>
       </div>
     </div>
   );
