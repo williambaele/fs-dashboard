@@ -7,7 +7,7 @@
 
 /* FONTS */
 @import url("https://fonts.googleapis.com/css2?family=Chivo+Mono&family=Rubik&family=Titillium+Web&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 .bg-login {
   background-image: url(images/blob-scene-haikei.svg);
   height: max;
@@ -18,5 +18,5 @@ h1,h2,h3,h4 {
 }
 
 p,a,input,label,button {
-  font-family: "Chivo Mono", monospace;
+  font-family: 'Lato', sans-serif;
   }

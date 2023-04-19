@@ -37,14 +37,10 @@ const Card = ({ item }) => {
           <div class="mt-2">
             <div>
               <div>
-                <p class="sr-only">{item._id}</p>
-
                 <h2 class="text-sm text-gray-500">{item.title}</h2>
               </div>
 
               <div>
-                <p class="sr-only">{item._id}</p>
-
                 <p class="font-medium">123 Wallaby Avenue, Park Road</p>
               </div>
             </div>
