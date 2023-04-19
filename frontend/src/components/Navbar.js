@@ -11,13 +11,13 @@ const Navbar = () => {
   };
 
   return (
-    <header aria-label="Site Header" className="shadow-sm bg-[#001220]">
+    <header aria-label="Site Header" className="shadow-sm bg-[#3C486B]">
       <div class="mx-auto max-w-screen-xl p-4 ">
         <div class="flex items-center justify-between gap-4 lg:gap-10">
           <div class="flex lg:w-0 lg:flex-1">
             <Link to="/">
               <span class="sr-only">Logo</span>
-              <span class="inline-block h-10 w-32 rounded-lg bg-[#FBAE3C] flex items-center justify-center text-white font-bold">
+              <span class="inline-block h-10 w-32 rounded-lg bg-[#F45050] flex items-center justify-center text-white font-bold">
                 T-Budy
               </span>
             </Link>
@@ -40,7 +40,7 @@ const Navbar = () => {
               <div className="flex items-center">
                 <button
                   onClick={handleClick}
-                  class="rounded-lg bg-[#FBAE3C] px-5 py-2 text-sm font-medium text-white"
+                  class="rounded-lg bg-[#F45050] px-5 py-2 text-sm font-medium text-white"
                   href=""
                 >
                   Log out
@@ -51,7 +51,7 @@ const Navbar = () => {
                       xmlns="http://www.w3.org/2000/svg"
                       width="30"
                       height="30"
-                      fill="#FBAE3C"
+                      fill="#F45050"
                       class="bi bi-plus-square-fill"
                       viewBox="0 0 16 16"
                     >
