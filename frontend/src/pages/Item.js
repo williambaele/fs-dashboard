@@ -35,12 +35,10 @@ const Item = () => {
     <div>
       <Navbar />
       <div className="mx-auto container">
-        <ItemBody/>
         {item ? (
           <div>
-            <p>Item ID: {id}</p>
-            <p>Name: {item.title}</p>
-            <p>Size: {item.size}</p>
+            <ItemBody item={item}/>
+
           </div>
         ) : (
           <p>Loading...</p>

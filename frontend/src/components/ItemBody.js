@@ -1,33 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useAuthContext } from "../hooks/useAuthContext";
+import React from "react";
 
-const ItemBody = () => {
-  const { id } = useParams();
-  const [item, setItem] = useState(null);
-  const { user } = useAuthContext();
-
-  useEffect(() => {
-    const fetchItem = async () => {
-      const response = await fetch(`/api/items/${id}`, {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
-      const json = await response.json();
-
-      if (response.ok) {
-        setItem(json);
-      }
-    };
-
-    const user = JSON.parse(localStorage.getItem("user"));
-
-    if (user) {
-      fetchItem();
-    }
-  }, [id, user.token]);
-
+const ItemBody = ({ item }) => {
   return (
     <div>
       <div class="relative mx-auto max-w-screen-xl px-4 py-8">
@@ -183,72 +156,10 @@ const ItemBody = () => {
 
               <fieldset class="mt-4">
                 <legend class="mb-1 text-sm font-medium">Size</legend>
-
                 <div class="flex flex-wrap gap-1">
-                  <label for="size_xs" class="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="size"
-                      id="size_xs"
-                      class="peer sr-only"
-                    />
-
-                    <span class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                      XS
-                    </span>
-                  </label>
-
-                  <label for="size_s" class="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="size"
-                      id="size_s"
-                      class="peer sr-only"
-                    />
-
-                    <span class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                      S
-                    </span>
-                  </label>
-
-                  <label for="size_m" class="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="size"
-                      id="size_m"
-                      class="peer sr-only"
-                    />
-
-                    <span class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                      M
-                    </span>
-                  </label>
-
-                  <label for="size_l" class="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="size"
-                      id="size_l"
-                      class="peer sr-only"
-                    />
-
-                    <span class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                      L
-                    </span>
-                  </label>
-
-                  <label for="size_xl" class="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="size"
-                      id="size_xl"
-                      class="peer sr-only"
-                    />
-
-                    <span class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white">
-                      XL
-                    </span>
-                  </label>
+                  <span class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white">
+                    {item.size}
+                  </span>
                 </div>
               </fieldset>
 
