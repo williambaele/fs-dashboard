@@ -1,18 +1,19 @@
 import { useState } from "react";
+import {useNavigate} from 'react-router-dom';
 import { useItemsContext } from "../hooks/useItemsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 const ItemForm = () => {
+  const navigate = useNavigate();
+
   const { dispatch } = useItemsContext();
   const { user } = useAuthContext();
 
-
   const [title, setTitle] = useState("");
-  const [brand, setBrand] = useState("");
+  const [brand, setBrand] = useState("nike");
   const [size, setSize] = useState("");
   const [price, setPrice] = useState("");
-  const [state, setState] = useState("");
-
+  const [state, setState] = useState("new");
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
 
@@ -49,6 +50,7 @@ const ItemForm = () => {
       setError(null);
       setEmptyFields([]);
       dispatch({ type: "CREATE_ITEM", payload: json });
+      navigate(`/item/${json._id}`);
     }
   };
 
@@ -63,34 +65,37 @@ const ItemForm = () => {
           type="text"
           onChange={(e) => setTitle(e.target.value)}
           value={title}
-          className={emptyFields.includes("title") ? "error" : "p-2 rounded-lg"}
-          placeholder="Item's name"
+          className={
+            emptyFields.includes("title")
+              ? "error p-2 rounded-lg border-red-400 border-2"
+              : "p-2 rounded-lg"
+          }
+          placeholder="Title"
         />
-        <input
-          type="text"
+        <select
           onChange={(e) => setBrand(e.target.value)}
           value={brand}
-          className={emptyFields.includes("brand") ? "error" : "p-2 rounded-lg"}
-          placeholder="brand (kg)"
-        />
-        <input
-          type="number"
-          onChange={(e) => setSize(e.target.value)}
+          className="p-2 border-0 rounded-lg"
+        >
+          <option value="Nike">Nike</option>
+          <option value="Adidas">Adidas</option>
+        </select>
+        <select
           value={size}
-          className={emptyFields.includes("size") ? "error" : "p-2 rounded-lg"}
-          placeholder="Size"
-        />
-        <select name="" id="" className="p-2 border-0 rounded-lg">
-          <option value="">Nike</option>
-          <option value="">Adidas</option>
+          onChange={(e) => setSize(e.target.value)}
+          className="p-2 border-0 rounded-lg"
+        >
+          <option value="35.5">35.5</option>
+          <option value="36">36</option>
+          <option value="36.5">36.5</option>
         </select>
-        <select name="" id="" className="p-2 border-0 rounded-lg">
-          <option value="">35.5</option>
-          <option value="">Adidas</option>
-        </select>
-        <select name="" id="" className="p-2 border-0 rounded-lg">
-          <option value="">Used</option>
-          <option value="">New</option>
+        <select
+          value={state}
+          onChange={(e) => setState(e.target.value)}
+          className="p-2 border-0 rounded-lg"
+        >
+          <option value="used">Used</option>
+          <option value="new">New</option>
         </select>
         <div class="max-w">
           <label htmlFor="">Picures</label>
@@ -111,11 +116,18 @@ const ItemForm = () => {
             </div>
           </div>
         </div>
-        <input type="number" className="p-2 rounded-lg" placeholder="Price" />
+        <input
+          type="number"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          className="p-2 rounded-lg"
+          placeholder="Price"
+        />
         <button className="rounded-lg bg-[#FBAE3C] p-1 hover:bg-[#fbb650] text-center text-xl">
           Publish item
         </button>
-        {error && <div className="error">{error}</div>}
+        {error && <div className="error text-red-600">{error}</div>}
+        {emptyFields}
       </form>
     </div>
   );
