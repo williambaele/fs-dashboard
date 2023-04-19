@@ -28,12 +28,12 @@ const Items = () => {
   return (
     <div>
       <Navbar />
-      <div className="min-h-screen gap-4 container mx-auto">
+      <div className="min-h-screen container mx-auto">
         <div className="grid md:grid-cols-6">
           <div className="md:col-span-1 col-span-6 bg-purple-400 md:min-h-screen">a</div>
           <div className="md:col-span-5 col-span-6 bg-yellow-400">
             <div className="bg-red-400 h-20"></div>
-            <div className="grid md:grid-cols-3 p-2">
+            <div className="grid md:grid-cols-3 p-2 gap-4">
               {items &&
                 items.map((item) => <Card key={item._id} item={item} />)}
             </div>
