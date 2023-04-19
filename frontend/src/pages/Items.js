@@ -3,6 +3,7 @@ import Card from "../components/Card";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useItemsContext } from "../hooks/useItemsContext";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Items = () => {
   const { items, dispatch } = useItemsContext();
@@ -28,11 +29,9 @@ const Items = () => {
     <div>
       <Navbar />
       <div className="min-h-screen gap-4 container mx-auto">
-
-
-        <div className="grid grid-cols-6">
-          <div className="col-span-1 bg-purple-400 min-h-screen"></div>
-          <div className="col-span-5 bg-yellow-400">
+        <div className="grid md:grid-cols-6">
+          <div className="md:col-span-1 col-span-6 bg-purple-400 md:min-h-screen">a</div>
+          <div className="md:col-span-5 col-span-6 bg-yellow-400">
             <div className="bg-red-400 h-20"></div>
             <div className="grid md:grid-cols-3 p-2">
               {items &&
@@ -41,6 +40,7 @@ const Items = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

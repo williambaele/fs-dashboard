@@ -62,40 +62,12 @@ const Card = ({ item }) => {
                   />
                 </svg>
 
-                <div class="mt-1.5 sm:mt-0">
-                  <p class="text-gray-500">{item._id}</p>
-
-                  <p class="font-medium">2 spaces</p>
-                </div>
                 <span
                   className="material-symbols-outlined"
                   onClick={handleClick}
                 >
                   delete
                 </span>
-              </div>
-
-              <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                <svg
-                  class="h-4 w-4 text-indigo-700"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                  />
-                </svg>
-
-                <div class="mt-1.5 sm:mt-0">
-                  <p class="text-gray-500">Bathroom</p>
-
-                  <p class="font-medium">2 rooms</p>
-                </div>
               </div>
             </div>
           </div>
