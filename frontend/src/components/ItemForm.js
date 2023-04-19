@@ -6,9 +6,13 @@ const ItemForm = () => {
   const { dispatch } = useItemsContext();
   const { user } = useAuthContext();
 
+
   const [title, setTitle] = useState("");
-  const [load, setLoad] = useState("");
-  const [reps, setReps] = useState("");
+  const [brand, setBrand] = useState("");
+  const [size, setSize] = useState("");
+  const [price, setPrice] = useState("");
+  const [state, setState] = useState("");
+
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
 
@@ -20,7 +24,7 @@ const ItemForm = () => {
       return;
     }
 
-    const item = { title, load, reps };
+    const item = { title, brand, size, price, state };
 
     const response = await fetch("/api/items", {
       method: "POST",
@@ -38,8 +42,10 @@ const ItemForm = () => {
     }
     if (response.ok) {
       setTitle("");
-      setLoad("");
-      setReps("");
+      setBrand("");
+      setSize("");
+      setPrice("");
+      setState("");
       setError(null);
       setEmptyFields([]);
       dispatch({ type: "CREATE_ITEM", payload: json });
@@ -61,18 +67,18 @@ const ItemForm = () => {
           placeholder="Item's name"
         />
         <input
-          type="number"
-          onChange={(e) => setLoad(e.target.value)}
-          value={load}
-          className={emptyFields.includes("load") ? "error" : "p-2 rounded-lg"}
-          placeholder="Load (kg)"
+          type="text"
+          onChange={(e) => setBrand(e.target.value)}
+          value={brand}
+          className={emptyFields.includes("brand") ? "error" : "p-2 rounded-lg"}
+          placeholder="brand (kg)"
         />
         <input
           type="number"
-          onChange={(e) => setReps(e.target.value)}
-          value={reps}
-          className={emptyFields.includes("reps") ? "error" : "p-2 rounded-lg"}
-          placeholder="Reps"
+          onChange={(e) => setSize(e.target.value)}
+          value={size}
+          className={emptyFields.includes("size") ? "error" : "p-2 rounded-lg"}
+          placeholder="Size"
         />
         <select name="" id="" className="p-2 border-0 rounded-lg">
           <option value="">Nike</option>
