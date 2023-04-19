@@ -4,6 +4,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { useItemsContext } from "../hooks/useItemsContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import FiltersBar from "../components/FiltersBar";
 
 const Items = () => {
   const { items, dispatch } = useItemsContext();
@@ -31,8 +32,8 @@ const Items = () => {
       <div className="bg-[#F0F0F0]">
         <div className="min-h-screen container mx-auto">
           <div className="grid md:grid-cols-6">
-            <div className="md:col-span-1 col-span-6 bg-purple-400 md:min-h-screen">
-              a
+            <div className="md:col-span-1 col-span-6 md:min-h-screen">
+              <FiltersBar />
             </div>
             <div className="md:col-span-5 col-span-6">
               <div className="bg-red-400 h-20"></div>

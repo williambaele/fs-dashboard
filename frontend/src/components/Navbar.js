@@ -28,11 +28,8 @@ const Navbar = () => {
             class="hidden gap-8 text-sm font-medium md:flex text-white"
           >
             <Link to="/items">
-              <p>About</p>
+              <p>Items</p>
             </Link>
-            <p href="">Blog</p>
-            <p href="">Projects</p>
-            <p href="">Contact</p>
           </nav>
 
           <div class="hidden flex-1 items-center justify-end gap-4 sm:flex">
