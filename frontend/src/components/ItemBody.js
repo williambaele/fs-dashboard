@@ -2,105 +2,387 @@ import React from "react";
 
 const ItemBody = ({ item }) => {
   return (
-    <div>
-      <div class="relative mx-auto max-w-screen-xl px-4 py-8">
-        <div class="grid grid-cols-1 items-start gap-8 md:grid-cols-2">
-          <div class="grid grid-cols-2 gap-4 md:grid-cols-1">
-            <img
-              alt="Les Paul"
-              src="https://images.unsplash.com/photo-1456948927036-ad533e53865c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-              class="aspect-square w-full rounded-xl object-cover"
-            />
+    <div class="bg-white">
+      <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div class="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
+          <div class="flex flex-col-reverse">
+            <div class="hidden mt-6 w-full max-w-2xl mx-auto sm:block lg:max-w-none">
+              <div
+                class="grid grid-cols-4 gap-6"
+                aria-orientation="horizontal"
+                role="tablist"
+              >
+                <button
+                  id="tabs-1-tab-1"
+                  class="relative h-24 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-opacity-50"
+                  aria-controls="tabs-1-panel-1"
+                  role="tab"
+                  type="button"
+                >
+                  <span class="sr-only"> Angled view </span>
+                  <span class="absolute inset-0 rounded-md overflow-hidden">
+                    <img
+                      src="https://www.sneakers.fr/wp-content/uploads/2018/06/nike-air-max-1-parra-2018-1.jpg"
+                      alt=""
+                      class="w-full h-full object-center object-cover"
+                    />
+                  </span>
+                  <span
+                    class="ring-transparent absolute inset-0 rounded-md ring-2 ring-offset-2 pointer-events-none"
+                    aria-hidden="true"
+                  ></span>
+                </button>
+              </div>
+            </div>
 
-            <div class="grid grid-cols-2 gap-4 lg:mt-4">
-              <img
-                alt="Les Paul"
-                src="https://images.unsplash.com/photo-1456948927036-ad533e53865c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                class="aspect-square w-full rounded-xl object-cover"
-              />
-
-              <img
-                alt="Les Paul"
-                src="https://images.unsplash.com/photo-1456948927036-ad533e53865c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                class="aspect-square w-full rounded-xl object-cover"
-              />
-
-              <img
-                alt="Les Paul"
-                src="https://images.unsplash.com/photo-1456948927036-ad533e53865c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                class="aspect-square w-full rounded-xl object-cover"
-              />
-
-              <img
-                alt="Les Paul"
-                src="https://images.unsplash.com/photo-1456948927036-ad533e53865c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                class="aspect-square w-full rounded-xl object-cover"
-              />
+            <div class="w-full aspect-w-1 aspect-h-1">
+              <div
+                id="tabs-1-panel-1"
+                aria-labelledby="tabs-1-tab-1"
+                role="tabpanel"
+                tabindex="0"
+              >
+                <img
+                  src="https://www.sneakers.fr/wp-content/uploads/2018/06/nike-air-max-1-parra-2018-1.jpg"
+                  alt="Angled front view with bag zipped and handles upright."
+                  class="w-full h-full object-center object-cover sm:rounded-lg"
+                />
+              </div>
             </div>
           </div>
 
-          <div class="sticky top-4">
-            <div class="flex justify-between">
-              <div class="max-w-[35ch] space-y-2">
-                <h1 class="text-3xl font-bold">{item.title}</h1>
-              </div>
-              <div className="bg-[#F45050] rounded-xl px-2 py-0.5 flex items-center justify-center">
-                <p class="text-lg text-white font-medium">{item.price}€</p>
+          <div class="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-0">
+            <h1 class="text-3xl font-extrabold tracking-tight text-gray-900">
+              {item.title}
+            </h1>
+
+            <div class="mt-3">
+              <h2 class="sr-only">Product information</h2>
+              <p class="text-3xl text-gray-900">{item.price} €</p>
+            </div>
+
+            <div class="mt-3">
+              <h3 class="sr-only">Reviews</h3>
+              <div class="flex items-center">
+                <div class="flex items-center">
+                  <svg
+                    class="h-5 w-5 flex-shrink-0 text-indigo-500"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+
+                  <svg
+                    class="h-5 w-5 flex-shrink-0 text-indigo-500"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+
+                  <svg
+                    class="h-5 w-5 flex-shrink-0 text-indigo-500"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+
+                  <svg
+                    class="h-5 w-5 flex-shrink-0 text-indigo-500"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+
+                  <svg
+                    class="h-5 w-5 flex-shrink-0 text-gray-300"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                </div>
+                <p class="sr-only">4 out of 5 stars</p>
               </div>
             </div>
 
-            <div class="mt-4">
-              <div class="prose max-w-none">
+            <div class="mt-6">
+              <h3 class="sr-only">Description</h3>
+
+              <div class="text-base text-gray-700 space-y-6">
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-                  veniam dicta beatae eos ex error culpa delectus rem tenetur,
-                  architecto quam nesciunt, dolor veritatis nisi minus
-                  inventore, rerum at recusandae?
+                  The Zip Tote Basket is the perfect midpoint between shopping
+                  tote and comfy backpack. With convertible straps, you can hand
+                  carry, should sling, or backpack this convenient and spacious
+                  bag. The zip top and durable canvas construction keeps your
+                  goods protected for all-day use.
                 </p>
               </div>
             </div>
 
-            <div class="mt-8">
-              <div class="mt-4">
-                <p class="text-xl mb-2 font-medium">Color</p>
-                <div class="flex flex-wrap gap-1">
-                  <span class="group inline-flex py-1 px-2 items-center justify-center rounded-xl border text-xs font-medium">
-                    Red
-                  </span>
-                  <span class="group inline-flex py-1 px-2 items-center justify-center rounded-xl border text-xs font-medium">
-                    White
-                  </span>
-                  <span class="group inline-flex py-1 px-2 items-center justify-center rounded-xl border text-xs font-medium">
-                    Grey
-                  </span>
-                </div>
-              </div>
-              <div class="mt-4">
-                <p class="text-xl mb-2 font-medium">Brand</p>
-                <div class="flex flex-wrap gap-1">
-                <span class="group inline-flex py-1 px-2 items-center justify-center rounded-xl border text-xs font-medium">
-                    {item.brand}
-                  </span>
-                </div>
-              </div>
-              <div class="mt-4">
-                <p class="text-xl mb-2 font-medium">Size</p>
-                <div class="flex flex-wrap gap-1">
-                <span class="group inline-flex py-1 px-2 items-center justify-center rounded-xl border text-xs font-medium">
-                    {item.size}
-                  </span>
-                </div>
+            <form class="mt-6">
+              <div>
+                <h3 class="text-sm text-gray-600">Color</h3>
+
+                <fieldset class="mt-2">
+                  <legend class="sr-only">Choose a color</legend>
+                  <div class="flex items-center space-x-3">
+                    <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-700">
+                      <input
+                        type="radio"
+                        name="color-choice"
+                        value="Washed Black"
+                        class="sr-only"
+                        aria-labelledby="color-choice-0-label"
+                      />
+                      <p id="color-choice-0-label" class="sr-only">
+                        Washed Black
+                      </p>
+                      <span
+                        aria-hidden="true"
+                        class="h-8 w-8 bg-gray-700 border border-black border-opacity-10 rounded-full"
+                      ></span>
+                    </label>
+
+                    <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-400">
+                      <input
+                        type="radio"
+                        name="color-choice"
+                        value="White"
+                        class="sr-only"
+                        aria-labelledby="color-choice-1-label"
+                      />
+                      <p id="color-choice-1-label" class="sr-only">
+                        White
+                      </p>
+                      <span
+                        aria-hidden="true"
+                        class="h-8 w-8 bg-white border border-black border-opacity-10 rounded-full"
+                      ></span>
+                    </label>
+
+                    <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-500">
+                      <input
+                        type="radio"
+                        name="color-choice"
+                        value="Washed Gray"
+                        class="sr-only"
+                        aria-labelledby="color-choice-2-label"
+                      />
+                      <p id="color-choice-2-label" class="sr-only">
+                        Washed Gray
+                      </p>
+                      <span
+                        aria-hidden="true"
+                        class="h-8 w-8 bg-gray-500 border border-black border-opacity-10 rounded-full"
+                      ></span>
+                    </label>
+                  </div>
+                </fieldset>
               </div>
 
-              <div class="mt-8 flex gap-4">
+              <div class="mt-10 flex sm:flex-col1">
                 <button
                   type="submit"
-                  class="block rounded bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"
+                  class="max-w-xs flex-1 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:w-full"
                 >
-                  Send an offer
+                  Add to bag
+                </button>
+
+                <button
+                  type="button"
+                  class="ml-4 py-3 px-3 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+                >
+                  <svg
+                    class="h-6 w-6 flex-shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                    />
+                  </svg>
+                  <span class="sr-only">Add to favorites</span>
                 </button>
               </div>
-            </div>
+            </form>
+
+            <section aria-labelledby="details-heading" class="mt-12">
+              <h2 id="details-heading" class="sr-only">
+                Additional details
+              </h2>
+
+              <div class="border-t divide-y divide-gray-200">
+                <div>
+                  <div class="space-y-2 divide-y divide-gray-200">
+                    <details
+                      class="group p-6 [&_summary::-webkit-details-marker]:hidden"
+                      open
+                    >
+                      <summary class="flex items-center justify-between cursor-pointer">
+                        <h2 class="font-medium text-gray-900">
+                          Sizing
+                        </h2>
+
+                        <span class="relative ml-1.5 h-5 w-5 flex-shrink-0">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                        </span>
+                      </summary>
+
+                      <p class="mt-4 leading-relaxed text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Ab hic veritatis molestias culpa in, recusandae
+                        laboriosam neque aliquid libero nesciunt voluptate dicta
+                        quo officiis explicabo consequuntur distinctio corporis
+                        earum similique!
+                      </p>
+                    </details>
+
+                    <details class="group p-6 [&_summary::-webkit-details-marker]:hidden mt-2">
+                      <summary class="flex items-center justify-between cursor-pointer">
+                        <h2 class="font-medium text-gray-900">
+                          Return
+                        </h2>
+
+                        <span class="relative ml-1.5 h-5 w-5 flex-shrink-0">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="absolute inset-0 opacity-100 group-open:opacity-0"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="absolute inset-0 opacity-0 group-open:opacity-100"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                        </span>
+                      </summary>
+
+                      <p class="mt-4 leading-relaxed text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Ab hic veritatis molestias culpa in, recusandae
+                        laboriosam neque aliquid libero nesciunt voluptate dicta
+                        quo officiis explicabo consequuntur distinctio corporis
+                        earum similique!
+                      </p>
+                    </details>
+                    <details class="group p-6 [&_summary::-webkit-details-marker]:hidden mt-2">
+                      <summary class="flex items-center justify-between cursor-pointer">
+                        <h2 class="font-medium text-gray-900">
+                          Price
+                        </h2>
+
+                        <span class="relative ml-1.5 h-5 w-5 flex-shrink-0">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="absolute inset-0 opacity-100 group-open:opacity-0"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="absolute inset-0 opacity-0 group-open:opacity-100"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                        </span>
+                      </summary>
+
+                      <p class="mt-4 leading-relaxed text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Ab hic veritatis molestias culpa in, recusandae
+                        laboriosam neque aliquid libero nesciunt voluptate dicta
+                        quo officiis explicabo consequuntur distinctio corporis
+                        earum similique!
+                      </p>
+                    </details>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </div>
