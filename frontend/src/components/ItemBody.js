@@ -59,6 +59,7 @@ const ItemBody = ({ item }) => {
             <div class="mt-3">
               <h2 class="sr-only">Product information</h2>
               <p class="text-3xl text-gray-900">{item.price} €</p>
+              <p class="text-3xl text-gray-900">{item.user_id}</p>
             </div>
 
             <div class="mt-3">

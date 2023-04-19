@@ -21,6 +21,7 @@ const Signup = () => {
             className="bg-slate-200 p-8 grid gap-5 md:w-1/3 w-full rounded-lg shadow-lg"
           >
             <h2 className="text-center text-4xl">Sign up</h2>
+
             <input
               type="text"
               placeholder="Email"

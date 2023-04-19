@@ -9,7 +9,7 @@ const Item = () => {
   const [item, setItem] = useState(null);
   const { user } = useAuthContext();
 
-
+console.log(user.pseudo + "ok")
   useEffect(() => {
     const fetchItem = async () => {
       const response = await fetch(`/api/items/${id}`, {
@@ -21,6 +21,7 @@ const Item = () => {
 
       if (response.ok) {
         setItem(json);
+        console.log(json)
       }
     };
 
