@@ -3,6 +3,7 @@ import HeroBanner from "../components/HeroBanner";
 import Footer from "../components/Footer";
 import Steps from "../components/Steps";
 import HomeBrands from "../components/HomeBrands";
+import CategoryCards from "../components/CategoryCards";
 
 const Home = () => {
 
@@ -12,6 +13,7 @@ const Home = () => {
       <Navbar />
       <HeroBanner />
       <Steps/>
+      <CategoryCards/>
       <HomeBrands/>
       <Footer />
     </div>

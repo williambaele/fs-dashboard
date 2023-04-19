@@ -239,9 +239,7 @@ const ItemBody = ({ item }) => {
                       open
                     >
                       <summary class="flex items-center justify-between cursor-pointer">
-                        <h2 class="font-medium text-gray-900">
-                          Sizing
-                        </h2>
+                        <h2 class="font-medium text-gray-900">Sizing</h2>
 
                         <span class="relative ml-1.5 h-5 w-5 flex-shrink-0">
                           <svg
@@ -287,9 +285,7 @@ const ItemBody = ({ item }) => {
 
                     <details class="group p-6 [&_summary::-webkit-details-marker]:hidden mt-2">
                       <summary class="flex items-center justify-between cursor-pointer">
-                        <h2 class="font-medium text-gray-900">
-                          Return
-                        </h2>
+                        <h2 class="font-medium text-gray-900">Return</h2>
 
                         <span class="relative ml-1.5 h-5 w-5 flex-shrink-0">
                           <svg
@@ -334,9 +330,7 @@ const ItemBody = ({ item }) => {
                     </details>
                     <details class="group p-6 [&_summary::-webkit-details-marker]:hidden mt-2">
                       <summary class="flex items-center justify-between cursor-pointer">
-                        <h2 class="font-medium text-gray-900">
-                          Price
-                        </h2>
+                        <h2 class="font-medium text-gray-900">Price</h2>
 
                         <span class="relative ml-1.5 h-5 w-5 flex-shrink-0">
                           <svg
