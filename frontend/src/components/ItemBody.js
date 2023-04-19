@@ -39,62 +39,14 @@ const ItemBody = ({ item }) => {
             </div>
           </div>
 
-          <div class="sticky top-0">
+          <div class="sticky top-4">
             <div class="flex justify-between">
               <div class="max-w-[35ch] space-y-2">
-                <h1 class="text-xl font-bold sm:text-2xl">{item.title}</h1>
-
-                <p class="text-sm">Highest Rated Product</p>
-
-                <div class="-ml-0.5 flex">
-                  <svg
-                    class="h-5 w-5 text-yellow-400"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    class="h-5 w-5 text-yellow-400"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    class="h-5 w-5 text-yellow-400"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    class="h-5 w-5 text-yellow-400"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    class="h-5 w-5 text-gray-200"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                </div>
+                <h1 class="text-3xl font-bold">{item.title}</h1>
               </div>
-
-              <p class="text-lg font-bold">{item.price}€</p>
+              <div className="bg-[#F45050] rounded-xl px-2 py-0.5 flex items-center justify-center">
+                <p class="text-lg text-white font-medium">{item.price}€</p>
+              </div>
             </div>
 
             <div class="mt-4">
@@ -108,84 +60,47 @@ const ItemBody = ({ item }) => {
               </div>
             </div>
 
-            <form class="mt-8">
-              <fieldset>
-                <legend class="mb-1 text-sm font-medium">Color</legend>
-
+            <div class="mt-8">
+              <div class="mt-4">
+                <p class="text-xl mb-2 font-medium">Color</p>
                 <div class="flex flex-wrap gap-1">
-                  <label for="color_tt">
-                    <input
-                      type="radio"
-                      name="color"
-                      id="color_tt"
-                      class="peer sr-only"
-                    />
-
-                    <span class="group inline-block rounded-full border px-3 py-1 text-xs font-medium">
-                      Texas Tea
-                    </span>
-                  </label>
-
-                  <label for="color_fr">
-                    <input
-                      type="radio"
-                      name="color"
-                      id="color_fr"
-                      class="peer sr-only"
-                    />
-
-                    <span class="group inline-block rounded-full border px-3 py-1 text-xs font-medium">
-                      Fiesta Red
-                    </span>
-                  </label>
-
-                  <label for="color_cb">
-                    <input
-                      type="radio"
-                      name="color"
-                      id="color_cb"
-                      class="peer sr-only"
-                    />
-
-                    <span class="group inline-block rounded-full border px-3 py-1 text-xs font-medium">
-                      Cobalt Blue
-                    </span>
-                  </label>
+                  <span class="group inline-flex py-1 px-2 items-center justify-center rounded-xl border text-xs font-medium">
+                    Red
+                  </span>
+                  <span class="group inline-flex py-1 px-2 items-center justify-center rounded-xl border text-xs font-medium">
+                    White
+                  </span>
+                  <span class="group inline-flex py-1 px-2 items-center justify-center rounded-xl border text-xs font-medium">
+                    Grey
+                  </span>
                 </div>
-              </fieldset>
-
-              <fieldset class="mt-4">
-                <legend class="mb-1 text-sm font-medium">Size</legend>
+              </div>
+              <div class="mt-4">
+                <p class="text-xl mb-2 font-medium">Brand</p>
                 <div class="flex flex-wrap gap-1">
-                  <span class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white">
+                <span class="group inline-flex py-1 px-2 items-center justify-center rounded-xl border text-xs font-medium">
+                    {item.brand}
+                  </span>
+                </div>
+              </div>
+              <div class="mt-4">
+                <p class="text-xl mb-2 font-medium">Size</p>
+                <div class="flex flex-wrap gap-1">
+                <span class="group inline-flex py-1 px-2 items-center justify-center rounded-xl border text-xs font-medium">
                     {item.size}
                   </span>
                 </div>
-              </fieldset>
+              </div>
 
               <div class="mt-8 flex gap-4">
-                <div>
-                  <label for="quantity" class="sr-only">
-                    Qty
-                  </label>
-
-                  <input
-                    type="number"
-                    id="quantity"
-                    min="1"
-                    value="1"
-                    class="w-12 rounded border-gray-200 py-3 text-center text-xs [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
-                  />
-                </div>
-
                 <button
                   type="submit"
                   class="block rounded bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"
                 >
-                  Add to Cart
+                  Send an offer
                 </button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
