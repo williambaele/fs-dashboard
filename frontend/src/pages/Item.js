@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useAuthContext } from "../hooks/useAuthContext";
+import ItemBody from "../components/ItemBody";
 
 const Item = () => {
   const { id } = useParams();
@@ -33,7 +34,8 @@ const Item = () => {
   return (
     <div>
       <Navbar />
-      <div className="mx-auto container bg-red-200">
+      <div className="mx-auto container">
+        <ItemBody/>
         {item ? (
           <div>
             <p>Item ID: {id}</p>

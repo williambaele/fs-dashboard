@@ -4,8 +4,8 @@ const mongoose = require('mongoose')
 // get all items
 const getItems = async (req, res) => {
 
-  const user_id = req.user._id
-  const items = await Item.find({ user_id }).sort({createdAt: -1})
+  // const user_id = req.user._id
+  const items = await Item.find({}).sort({createdAt: -1})
 
   res.status(200).json(items)
 }

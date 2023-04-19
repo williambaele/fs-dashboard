@@ -21,9 +21,9 @@ const Items = () => {
         dispatch({ type: "SET_ITEMS", payload: json });
       }
     };
-    if (user) {
+
       fetchItems();
-    }
+
   }, [dispatch, user]);
   return (
     <div>
