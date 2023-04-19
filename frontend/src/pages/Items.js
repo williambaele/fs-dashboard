@@ -4,7 +4,6 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { useItemsContext } from "../hooks/useItemsContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import FiltersBar from "../components/FiltersBar";
 
 const Items = () => {
   const { items, dispatch } = useItemsContext();
@@ -50,29 +49,6 @@ const Items = () => {
         </div>
 
         <form class="mt-4 border-t border-gray-200">
-          <h3 class="sr-only">Categories</h3>
-          <ul role="list" class="font-medium text-gray-900 px-2 py-3">
-            <li>
-              <a href="#" class="block px-2 py-3"> Totes </a>
-            </li>
-
-            <li>
-              <a href="#" class="block px-2 py-3"> Backpacks </a>
-            </li>
-
-            <li>
-              <a href="#" class="block px-2 py-3"> Travel Bags </a>
-            </li>
-
-            <li>
-              <a href="#" class="block px-2 py-3"> Hip Bags </a>
-            </li>
-
-            <li>
-              <a href="#" class="block px-2 py-3"> Laptop Sleeves </a>
-            </li>
-          </ul>
-
           <div class="border-t border-gray-200 px-4 py-6">
             <h3 class="-mx-2 -my-3 flow-root">
               <button type="button" class="px-2 py-3 bg-white w-full flex items-center justify-between text-gray-400 hover:text-gray-500" aria-controls="filter-section-mobile-0" aria-expanded="false">
@@ -242,15 +218,15 @@ const Items = () => {
             <div class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
               <div class="py-1" role="none">
 
-                <a href="#" class="font-medium text-gray-900 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0"> Most Popular </a>
+                <p class="font-medium text-gray-900 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0"> Most Popular </p>
 
-                <a href="#" class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1"> Best Rating </a>
+                <p class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1"> Best Rating </p>
 
-                <a href="#" class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2"> Newest </a>
+                <p class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2"> Newest </p>
 
-                <a href="#" class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3"> Price: Low to High </a>
+                <p class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3"> Price: Low to High </p>
 
-                <a href="#" class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-4"> Price: High to Low </a>
+                <p class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-4"> Price: High to Low </p>
               </div>
             </div>
           </div>
