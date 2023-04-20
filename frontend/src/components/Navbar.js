@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useState } from "react";
 
 const Navbar = () => {
   const { logout } = useLogout();
@@ -8,6 +9,12 @@ const Navbar = () => {
 
   const handleClick = () => {
     logout();
+  };
+
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const handleClickDd = () => {
+    setShowDropdown(!showDropdown);
   };
 
   return (
@@ -36,10 +43,10 @@ const Navbar = () => {
             {user && (
               <div className="flex items-center">
                 <button
-                  id="dropdownInformationButton"
-                  data-dropdown-toggle="dropdownInformation"
+                  id="ddButton"
                   class="text-white bg-[#F45050] focus:outline-none  font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
                   type="button"
+                  onClick={handleClickDd}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -67,57 +74,60 @@ const Navbar = () => {
                     ></path>
                   </svg>
                 </button>
+                {showDropdown && (
+                  <div>
+                    <div
+                      id="ddInfos"
+                      class="z-10  bg-white divide-y divide-gray-100 rounded-lg shadow absolute top left-0 right-0"
+                    >
+                      <div class="px-4 py-3 text-sm text-gray-900 ">
+                        <div>Bonnie Green</div>
+                        <div class="font-medium truncate">{user.email}</div>
+                      </div>
+                      <ul
+                        class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                        aria-labelledby="dropdownInformationButton"
+                      >
+                        <li>
+                          <Link to="/account">
+                            <p class="block px-4 py-2 hover:bg-gray-100">
+                              Dashboard
+                            </p>
+                          </Link>
+                        </li>
 
-                <div
-                  id="dropdownInformation"
-                  class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
-                >
-                  <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                    <div>Bonnie Green</div>
-                    <div class="font-medium truncate">{user.email}</div>
-                  </div>
-                  <ul
-                    class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                    aria-labelledby="dropdownInformationButton"
-                  >
-                    <li>
-                      <Link to="/account">
-                        <p class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                          Dashboard
+                        <li>
+                          <p class="block px-4 py-2 hover:bg-gray-100">
+                            Earnings
+                          </p>
+                        </li>
+                      </ul>
+                      <div class="py-2">
+                        <p
+                          onClick={handleClick}
+                          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Sign out
                         </p>
-                      </Link>
-                    </li>
+                      </div>
+                    </div>
 
-                    <li>
-                      <p class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                        Earnings
-                      </p>
-                    </li>
-                  </ul>
-                  <div class="py-2">
-                    <p
-                      onClick={handleClick}
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    >
-                      Sign out
-                    </p>
+                    {/* <Link to="/new-item">
+                      <button className="px-5 py-2">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="30"
+                          height="30"
+                          fill="#F45050"
+                          class="bi bi-plus-square-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                        </svg>
+                      </button>
+                    </Link> */}
                   </div>
-                </div>
-
-                <Link to="/new-item">
-                  <button className="px-5 py-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      fill="#F45050"
-                      class="bi bi-plus-square-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                    </svg>
-                  </button>
-                </Link>
+                )}
               </div>
             )}
             {!user && (
