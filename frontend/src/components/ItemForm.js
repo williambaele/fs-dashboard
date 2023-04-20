@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useItemsContext } from "../hooks/useItemsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { toast } from "react-toastify";
@@ -11,6 +11,7 @@ const ItemForm = () => {
   const { user } = useAuthContext();
 
   const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("nike");
   const [size, setSize] = useState("");
   const [price, setPrice] = useState("");
@@ -52,7 +53,7 @@ const ItemForm = () => {
       setEmptyFields([]);
       dispatch({ type: "CREATE_ITEM", payload: json });
       navigate(`/item/${json._id}`);
-      toast.success('Item created');
+      toast.success("Item created");
     }
   };
 
@@ -99,8 +100,15 @@ const ItemForm = () => {
           <option value="used">Used</option>
           <option value="new">New</option>
         </select>
+        <textarea
+          className="p-2 border-0 rounded-lg"
+          placeholder="Item's description"
+          value={description}
+          rows="4"
+          onChange={(e) => setDescription(e.target.value)}
+        ></textarea>
         <div class="max-w">
-          <label htmlFor="">Picures</label>
+          <label htmlFor="">Pictures</label>
           <div class="md:flex">
             <div class="w-full">
               <div class="relative border-dotted h-48 rounded-lg border-2 border-[#F45050] bg-white flex justify-center items-center">
