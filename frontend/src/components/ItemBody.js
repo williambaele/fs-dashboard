@@ -72,69 +72,33 @@ const ItemBody = ({ item }) => {
               </div>
             </div>
 
-            <div class="mt-6">
+            <div class="mt-6 space-y-4">
               <div>
                 <h3 class="text-sm text-gray-600 mb-2">Color</h3>
 
                 <div class="flex items-center space-x-3">
-                  <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-700">
-                    <input
-                      type="radio"
-                      name="color-choice"
-                      value="Washed Black"
-                      class="sr-only"
-                      aria-labelledby="color-choice-0-label"
-                    />
-                    <p id="color-choice-0-label" class="sr-only">
-                      Washed Black
-                    </p>
-                    <span
-                      aria-hidden="true"
-                      class="h-8 w-8 bg-gray-700 border border-black border-opacity-10 rounded-full"
-                    ></span>
-                  </label>
-
-                  <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-400">
-                    <input
-                      type="radio"
-                      name="color-choice"
-                      value="White"
-                      class="sr-only"
-                      aria-labelledby="color-choice-1-label"
-                    />
-                    <p id="color-choice-1-label" class="sr-only">
-                      White
-                    </p>
-                    <span
-                      aria-hidden="true"
-                      class="h-8 w-8 bg-white border border-black border-opacity-10 rounded-full"
-                    ></span>
-                  </label>
-
-                  <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-500">
-                    <input
-                      type="radio"
-                      name="color-choice"
-                      value="Washed Gray"
-                      class="sr-only"
-                      aria-labelledby="color-choice-2-label"
-                    />
-                    <p id="color-choice-2-label" class="sr-only">
-                      Washed Gray
-                    </p>
-                    <span
-                      aria-hidden="true"
-                      class="h-8 w-8 bg-gray-500 border border-black border-opacity-10 rounded-full"
-                    ></span>
-                  </label>
+                  <div className="rounded-full h-8 w-8 bg-red-600"></div>
+                  <div className="rounded-full h-8 w-8 bg-black"></div>
                 </div>
               </div>
               <div>
                 <h3 class="text-sm text-gray-600 mb-2">Size</h3>
-
                 <div class="flex items-center space-x-3">
                   <p>{item.size}</p>
                 </div>
+              </div>
+              <div>
+                <h3 class="text-sm text-gray-600 mb-2">State</h3>
+                <div class="flex items-center space-x-3">
+                  <p>{item.state}</p>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-sm text-gray-600 mb-2">Brand</h3>
+                <div class="flex items-center space-x-3">
+                  <p>{item.brand}</p>
+                </div>
+              </div>
               </div>
 
               <div class="mt-10 flex sm:flex-col1">
@@ -167,7 +131,6 @@ const ItemBody = ({ item }) => {
                   <span class="sr-only">Add to favorites</span>
                 </button>
               </div>
-            </div>
 
             <section aria-labelledby="details-heading" class="mt-12">
               <h2 id="details-heading" class="sr-only">
