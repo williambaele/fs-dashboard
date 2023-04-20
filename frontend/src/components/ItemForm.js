@@ -101,7 +101,7 @@ const ItemForm = () => {
           <label htmlFor="">Picures</label>
           <div class="md:flex">
             <div class="w-full">
-              <div class="relative border-dotted h-48 rounded-lg border-2 border-[#FBAE3C] bg-white flex justify-center items-center">
+              <div class="relative border-dotted h-48 rounded-lg border-2 border-[#F45050] bg-white flex justify-center items-center">
                 <div class="absolute">
                   <div class="flex flex-col items-center">
                     <i class="fa fa-folder-open fa-4x text-blue-700"></i>
@@ -123,7 +123,7 @@ const ItemForm = () => {
           className="p-2 rounded-lg"
           placeholder="Price"
         />
-        <button className="rounded-lg bg-[#FBAE3C] p-1 hover:bg-[#fbb650] text-center text-xl">
+        <button className="rounded-lg bg-[#F45050] p-1 hover:bg-[#f56262] text-center text-xl text-white font-medium">
           Publish item
         </button>
         {error && <div className="error text-red-600">{error}</div>}

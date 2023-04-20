@@ -26,7 +26,7 @@ const HeroBanner = () => {
               </p>
               <Link to="/items">
               <p
-                class="mt-8 inline-block rounded bg-[#FBAE3C] px-12 py-3 text-sm font-medium text-white transition hover:bg-[#fbb650]"
+                class="mt-8 inline-block rounded bg-[#F45050] px-12 py-3 text-sm font-medium text-white transition hover:bg-[#fbb650]"
               >
                 Search a pair
               </p>
