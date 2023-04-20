@@ -2,7 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-const Card = ({ item }) => {
+const Card = ({ item, user }) => {
   return (
     <div>
       <Link to={`/item/${item._id}`}>
@@ -16,7 +16,7 @@ const Card = ({ item }) => {
           </div>
           <div class="pt-4 px-1 pb-3">
             <div className="flex justify-between mb-4">
-              <h5 class="text-xl text-slate-900">{item.title}</h5>
+              <h5 class="text-xl text-slate-900">{item.title.slice(0,15)}</h5>
               <span class="text-xl font-bold text-slate-900">
                 {item.price}€
               </span>

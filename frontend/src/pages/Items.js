@@ -399,7 +399,7 @@ const Items = () => {
           <div class="lg:col-span-3">
             <div class="grid md:grid-cols-3 p-2 gap-4 lg:h-full">
             {items &&
-                  items.map((item) => <Card key={item._id} item={item} />)}
+                  items.map((item) => <Card key={item._id} item={item}/>)}
             </div>
           </div>
         </div>
