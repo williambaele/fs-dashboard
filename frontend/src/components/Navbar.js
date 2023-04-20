@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { logout } = useLogout();
@@ -9,6 +10,16 @@ const Navbar = () => {
 
   const handleClick = () => {
     logout();
+    toast.success('Logged out', {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
   };
 
   const [showDropdown, setShowDropdown] = useState(false);

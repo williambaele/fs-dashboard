@@ -2,6 +2,7 @@ import { useState } from "react";
 import {useNavigate} from 'react-router-dom';
 import { useItemsContext } from "../hooks/useItemsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { toast } from "react-toastify";
 
 const ItemForm = () => {
   const navigate = useNavigate();
@@ -51,6 +52,16 @@ const ItemForm = () => {
       setEmptyFields([]);
       dispatch({ type: "CREATE_ITEM", payload: json });
       navigate(`/item/${json._id}`);
+      toast.success('Item created', {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     }
   };
 
