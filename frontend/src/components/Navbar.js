@@ -61,13 +61,8 @@ const Navbar = () => {
             {!user && (
               <div>
                 <Link to="/login">
-                  <button class="rounded-lg bg-gray-100 px-5 py-2 text-sm font-medium text-gray-500">
+                  <button class="rounded-lg bg-[#F45050] px-5 py-2 text-sm font-medium text-white">
                     Log in
-                  </button>
-                </Link>
-                <Link to="/signup">
-                  <button class="rounded-lg bg-blue-600 px-5 py-2 text-sm font-medium text-white">
-                    Sign up
                   </button>
                 </Link>
               </div>
