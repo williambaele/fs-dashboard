@@ -38,7 +38,7 @@ const Signup = () => {
             />
             <button
               disabled={isLoading}
-              className="rounded-lg bg-[#FBAE3C] p-1 hover:bg-[#fbb650]"
+              className="rounded-lg bg-[#f45050] p-1 hover:bg-[#f56262] text-white"
             >
               Sign up
             </button>

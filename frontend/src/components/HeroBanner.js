@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const HeroBanner = () => {
   return (
-  <div className="bg-[#F0F0F0]">
+    <div className="bg-[#F0F0F0]">
       <section>
         <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-20 lg:px-8">
           <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
@@ -16,7 +16,9 @@ const HeroBanner = () => {
             </div>
 
             <div class="lg:py-24">
-              <h2 class="text-3xl font-bold sm:text-4xl">Find your gem seemless</h2>
+              <h2 class="text-3xl font-bold sm:text-4xl">
+                Find your gem seemless
+              </h2>
 
               <p class="mt-4 text-gray-600">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut
@@ -25,12 +27,10 @@ const HeroBanner = () => {
                 repellat.
               </p>
               <Link to="/items">
-              <p
-                class="mt-8 inline-block rounded bg-[#F45050] px-12 py-3 text-sm font-medium text-white transition hover:bg-[#fbb650]"
-              >
-                Search a pair
-              </p>
-            </Link>
+                <p class="mt-8 inline-block rounded bg-[#F45050] px-12 py-3 text-sm font-medium text-white transition hover:bg-[#f56262]">
+                  Search a pair
+                </p>
+              </Link>
             </div>
           </div>
         </div>

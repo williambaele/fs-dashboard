@@ -24,7 +24,7 @@ const Navbar = () => {
           <div class="flex lg:w-0 lg:flex-1">
             <Link to="/">
               <span class="sr-only">Logo</span>
-              <span class="inline-block h-10 w-32 rounded-lg  flex items-center justify-center text-white font-bold">
+              <span class="inline-block h-10 w-32 bg-white rounded-lg  flex items-center justify-center text-white font-bold">
                 T-Budy
               </span>
             </Link>
