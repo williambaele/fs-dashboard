@@ -30,7 +30,7 @@ const getItem = async (req, res) => {
 
 // create new item
 const createItem = async (req, res) => {
-  const {title, brand, size, price, state} = req.body
+  const {title, brand, size, price, description, state} = req.body
 
   let emptyFields = []
 
@@ -42,6 +42,9 @@ const createItem = async (req, res) => {
   }
   if(!size) {
     emptyFields.push('size')
+  }
+  if(!description) {
+    emptyFields.push('description')
   }
   if(!price) {
     emptyFields.push('price')
@@ -56,7 +59,7 @@ const createItem = async (req, res) => {
   // add doc to db
   try {
     const user_id = req.user._id
-    const item = await Item.create({title, brand, size, price, state, user_id})
+    const item = await Item.create({title, brand, size, price, state, description, user_id})
     res.status(200).json(item)
   } catch (error) {
     res.status(400).json({error: error.message})

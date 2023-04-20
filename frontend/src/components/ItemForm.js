@@ -27,7 +27,7 @@ const ItemForm = () => {
       return;
     }
 
-    const item = { title, brand, size, price, state };
+    const item = { title, brand, size, price, state, description };
 
     const response = await fetch("/api/items", {
       method: "POST",
@@ -49,6 +49,7 @@ const ItemForm = () => {
       setSize("");
       setPrice("");
       setState("");
+      setDescription("");
       setError(null);
       setEmptyFields([]);
       dispatch({ type: "CREATE_ITEM", payload: json });
@@ -82,6 +83,8 @@ const ItemForm = () => {
         >
           <option value="Nike">Nike</option>
           <option value="Adidas">Adidas</option>
+          <option value="Jordan">Jordan</option>
+          <option value="Yeezy">Yeezy</option>
         </select>
         <select
           value={size}

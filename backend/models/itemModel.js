@@ -23,6 +23,10 @@ const itemSchema = new Schema({
     type: Number,
     required: true
   },
+  description: {
+    type: String,
+    required: true
+  },
   user_id: {
     type: String,
     required: true
