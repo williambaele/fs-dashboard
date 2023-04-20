@@ -25,37 +25,86 @@ const Account = () => {
                 </div>
 
                 <div class="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
-                  <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                    <label
-                      for="username"
-                      class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
-                    >
-                      {user && user.email}
-                    </label>
-                    <div class="mt-1 sm:mt-0 sm:col-span-2">
-                      <div class="max-w-lg flex rounded-md shadow-sm">
-                        <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
-                          {" "}
-                          workcation.com/{" "}
-                        </span>
+                  <div class="space-y-6 sm:space-y-5">
+                    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                      <label
+                        for="first-name"
+                        class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                      >
+                        First name
+                      </label>
+                      <div class="mt-1 sm:mt-0 sm:col-span-2">
                         <input
                           type="text"
-                          name="username"
-                          id="username"
-                          autocomplete="username"
-                          class="flex-1 block w-full focus:ring-indigo-500 focus:border-indigo-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
+                          name="first-name"
+                          id="first-name"
+                          autocomplete="given-name"
+                          class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                      <label
+                        for="last-name"
+                        class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                      >
+                        Last name
+                      </label>
+                      <div class="mt-1 sm:mt-0 sm:col-span-2">
+                        <input
+                          type="text"
+                          name="last-name"
+                          id="last-name"
+                          autocomplete="family-name"
+                          class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                        />
+                      </div>
+                    </div>
+                    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                      <label
+                        for="email"
+                        class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                      >
+                        Email address
+                      </label>
+                      <div class="mt-1 sm:mt-0 sm:col-span-2">
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          placeholder={user && user.email}
+                          autocomplete="email"
+                          class="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                      <label
+                        for="email"
+                        class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                      >
+                        Pseudo
+                      </label>
+                      <div class="mt-1 sm:mt-0 sm:col-span-2">
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          placeholder={user && user.email}
+                          autocomplete="email"
+                          class="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md"
                         />
                       </div>
                     </div>
                   </div>
-
                   <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                     <label
                       for="about"
                       class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
                     >
-                      {" "}
-                      About{" "}
+                      About
                     </label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                       <textarea
@@ -75,8 +124,7 @@ const Account = () => {
                       for="photo"
                       class="block text-sm font-medium text-gray-700"
                     >
-                      {" "}
-                      Photo{" "}
+                      Photo
                     </label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                       <div class="flex items-center">
@@ -156,62 +204,6 @@ const Account = () => {
                   <p class="mt-1 max-w-2xl text-sm text-gray-500">
                     Use a permanent address where you can receive mail.
                   </p>
-                </div>
-                <div class="space-y-6 sm:space-y-5">
-                  <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                    <label
-                      for="first-name"
-                      class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
-                    >
-                      First name
-                    </label>
-                    <div class="mt-1 sm:mt-0 sm:col-span-2">
-                      <input
-                        type="text"
-                        name="first-name"
-                        id="first-name"
-                        autocomplete="given-name"
-                        class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                    <label
-                      for="last-name"
-                      class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
-                    >
-                      Last name
-                    </label>
-                    <div class="mt-1 sm:mt-0 sm:col-span-2">
-                      <input
-                        type="text"
-                        name="last-name"
-                        id="last-name"
-                        autocomplete="family-name"
-                        class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                    <label
-                      for="email"
-                      class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
-                    >
-                      Email address
-                    </label>
-                    <div class="mt-1 sm:mt-0 sm:col-span-2">
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder={user && user.email}
-                        autocomplete="email"
-                        class="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md"
-                      />
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
