@@ -52,16 +52,7 @@ const ItemForm = () => {
       setEmptyFields([]);
       dispatch({ type: "CREATE_ITEM", payload: json });
       navigate(`/item/${json._id}`);
-      toast.success('Item created', {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        });
+      toast.success('Item created');
     }
   };
 
