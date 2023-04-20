@@ -7,7 +7,7 @@ const Account = () => {
   console.log({ user });
 
   return (
-    <div>
+    <div className="bg-slate-100">
       <Navbar />
       <div className="min-h-screen mx-auto container px-4 md:px-0">
         <div className="py-10">
@@ -39,7 +39,7 @@ const Account = () => {
                           name="first-name"
                           id="first-name"
                           autocomplete="given-name"
-                          class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                          className="p-2 border-0 rounded-lg w-full md:w-1/3 outline-none"
                         />
                       </div>
                     </div>
@@ -57,7 +57,7 @@ const Account = () => {
                           name="last-name"
                           id="last-name"
                           autocomplete="family-name"
-                          class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                          className="p-2 border-0 rounded-lg w-full md:w-1/3 outline-none"
                         />
                       </div>
                     </div>
@@ -75,7 +75,7 @@ const Account = () => {
                           type="email"
                           placeholder={user && user.email}
                           autocomplete="email"
-                          class="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md"
+                          className="p-2 border-0 rounded-lg w-full md:w-1/3 outline-none"
                         />
                       </div>
                     </div>
@@ -94,7 +94,7 @@ const Account = () => {
                           type="email"
                           placeholder={user && user.email}
                           autocomplete="email"
-                          class="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md"
+                          className="p-2 border-0 rounded-lg w-full md:w-1/3 outline-none"
                         />
                       </div>
                     </div>
@@ -111,7 +111,7 @@ const Account = () => {
                         id="about"
                         name="about"
                         rows="3"
-                        class="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"
+                        className="p-2 border-0 rounded-lg w-full md:w-1/2 outline-none"
                       ></textarea>
                       <p class="mt-2 text-sm text-gray-500">
                         Write a few sentences about yourself.
