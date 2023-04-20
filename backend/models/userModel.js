@@ -10,6 +10,10 @@ const userSchema = new Schema({
     required: true,
     unique: true
   },
+  pseudo: {
+    type: String,
+    required: true
+  },
   password: {
     type: String,
     required: true
@@ -17,10 +21,10 @@ const userSchema = new Schema({
 })
 
 // Static signup method
-userSchema.statics.signup = async function(email, password) {
+userSchema.statics.signup = async function(email, pseudo, password) {
 
   // Data validation
-  if (!email || !password) {
+  if (!email || !pseudo || !password) {
     throw Error("All fields must be filled")
   }
   if (!validator.isEmail(email)) {
@@ -30,16 +34,20 @@ userSchema.statics.signup = async function(email, password) {
     throw Error("Password is not strong enough")
   }
 
-  const exists = await this.findOne({ email })
-
-  if (exists) {
+  const emailExists = await this.findOne({ email })
+  if (emailExists) {
     throw Error('Email already in use')
+  }
+
+  const pseudoExists = await this.findOne({ pseudo })
+  if (pseudoExists) {
+    throw Error('Pseudo already in use')
   }
 
   const salt = await bcrypt.genSalt(10)
   const hash = await bcrypt.hash(password, salt)
 
-  const user = await this.create({ email, password: hash })
+  const user = await this.create({ email, pseudo, password: hash })
 
   return user
 }

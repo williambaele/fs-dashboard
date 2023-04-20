@@ -10,21 +10,17 @@ const Items = () => {
   const { user } = useAuthContext();
   useEffect(() => {
     const fetchItems = async () => {
-      const response = await fetch("/api/items", {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch("/api/items");
       const json = await response.json();
 
       if (response.ok) {
         dispatch({ type: "SET_ITEMS", payload: json });
       }
     };
-    if (user) {
+
       fetchItems();
-    }
-  }, [dispatch, user]);
+
+  }, [dispatch]);
   return (
     <div>
       <Navbar />

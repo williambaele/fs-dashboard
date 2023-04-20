@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 
 const Account = () => {
   const { user } = useAuthContext();
+  console.log({user})
 
   return (
     <div>
@@ -21,7 +22,7 @@ const Account = () => {
                       class="mx-auto object-cover rounded-full h-16 w-16 "
                     />
                   </div>
-                  <h1 class="text-gray-600">{user && user.email}</h1>
+                  <h1 class="text-gray-600">{user && user.pseudo}</h1>
                 </div>
               </div>
             </div>

@@ -60,7 +60,7 @@ const ItemForm = () => {
         className="py-10 mx-auto container grid gap-4 w-full md:w-1/2"
         onSubmit={handleSubmit}
       >
-        <h3 className="text-center text-4xl my-4">Add a New Item</h3>
+        <h3 className="text-center text-4xl my-4">Add a new item</h3>
         <input
           type="text"
           onChange={(e) => setTitle(e.target.value)}

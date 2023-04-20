@@ -11,11 +11,7 @@ const Item = () => {
 
   useEffect(() => {
     const fetchItem = async () => {
-      const response = await fetch(`/api/items/${id}`, {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch(`/api/items/${id}`);
       const json = await response.json();
 
       if (response.ok) {
@@ -26,10 +22,10 @@ const Item = () => {
 
     const user = JSON.parse(localStorage.getItem("user"));
 
-    if (user) {
+
       fetchItem();
-    }
-  }, [id, user.token]);
+
+  }, [id]);
 
   return (
     <div>

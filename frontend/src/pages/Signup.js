@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [pseudo, setPseudo] = useState("");
+
   const { signup, error, isLoading } = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await signup(email, password);
+    await signup(email, pseudo, password);
   };
 
   return (
@@ -22,6 +24,13 @@ const Signup = () => {
           >
             <h2 className="text-center text-4xl">Sign up</h2>
 
+            <input
+              type="text"
+              placeholder="Pseudo"
+              onChange={(e) => setPseudo(e.target.value)}
+              value={pseudo}
+              className="p-2 pl-2 rounded-lg"
+            />
             <input
               type="text"
               placeholder="Email"
