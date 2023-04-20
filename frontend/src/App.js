@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import NewItem from "./pages/NewItem";
 import Items from "./pages/Items";
 import Item from "./pages/Item";
+import Account from "./pages/Account";
 
 function App() {
   const { user } = useAuthContext();
@@ -16,18 +17,12 @@ function App() {
       <BrowserRouter>
         <div className="pages">
           <Routes>
-            <Route
-              path="/"
-              element={<Home />}
-            />
+            <Route path="/" element={<Home />} />
             <Route
               path="/new-item"
               element={user ? <NewItem /> : <Navigate to="/login" />}
             />
-            <Route
-              path="/items"
-              element={<Items />}
-            />
+            <Route path="/items" element={<Items />} />
             <Route
               path="/signup"
               element={!user ? <Signup /> : <Navigate to="/" />}
@@ -36,8 +31,11 @@ function App() {
               path="/login"
               element={!user ? <Login /> : <Navigate to="/" />}
             />
-            <Route path="/item/:id" element={<Item/>} />
-
+            <Route
+              path="/account"
+              element={user ? <Account /> : <Navigate to="/login" />}
+            />
+            <Route path="/item/:id" element={<Item />} />
           </Routes>
         </div>
       </BrowserRouter>

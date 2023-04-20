@@ -36,12 +36,74 @@ const Navbar = () => {
             {user && (
               <div className="flex items-center">
                 <button
-                  onClick={handleClick}
-                  class="rounded-lg bg-[#F45050] px-5 py-2 text-sm font-medium text-white"
-                  href=""
+                  id="dropdownInformationButton"
+                  data-dropdown-toggle="dropdownInformation"
+                  class="text-white bg-[#F45050] focus:outline-none  font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                  type="button"
                 >
-                  Log out
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-person-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                  </svg>
+                  <svg
+                    class="w-4 h-4 ml-2"
+                    aria-hidden="true"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
                 </button>
+
+                <div
+                  id="dropdownInformation"
+                  class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
+                >
+                  <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                    <div>Bonnie Green</div>
+                    <div class="font-medium truncate">{user.email}</div>
+                  </div>
+                  <ul
+                    class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                    aria-labelledby="dropdownInformationButton"
+                  >
+                    <li>
+                      <Link to="/account">
+                        <p class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                          Dashboard
+                        </p>
+                      </Link>
+                    </li>
+
+                    <li>
+                      <p class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                        Earnings
+                      </p>
+                    </li>
+                  </ul>
+                  <div class="py-2">
+                    <p
+                      onClick={handleClick}
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    >
+                      Sign out
+                    </p>
+                  </div>
+                </div>
+
                 <Link to="/new-item">
                   <button className="px-5 py-2">
                     <svg

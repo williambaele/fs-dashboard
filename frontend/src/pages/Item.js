@@ -9,7 +9,6 @@ const Item = () => {
   const [item, setItem] = useState(null);
   const { user } = useAuthContext();
 
-console.log(user.pseudo + "ok")
   useEffect(() => {
     const fetchItem = async () => {
       const response = await fetch(`/api/items/${id}`, {
