@@ -9,7 +9,7 @@ const Account = () => {
   return (
     <div>
       <Navbar />
-      <div className="min-h-screen mx-auto container">
+      <div className="min-h-screen mx-auto container px-4 md:px-0">
         <div className="py-10">
           <form class="space-y-8 divide-y divide-gray-200">
             <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
@@ -195,17 +195,6 @@ const Account = () => {
                   </div>
                 </div>
               </div>
-
-              <div class="pt-8 space-y-6 sm:pt-10 sm:space-y-5">
-                <div>
-                  <h3 class="text-lg leading-6 font-medium text-gray-900">
-                    Personal Information
-                  </h3>
-                  <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                    Use a permanent address where you can receive mail.
-                  </p>
-                </div>
-              </div>
             </div>
 
             <div class="pt-5">
@@ -218,7 +207,7 @@ const Account = () => {
                 </button>
                 <button
                   type="submit"
-                  class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#F45050] hover:bg-[#f56262] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Save
                 </button>
