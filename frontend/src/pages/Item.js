@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { useAuthContext } from "../hooks/useAuthContext";
+// import { useAuthContext } from "../hooks/useAuthContext";
 import ItemBody from "../components/ItemBody";
 import Footer from "../components/Footer";
 
 const Item = () => {
   const { id } = useParams();
   const [item, setItem] = useState(null);
-  const { user } = useAuthContext();
+  // const { user } = useAuthContext();
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -21,7 +21,7 @@ const Item = () => {
       }
     };
 
-    const user = JSON.parse(localStorage.getItem("user"));
+    // const user = JSON.parse(localStorage.getItem("user"));
 
     fetchItem();
   }, [id]);

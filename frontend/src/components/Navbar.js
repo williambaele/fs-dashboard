@@ -41,12 +41,12 @@ const Navbar = () => {
             </Link>
           </nav>
 
-          <div class="hidden flex-1 items-center justify-end gap-4 sm:flex">
+          <div class="flex-1 items-center justify-end gap-4 sm:flex">
             {user && (
               <div className="flex items-center relative">
                 <button
                   id="ddButton"
-                  class="text-white bg-[#F45050] hover:bg-[#f56262] focus:outline-none  font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                  class="text-white bg-[#F45050] hover:bg-[#f56262] focus:outline-none  font-medium rounded-lg text-sm px-6 py-2.5 text-center inline-flex items-center"
                   type="button"
                   onClick={handleClickDd}
                 >
@@ -77,14 +77,13 @@ const Navbar = () => {
                   </svg>
                 </button>
                 {showDropdown && (
-                  <div class="absolute top-10 left-0 z-50">
+                  <div class="absolute top-10 left-0 z-50 md:w-32">
                     <div
                       id="ddInfos"
                       class="z-99 bg-white divide-y divide-gray-100 rounded-lg shadow"
                     >
                       <div class="px-4 py-3 text-sm text-gray-900 ">
-                        <div>Bonnie 👋🏼</div>
-                        <div class="font-medium truncate">{user.email}</div>
+                        <div>{user.pseudo} 👋🏼</div>
                       </div>
                       <ul
                         class="py-2 text-sm text-gray-700 dark:text-gray-200"

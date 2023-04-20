@@ -31,6 +31,8 @@ const AccountForm = ({user}) => {
                         type="text"
                         name="first-name"
                         id="first-name"
+                        value={user.pseudo}
+                        placeholder={user.pseudo}
                         autocomplete="given-name"
                         className="p-2 border-0 rounded-lg w-full md:w-1/2 outline-none"
                       />
@@ -49,7 +51,8 @@ const AccountForm = ({user}) => {
                         id="email"
                         name="email"
                         type="email"
-                        placeholder={user && user.email}
+                        value={user.email}
+
                         autocomplete="email"
                         className="p-2 border-0 rounded-lg w-full md:w-1/2 outline-none"
                       />
