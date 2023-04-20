@@ -41,7 +41,7 @@ const Navbar = () => {
 
           <div class="hidden flex-1 items-center justify-end gap-4 sm:flex">
             {user && (
-              <div className="flex items-center">
+              <div className="flex items-center relative">
                 <button
                   id="ddButton"
                   class="text-white bg-[#F45050] focus:outline-none  font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
@@ -75,13 +75,13 @@ const Navbar = () => {
                   </svg>
                 </button>
                 {showDropdown && (
-                  <div>
+                  <div class="absolute top-10 left-0 z-50">
                     <div
                       id="ddInfos"
-                      class="z-10  bg-white divide-y divide-gray-100 rounded-lg shadow absolute top left-0 right-0"
+                      class="z-99 bg-white divide-y divide-gray-100 rounded-lg shadow"
                     >
                       <div class="px-4 py-3 text-sm text-gray-900 ">
-                        <div>Bonnie Green</div>
+                        <div>Bonnie 👋🏼</div>
                         <div class="font-medium truncate">{user.email}</div>
                       </div>
                       <ul
@@ -95,23 +95,23 @@ const Navbar = () => {
                             </p>
                           </Link>
                         </li>
-
-                        <li>
-                          <p class="block px-4 py-2 hover:bg-gray-100">
-                            Earnings
-                          </p>
-                        </li>
+                        <Link to="/new-item">
+                          <li>
+                            <p class="block px-4 py-2 hover:bg-gray-100">
+                              Add an item
+                            </p>
+                          </li>
+                        </Link>
                       </ul>
                       <div class="py-2">
                         <p
                           onClick={handleClick}
-                          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                         >
                           Sign out
                         </p>
                       </div>
                     </div>
-
                     {/* <Link to="/new-item">
                       <button className="px-5 py-2">
                         <svg
