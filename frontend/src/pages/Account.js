@@ -39,7 +39,7 @@ const Account = () => {
                           name="first-name"
                           id="first-name"
                           autocomplete="given-name"
-                          className="p-2 border-0 rounded-lg w-full md:w-1/3 outline-none"
+                          className="p-2 border-0 rounded-lg w-full md:w-1/2 outline-none"
                         />
                       </div>
                     </div>
@@ -57,7 +57,7 @@ const Account = () => {
                           name="last-name"
                           id="last-name"
                           autocomplete="family-name"
-                          className="p-2 border-0 rounded-lg w-full md:w-1/3 outline-none"
+                          className="p-2 border-0 rounded-lg w-full md:w-1/2 outline-none"
                         />
                       </div>
                     </div>
@@ -75,7 +75,7 @@ const Account = () => {
                           type="email"
                           placeholder={user && user.email}
                           autocomplete="email"
-                          className="p-2 border-0 rounded-lg w-full md:w-1/3 outline-none"
+                          className="p-2 border-0 rounded-lg w-full md:w-1/2 outline-none"
                         />
                       </div>
                     </div>
@@ -94,7 +94,7 @@ const Account = () => {
                           type="email"
                           placeholder={user && user.email}
                           autocomplete="email"
-                          className="p-2 border-0 rounded-lg w-full md:w-1/3 outline-none"
+                          className="p-2 border-0 rounded-lg w-full md:w-1/2 outline-none"
                         />
                       </div>
                     </div>
