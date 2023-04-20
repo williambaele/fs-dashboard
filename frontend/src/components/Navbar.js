@@ -46,7 +46,7 @@ const Navbar = () => {
               <div className="flex items-center relative">
                 <button
                   id="ddButton"
-                  class="text-white bg-[#F45050] focus:outline-none  font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+                  class="text-white bg-[#F45050] hover:bg-[#f56262] focus:outline-none  font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
                   type="button"
                   onClick={handleClickDd}
                 >
@@ -121,7 +121,7 @@ const Navbar = () => {
             {!user && (
               <div>
                 <Link to="/login">
-                  <button class="rounded-lg bg-[#F45050] px-5 py-2 text-sm font-medium text-white">
+                  <button class="rounded-lg bg-[#F45050] hover:bg-[#f56262] px-5 py-2 text-sm font-medium text-white">
                     Log in
                   </button>
                 </Link>

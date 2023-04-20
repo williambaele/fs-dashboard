@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useAuthContext } from "../hooks/useAuthContext";
 import ItemBody from "../components/ItemBody";
+import Footer from "../components/Footer";
 
 const Item = () => {
   const { id } = useParams();
@@ -16,30 +17,30 @@ const Item = () => {
 
       if (response.ok) {
         setItem(json);
-        console.log(json)
+        console.log(json);
       }
     };
 
     const user = JSON.parse(localStorage.getItem("user"));
 
-
-      fetchItem();
-
+    fetchItem();
   }, [id]);
 
   return (
     <div>
       <Navbar />
-      <div className="mx-auto container">
-        {item ? (
-          <div>
-            <ItemBody item={item}/>
-
-          </div>
-        ) : (
-          <p>Loading...</p>
-        )}
+      <div class="bg-slate-100">
+        <div className="mx-auto container">
+          {item ? (
+            <div>
+              <ItemBody item={item} />
+            </div>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
       </div>
+      <Footer/>
     </div>
   );
 };
