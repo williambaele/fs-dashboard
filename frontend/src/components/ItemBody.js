@@ -59,136 +59,82 @@ const ItemBody = ({ item }) => {
             <div class="mt-3">
               <h2 class="sr-only">Product information</h2>
               <p class="text-3xl text-gray-900">{item.price} €</p>
-              <p class="text-3xl text-gray-900">User: {item.user_id.slice(0, 10)}</p>
-            </div>
-
-            <div class="mt-3">
-              <h3 class="sr-only">Reviews</h3>
-              <div class="flex items-center">
-                <div class="flex items-center">
-                  <svg
-                    class="h-5 w-5 flex-shrink-0 text-indigo-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    class="h-5 w-5 flex-shrink-0 text-indigo-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    class="h-5 w-5 flex-shrink-0 text-indigo-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    class="h-5 w-5 flex-shrink-0 text-indigo-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    class="h-5 w-5 flex-shrink-0 text-gray-300"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                </div>
-                <p class="sr-only">4 out of 5 stars</p>
-              </div>
+              <p class="text-3xl text-gray-900">
+                User: {item.user_id.slice(0, 10)}
+              </p>
             </div>
 
             <div class="mt-6">
               <h3 class="sr-only">Description</h3>
 
               <div class="text-base text-gray-700 space-y-6">
-                <p>
-                 {item.description}
-                </p>
+                <p>{item.description}</p>
               </div>
             </div>
 
-            <form class="mt-6">
+            <div class="mt-6">
               <div>
-                <h3 class="text-sm text-gray-600">Color</h3>
+                <h3 class="text-sm text-gray-600 mb-2">Color</h3>
 
-                <fieldset class="mt-2">
-                  <legend class="sr-only">Choose a color</legend>
-                  <div class="flex items-center space-x-3">
-                    <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-700">
-                      <input
-                        type="radio"
-                        name="color-choice"
-                        value="Washed Black"
-                        class="sr-only"
-                        aria-labelledby="color-choice-0-label"
-                      />
-                      <p id="color-choice-0-label" class="sr-only">
-                        Washed Black
-                      </p>
-                      <span
-                        aria-hidden="true"
-                        class="h-8 w-8 bg-gray-700 border border-black border-opacity-10 rounded-full"
-                      ></span>
-                    </label>
+                <div class="flex items-center space-x-3">
+                  <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-700">
+                    <input
+                      type="radio"
+                      name="color-choice"
+                      value="Washed Black"
+                      class="sr-only"
+                      aria-labelledby="color-choice-0-label"
+                    />
+                    <p id="color-choice-0-label" class="sr-only">
+                      Washed Black
+                    </p>
+                    <span
+                      aria-hidden="true"
+                      class="h-8 w-8 bg-gray-700 border border-black border-opacity-10 rounded-full"
+                    ></span>
+                  </label>
 
-                    <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-400">
-                      <input
-                        type="radio"
-                        name="color-choice"
-                        value="White"
-                        class="sr-only"
-                        aria-labelledby="color-choice-1-label"
-                      />
-                      <p id="color-choice-1-label" class="sr-only">
-                        White
-                      </p>
-                      <span
-                        aria-hidden="true"
-                        class="h-8 w-8 bg-white border border-black border-opacity-10 rounded-full"
-                      ></span>
-                    </label>
+                  <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-400">
+                    <input
+                      type="radio"
+                      name="color-choice"
+                      value="White"
+                      class="sr-only"
+                      aria-labelledby="color-choice-1-label"
+                    />
+                    <p id="color-choice-1-label" class="sr-only">
+                      White
+                    </p>
+                    <span
+                      aria-hidden="true"
+                      class="h-8 w-8 bg-white border border-black border-opacity-10 rounded-full"
+                    ></span>
+                  </label>
 
-                    <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-500">
-                      <input
-                        type="radio"
-                        name="color-choice"
-                        value="Washed Gray"
-                        class="sr-only"
-                        aria-labelledby="color-choice-2-label"
-                      />
-                      <p id="color-choice-2-label" class="sr-only">
-                        Washed Gray
-                      </p>
-                      <span
-                        aria-hidden="true"
-                        class="h-8 w-8 bg-gray-500 border border-black border-opacity-10 rounded-full"
-                      ></span>
-                    </label>
-                  </div>
-                </fieldset>
+                  <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-500">
+                    <input
+                      type="radio"
+                      name="color-choice"
+                      value="Washed Gray"
+                      class="sr-only"
+                      aria-labelledby="color-choice-2-label"
+                    />
+                    <p id="color-choice-2-label" class="sr-only">
+                      Washed Gray
+                    </p>
+                    <span
+                      aria-hidden="true"
+                      class="h-8 w-8 bg-gray-500 border border-black border-opacity-10 rounded-full"
+                    ></span>
+                  </label>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-sm text-gray-600 mb-2">Size</h3>
+
+                <div class="flex items-center space-x-3">
+                  <p>{item.size}</p>
+                </div>
               </div>
 
               <div class="mt-10 flex sm:flex-col1">
@@ -221,7 +167,7 @@ const ItemBody = ({ item }) => {
                   <span class="sr-only">Add to favorites</span>
                 </button>
               </div>
-            </form>
+            </div>
 
             <section aria-labelledby="details-heading" class="mt-12">
               <h2 id="details-heading" class="sr-only">
