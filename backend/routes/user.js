@@ -9,7 +9,8 @@ const router = express.Router()
 router.post('/login', loginUser)
 
 //GET a single user
-router.get('/:id', getUser)
+router.get('/users/:id', getUser)
+
 
 // signup route
 router.post('/signup', signupUser)
