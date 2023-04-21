@@ -18,10 +18,19 @@ const Item = () => {
       if (response.ok) {
         setItem(json);
         console.log(json);
+        console.log(json.user_id);
+        console.log("Going to get user's pseudo");
+        const userResponse = await fetch(`/api/users/${json.user_id}`);
+        console.log(userResponse);
+        const userJson = await userResponse.json();
+
+        if (userResponse.ok) {
+          const userPseudo = userJson.pseudo;
+          console.log(userPseudo);
+          // do something with the user pseudo
+        }
       }
     };
-
-    // const user = JSON.parse(localStorage.getItem("user"));
 
     fetchItem();
   }, [id]);
@@ -40,7 +49,7 @@ const Item = () => {
           )}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

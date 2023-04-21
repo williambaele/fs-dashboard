@@ -28,7 +28,7 @@ const Card = ({ item, user }) => {
                   alt=""
                   className="rounded-full h-6 w-6 object-cover"
                 />
-                <span class="text-md font-bold text-slate-900">Luca2001</span>
+                <span class="text-md font-bold text-slate-900">{user && user.pseudo}</span>
               </div>
               <div className="flex gap-1 items-center">
                 <span class="text-md font-bold text-slate-900">4.5/5</span>
