@@ -179,8 +179,11 @@ const ItemForm = () => {
           onChange={(e) => setState(e.target.value)}
           className="p-2 border-0 rounded-lg"
         >
-          <option value="used">Used</option>
           <option value="new">New</option>
+          <option value="new">Nearly new</option>
+          <option value="used">Used</option>
+          <option value="used">Very used</option>
+
         </select>
         <textarea
           className="p-2 border-0 rounded-lg"
