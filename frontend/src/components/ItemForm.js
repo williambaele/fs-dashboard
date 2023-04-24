@@ -30,6 +30,9 @@ const ItemForm = () => {
     "44",
     "44.5",
     "45",
+    "46",
+    "47",
+    "48",
   ];
   const [size, setSize] = useState("35.5");
   const [price, setPrice] = useState("");
