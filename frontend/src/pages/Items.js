@@ -6,6 +6,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SortItems from "../components/SortItems";
 import ItemsFilters from "../components/ItemsFilters";
+import SearchInput from "../components/SearchInput";
+
+
 
 const Items = () => {
   const { items, dispatch } = useItemsContext();
@@ -47,6 +50,7 @@ const Items = () => {
                 </h1>
 
                 <div class="flex items-center">
+                  <SearchInput/>
                   <SortItems />
                   <button
                     type="button"
