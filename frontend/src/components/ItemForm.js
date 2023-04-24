@@ -88,8 +88,11 @@ const ItemForm = () => {
           <option value="Jordan">Jordan</option>
           <option value="Yeezy">Yeezy</option>
         </select>
+        <div className="grid grid-cols-4 gap-4">
+
         {choicescolors &&
-                  choicescolors.map((choice) => <input type="checkbox" onChange={(e) => setColors(e.target.value)} value={choice} name={choice}/>)}
+                  choicescolors.map((choice) => <div><label for={choice}>{choice}</label><input type="checkbox" id={choice} onChange={(e) => setColors(e.target.value)} value={choice} name={choice}/></div>)}
+          </div>
         <select
           value={size}
           onChange={(e) => setSize(e.target.value)}
