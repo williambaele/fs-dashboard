@@ -15,7 +15,22 @@ const ItemForm = () => {
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("nike");
   const [colors, setColors] = useState([]);
-
+  const sizes = [
+    "36",
+    "36.5",
+    "37",
+    "37.5",
+    "38",
+    "39",
+    "40",
+    "40.5",
+    "41",
+    "42",
+    "43",
+    "44",
+    "44.5",
+    "45",
+  ];
   const [size, setSize] = useState("35.5");
   const [price, setPrice] = useState("");
   const [state, setState] = useState("new");
@@ -108,25 +123,26 @@ const ItemForm = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {colourOptions &&
             colourOptions.map((choice, index) => (
-              <div
-              htmlFor={choice.value}
-                key={choice.value}
-
-
-              >
-                <label className={`bg-white p-2 rounded-lg flex justify-center h-full w-full ${
-                  clickedIndices.includes(index)
-                    ? "border-2 border-slate-300"
-                    : ""
-                }`}   onClick={() => {
-                  if (clickedIndices.includes(index)) {
-                    setClickedIndices(
-                      clickedIndices.filter((i) => i !== index)
-                    );
-                  } else {
-                    setClickedIndices([...clickedIndices, index]);
-                  }
-                }} htmlFor={choice.value}>{choice.label}</label>
+              <div htmlFor={choice.value} key={choice.value}>
+                <label
+                  className={`bg-white p-2 rounded-lg flex justify-center h-full w-full ${
+                    clickedIndices.includes(index)
+                      ? "border-2 border-slate-300"
+                      : ""
+                  }`}
+                  onClick={() => {
+                    if (clickedIndices.includes(index)) {
+                      setClickedIndices(
+                        clickedIndices.filter((i) => i !== index)
+                      );
+                    } else {
+                      setClickedIndices([...clickedIndices, index]);
+                    }
+                  }}
+                  htmlFor={choice.value}
+                >
+                  {choice.label}
+                </label>
                 <input
                   type="checkbox"
                   className="hidden"
@@ -151,9 +167,9 @@ const ItemForm = () => {
           onChange={(e) => setSize(e.target.value)}
           className="p-2 border-0 rounded-lg"
         >
-          <option value="35.5">35.5</option>
-          <option value="36">36</option>
-          <option value="36.5">36.5</option>
+          {sizes.map((size) => (
+            <option value={size}>{size}</option>
+          ))}
         </select>
         <select
           value={state}
