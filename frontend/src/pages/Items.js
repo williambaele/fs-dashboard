@@ -5,7 +5,7 @@ import { useItemsContext } from "../hooks/useItemsContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SortItems from "../components/SortItems";
-import ItemFilters from "../components/ItemFilters";
+import ItemsFilters from "../components/ItemsFilters";
 
 const Items = () => {
   const { items, dispatch } = useItemsContext();
@@ -71,7 +71,7 @@ const Items = () => {
               </div>
               <section class="pt-6 pb-24">
                 <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10 ">
-                  <ItemFilters />
+                  <ItemsFilters />
                   <div class="lg:col-span-3">
                     <div class="grid md:grid-cols-3 p-2 gap-4 lg:h-full">
                       {items &&
