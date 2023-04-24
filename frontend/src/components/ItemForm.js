@@ -21,7 +21,7 @@ const ItemForm = () => {
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
 
-  const colourOptions = ["Red", "Blue", "Orange"];
+  const colourOptions = ["red", "blue", "orange"];
   const handleSubmit = async (e) => {
     e.preventDefault();
 
