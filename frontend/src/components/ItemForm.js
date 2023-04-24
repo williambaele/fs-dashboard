@@ -9,6 +9,7 @@ const ItemForm = () => {
 
   const { dispatch } = useItemsContext();
   const { user } = useAuthContext();
+  const [clickedIndices, setClickedIndices] = useState([]);
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -103,13 +104,32 @@ const ItemForm = () => {
           <option value="Jordan">Jordan</option>
           <option value="Yeezy">Yeezy</option>
         </select>
+        <label>Select the colour(s)</label>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {colourOptions &&
-            colourOptions.map((choice) => (
-              <div key={choice.value}>
+            colourOptions.map((choice, index) => (
+              <div
+              htmlFor={choice.value}
+                key={choice.value}
+                className={`bg-white p-2 rounded-lg flex justify-center h-full w-full ${
+                  clickedIndices.includes(index)
+                    ? "border-2 border-red-600"
+                    : ""
+                }`}
+                onClick={() => {
+                  if (clickedIndices.includes(index)) {
+                    setClickedIndices(
+                      clickedIndices.filter((i) => i !== index)
+                    );
+                  } else {
+                    setClickedIndices([...clickedIndices, index]);
+                  }
+                }}
+              >
                 <label htmlFor={choice.value}>{choice.label}</label>
                 <input
                   type="checkbox"
+                  className="hidden w-full h-full"
                   id={choice.value}
                   name={choice.value}
                   checked={colors.includes(choice.value)}
@@ -117,7 +137,9 @@ const ItemForm = () => {
                     if (e.target.checked) {
                       setColors([...colors, choice.value]);
                     } else {
-                      setColors(colors.filter((color) => color !== choice.value));
+                      setColors(
+                        colors.filter((color) => color !== choice.value)
+                      );
                     }
                   }}
                 />

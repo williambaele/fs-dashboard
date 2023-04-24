@@ -138,7 +138,7 @@ const ItemBody = ({ item, userItem }) => {
                 <h3 class="text-md text-gray-600 mb-2">Color</h3>
                 <div class="flex items-center space-x-3">
                   {item.colors.map((color) => (
-                    <div className={`rounded-full h-6 w-6 bg-${color}-600`}>
+                    <div title={color} className={`rounded-full h-6 w-6 bg-${color}-600`}>
                     </div>
                   ))}
                 </div>
