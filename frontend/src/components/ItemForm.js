@@ -111,12 +111,14 @@ const ItemForm = () => {
               <div
               htmlFor={choice.value}
                 key={choice.value}
-                className={`bg-white p-2 rounded-lg flex justify-center h-full w-full ${
+
+
+              >
+                <label className={`bg-white p-2 rounded-lg flex justify-center h-full w-full ${
                   clickedIndices.includes(index)
-                    ? "border-2 border-red-600"
+                    ? "border-2 border-slate-300"
                     : ""
-                }`}
-                onClick={() => {
+                }`}   onClick={() => {
                   if (clickedIndices.includes(index)) {
                     setClickedIndices(
                       clickedIndices.filter((i) => i !== index)
@@ -124,12 +126,10 @@ const ItemForm = () => {
                   } else {
                     setClickedIndices([...clickedIndices, index]);
                   }
-                }}
-              >
-                <label htmlFor={choice.value}>{choice.label}</label>
+                }} htmlFor={choice.value}>{choice.label}</label>
                 <input
                   type="checkbox"
-                  className="hidden w-full h-full"
+                  className="hidden"
                   id={choice.value}
                   name={choice.value}
                   checked={colors.includes(choice.value)}
@@ -146,7 +146,6 @@ const ItemForm = () => {
               </div>
             ))}
         </div>
-        {colors}
         <select
           value={size}
           onChange={(e) => setSize(e.target.value)}
