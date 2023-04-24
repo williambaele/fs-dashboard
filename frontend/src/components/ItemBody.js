@@ -136,13 +136,13 @@ const ItemBody = ({ item, userItem }) => {
             <div class="mt-6 space-y-4 md:grid md:grid-cols-2">
               <div>
                 <h3 class="text-md text-gray-600 mb-2">Color</h3>
-                {item.colors}
                 <div class="flex items-center space-x-3">
                   {item.colors.map((color) => (
                     <div className={`rounded-full h-6 w-6 bg-${color}-600`}>
                     </div>
                   ))}
                 </div>
+
               </div>
               <div>
                 <h3 class="text-md text-gray-600 mb-2">Size</h3>
