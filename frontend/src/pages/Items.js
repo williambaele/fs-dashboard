@@ -8,8 +8,6 @@ import SortItems from "../components/SortItems";
 import ItemsFilters from "../components/ItemsFilters";
 import SearchInput from "../components/SearchInput";
 
-
-
 const Items = () => {
   const { items, dispatch } = useItemsContext();
   // const { user } = useAuthContext();
@@ -49,14 +47,13 @@ const Items = () => {
                   Items
                 </h1>
 
-                <div class="flex items-center">
-                  <SearchInput/>
+                <div class="flex items-center gap-4">
+                  <SearchInput />
                   <SortItems />
                   <button
                     type="button"
                     class="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500 lg:hidden"
                   >
-                    <span class="sr-only">Filters</span>
                     <svg
                       class="w-5 h-5"
                       aria-hidden="true"
