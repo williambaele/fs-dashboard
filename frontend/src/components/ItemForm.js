@@ -20,8 +20,17 @@ const ItemForm = () => {
   const [state, setState] = useState("new");
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
+  const colourOptions = [
+    { value: "red", label: "Red" },
+    { value: "blue", label: "Blue" },
+    { value: "white", label: "White" },
+    { value: "orange", label: "Orange" },
+    { value: "braun", label: "Braun" },
+    { value: "grey", label: "Grey" },
+    { value: "black", label: "Black" },
+    { value: "pink", label: "Pink" },
+  ];
 
-  const colourOptions = ["red", "blue", "orange"];
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -49,7 +58,7 @@ const ItemForm = () => {
       setTitle("");
       setBrand("");
       setSize("");
-      setColors([]);
+      setColors([{}]);
       setPrice("");
       setState("");
       setDescription("");
@@ -97,24 +106,25 @@ const ItemForm = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {colourOptions &&
             colourOptions.map((choice) => (
-              <div key={choice}>
-                <label htmlFor={choice}>{choice}</label>
+              <div key={choice.value}>
+                <label htmlFor={choice.value}>{choice.label}</label>
                 <input
                   type="checkbox"
-                  id={choice}
-                  name={choice}
-                  checked={colors.includes(choice)}
+                  id={choice.value}
+                  name={choice.value}
+                  checked={colors.includes(choice.value)}
                   onChange={(e) => {
                     if (e.target.checked) {
-                      setColors([...colors, choice]);
+                      setColors([...colors, choice.value]);
                     } else {
-                      setColors(colors.filter((color) => color !== choice));
+                      setColors(colors.filter((color) => color !== choice.value));
                     }
                   }}
                 />
               </div>
             ))}
         </div>
+        {colors}
         <select
           value={size}
           onChange={(e) => setSize(e.target.value)}
