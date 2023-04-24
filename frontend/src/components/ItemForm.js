@@ -56,8 +56,13 @@ const ItemForm = () => {
       setError(null);
       setEmptyFields([]);
       dispatch({ type: "CREATE_ITEM", payload: json });
-      navigate(`/item/${json._id}`);
-      toast.success("Item created");
+
+      navigate(`/item/${json._id}`, {
+        state: { from: "create" },
+        onAfterNavigate: () => {
+          toast.success("Item created");
+        },
+      });
     }
   };
 
@@ -110,7 +115,6 @@ const ItemForm = () => {
               </div>
             ))}
         </div>
-        {colors}
         <select
           value={size}
           onChange={(e) => setSize(e.target.value)}

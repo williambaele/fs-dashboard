@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Card from "../components/Card";
-import { useAuthContext } from "../hooks/useAuthContext";
+// import { useAuthContext } from "../hooks/useAuthContext";
 import { useItemsContext } from "../hooks/useItemsContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const Items = () => {
   const { items, dispatch } = useItemsContext();
-  const { user } = useAuthContext();
+  // const { user } = useAuthContext();
 
   useEffect(() => {
     const fetchItems = async () => {
