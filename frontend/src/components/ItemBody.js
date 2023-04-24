@@ -1,6 +1,6 @@
 import React from "react";
 
-const ItemBody = ({ item }) => {
+const ItemBody = ({ item, userItem }) => {
   const capitalizeWords = (str) => {
     return str
       .toLowerCase()
@@ -47,7 +47,7 @@ const ItemBody = ({ item }) => {
                       alt=""
                       className="h-10 w-10 rounded-full object-cover"
                     />
-                    <p className="text-lg">Loic2016</p>
+                    <p className="text-lg">{userItem}</p>
                   </div>
                   <div className="grid">
 

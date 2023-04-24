@@ -2,7 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-const Card = ({ item, user }) => {
+const Card = ({ item, user, userPseudo }) => {
   return (
     <div>
       <Link to={`/item/${item._id}`}>
@@ -28,7 +28,7 @@ const Card = ({ item, user }) => {
                   alt=""
                   className="rounded-full h-6 w-6 object-cover"
                 />
-                <span class="text-md font-bold text-slate-900">{user && user.pseudo}</span>
+                <span class="text-md font-bold text-slate-900">{userPseudo}</span>
               </div>
               <div className="flex gap-1 items-center">
                 <span class="text-md font-bold text-slate-900">4.5/5</span>

@@ -9,6 +9,8 @@ const Item = () => {
   const { id } = useParams();
   const [item, setItem] = useState(null);
   // const { user } = useAuthContext();
+  const [userItem, setUserItem] = useState(null);
+
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -19,16 +21,16 @@ const Item = () => {
         setItem(json);
         console.log(json);
         console.log(json.user_id);
-        const user = json.user_id
+        const userItem = json.user_id
         console.log("Going to get user's pseudo");
-        const userResponse = await fetch(`/api/users/${user}`);
+        const userResponse = await fetch(`/api/user/${userItem}`);
         console.log(userResponse);
         const userJson = await userResponse.json();
 
         if (userResponse.ok) {
           const userPseudo = userJson.pseudo;
           console.log(userPseudo);
-          // do something with the user pseudo
+          setUserItem(userPseudo);
         }
       }
     };
@@ -43,7 +45,7 @@ const Item = () => {
         <div className="mx-auto container">
           {item ? (
             <div>
-              <ItemBody item={item} />
+              <ItemBody item={item} userItem={userItem}/>
             </div>
           ) : (
             <p>Loading...</p>

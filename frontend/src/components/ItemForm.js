@@ -13,12 +13,15 @@ const ItemForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("nike");
+  const [colors, setColors] = useState([]);
+
   const [size, setSize] = useState("");
   const [price, setPrice] = useState("");
   const [state, setState] = useState("new");
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
 
+  const choicescolors = ["White", "Red", "Orange", "Blue", "Pink"];
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -26,7 +29,6 @@ const ItemForm = () => {
       setError("You must be logged in");
       return;
     }
-
     const item = { title, brand, size, price, state, description };
 
     const response = await fetch("/api/items", {
@@ -86,6 +88,8 @@ const ItemForm = () => {
           <option value="Jordan">Jordan</option>
           <option value="Yeezy">Yeezy</option>
         </select>
+        {choicescolors &&
+                  choicescolors.map((choice) => <input type="checkbox" onChange={(e) => setColors(e.target.value)} value={choice} name={choice}/>)}
         <select
           value={size}
           onChange={(e) => setSize(e.target.value)}
