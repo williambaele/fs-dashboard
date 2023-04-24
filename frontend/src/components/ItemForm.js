@@ -3,9 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { useItemsContext } from "../hooks/useItemsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { toast } from "react-toastify";
+import Select from 'react-select'
+import makeAnimated from 'react-select/animated';
+
+
 
 const ItemForm = () => {
   const navigate = useNavigate();
+  const animatedComponents = makeAnimated();
 
   const { dispatch } = useItemsContext();
   const { user } = useAuthContext();
@@ -21,7 +26,11 @@ const ItemForm = () => {
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
 
-  const choicescolors = ["White", "Red", "Orange", "Blue", "Pink"];
+  const colourOptions = [
+    { value: 'red', label: 'Red' },
+    { value: 'blue', label: 'Blue' },
+    { value: 'vanilla', label: 'Vanilla' }
+  ]
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -88,11 +97,13 @@ const ItemForm = () => {
           <option value="Jordan">Jordan</option>
           <option value="Yeezy">Yeezy</option>
         </select>
-        <div className="grid grid-cols-4 gap-4">
-
-        {choicescolors &&
-                  choicescolors.map((choice) => <div><label for={choice}>{choice}</label><input type="checkbox" id={choice} onChange={(e) => setColors(e.target.value)} value={choice} name={choice}/></div>)}
-          </div>
+        <Select
+      closeMenuOnSelect={false}
+      components={animatedComponents}
+      defaultValue={[colourOptions[4], colourOptions[5]]}
+      isMulti
+      options={colourOptions}
+    />
         <select
           value={size}
           onChange={(e) => setSize(e.target.value)}
