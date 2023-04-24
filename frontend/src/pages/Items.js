@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 // import { useAuthContext } from "../hooks/useAuthContext";
 import { useItemsContext } from "../hooks/useItemsContext";
@@ -11,6 +11,11 @@ import SearchInput from "../components/SearchInput";
 const Items = () => {
   const { items, dispatch } = useItemsContext();
   // const { user } = useAuthContext();
+  const [search, setSearch] = useState("");
+
+  const handleSearchChange = (searchValue) => {
+    setSearch(searchValue);
+  };
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -48,7 +53,7 @@ const Items = () => {
                 </h1>
 
                 <div class="flex items-center gap-4">
-                  <SearchInput />
+                  <SearchInput onSearchChange={handleSearchChange} />
                   <SortItems />
                   <button
                     type="button"
@@ -76,9 +81,13 @@ const Items = () => {
                   <div class="lg:col-span-3">
                     <div class="grid md:grid-cols-3 p-2 gap-4 lg:h-full">
                       {items &&
-                        items.map((item) => (
-                          <Card key={item._id} item={item} />
-                        ))}
+                        items
+                          .filter((item) =>
+                            item.title
+                              .toLowerCase()
+                              .includes(search.toLowerCase())
+                          )
+                          .map((item) => <Card key={item._id} item={item} />)}
                     </div>
                   </div>
                 </div>

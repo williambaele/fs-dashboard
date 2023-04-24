@@ -1,6 +1,10 @@
 import React from "react";
 
-const SearchInput = () => {
+const SearchInput = ({ onSearchChange }) => {
+  const handleSearchChange = (e) => {
+    const searchValue = e.target.value;
+    onSearchChange(searchValue);
+  };
   return (
     <div>
       <form>
@@ -23,6 +27,8 @@ const SearchInput = () => {
             </svg>
           </div>
           <input
+                    onChange={handleSearchChange}
+
             type="search"
             id="default-search"
             class="block w-full p-2 pl-10 text-sm text-gray-500 outline-none"
