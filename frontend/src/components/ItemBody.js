@@ -141,6 +141,7 @@ const ItemBody = ({ item, userItem }) => {
             <div class="mt-6 space-y-4 md:grid md:grid-cols-2">
               <div>
                 <h3 class="text-md text-gray-600 mb-2">Color</h3>
+                <p>{item.colors}</p>
                 <div class="flex items-center space-x-3">
                   <div className="rounded-full h-6 w-6 bg-red-600"></div>
                   <div className="rounded-full h-6 w-6 bg-black"></div>

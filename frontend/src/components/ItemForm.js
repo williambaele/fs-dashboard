@@ -3,14 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useItemsContext } from "../hooks/useItemsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { toast } from "react-toastify";
-import Select from 'react-select'
-import makeAnimated from 'react-select/animated';
-
-
 
 const ItemForm = () => {
   const navigate = useNavigate();
-  const animatedComponents = makeAnimated();
 
   const { dispatch } = useItemsContext();
   const { user } = useAuthContext();
@@ -20,17 +15,13 @@ const ItemForm = () => {
   const [brand, setBrand] = useState("nike");
   const [colors, setColors] = useState([]);
 
-  const [size, setSize] = useState("");
+  const [size, setSize] = useState("35.5");
   const [price, setPrice] = useState("");
   const [state, setState] = useState("new");
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
 
-  const colourOptions = [
-    { value: 'red', label: 'Red' },
-    { value: 'blue', label: 'Blue' },
-    { value: 'vanilla', label: 'Vanilla' }
-  ]
+  const colourOptions = ["Red", "Blue", "Orange"];
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -38,7 +29,7 @@ const ItemForm = () => {
       setError("You must be logged in");
       return;
     }
-    const item = { title, brand, size, price, state, description };
+    const item = { title, brand, size, price, state, description, colors };
 
     const response = await fetch("/api/items", {
       method: "POST",
@@ -58,6 +49,7 @@ const ItemForm = () => {
       setTitle("");
       setBrand("");
       setSize("");
+      setColors([]);
       setPrice("");
       setState("");
       setDescription("");
@@ -97,13 +89,28 @@ const ItemForm = () => {
           <option value="Jordan">Jordan</option>
           <option value="Yeezy">Yeezy</option>
         </select>
-        <Select
-      closeMenuOnSelect={false}
-      components={animatedComponents}
-      defaultValue={[colourOptions[4], colourOptions[5]]}
-      isMulti
-      options={colourOptions}
-    />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {colourOptions &&
+            colourOptions.map((choice) => (
+              <div key={choice}>
+                <label htmlFor={choice}>{choice}</label>
+                <input
+                  type="checkbox"
+                  id={choice}
+                  name={choice}
+                  checked={colors.includes(choice)}
+                  onChange={(e) => {
+                    if (e.target.checked) {
+                      setColors([...colors, choice]);
+                    } else {
+                      setColors(colors.filter((color) => color !== choice));
+                    }
+                  }}
+                />
+              </div>
+            ))}
+        </div>
+        {colors}
         <select
           value={size}
           onChange={(e) => setSize(e.target.value)}
