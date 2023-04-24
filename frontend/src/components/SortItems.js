@@ -7,7 +7,7 @@ const SortItems = () => {
         <div>
           <button
             type="button"
-            class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900"
+            class="group inline-flex justify-center text-sm font-medium text-gray-500 hover:text-gray-900"
             id="menu-button"
             aria-expanded="false"
             aria-haspopup="true"
