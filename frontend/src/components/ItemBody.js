@@ -125,9 +125,6 @@ const ItemBody = ({ item, userItem }) => {
             <div class="mt-3">
               <h2 class="sr-only">Product information</h2>
               <p class="text-3xl text-gray-900">{item.price} €</p>
-              {/* <p class="text-3xl text-gray-900">
-                User: {item.user_id.slice(0, 10)}
-              </p> */}
             </div>
 
             <div class="mt-6">
@@ -139,10 +136,10 @@ const ItemBody = ({ item, userItem }) => {
             <div class="mt-6 space-y-4 md:grid md:grid-cols-2">
               <div>
                 <h3 class="text-md text-gray-600 mb-2">Color</h3>
+                {item.colors}
                 <div class="flex items-center space-x-3">
                   {item.colors.map((color) => (
                     <div className={`rounded-full h-6 w-6 bg-${color}-600`}>
-                      <p>{color}</p>
                     </div>
                   ))}
                 </div>
