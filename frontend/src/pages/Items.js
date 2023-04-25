@@ -102,6 +102,7 @@ const Items = () => {
                           <Card key={item._id} item={item} />
                         ))}
                       {/* <Pagination
+
                         totalPosts={items.length}
                         postsPerPage={postsPerPage}
                         setCurrentPage={setCurrentPage}
