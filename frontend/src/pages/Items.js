@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import SortItems from "../components/SortItems";
 import ItemsFilters from "../components/ItemsFilters";
 import SearchInput from "../components/SearchInput";
-import Pagination from "../components/Pagination";
+// import Pagination from "../components/Pagination";
 
 const Items = () => {
   const { items, dispatch } = useItemsContext();
@@ -18,12 +18,6 @@ const Items = () => {
     setSearch(searchValue);
   };
 
-  // PAGINATION //
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(12);
-  const lastPostIndex = currentPage * postsPerPage;
-  const firstPostIndex = lastPostIndex - postsPerPage;
-  const currentPosts = items.slice(firstPostIndex, lastPostIndex)
   // LOOP TO GET ITEMS//
   useEffect(() => {
     const fetchItems = async () => {
@@ -38,27 +32,35 @@ const Items = () => {
     fetchItems();
   }, [dispatch]);
 
+  // PAGINATION //
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [postsPerPage] = useState(20);
+  // const lastPostIndex = currentPage * postsPerPage;
+  // const firstPostIndex = lastPostIndex - postsPerPage;
+
+  // const currentPosts = items.slice(firstPostIndex, lastPostIndex);
+
 
   return (
     <div>
       <Navbar />
       <div className="bg-[#F0F0F0]">
-        <div class="bg-white">
+        <div className="bg-white">
           <div>
             <div
-              class="fixed inset-0 flex z-40 lg:hidden"
+              className="fixed inset-0 flex z-40 lg:hidden"
               role="dialog"
               aria-modal="true"
             >
               <div
-                class="fixed inset-0 bg-black bg-opacity-25"
+                className="fixed inset-0 bg-black bg-opacity-25"
                 aria-hidden="true"
               ></div>
             </div>
 
-            <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div class="relative z-10 flex items-baseline justify-between pt-24 pb-6 border-b border-gray-200">
-                <h1 class="text-4xl font-extrabold tracking-tight text-gray-900">
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="relative z-10 flex items-baseline justify-between pt-24 pb-6 border-b border-gray-200">
+                <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">
                   Items
                 </h1>
 
@@ -70,7 +72,7 @@ const Items = () => {
                     class="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500 lg:hidden"
                   >
                     <svg
-                      class="w-5 h-5"
+                      className="w-5 h-5"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
@@ -85,20 +87,26 @@ const Items = () => {
                   </button>
                 </div>
               </div>
-              <section class="pt-6 pb-24">
-                <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10 ">
+              <section className="pt-6 pb-24">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10 ">
                   <ItemsFilters />
-                  <div class="lg:col-span-3">
-                    <div class="grid md:grid-cols-3 p-2 gap-4 lg:h-full">
-                      {currentPosts &&
-                        currentPosts
-                          .filter((item) =>
-                            item.title
-                              .toLowerCase()
-                              .includes(search.toLowerCase())
-                          )
-                          .map((item) => <Card key={item._id} item={item} />)}
-                          <Pagination totalPosts={items.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+                  <div className="lg:col-span-3">
+                    <div className="grid md:grid-cols-3 p-2 gap-4 lg:h-full">
+                      {items && items
+                        .filter((item) =>
+                          item.title
+                            .toLowerCase()
+                            .includes(search.toLowerCase())
+                        )
+                        .map((item) => (
+                          <Card key={item._id} item={item} />
+                        ))}
+                      {/* <Pagination
+                        totalPosts={items.length}
+                        postsPerPage={postsPerPage}
+                        setCurrentPage={setCurrentPage}
+                        currentPage={currentPage}
+                      /> */}
                     </div>
                   </div>
                 </div>

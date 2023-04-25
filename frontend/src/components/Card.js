@@ -2,7 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-const Card = ({ item, user, userPseudo }) => {
+const Card = ({ item, userPseudo }) => {
   return (
     <div>
       <Link to={`/item/${item._id}`}>
