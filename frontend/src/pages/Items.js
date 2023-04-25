@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import SortItems from "../components/SortItems";
 import ItemsFilters from "../components/ItemsFilters";
 import SearchInput from "../components/SearchInput";
+import Pagination from "../components/Pagination";
 
 const Items = () => {
   const { items, dispatch } = useItemsContext();
@@ -97,6 +98,7 @@ const Items = () => {
                               .includes(search.toLowerCase())
                           )
                           .map((item) => <Card key={item._id} item={item} />)}
+                          <Pagination totalPosts={items.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
                     </div>
                   </div>
                 </div>
