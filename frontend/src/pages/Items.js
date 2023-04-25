@@ -10,18 +10,20 @@ import SearchInput from "../components/SearchInput";
 
 const Items = () => {
   const { items, dispatch } = useItemsContext();
-  // const { user } = useAuthContext();
-  const [search, setSearch] = useState("");
 
+  // SEARCH METHOD//
+  const [search, setSearch] = useState("");
   const handleSearchChange = (searchValue) => {
     setSearch(searchValue);
   };
 
+  // PAGINATION //
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(12);
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
-
+  const currentPosts = items.slice(firstPostIndex, lastPostIndex)
+  // LOOP TO GET ITEMS//
   useEffect(() => {
     const fetchItems = async () => {
       const response = await fetch("/api/items");
@@ -34,6 +36,8 @@ const Items = () => {
 
     fetchItems();
   }, [dispatch]);
+
+
   return (
     <div>
       <Navbar />
@@ -85,8 +89,8 @@ const Items = () => {
                   <ItemsFilters />
                   <div class="lg:col-span-3">
                     <div class="grid md:grid-cols-3 p-2 gap-4 lg:h-full">
-                      {items &&
-                        items
+                      {currentPosts &&
+                        currentPosts
                           .filter((item) =>
                             item.title
                               .toLowerCase()
