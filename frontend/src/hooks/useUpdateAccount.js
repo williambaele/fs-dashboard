@@ -1,41 +1,25 @@
-import { useAuthContext } from './useAuthContext';
-import { useState } from 'react';
+import { useState } from "react";
+import { useAuthContext } from './useAuthContext'
 
-export const useUpdateAccount = () => {
-  const [error, setError] = useState(null);
+import axios from "axios";
+
+export const useUpdateAccount = ({ user }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const { state, dispatch } = useAuthContext();
-
-  const updateAccount = async (data) => {
+  const updateAccount = async (newPseudo) => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch(`/api/user/update/${state.user.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${state.user.token}`,
-      },
-      body: JSON.stringify(data),
-    });
-
-    const json = await response.json();
-
-    if (!response.ok) {
+    try {
+      const response = await axios.patch(`/users/${user.id}`, {
+        pseudo: newPseudo,
+      });
       setIsLoading(false);
-      setError(json.error);
-    }
-
-    if (response.ok) {
-      localStorage.setItem(
-        'user',
-        JSON.stringify({ ...state.user, ...json })
-      );
-
-      dispatch({ type: 'UPDATE_ACCOUNT', payload: json });
-
+      return response.data;
+    } catch (error) {
       setIsLoading(false);
+      setError(error.response.data.error);
     }
   };
 

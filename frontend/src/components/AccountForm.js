@@ -3,13 +3,14 @@ import { useUpdateAccount } from "../hooks/useUpdateAccount";
 
 const AccountForm = ({ user }) => {
   const [newPseudo, setNewPseudo] = useState("");
-  const { updateAccount, error, isLoading } = useUpdateAccount();
+  const { updateAccount, error, isLoading } = useUpdateAccount({ user });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await updateAccount(newPseudo);
     setNewPseudo("");
   };
+
 
 
   return (
@@ -47,7 +48,7 @@ const AccountForm = ({ user }) => {
                         value={newPseudo}
                         onChange={(e) => setNewPseudo(e.target.value)}
                         autoComplete="given-name"
-                        className="p-2 border-0 rounded-lg w-full md:w-1/2 outline-none"
+                        className="p-2 border-0 rounded-lg w-full md:w-1/2 focus:outline-none"
                       />
                       {newPseudo}
                     </div>
