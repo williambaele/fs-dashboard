@@ -34,12 +34,11 @@ const Items = () => {
 
     fetchItems();
   }, [dispatch]);
+  console.log(items);
 
-  // const lastPostIndex = currentPage * postsPerPage;
-  // const firstPostIndex = lastPostIndex - postsPerPage;
-
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
   // const currentPosts = items.slice(firstPostIndex, lastPostIndex);
-
 
   return (
     <div>
@@ -92,15 +91,14 @@ const Items = () => {
                   <ItemsFilters />
                   <div className="lg:col-span-3">
                     <div className="grid md:grid-cols-3 p-2 gap-4 lg:h-full">
-                      {items && items
-                        .filter((item) =>
-                          item.title
-                            .toLowerCase()
-                            .includes(search.toLowerCase())
-                        )
-                        .map((item) => (
-                          <Card key={item._id} item={item} />
-                        ))}
+                      {items &&
+                        items
+                          .filter((item) =>
+                            item.title
+                              .toLowerCase()
+                              .includes(search.toLowerCase())
+                          )
+                          .map((item) => <Card key={item._id} item={item} />)}
                       {/* <Pagination
 
                         totalPosts={items.length}
