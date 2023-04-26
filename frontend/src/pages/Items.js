@@ -12,13 +12,14 @@ import SearchInput from "../components/SearchInput";
 const Items = () => {
   const { items, dispatch } = useItemsContext();
   //PAGINATION
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(20);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [postsPerPage] = useState(20);
 
   // SEARCH METHOD//
   const [search, setSearch] = useState("");
   const handleSearchChange = (searchValue) => {
     setSearch(searchValue);
+    // setCurrentPage(1);
   };
 
   // LOOP TO GET ITEMS//
@@ -36,10 +37,11 @@ const Items = () => {
   }, [dispatch]);
   console.log(items);
 
-  const lastPostIndex = currentPage * postsPerPage;
-  const firstPostIndex = lastPostIndex - postsPerPage;
-  // const currentPosts = items.slice(firstPostIndex, lastPostIndex);
-
+  // const lastPostIndex = currentPage * postsPerPage;
+  // const firstPostIndex = lastPostIndex - postsPerPage;
+  // const currentPosts =
+  //   items.length > 0 ? items.slice(firstPostIndex, lastPostIndex) : [];
+  // console.log(currentPosts);
   return (
     <div>
       <Navbar />
@@ -91,16 +93,16 @@ const Items = () => {
                   <ItemsFilters />
                   <div className="lg:col-span-3">
                     <div className="grid md:grid-cols-3 p-2 gap-4 lg:h-full">
-                      {items &&
-                        items
-                          .filter((item) =>
-                            item.title
-                              .toLowerCase()
-                              .includes(search.toLowerCase())
-                          )
-                          .map((item) => <Card key={item._id} item={item} />)}
+                      {items && items
+                        .filter((item) =>
+                          item.title
+                            .toLowerCase()
+                            .includes(search.toLowerCase())
+                        )
+                        .map((item) => (
+                          <Card key={item._id} item={item} />
+                        ))}
                       {/* <Pagination
-
                         totalPosts={items.length}
                         postsPerPage={postsPerPage}
                         setCurrentPage={setCurrentPage}

@@ -1,42 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Pagination = ({ totalItems, itemsPerPage, onPageChange }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+const Pagination = ({
+  totalPosts,
+  postsPerPage,
+  setCurrentPage,
+  currentPage
+}) => {
+  let pages = [];
 
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
-
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    onPageChange(pageNumber);
-  };
-
-  const generatePageNumbers = () => {
-    const pageNumbers = [];
-    for (let i = 1; i <= totalPages; i++) {
-      pageNumbers.push(i);
-    }
-    return pageNumbers;
-  };
-
+  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+    pages.push(i);
+  }
   return (
-    <nav className="flex justify-center" aria-label="Pagination">
-      <ul className="flex">
-        {generatePageNumbers().map((pageNumber) => (
-          <li key={pageNumber}>
-            <button
-              className={`px-4 py-2 rounded-full ${
-                pageNumber === currentPage
-                  ? "bg-gray-900 text-white"
-                  : "bg-gray-200 text-gray-900"
-              }`}
-              onClick={() => handlePageChange(pageNumber)}
-            >
-              {pageNumber}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div>
+      {pages.map((page, index) => {
+        return (
+          <button
+            key={index}
+            onClick={() => setCurrentPage(page)}
+            className={page === currentPage ? "bg-red-600" : ""}
+          >
+            {page}
+          </button>
+        );
+      })}
+    </div>
   );
 };
 
