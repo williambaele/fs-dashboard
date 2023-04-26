@@ -3,11 +3,8 @@ import { Link } from "react-router-dom";
 
 const CategoryCards = () => {
   return (
-    <div>
-      <div
-        aria-labelledby="category-heading"
-        class="pt-24 sm:pt-32 xl:max-w-7xl xl:mx-auto xl:px-8 my-10"
-      >
+    <div className="bg-slate-100">
+      <div class="py-24  sm:pt-32 xl:max-w-7xl xl:mx-auto xl:px-8">
         <div class="px-4 sm:px-6 sm:flex sm:items-center sm:justify-between lg:px-8 xl:px-0">
           <h2
             id="category-heading"
@@ -22,7 +19,7 @@ const CategoryCards = () => {
           </Link>
         </div>
 
-        <div class="mt-4 flow-root">
+        <div class="mt-4">
           <div class="-my-2">
             <div class="box-content py-2 relative h-80 overflow-x-auto xl:overflow-visible">
               <div class="absolute min-w-screen-xl px-4 flex space-x-8 sm:px-6 lg:px-8 xl:relative xl:px-0 xl:space-x-0 xl:grid xl:grid-cols-5 xl:gap-x-8">

@@ -49,7 +49,7 @@ const Steps = () => {
           </div>
           <div className="p-5 duration-300 transform bg-white border rounded shadow-sm hover:-translate-y-2">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-lg font-bold leading-5">Believe</p>
+              <p className="text-lg font-bold leading-5">Search your gem</p>
               <p className="flex items-center justify-center w-6 h-6 font-bold rounded text-deep-purple-accent-400 bg-indigo-50">
                 1
               </p>
@@ -61,7 +61,7 @@ const Steps = () => {
           </div>
           <div className="p-5 duration-300 transform bg-white border rounded shadow-sm hover:-translate-y-2">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-lg font-bold leading-5">Be yourself</p>
+              <p className="text-lg font-bold leading-5">Find your pair</p>
               <p className="flex items-center justify-center w-6 h-6 font-bold rounded text-deep-purple-accent-400 bg-indigo-50">
                 2
               </p>
@@ -73,7 +73,7 @@ const Steps = () => {
           </div>
           <div className="p-5 duration-300 transform bg-white border rounded shadow-sm hover:-translate-y-2">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-lg font-bold leading-5">Just do it</p>
+              <p className="text-lg font-bold leading-5">Bargain the price</p>
               <p className="flex items-center justify-center w-6 h-6 font-bold rounded text-deep-purple-accent-400 bg-indigo-50">
                 3
               </p>
@@ -85,7 +85,7 @@ const Steps = () => {
           </div>
           <div className="p-5 duration-300 transform bg-white border rounded shadow-sm hover:-translate-y-2">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-lg font-bold leading-5">Eat that</p>
+              <p className="text-lg font-bold leading-5">Enjoy your new pair</p>
               <p className="flex items-center justify-center w-6 h-6 font-bold rounded text-deep-purple-accent-400 bg-indigo-50">
                 4
               </p>
@@ -99,9 +99,9 @@ const Steps = () => {
         <div className="text-center">
           <a
             href="/"
-            className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+            className="inline-flex rounded items-center justify-center w-fit h-12 px-6 font-medium tracking-wide text-gray-300 transition bg-slate-100 focus:outline-none"
           >
-            Learn more
+            Search my pair
           </a>
         </div>
       </div>
