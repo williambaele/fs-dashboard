@@ -36,11 +36,13 @@ const AccountForm = ({user}) => {
                         type="text"
                         name="first-name"
                         id="first-name"
-                        value={user.pseudo}
-                        placeholder={user.pseudo}
+                        value={newPseudo && newPseudo}
+                        placeholder={user.pseudo || newPseudo}
+                        onChange={(e) => setNewPseudo(e.target.value)}
                         autocomplete="given-name"
                         className="p-2 border-0 rounded-lg w-full md:w-1/2 outline-none"
                       />
+                      {newPseudo}
                     </div>
                   </div>
 
