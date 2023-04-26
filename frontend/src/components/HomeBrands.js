@@ -2,7 +2,7 @@ import React from "react";
 
 const HomeBrands = () => {
   return (
-    <div className="bg-[#F0F0F0]">
+    <div>
       <section>
         <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
           <header class="text-center">
