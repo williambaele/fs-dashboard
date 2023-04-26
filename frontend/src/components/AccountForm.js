@@ -1,15 +1,24 @@
 import React, { useState } from "react";
+import { useUpdateAccount } from "../hooks/useUpdateAccount";
 
-const AccountForm = ({user}) => {
+const AccountForm = ({ user }) => {
+  const [newPseudo, setNewPseudo] = useState("");
+  const { updateAccount, error, isLoading } = useUpdateAccount();
 
 
-  const [newPseudo, setNewPseudo]= useState("");
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await updateAccount(newPseudo);
+  };
 
   return (
     <div>
-      <div className="py-14">
-        <form class="space-y-8 divide-y divide-gray-200">
+      <div className="py-24">
+        <form
+          class="space-y-8 divide-y divide-gray-200"
+          onSubmit={handleSubmit}
+        >
           <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
             <div>
               <div>
@@ -59,34 +68,13 @@ const AccountForm = ({user}) => {
                         name="email"
                         type="email"
                         value={user.email}
-
                         autocomplete="email"
                         className="p-2 border-0 rounded-lg w-full md:w-1/2 outline-none"
                       />
                     </div>
                   </div>
                 </div>
-                <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                  <label
-                    for="about"
-                    class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
-                  >
-                    About
-                  </label>
-                  <div class="mt-1 sm:mt-0 sm:col-span-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      rows="3"
-                      className="p-2 border-0 rounded-lg w-full md:w-1/2 outline-none"
-                    ></textarea>
-                    <p class="mt-2 text-sm text-gray-500">
-                      Write a few sentences about yourself.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-center sm:border-t sm:border-gray-200 sm:pt-5">
+                {/* <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-center sm:border-t sm:border-gray-200 sm:pt-5">
                   <label
                     for="photo"
                     class="block text-sm font-medium text-gray-700"
@@ -112,7 +100,7 @@ const AccountForm = ({user}) => {
                       </button>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -121,13 +109,14 @@ const AccountForm = ({user}) => {
             <div class="flex justify-end">
               <button
                 type="button"
-                class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >
+                onClick={(e) => setNewPseudo("")}
+                className={newPseudo === "" ? "hidden" : "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-400 hover:bg-gray-500 focus:outline-none focus:ring-2"}
+                >
                 Cancel
               </button>
               <button
+              className={newPseudo === "" ? "hidden" : "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#F45050] hover:bg-[#f56262] focus:outline-none focus:ring-2"}
                 type="submit"
-                class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#F45050] hover:bg-[#f56262] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Save
               </button>
