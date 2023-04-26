@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 const AccountForm = ({user}) => {
+
+
+  const [newPseudo, setNewPseudo]= useState("");
+
+
   return (
     <div>
       <div className="py-14">
