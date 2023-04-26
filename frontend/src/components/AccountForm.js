@@ -5,12 +5,12 @@ const AccountForm = ({ user }) => {
   const [newPseudo, setNewPseudo] = useState("");
   const { updateAccount, error, isLoading } = useUpdateAccount();
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     await updateAccount(newPseudo);
+    setNewPseudo("");
   };
+
 
   return (
     <div>
@@ -43,12 +43,10 @@ const AccountForm = ({ user }) => {
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                       <input
                         type="text"
-                        name="first-name"
-                        id="first-name"
-                        value={newPseudo && newPseudo}
-                        placeholder={user.pseudo || newPseudo}
+                        placeholder={user.pseudo}
+                        value={newPseudo}
                         onChange={(e) => setNewPseudo(e.target.value)}
-                        autocomplete="given-name"
+                        autoComplete="given-name"
                         className="p-2 border-0 rounded-lg w-full md:w-1/2 outline-none"
                       />
                       {newPseudo}
@@ -110,12 +108,20 @@ const AccountForm = ({ user }) => {
               <button
                 type="button"
                 onClick={(e) => setNewPseudo("")}
-                className={newPseudo === "" ? "hidden" : "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-400 hover:bg-gray-500 focus:outline-none focus:ring-2"}
-                >
+                className={
+                  newPseudo === ""
+                    ? "hidden"
+                    : "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-400 hover:bg-gray-500 focus:outline-none focus:ring-2"
+                }
+              >
                 Cancel
               </button>
               <button
-              className={newPseudo === "" ? "hidden" : "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#F45050] hover:bg-[#f56262] focus:outline-none focus:ring-2"}
+                className={
+                  newPseudo === ""
+                    ? "hidden"
+                    : "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#F45050] hover:bg-[#f56262] focus:outline-none focus:ring-2"
+                }
                 type="submit"
               >
                 Save
