@@ -11,6 +11,9 @@ import SearchInput from "../components/SearchInput";
 
 const Items = () => {
   const { items, dispatch } = useItemsContext();
+  //PAGINATION
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(20);
 
   // SEARCH METHOD//
   const [search, setSearch] = useState("");
@@ -32,9 +35,6 @@ const Items = () => {
     fetchItems();
   }, [dispatch]);
 
-  // PAGINATION //
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [postsPerPage] = useState(20);
   // const lastPostIndex = currentPage * postsPerPage;
   // const firstPostIndex = lastPostIndex - postsPerPage;
 
