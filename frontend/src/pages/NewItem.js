@@ -1,5 +1,5 @@
 import React from "react";
-import ItemForm from "../components/ItemForm";
+// import ItemForm from "../components/ItemForm";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -8,7 +8,7 @@ const NewItem = () => {
     <div className="min-h-screen bg-slate-100">
       <Navbar />
       <div className="mx-auto container">
-        <ItemForm />
+        {/* <ItemForm /> */}
       </div>
       <Footer />
     </div>
