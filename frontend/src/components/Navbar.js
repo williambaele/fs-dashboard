@@ -10,7 +10,7 @@ const Navbar = () => {
 
   const handleClick = () => {
     logout();
-    toast.success('Logged out');
+    toast.success("Logged out");
   };
 
   const [showDropdown, setShowDropdown] = useState(false);
@@ -25,19 +25,15 @@ const Navbar = () => {
         <div class="flex items-center justify-between gap-4 lg:gap-10">
           <div class="flex lg:w-0 lg:flex-1">
             <Link to="/">
-              <span class="sr-only">Logo</span>
-              <span class="inline-block h-10 w-32 bg-white rounded-lg  flex items-center justify-center text-white font-bold">
+              <span class="h-10 w-32 bg-white rounded-lg  flex items-center justify-center text-white font-bold">
                 T-Budy
               </span>
             </Link>
           </div>
 
-          <nav
-            aria-label="Site Nav"
-            class="hidden gap-8 text-sm font-medium md:flex text-white"
-          >
-            <Link to="/items">
-              <p>Items</p>
+          <nav class="hidden gap-8 text-sm font-medium md:flex text-white">
+            <Link to="/articles">
+              <p>Articles</p>
             </Link>
           </nav>
 
