@@ -9,7 +9,7 @@ import ItemsFilters from "../components/ItemsFilters";
 import SearchInput from "../components/SearchInput";
 // import Pagination from "../components/Pagination";
 
-const Items = () => {
+const Articles = () => {
   const { items, dispatch } = useItemsContext();
   //PAGINATION
   // const [currentPage, setCurrentPage] = useState(1);
@@ -121,4 +121,4 @@ const Items = () => {
   );
 };
 
-export default Items;
+export default Articles;

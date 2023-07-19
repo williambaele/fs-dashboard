@@ -9,7 +9,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import NewItem from "./pages/NewItem";
-import Items from "./pages/Items";
+import Articles from "./pages/Articles";
 import Item from "./pages/Item";
 import Account from "./pages/Account";
 
@@ -25,7 +25,7 @@ function App() {
               path="/new-item"
               element={user ? <NewItem /> : <Navigate to="/login" />}
             />
-            <Route path="/items" element={<Items />} />
+            <Route path="/articles" element={<Articles />} />
             <Route
               path="/signup"
               element={!user ? <Signup /> : <Navigate to="/" />}
