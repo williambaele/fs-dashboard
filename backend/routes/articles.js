@@ -32,23 +32,23 @@
 // module.exports = router
 const express = require('express')
 const {
-  createItem,
-  getItems,
-  getItem,
-  deleteItem,
-  updateItem
-} = require('../controllers/itemController')
+  createArticle,
+  getArticles,
+  getArticle,
+  deleteArticle,
+  updateArticle
+} = require('../controllers/articleController')
 const requireAuth = require('../middleware/requireAuth')
 
 const router = express.Router()
 
 // require auth only for create, update, and delete routes
-router.post('/', requireAuth, createItem)
-router.delete('/:id', requireAuth, deleteItem)
-router.patch('/:id', requireAuth, updateItem)
+router.post('/', requireAuth, createArticle)
+router.delete('/:id', requireAuth, deleteArticle)
+router.patch('/:id', requireAuth, updateArticle)
 
 // GET routes don't require auth
-router.get('/', getItems)
-router.get('/:id', getItem)
+router.get('/', getArticles)
+router.get('/:id', getArticle)
 
 module.exports = router

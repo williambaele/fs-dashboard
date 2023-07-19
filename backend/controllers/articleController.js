@@ -1,35 +1,35 @@
-const Item = require('../models/itemModel')
+const Article = require('../models/articleModel')
 const mongoose = require('mongoose')
 
 // get all items
-const getItems = async (req, res) => {
+const getArticles = async (req, res) => {
 
   // const user_id = req.user._id
-  const items = await Item.find({}).sort({createdAt: -1})
+  const articles = await Article.find({}).sort({createdAt: -1})
 
-  res.status(200).json(items)
+  res.status(200).json(articles)
 }
 
 // get a single item
-const getItem = async (req, res) => {
+const getArticle = async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({error: 'No such item'})
   }
 
-  const item = await Item.findById(id)
+  const article = await Article.findById(id)
 
-  if (!item) {
+  if (!article) {
     return res.status(404).json({error: 'No such item'})
   }
 
-  res.status(200).json(item)
+  res.status(200).json(article)
 }
 
 
 // create new item
-const createItem = async (req, res) => {
+const createArticle = async (req, res) => {
   const {title, brand, size, price, description, state, colors} = req.body
 
   let emptyFields = []
@@ -62,54 +62,54 @@ const createItem = async (req, res) => {
   // add doc to db
   try {
     const user_id = req.user._id
-    const item = await Item.create({title, brand, size, price, state, colors, description, user_id})
-    res.status(200).json(item)
+    const article = await Article.create({title, brand, size, price, state, colors, description, user_id})
+    res.status(200).json(article)
   } catch (error) {
     res.status(400).json({error: error.message})
   }
 }
 
 // delete an item
-const deleteItem = async (req, res) => {
+const deleteArticle = async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({error: 'No such item'})
   }
 
-  const item = await Item.findOneAndDelete({_id: id})
+  const article = await Article.findOneAndDelete({_id: id})
 
-  if (!item) {
+  if (!article) {
     return res.status(400).json({error: 'No such item'})
   }
 
-  res.status(200).json(item)
+  res.status(200).json(article)
 }
 
 // update a item
-const updateItem = async (req, res) => {
+const updateArticle = async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({error: 'No such item'})
   }
 
-  const item = await Item.findOneAndUpdate({_id: id}, {
+  const article = await Article.findOneAndUpdate({_id: id}, {
     ...req.body
   })
 
-  if (!item) {
+  if (!article) {
     return res.status(400).json({error: 'No such item'})
   }
 
-  res.status(200).json(item)
+  res.status(200).json(article)
 }
 
 
 module.exports = {
-  getItems,
-  getItem,
-  createItem,
-  deleteItem,
-  updateItem
+  getArticles,
+  getArticle,
+  createArticle,
+  deleteArticle,
+  updateArticle
 }
