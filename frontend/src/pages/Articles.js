@@ -1,26 +1,26 @@
 import React, { useEffect } from "react";
-import { useItemsContext } from "../hooks/useItemsContext";
+import { useArticlesContext } from "../hooks/useArticlesContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 
 const Articles = () => {
-  const { items, dispatch } = useItemsContext();
+  const { articles, dispatch } = useArticlesContext();
 
-  // LOOP TO GET ITEMS//
+  // LOOP TO GET ARTICLES//
   useEffect(() => {
-    const fetchItems = async () => {
-      const response = await fetch("/api/items");
+    const fetchArticles = async () => {
+      const response = await fetch("/api/artciles");
       const json = await response.json();
 
       if (response.ok) {
-        dispatch({ type: "SET_ITEMS", payload: json });
+        dispatch({ type: "SET_ARTICLES", payload: json });
       }
     };
 
-    fetchItems();
+    fetchArticles();
   }, [dispatch]);
-  console.log(items);
+  console.log(articles);
 
   // const lastPostIndex = currentPage * postsPerPage;
   // const firstPostIndex = lastPostIndex - postsPerPage;
