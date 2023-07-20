@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useArticlesContext } from "../hooks/useArticlesContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
+import ArticleCard from "../components/ArticleCard";
 
 const Articles = () => {
   const { articles, dispatch } = useArticlesContext();
@@ -10,7 +10,7 @@ const Articles = () => {
   // LOOP TO GET ARTICLES//
   useEffect(() => {
     const fetchArticles = async () => {
-      const response = await fetch("/api/artciles");
+      const response = await fetch("/api/articles");
       const json = await response.json();
 
       if (response.ok) {
@@ -22,16 +22,13 @@ const Articles = () => {
   }, [dispatch]);
   console.log(articles);
 
-  // const lastPostIndex = currentPage * postsPerPage;
-  // const firstPostIndex = lastPostIndex - postsPerPage;
-  // const currentPosts =
-  //   items.length > 0 ? items.slice(firstPostIndex, lastPostIndex) : [];
-  // console.log(currentPosts);
   return (
     <div>
       <Navbar />
       <div className="bg-[#F0F0F0] h-screen">
-
+        {articles.map((article) => (
+          <ArticleCard key={article._id} article={article} />
+        ))}
       </div>
       <Footer />
     </div>
