@@ -1,7 +1,7 @@
 const Article = require('../models/articleModel')
 const mongoose = require('mongoose')
 
-// get all items
+// get all articles
 const getArticles = async (req, res) => {
 
   // const user_id = req.user._id
@@ -10,25 +10,25 @@ const getArticles = async (req, res) => {
   res.status(200).json(articles)
 }
 
-// get a single item
+// get a single article
 const getArticle = async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({error: 'No such item'})
+    return res.status(404).json({error: 'No such article'})
   }
 
   const article = await Article.findById(id)
 
   if (!article) {
-    return res.status(404).json({error: 'No such item'})
+    return res.status(404).json({error: 'No such article'})
   }
 
   res.status(200).json(article)
 }
 
 
-// create new item
+// create new article
 const createArticle = async (req, res) => {
   const {text} = req.body
 
@@ -51,29 +51,29 @@ const createArticle = async (req, res) => {
   }
 }
 
-// delete an item
+// delete an article
 const deleteArticle = async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({error: 'No such item'})
+    return res.status(404).json({error: 'No such article'})
   }
 
   const article = await Article.findOneAndDelete({_id: id})
 
   if (!article) {
-    return res.status(400).json({error: 'No such item'})
+    return res.status(400).json({error: 'No such article'})
   }
 
   res.status(200).json(article)
 }
 
-// update a item
+// update a article
 const updateArticle = async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({error: 'No such item'})
+    return res.status(404).json({error: 'No such article'})
   }
 
   const article = await Article.findOneAndUpdate({_id: id}, {
@@ -81,7 +81,7 @@ const updateArticle = async (req, res) => {
   })
 
   if (!article) {
-    return res.status(400).json({error: 'No such item'})
+    return res.status(400).json({error: 'No such article'})
   }
 
   res.status(200).json(article)
