@@ -1,7 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ArticleCard = ({ article }) => {
   return (
+    <Link to={`/article/${article._id}`}>
+
     <div className="grid w-full">
       <div className="relative w-full">
         <img
@@ -13,7 +16,7 @@ const ArticleCard = ({ article }) => {
           Travel
         </p>
       </div>
-      <div className="rounded-b-2xl bg-white p-4 grid">
+      <div className="rounded-b-2xl bg-white p-4 grid w-full space-y-4">
         <div className="flex justify-between">
           <div className="flex items-center gap-4">
             <img
@@ -25,11 +28,10 @@ const ArticleCard = ({ article }) => {
           </div>
           <p className="text-gray-300 text-sm">09/03/2023</p>
         </div>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. In, qui?
-        </p>
+        <h2 className="break-words font-extrabold text-xl w-full">{article.text.slice(0,15)} </h2>
       </div>
     </div>
+    </Link>
   );
 };
 
