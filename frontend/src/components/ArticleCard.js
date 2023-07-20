@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-const ArticleCard = ({article}) => {
+const ArticleCard = ({ article }) => {
   return (
     <div>
-      {article.text}
+      <p>{article.text}</p>
     </div>
   );
 };
