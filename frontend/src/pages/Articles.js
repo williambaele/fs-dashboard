@@ -31,7 +31,7 @@ const Articles = () => {
     <div>
       <Navbar />
       <div className="bg-[#F0F0F0] h-screen">
-        <div className="container mx-auto py-10">
+        <div className="container mx-auto py-10 grid grid-cols-4 gap-4" >
           {articles.map((article) => (
             <ArticleCard key={article._id} article={article} />
           ))}

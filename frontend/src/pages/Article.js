@@ -45,10 +45,8 @@ const Article = () => {
   return (
     <div>
       <Navbar />
-      <div class="bg-slate-100">
-        <div className="mx-auto container py-10">
-          <ArticleBody article={article} userArticle={userArticle} />
-        </div>
+      <div className="mx-auto container py-10">
+        <ArticleBody article={article} userArticle={userArticle} />
       </div>
       <Footer />
     </div>
