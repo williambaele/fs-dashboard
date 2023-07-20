@@ -10,8 +10,8 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import NewArticle from "./pages/NewArticle";
 import Articles from "./pages/Articles";
-import Item from "./pages/Item";
 import Account from "./pages/Account";
+import Article from "./pages/Article";
 
 function App() {
   const { user } = useAuthContext();
@@ -38,7 +38,7 @@ function App() {
               path="/account"
               element={user ? <Account /> : <Navigate to="/login" />}
             />
-            <Route path="/item/:id" element={<Item />} />
+            <Route path="/article/:id" element={<Article />} />
           </Routes>
           <ToastContainer
             position="bottom-right"
