@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const NewItem = () => {
+const NewArticle = () => {
   return (
     <div className="min-h-screen bg-slate-100">
       <Navbar />
@@ -15,4 +15,4 @@ const NewItem = () => {
   );
 };
 
-export default NewItem;
+export default NewArticle;

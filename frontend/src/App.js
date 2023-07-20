@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import NewItem from "./pages/NewItem";
+import NewArticle from "./pages/NewArticle";
 import Articles from "./pages/Articles";
 import Item from "./pages/Item";
 import Account from "./pages/Account";
@@ -22,8 +22,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route
-              path="/new-item"
-              element={user ? <NewItem /> : <Navigate to="/login" />}
+              path="/new-article"
+              element={user ? <NewArticle /> : <Navigate to="/login" />}
             />
             <Route path="/articles" element={<Articles />} />
             <Route

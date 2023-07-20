@@ -92,10 +92,10 @@ const Navbar = () => {
                             </p>
                           </Link>
                         </li>
-                        <Link to="/new-item">
+                        <Link to="/new-article">
                           <li>
                             <p class="block px-4 py-2 hover:bg-gray-100">
-                              Add an item
+                              Add an article
                             </p>
                           </li>
                         </Link>
