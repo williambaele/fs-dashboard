@@ -4,15 +4,15 @@ export const ArticlesContext = createContext()
 
 export const articlesReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_ITEMS':
+    case 'SET_ARTICLES':
       return {
         articles: action.payload
       }
-    case 'CREATE_ITEM':
+    case 'CREATE_ARTICLES':
       return {
         articles: [action.payload, ...state.articles]
       }
-    case 'DELETE_ITEM':
+    case 'DELETE_ARTICLE':
       return {
         articles: state.articles.filter((w) => w._id !== action.payload._id)
       }

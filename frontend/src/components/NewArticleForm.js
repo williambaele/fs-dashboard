@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { toast } from "react-toastify";
+import { useArticlesContext } from "../hooks/useArticlesContext";
 import { useNavigate } from "react-router-dom";
+
 
 const NewArticleForm = () => {
   const navigate = useNavigate();
 
   const [text, setText] = useState("");
-  const article = { text };
   const { user } = useAuthContext();
+  const { dispatch } = useArticlesContext();
+
+  const [error, setError] = useState(null);
+  const [emptyFields, setEmptyFields] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +24,7 @@ const NewArticleForm = () => {
     }
     const article = { text };
 
-    const response = await fetch("/api/items", {
+    const response = await fetch("/api/articles", {
       method: "POST",
       body: JSON.stringify(article),
       headers: {
@@ -38,12 +43,12 @@ const NewArticleForm = () => {
 
       setError(null);
       setEmptyFields([]);
-      dispatch({ type: "CREATE_ITEM", payload: json });
+      dispatch({ type: "CREATE_ARTICLE", payload: json });
 
-      navigate(`/item/${json._id}`, {
+      navigate(`/article/${json._id}`, {
         state: { from: "create" },
         onAfterNavigate: () => {
-          toast.success("Item created");
+          toast.success("Article created");
         },
       });
     }
@@ -63,6 +68,8 @@ const NewArticleForm = () => {
         <button type="submit" className="bg-green-200">
           ENVOYER
         </button>
+        {error && <div className="error text-red-600">{error}</div>}
+        {emptyFields}
       </form>
     </div>
   );

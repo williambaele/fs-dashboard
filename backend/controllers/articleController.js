@@ -30,30 +30,12 @@ const getArticle = async (req, res) => {
 
 // create new item
 const createArticle = async (req, res) => {
-  const {title, brand, size, price, description, state, colors} = req.body
+  const {text} = req.body
 
   let emptyFields = []
 
-  if(!title) {
-    emptyFields.push('title')
-  }
-  if(!colors) {
-    emptyFields.push('colors')
-  }
-  if(!brand) {
-    emptyFields.push('brand')
-  }
-  if(!size) {
-    emptyFields.push('size')
-  }
-  if(!description) {
-    emptyFields.push('description')
-  }
-  if(!price) {
-    emptyFields.push('price')
-  }
-  if(!state) {
-    emptyFields.push('state')
+  if(!text) {
+    emptyFields.push('text')
   }
   if(emptyFields.length > 0) {
     return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
@@ -62,7 +44,7 @@ const createArticle = async (req, res) => {
   // add doc to db
   try {
     const user_id = req.user._id
-    const article = await Article.create({title, brand, size, price, state, colors, description, user_id})
+    const article = await Article.create({text, user_id})
     res.status(200).json(article)
   } catch (error) {
     res.status(400).json({error: error.message})
