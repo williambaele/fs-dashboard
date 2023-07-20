@@ -11,6 +11,7 @@ const Article = () => {
   const [article, setArticle] = useState(null);
   // const { user } = useAuthContext();
   const [userArticle, setUserArticle] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchArticle = async () => {
@@ -33,11 +34,14 @@ const Article = () => {
           setUserArticle(userPseudo);
         }
       }
+      setIsLoading(false); // Set loading state to false once data is fetched.
     };
 
     fetchArticle();
   }, [id]);
-
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
   return (
     <div>
       <Navbar />
