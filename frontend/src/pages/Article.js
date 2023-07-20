@@ -34,7 +34,7 @@ const Article = () => {
           setUserArticle(userPseudo);
         }
       }
-      setIsLoading(false); // Set loading state to false once data is fetched.
+      setIsLoading(false);
     };
 
     fetchArticle();
@@ -46,7 +46,7 @@ const Article = () => {
     <div>
       <Navbar />
       <div class="bg-slate-100">
-        <div className="mx-auto container">
+        <div className="mx-auto container py-10">
           <ArticleBody article={article} userArticle={userArticle} />
         </div>
       </div>

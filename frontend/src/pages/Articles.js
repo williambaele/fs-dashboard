@@ -17,13 +17,12 @@ const Articles = () => {
         dispatch({ type: "SET_ARTICLES", payload: json });
       }
 
-      setIsLoading(false); // Set loading state to false once data is fetched.
+      setIsLoading(false);
     };
 
     fetchArticles();
   }, [dispatch]);
 
-  // If loading, show a loading indicator or message
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -32,9 +31,11 @@ const Articles = () => {
     <div>
       <Navbar />
       <div className="bg-[#F0F0F0] h-screen">
-        {articles.map((article) => (
-          <ArticleCard key={article._id} article={article} />
-        ))}
+        <div className="container mx-auto py-10">
+          {articles.map((article) => (
+            <ArticleCard key={article._id} article={article} />
+          ))}
+        </div>
       </div>
       <Footer />
     </div>
