@@ -4,8 +4,9 @@ import Navbar from "../components/Navbar";
 // import { useAuthContext } from "../hooks/useAuthContext";
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
-import ArticleBody from "../components/ArticleBody";
+import ArticleHeader from "../components/ArticleHeader";
 import ArticleCover from "../components/ArticleCover";
+import ArticleBody from "../components/ArticleBody";
 
 const Article = () => {
   const { id } = useParams();
@@ -46,9 +47,10 @@ const Article = () => {
   return (
     <div>
       <Navbar />
-      <div className="py-10">
-        <ArticleBody article={article} userArticle={userArticle} />
+      <div className="py-10 bg-[#e5e7eb]">
+        <ArticleHeader article={article} userArticle={userArticle} />
         <ArticleCover/>
+        <ArticleBody/>
       </div>
       <Footer />
     </div>
