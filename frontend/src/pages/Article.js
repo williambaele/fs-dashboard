@@ -48,7 +48,7 @@ const Article = () => {
   return (
     <div>
       <Navbar />
-      <div className="py-10 bg-[#e5e7eb]">
+      <div className="py-10 bg-[#f0f2f5]">
         <ArticleHeader article={article} userArticle={userArticle} />
         <ArticleCover/>
         <ArticleBody/>
