@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import ArticleHeader from "../components/ArticleHeader";
 import ArticleCover from "../components/ArticleCover";
 import ArticleBody from "../components/ArticleBody";
+import CommentSection from "../components/CommentSection";
 
 const Article = () => {
   const { id } = useParams();
@@ -51,6 +52,7 @@ const Article = () => {
         <ArticleHeader article={article} userArticle={userArticle} />
         <ArticleCover/>
         <ArticleBody/>
+        <CommentSection/>
       </div>
       <Footer />
     </div>
