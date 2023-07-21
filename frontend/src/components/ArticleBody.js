@@ -2,7 +2,7 @@ import React from "react";
 
 const ArticleBody = ({ article, userArticle }) => {
   return (
-    <div className="grid gap-4 w-1/2 mx-auto container">
+    <div className="grid gap-4 px-4 md:px-0 w-full md:w-1/2 mx-auto container pb-14">
       <p className="w-fit top-4 left-4 bg-purple-200 text-purple-500 px-2 text-xl rounded-lg">
         Travel
       </p>
