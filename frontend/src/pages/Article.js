@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
 import ArticleBody from "../components/ArticleBody";
+import ArticleCover from "../components/ArticleCover";
 
 const Article = () => {
   const { id } = useParams();
@@ -45,8 +46,9 @@ const Article = () => {
   return (
     <div>
       <Navbar />
-      <div className="mx-auto container py-10">
+      <div className="py-10">
         <ArticleBody article={article} userArticle={userArticle} />
+        <ArticleCover/>
       </div>
       <Footer />
     </div>
