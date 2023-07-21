@@ -6,7 +6,7 @@ const ArticleBody = () => {
 
   return (
     <div className="grid gap-4 px-4 md:px-0 w-full md:w-1/2 mx-auto container py-14">
-      <p className="text-gray-400 text-lg">
+      <p className="text-gray-600 text-lg">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
         distinctio asperiores optio cum iusto corporis, a quod perferendis
         laudantium iste dolore vero rerum eligendi est id ullam, maiores ex
