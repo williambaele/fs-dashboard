@@ -3,6 +3,7 @@ import { useArticlesContext } from "../hooks/useArticlesContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ArticleCard from "../components/ArticleCard";
+import Filters from "../components/Filters";
 
 const Articles = () => {
   const { articles, dispatch } = useArticlesContext();
@@ -31,7 +32,8 @@ const Articles = () => {
     <div>
       <Navbar />
       <div className="bg-[#F0F0F0] h-screen">
-        <div className="container mx-auto py-10 grid md:grid-cols-4 gap-4 w-full px-4 md:px-0" >
+        <Filters />
+        <div className="container mx-auto py-10 grid md:grid-cols-4 gap-4 w-full px-4 md:px-0">
           {articles.map((article) => (
             <ArticleCard key={article._id} article={article} />
           ))}
