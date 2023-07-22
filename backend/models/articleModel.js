@@ -7,6 +7,14 @@ const articleSchema = new Schema(
     text: {
       type: String,
       required: true,
+    },
+    topic: {
+      type: String,
+      required: true,
+    },
+    tags: {
+      type: String,
+      required: true,
     }
   },
   { timestamps: true }
