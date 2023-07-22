@@ -30,12 +30,15 @@ const getArticle = async (req, res) => {
 
 // create new article
 const createArticle = async (req, res) => {
-  const {text, topic, tags} = req.body
+  const {title, text, topic, tags} = req.body
 
   let emptyFields = []
 
   if(!text) {
     emptyFields.push('text')
+  }
+  if(!title) {
+    emptyFields.push('title')
   }
   if(!topic) {
     emptyFields.push('topic')
@@ -51,7 +54,7 @@ const createArticle = async (req, res) => {
   // add doc to db
   try {
     const user_id = req.user._id
-    const article = await Article.create({text, topic, tags, user_id})
+    const article = await Article.create({title, text, topic, tags, user_id})
     res.status(200).json(article)
   } catch (error) {
     res.status(400).json({error: error.message})
