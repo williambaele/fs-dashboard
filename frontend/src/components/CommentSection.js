@@ -8,7 +8,7 @@ const CommentSection = () => {
       <div className="grid gap-4 w-full">
         <form className="space-y-4 pt-6">
           <textarea
-            className="bg-white shadow-sm rounded-2xl w-full p-2"
+            className="bg-white shadow-sm rounded-2xl w-full p-2 pl-4"
             placeholder="Add to discussion"
             rows="5"
           />

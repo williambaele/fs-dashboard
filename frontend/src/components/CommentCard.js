@@ -13,7 +13,7 @@ const CommentCard = () => {
       <div className="grid space-y-4 col-span-11 rounded-2xl p-4 border border-gray-300">
         <div className="flex justify-between items-center pr-2">
           <div className="flex gap-2 items-center">
-            <p className="text-xl font-extrabold text-gray-900">John Doe</p>
+            <p className="text-lg font-bold text-gray-900">John Doe</p>
             <p>-</p>
             <p className="text-gray-300 text-sm">09/03/2023</p>
           </div>
