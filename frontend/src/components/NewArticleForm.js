@@ -4,11 +4,14 @@ import { toast } from "react-toastify";
 import { useArticlesContext } from "../hooks/useArticlesContext";
 import { useNavigate } from "react-router-dom";
 
-
 const NewArticleForm = () => {
   const navigate = useNavigate();
 
   const [text, setText] = useState("");
+  const [title, setTitle] = useState("");
+  const [topic, setTopic] = useState("");
+  const [tags, setTags] = useState("");
+
   const { user } = useAuthContext();
   const { dispatch } = useArticlesContext();
 
@@ -22,7 +25,7 @@ const NewArticleForm = () => {
       setError("You must be logged in");
       return;
     }
-    const article = { text };
+    const article = { text, title, topic, tags };
 
     const response = await fetch("/api/articles", {
       method: "POST",
@@ -55,15 +58,35 @@ const NewArticleForm = () => {
   };
 
   return (
-    <div className="grid gap-4">
-      <form onSubmit={handleSubmit}>
+    <div>
+      <form onSubmit={handleSubmit} className="grid gap-4 py-10">
         <input
-          type="text"
-          name=""
+          type="title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Title"
+          className="bg-white shadow-xs p-4 rounded-xl"
+        />
+        <textarea
+          rows="4"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="text"
-          className="bg-red-200 p-4"
+          placeholder="Content"
+          className="bg-white shadow-xs p-4 rounded-xl"
+        />
+         <input
+          type="topic"
+          value={topic}
+          onChange={(e) => setTopic(e.target.value)}
+          placeholder="Topic"
+          className="bg-white shadow-xs p-4 rounded-xl"
+        />
+        <input
+          type="tags"
+          value={tags}
+          onChange={(e) => setTags(e.target.value)}
+          placeholder="Tags"
+          className="bg-white shadow-xs p-4 rounded-xl"
         />
         <button type="submit" className="bg-green-200">
           ENVOYER

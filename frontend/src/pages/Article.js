@@ -51,7 +51,7 @@ const Article = () => {
       <div className="py-10 bg-[#F8F8F8]">
         <ArticleHeader article={article} userArticle={userArticle} />
         <ArticleCover/>
-        <ArticleBody/>
+        <ArticleBody article={article} userArticle={userArticle}/>
         <CommentSection/>
       </div>
       <Footer />

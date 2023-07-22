@@ -4,10 +4,10 @@ const ArticleHeader = ({ article, userArticle }) => {
   return (
     <div className="grid gap-4 px-4 md:px-0 w-full md:w-1/2 mx-auto container pb-14">
       <p className="w-fit top-4 left-4 bg-purple-200 text-purple-500 px-2 text-xl rounded-lg">
-        Travel
+        {article.topic}
       </p>
       <h1 className="text-gray-900 font-bold text-4xl border-b border-gray-300 pb-4">
-        Trending web & landing page designs in 2023 page lorem
+        {article.title}
       </h1>
       <div className="grid-cols-2 grid">
         <div className="flex items-center gap-4">
