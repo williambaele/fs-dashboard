@@ -1,32 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import AccountForm from "../components/AccountForm";
+// import AccountForm from "../components/AccountForm";
 
 const Dashboard = () => {
   const { user } = useAuthContext();
-  console.log({ user });
-
+  console.log(user);
   const menu = [
     {
       name: "New article",
       emoji: "📝",
+      key: "newArticle",
     },
     {
       name: "Your posts",
       emoji: "📖",
+      key: "yourPosts",
     },
     {
       name: "Edit profile",
       emoji: "⚙️",
-    }
+      key: "editProfile",
+    },
   ];
+
+  const [activeMenu, setActiveMenu] = useState("newArticle");
+
+  const handleMenuClick = (key) => {
+    setActiveMenu(key);
+  };
 
   return (
     <>
       <Navbar />
-      <div className="bg-[#F0F0F0]">
+      <div className="bg-[#F0F0F0] h-screen">
         <div className="mx-auto container px-4 md:px-0 py-10">
           <div className="bg-white p-8 rounded-2xl">
             <div className="space-y-4 py-4">
@@ -39,15 +47,37 @@ const Dashboard = () => {
               </p>
             </div>
             <div className="grid md:grid-cols-12 h-full gap-4">
-              <div className="md:col-span-3 grid gap-2">
+              <div className="md:col-span-3 md:grid  flex gap-2">
                 {menu.map((item) => (
-                  <div className="flex gap-2 hover:bg-gray-100 px-4 py-2 rounded-xl cursor-pointer">
+                  <div
+                    key={item.key}
+                    className={`flex gap-2 px-4 py-2 rounded-xl cursor-pointer ${
+                      activeMenu === item.key ? "bg-gray-100" : ""
+                    }`}
+                    onClick={() => handleMenuClick(item.key)}
+                  >
                     <p className="text-xl">{item.emoji}</p>
                     <p className="text-xl">{item.name}</p>
                   </div>
                 ))}
               </div>
-              <div className="md:col-span-9 bg-purple-300"></div>
+              <div className="md:col-span-9 bg-purple-300">
+                {activeMenu === "newArticle" ? (
+                  <>
+                    <div className="h-full bg-purple-900"></div>
+                  </>
+                ) : null}
+                 {activeMenu === "yourPosts" ? (
+                  <>
+                    <div className="h-full bg-red-900"></div>
+                  </>
+                ) : null}
+                {activeMenu === "editProfile" ? (
+                  <>
+                    <div className="h-full bg-green-900"></div>
+                  </>
+                ) : null}
+              </div>
             </div>
           </div>
         </div>
