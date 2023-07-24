@@ -48,7 +48,7 @@ const Dashboard = () => {
               </p>
             </div>
             <div className="grid md:grid-cols-12 h-full gap-4">
-              <div className="md:col-span-3 md:grid h-fit flex gap-2">
+              <div className="md:col-span-3 md:grid h-fit  gap-2">
                 {menu.map((item) => (
                   <div
                     key={item.key}
@@ -70,7 +70,7 @@ const Dashboard = () => {
                 ) : null}
                 {activeMenu === "yourPosts" ? (
                   <>
-                    <UserPosts/>
+                    <UserPosts user={user}/>
                   </>
                 ) : null}
                 {activeMenu === "editProfile" ? (

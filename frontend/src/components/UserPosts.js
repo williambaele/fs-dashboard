@@ -1,11 +1,8 @@
-import React from 'react';
+import React from "react";
 
-const UserPosts = () => {
-  return (
-    <div>
-      
-    </div>
-  );
+const UserPosts = ({ user }) => {
+  console.log(user);
+  return <div></div>;
 };
 
 export default UserPosts;

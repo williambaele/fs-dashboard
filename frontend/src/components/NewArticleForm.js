@@ -25,7 +25,7 @@ const NewArticleForm = () => {
       setError("You must be logged in");
       return;
     }
-    const article = { text, title, topic, tags };
+    const article = { text, title, topic, tags, };
 
     const response = await fetch("/api/articles", {
       method: "POST",
@@ -93,12 +93,14 @@ const NewArticleForm = () => {
           <option value="Travel">Travel</option>
           <option value="Food">Food</option>
           <option value="Fashion">Fashion</option>
-
-          </select>
+        </select>
         {error && <div className="error text-red-600">{error}</div>}
         {emptyFields}
-        <button type="submit" className="bg-blue-500 hover:bg-blue-400 rounded-xl py-2 text-white font-bold">
-          Publier
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-400 rounded-xl py-2 text-white font-bold"
+        >
+          Publish
         </button>
       </form>
     </div>
