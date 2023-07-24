@@ -2,7 +2,7 @@ import React from "react";
 
 const ArticleStats = () => {
   return (
-    <div className="flex gap-4 w-full pt-1">
+    <div className="flex gap-4 w-full">
       <div className="flex items-center bg-gray-100 gap-2 p-1 px-3 rounded-xl">
         <svg
           xmlns="http://www.w3.org/2000/svg"

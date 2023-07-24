@@ -42,7 +42,7 @@ const Navbar = () => {
               <div className="flex items-center relative">
                 <button
                   id="ddButton"
-                  class="text-white bg-[#F45050] hover:bg-[#f56262] focus:outline-none  font-medium rounded-lg text-sm px-6 py-2.5 text-center inline-flex items-center"
+                  class="text-white bg-[#F45050] hover:bg-[#f56262] focus:outline-none  font-medium rounded-lg text-sm px-2 md:px-6 py-2.5 text-center inline-flex items-center"
                   type="button"
                   onClick={handleClickDd}
                 >
@@ -123,7 +123,6 @@ const Navbar = () => {
               </div>
             )}
           </div>
-
           <div class="lg:hidden">
             <button
               class="rounded-lg bg-gray-100 p-2 text-gray-600"
@@ -147,6 +146,7 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
+
         </div>
       </div>
     </header>
