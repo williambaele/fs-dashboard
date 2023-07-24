@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ArticleStats from "./ArticleStats";
 
 const ArticleCard = ({ article }) => {
   return (
@@ -28,8 +29,9 @@ const ArticleCard = ({ article }) => {
             <p className="text-gray-300 text-sm">09/03/2023</p>
           </div>
           <h2 className="break-words font-extrabold text-xl w-full">
-            {article.title.slice(0, 15)}{" "}
+            {article.title.slice(0, 25)}
           </h2>
+          <ArticleStats/>
         </div>
       </div>
     </Link>
