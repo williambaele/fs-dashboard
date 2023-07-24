@@ -3,10 +3,10 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import AccountForm from "../components/AccountForm";
+import NewArticleForm from "../components/NewArticleForm";
 
 const Dashboard = () => {
   const { user } = useAuthContext();
-  console.log(user);
   const menu = [
     {
       name: "New article",
@@ -61,20 +61,20 @@ const Dashboard = () => {
                   </div>
                 ))}
               </div>
-              <div className="md:col-span-9 bg-purple-300">
+              <div className="md:col-span-9">
                 {activeMenu === "newArticle" ? (
                   <>
-                    <AccountForm user={user}/>
+                    <NewArticleForm />
                   </>
                 ) : null}
-                 {activeMenu === "yourPosts" ? (
+                {activeMenu === "yourPosts" ? (
                   <>
                     <div className="h-full bg-red-900"></div>
                   </>
                 ) : null}
                 {activeMenu === "editProfile" ? (
                   <>
-                    <div className="h-full bg-green-900"></div>
+                    <AccountForm user={user} />
                   </>
                 ) : null}
               </div>

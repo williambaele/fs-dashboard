@@ -59,40 +59,40 @@ const NewArticleForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="grid gap-4 py-10">
+      <form onSubmit={handleSubmit} className="grid gap-4">
         <input
           type="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Title"
-          className="bg-white shadow-xs p-4 rounded-xl"
+          className="bg-white shadow-xs p-4 rounded-xl border border-gray-200 outline-none"
         />
         <textarea
           rows="4"
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Content"
-          className="bg-white shadow-xs p-4 rounded-xl"
+          className="bg-white shadow-xs p-4 rounded-xl border border-gray-200 outline-none"
         />
-         <input
+        <input
           type="topic"
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
           placeholder="Topic"
-          className="bg-white shadow-xs p-4 rounded-xl"
+          className="bg-white shadow-xs p-4 rounded-xl border border-gray-200 outline-none"
         />
         <input
           type="tags"
           value={tags}
           onChange={(e) => setTags(e.target.value)}
           placeholder="Tags"
-          className="bg-white shadow-xs p-4 rounded-xl"
+          className="bg-white shadow-xs p-4 rounded-xl border border-gray-200 outline-none"
         />
-        <button type="submit" className="bg-green-200">
-          ENVOYER
-        </button>
         {error && <div className="error text-red-600">{error}</div>}
         {emptyFields}
+        <button type="submit" className="bg-blue-500 hover:bg-blue-400 rounded-xl py-2 text-white font-bold">
+          Publier
+        </button>
       </form>
     </div>
   );
