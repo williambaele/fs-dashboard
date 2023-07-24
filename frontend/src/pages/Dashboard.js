@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import AccountForm from "../components/AccountForm";
 import NewArticleForm from "../components/NewArticleForm";
+import UserPosts from "../components/UserPosts";
 
 const Dashboard = () => {
   const { user } = useAuthContext();
@@ -69,7 +70,7 @@ const Dashboard = () => {
                 ) : null}
                 {activeMenu === "yourPosts" ? (
                   <>
-                    <div className="h-full bg-red-900"></div>
+                    <UserPosts/>
                   </>
                 ) : null}
                 {activeMenu === "editProfile" ? (

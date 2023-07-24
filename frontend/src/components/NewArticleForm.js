@@ -88,17 +88,17 @@ const NewArticleForm = () => {
           placeholder="Tags"
           className="bg-white shadow-xs p-4 rounded-xl border border-gray-200 outline-none"
         >
-          <option value="">Garden</option>
-          <option value="">Sport</option>
-          <option value="">Travel</option>
-          <option value="">Food</option>
-          <option value="">Fashion</option>
+          <option value="Garden">Garden</option>
+          <option value="Sport">Sport</option>
+          <option value="Travel">Travel</option>
+          <option value="Food">Food</option>
+          <option value="Fashion">Fashion</option>
 
           </select>
         {error && <div className="error text-red-600">{error}</div>}
         {emptyFields}
         <button type="submit" className="bg-blue-500 hover:bg-blue-400 rounded-xl py-2 text-white font-bold">
-          Publish
+          Publier
         </button>
       </form>
     </div>
