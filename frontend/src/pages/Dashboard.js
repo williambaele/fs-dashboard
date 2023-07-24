@@ -51,7 +51,7 @@ const Dashboard = () => {
                 {menu.map((item) => (
                   <div
                     key={item.key}
-                    className={`flex gap-2 px-4 py-2 rounded-xl cursor-pointer h-fit ${
+                    className={`flex gap-4 px-4 py-2 rounded-xl cursor-pointer h-fit ${
                       activeMenu === item.key ? "bg-gray-100" : ""
                     }`}
                     onClick={() => handleMenuClick(item.key)}
