@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-// import AccountForm from "../components/AccountForm";
+import AccountForm from "../components/AccountForm";
 
 const Dashboard = () => {
   const { user } = useAuthContext();
@@ -51,7 +51,7 @@ const Dashboard = () => {
                 {menu.map((item) => (
                   <div
                     key={item.key}
-                    className={`flex gap-2 px-4 py-2 rounded-xl cursor-pointer ${
+                    className={`flex gap-2 px-4 py-2 rounded-xl cursor-pointer h-fit ${
                       activeMenu === item.key ? "bg-gray-100" : ""
                     }`}
                     onClick={() => handleMenuClick(item.key)}
@@ -64,7 +64,7 @@ const Dashboard = () => {
               <div className="md:col-span-9 bg-purple-300">
                 {activeMenu === "newArticle" ? (
                   <>
-                    <div className="h-full bg-purple-900"></div>
+                    <AccountForm user={user}/>
                   </>
                 ) : null}
                  {activeMenu === "yourPosts" ? (
