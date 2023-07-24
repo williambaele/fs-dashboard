@@ -65,7 +65,7 @@ const Dashboard = () => {
               <div className="md:col-span-9">
                 {activeMenu === "newArticle" ? (
                   <>
-                    <NewArticleForm />
+                    <NewArticleForm  user={user}/>
                   </>
                 ) : null}
                 {activeMenu === "yourPosts" ? (

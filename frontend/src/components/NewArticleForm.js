@@ -4,20 +4,23 @@ import { toast } from "react-toastify";
 import { useArticlesContext } from "../hooks/useArticlesContext";
 import { useNavigate } from "react-router-dom";
 
-const NewArticleForm = () => {
+const NewArticleForm = ({ user }) => {
   const navigate = useNavigate();
-
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
   const [topic, setTopic] = useState("");
   const [tags, setTags] = useState("");
 
-  const { user } = useAuthContext();
   const { dispatch } = useArticlesContext();
 
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
 
+  // USER ID FOR THE ARTICLE
+  const userId = user._id;
+
+
+  //ARTCILE CREATION
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -25,7 +28,7 @@ const NewArticleForm = () => {
       setError("You must be logged in");
       return;
     }
-    const article = { text, title, topic, tags, };
+    const article = { text, title, topic, tags, userId };
 
     const response = await fetch("/api/articles", {
       method: "POST",
