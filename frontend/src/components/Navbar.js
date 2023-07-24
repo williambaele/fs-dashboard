@@ -146,7 +146,6 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
-
         </div>
       </div>
     </header>
