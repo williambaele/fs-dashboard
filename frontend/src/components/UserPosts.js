@@ -1,7 +1,13 @@
 import React from "react";
+import UserPostCard from "./UserPostCard";
 
 const UserPosts = ({ user }) => {
-  return <div></div>;
+  console.log(user);
+  return (
+    <div>
+      <UserPostCard />
+    </div>
+  );
 };
 
 export default UserPosts;
