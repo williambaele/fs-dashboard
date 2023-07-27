@@ -2,15 +2,14 @@ const Article = require("../models/articleModel");
 const mongoose = require("mongoose");
 import { useAuthContext } from "./hooks/useAuthContext";
 
-// get all articles
+// GET ALL ARTICLES
 const getArticles = async (req, res) => {
-  // const user_id = req.user._id
+  const user_id = req.user._id
   const articles = await Article.find({}).sort({ createdAt: -1 });
-
   res.status(200).json(articles);
 };
 
-// get a single article
+// GET A SINGLE ARTICLE
 const getArticle = async (req, res) => {
   const { id } = req.params;
 
@@ -29,8 +28,8 @@ const getArticle = async (req, res) => {
 
 // CREATE NEW ARTICLE
 const createArticle = async (req, res) => {
+
   const { title, text, topic, tags} = req.body;
-  const user_id = req.user._id;
   let emptyFields = [];
 
   if (!text) {
@@ -51,9 +50,9 @@ const createArticle = async (req, res) => {
       .status(400)
       .json({ error: "Please fill in all the fields", emptyFields });
   }
-  const articleData = { title, text, topic, tags, user_id };
+  const articleData = { title, text, topic, tags };
 
-  // add doc to db
+  // ADD DOC TO DB
   try {
     const article = await Article.create(articleData);
     res.status(200).json(article);
@@ -62,7 +61,7 @@ const createArticle = async (req, res) => {
   }
 };
 
-// delete an article
+// DELETE AN ARTICLE
 const deleteArticle = async (req, res) => {
   const { id } = req.params;
 
@@ -79,7 +78,7 @@ const deleteArticle = async (req, res) => {
   res.status(200).json(article);
 };
 
-// update a article
+// UPDATE AN ARTICLE
 const updateArticle = async (req, res) => {
   const { id } = req.params;
 
