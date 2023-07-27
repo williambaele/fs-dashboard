@@ -26,7 +26,6 @@ const Article = () => {
         console.log(json);
         console.log(json.user_id);
         const userItem = json.user_id;
-        console.log("Going to get user's pseudo");
         const userResponse = await fetch(`/api/user/${userItem}`);
         console.log(userResponse);
         const userJson = await userResponse.json();

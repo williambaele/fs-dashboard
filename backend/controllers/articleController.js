@@ -54,6 +54,7 @@ const createArticle = async (req, res) => {
   // add doc to db
   try {
     const user_id = req.user._id
+    console.log("before adding user_id")
     const article = await Article.create({title, text, topic, tags, user_id})
     res.status(200).json(article)
   } catch (error) {
