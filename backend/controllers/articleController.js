@@ -31,7 +31,7 @@ const getArticle = async (req, res) => {
 const createArticle = async (req, res) => {
 
 
-  const { title, text, topic, tags,  } = req.body;
+  const { title, text, topic, tags} = req.body;
   const user_id = req.user._id;
   let emptyFields = [];
 
@@ -53,10 +53,11 @@ const createArticle = async (req, res) => {
       .status(400)
       .json({ error: "Please fill in all the fields", emptyFields });
   }
+  const articleData = { title, text, topic, tags, user_id };
 
   // add doc to db
   try {
-    const article = await Article.create({ title, text, topic, tags, user_id });
+    const article = await Article.create(articleData);
     res.status(200).json(article);
   } catch (error) {
     res.status(400).json({ error: error.message });
