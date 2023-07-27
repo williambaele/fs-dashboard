@@ -9,7 +9,7 @@ const NewArticleForm = ({ user }) => {
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
   const [topic, setTopic] = useState("");
-  const [tags, setTags] = useState("");
+  const [tags, setTags] = useState("Garden");
 
   const { dispatch } = useArticlesContext();
 

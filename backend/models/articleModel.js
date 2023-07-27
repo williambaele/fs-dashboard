@@ -19,7 +19,7 @@ const articleSchema = new Schema(
     tags: {
       type: String,
       required: true,
-    }
+    },
   },
   { timestamps: true }
 );
