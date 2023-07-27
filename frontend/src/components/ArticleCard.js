@@ -13,7 +13,7 @@ const ArticleCard = ({ article }) => {
             className="rounded-t-2xl h-48 bg-cover w-full"
           />
           <p className="absolute top-4 left-4 bg-purple-200 text-purple-500 px-2 text-md rounded-lg">
-            Travel
+            {article.topic}
           </p>
         </div>
         <div className="rounded-b-2xl bg-white p-4 grid w-full space-y-4">
