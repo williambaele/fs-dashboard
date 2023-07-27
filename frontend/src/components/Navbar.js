@@ -42,7 +42,7 @@ const Navbar = () => {
               <div className="flex items-center relative">
                 <button
                   id="ddButton"
-                  class="text-white bg-[#F45050] hover:bg-[#f56262] focus:outline-none  font-medium rounded-lg text-sm px-2 md:px-6 py-2.5 text-center inline-flex items-center"
+                  class="text-white bg-blue-500 hover:bg-blue-400 focus:outline-none  font-medium rounded-lg text-sm px-2 md:px-6 py-2.5 text-center inline-flex items-center"
                   type="button"
                   onClick={handleClickDd}
                 >
@@ -92,13 +92,6 @@ const Navbar = () => {
                             </p>
                           </Link>
                         </li>
-                        <Link to="/new-article">
-                          <li>
-                            <p class="block px-4 py-2 hover:bg-gray-100">
-                              Add an article
-                            </p>
-                          </li>
-                        </Link>
                       </ul>
                       <div class="py-2">
                         <p

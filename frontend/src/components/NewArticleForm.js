@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAuthContext } from "../hooks/useAuthContext";
+// import { useAuthContext } from "../hooks/useAuthContext";
 import { toast } from "react-toastify";
 import { useArticlesContext } from "../hooks/useArticlesContext";
 import { useNavigate } from "react-router-dom";
@@ -16,10 +16,6 @@ const NewArticleForm = ({ user }) => {
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
 
-  // USER ID FOR THE ARTICLE
-  const userId = user._id;
-
-
   //ARTCILE CREATION
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +24,7 @@ const NewArticleForm = ({ user }) => {
       setError("You must be logged in");
       return;
     }
-    const article = { text, title, topic, tags, userId };
+    const article = { text, title, topic, tags };
 
     const response = await fetch("/api/articles", {
       method: "POST",
@@ -97,8 +93,15 @@ const NewArticleForm = ({ user }) => {
           <option value="Food">Food</option>
           <option value="Fashion">Fashion</option>
         </select>
-        {error && <div className="error text-red-600">{error}</div>}
-        {emptyFields}
+        {error && (
+          <div className="error text-red-600">
+            {error}:{" "}
+            {emptyFields.map((item) => (
+              <p>{item}</p>
+            ))}
+          </div>
+        )}
+
         <button
           type="submit"
           className="bg-blue-500 hover:bg-blue-400 rounded-xl py-2 text-white font-bold"
