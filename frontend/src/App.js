@@ -14,7 +14,6 @@ import Article from "./pages/Article";
 
 function App() {
   const { user } = useAuthContext();
-  console.log(user)
 
   return (
     <div className="App">
