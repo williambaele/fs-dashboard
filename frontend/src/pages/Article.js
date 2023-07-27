@@ -23,16 +23,12 @@ const Article = () => {
 
       if (response.ok) {
         setArticle(json);
-        console.log(json);
-        console.log(json.user_id);
         const userItem = json.user_id;
         const userResponse = await fetch(`/api/user/${userItem}`);
-        console.log(userResponse);
         const userJson = await userResponse.json();
 
         if (userResponse.ok) {
           const userPseudo = userJson.pseudo;
-          console.log(userPseudo);
           setUserArticle(userPseudo);
         }
       }
@@ -49,9 +45,9 @@ const Article = () => {
       <Navbar />
       <div className="py-10 bg-[#F8F8F8]">
         <ArticleHeader article={article} userArticle={userArticle} />
-        <ArticleCover/>
-        <ArticleBody article={article} userArticle={userArticle}/>
-        <CommentSection/>
+        <ArticleCover />
+        <ArticleBody article={article} userArticle={userArticle} />
+        <CommentSection />
       </div>
       <Footer />
     </div>
