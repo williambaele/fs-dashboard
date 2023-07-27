@@ -94,11 +94,13 @@ const NewArticleForm = ({ user }) => {
           <option value="Fashion">Fashion</option>
         </select>
         {error && (
-          <div className="error text-red-600">
-            {error}:{" "}
-            {emptyFields.map((item) => (
-              <p>{item}</p>
-            ))}
+          <div className="error text-red-600 flex gap-1">
+            {error}:
+            <div className="flex gap-1">
+              {emptyFields.map((item) => (
+                <p>{item}</p>
+              ))}
+            </div>
           </div>
         )}
 
