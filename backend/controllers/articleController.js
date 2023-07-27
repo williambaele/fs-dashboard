@@ -27,7 +27,7 @@ const getArticle = async (req, res) => {
   res.status(200).json(article);
 };
 
-// CREATE NEW ARTICLE new article
+// CREATE NEW ARTICLE
 const createArticle = async (req, res) => {
 
   const user_id = req.user._id;
