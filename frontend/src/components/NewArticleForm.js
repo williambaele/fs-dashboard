@@ -14,6 +14,9 @@ const NewArticleForm = ({ user }) => {
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
 
+  // SETTING UP USER ID TO BE SAVED WITH THE ARTICLE
+  const user_id = user._id
+
   //ARTCILE CREATION
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +27,7 @@ const NewArticleForm = ({ user }) => {
       return;
     }
     //Adding data to the article's creation
-    const article = { text, title, topic, tags };
+    const article = { text, title, topic, tags, user_id };
     const response = await fetch("/api/articles", {
       method: "POST",
       body: JSON.stringify(article),
