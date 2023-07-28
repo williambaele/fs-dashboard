@@ -14,6 +14,7 @@ import Article from "./pages/Article";
 
 function App() {
   const { user } = useAuthContext();
+  console.log(user);
 
   return (
     <div className="App">
@@ -23,7 +24,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route
               path="/new-article"
-              element={user ? <NewArticle /> : <Navigate to="/login" />}
+              element={
+                user ? <NewArticle user={user} /> : <Navigate to="/login" />
+              }
             />
             <Route path="/articles" element={<Articles />} />
             <Route

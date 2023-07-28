@@ -12,7 +12,7 @@ const NewArticleForm = ({ user }) => {
   const { dispatch } = useArticlesContext();
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
-
+  console.log(user);
   //ARTCILE CREATION
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,8 +23,7 @@ const NewArticleForm = ({ user }) => {
       return;
     }
     //Adding data to the article's creation
-    const { _id: user_id } = user;
-    const article = { text, title, topic, tags, user_id  };
+    const article = { text, title, topic, tags };
     const response = await fetch("/api/articles", {
       method: "POST",
       body: JSON.stringify(article),
