@@ -1,10 +1,8 @@
 const Article = require("../models/articleModel");
 const mongoose = require("mongoose");
-import { useAuthContext } from "./hooks/useAuthContext";
 
 // GET ALL ARTICLES
 const getArticles = async (req, res) => {
-  const user_id = req.user._id
   const articles = await Article.find({}).sort({ createdAt: -1 });
   res.status(200).json(articles);
 };
