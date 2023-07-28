@@ -48,7 +48,8 @@ const createArticle = async (req, res) => {
       .status(400)
       .json({ error: "Please fill in all the fields", emptyFields });
   }
-  const articleData = { title, text, topic, tags };
+  const { user_id } = req.user._id;
+  const articleData = { title, text, topic, tags, user_id };
 
   // ADD DOC TO DB
   try {
