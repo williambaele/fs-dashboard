@@ -25,7 +25,9 @@ const getArticle = async (req, res) => {
 };
 
 // CREATE NEW ARTICLE
+
 const createArticle = async (req, res) => {
+
   const { title, text, topic, tags} = req.body;
   let emptyFields = [];
 
