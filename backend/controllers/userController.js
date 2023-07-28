@@ -6,17 +6,15 @@ const createToken = (_id) => {
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
 };
 
-// login a user
+// LOGIN A USER
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
-
   try {
     const user = await User.login(email, password);
 
-    // Create a token
+    // CREATE A TOKEN
     const token = createToken(user._id);
-
-    res.status(200).json({ email, token });
+    res.status(200).json({ _id: user._id, email, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -24,7 +22,7 @@ const loginUser = async (req, res) => {
   res.json({ mssg: "login user" });
 };
 
-// signup a user
+// SIGNUP A USER
 const signupUser = async (req, res) => {
   const { email, pseudo, password, _id } = req.body;
 
@@ -39,7 +37,7 @@ const signupUser = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-//Update user
+// UPADTE USER
 const updateUser = async (req, res) => {
   const { id } = req.params;
   const { email, pseudo, password } = req.body;
@@ -74,7 +72,7 @@ const updateUser = async (req, res) => {
   }
 };
 
-//Get user
+// GET USER
 const getUser = async (req, res) => {
   const { id } = req.params;
 

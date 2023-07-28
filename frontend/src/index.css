@@ -7,16 +7,24 @@
 
 /* FONTS */
 @import url("https://fonts.googleapis.com/css2?family=Chivo+Mono&family=Rubik&family=Titillium+Web&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 .bg-login {
   background-image: url(images/blob-scene-haikei.svg);
   height: max;
 }
 
-h1,h2,h3,h4 {
-  font-family: "Titillium Web", sans-serif;
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Poppins", sans-serif;
 }
 
-p,a,input,label,button {
-  font-family: 'Lato', sans-serif;
-  }
+p,
+a,
+input,
+label,
+button {
+  font-family: "Lato", sans-serif;
+}
