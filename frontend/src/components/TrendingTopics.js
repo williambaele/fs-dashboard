@@ -42,7 +42,7 @@ const TrendingTopics = () => {
             {topics.map((topic, index) => (
               <div key={index} className="space-y-4">
                 <div
-                  className="rounded-xl"
+                  className="rounded-xl hover:contrast-50 cursor-pointer"
                   style={{
                     backgroundImage: `url(${topic.image})`,
                     backgroundSize: "cover",
