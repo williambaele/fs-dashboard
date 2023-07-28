@@ -29,20 +29,20 @@ const TrendingTopics = () => {
     },
   ];
   return (
-    <div className="bg-gray-100 py-10">
+    <div className="bg-[#f3f4f6] md:mx-10 rounded-xl p-10">
       <div className="mx-auto container px-4 md:px-0">
         <div className="grid space-y-6">
           <div className="space-y-2">
             <h2 className="text-4xl font-bold">Top trending topics</h2>
-            <p className="text-gray-500 text-lg font-large">
-              Discover 233 topics
+            <p className="text-gray-500 text-xl font-large">
+              Discover more than 10 topics
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {topics.map((topic, index) => (
               <div key={index} className="space-y-4">
                 <div
-                  className="rounded-xl hover:contrast-50 cursor-pointer"
+                  className="rounded-xl TopicImg cursor-pointer"
                   style={{
                     backgroundImage: `url(${topic.image})`,
                     backgroundSize: "cover",

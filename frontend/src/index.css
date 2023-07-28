@@ -28,3 +28,8 @@ label,
 button {
   font-family: "Lato", sans-serif;
 }
+
+.TopicImg:hover {
+    webkit-filter: blur(1px);
+    filter: blur(1px);
+}

@@ -4,11 +4,13 @@ import TrendingTopics from "../components/TrendingTopics";
 
 const Home = () => {
   return (
-    <div className="min-h-screen">
+    <>
       <Navbar />
-      <TrendingTopics />
+      <div className="h-screen items-center bg-[#e5e7eb]">
+        <TrendingTopics />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
