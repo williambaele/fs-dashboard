@@ -19,11 +19,6 @@ const articleSchema = new Schema(
     tags: {
       type: String,
       required: true,
-    },
-    user_id: {
-      type: Schema.Types.ObjectId,
-      ref: "User", // Assuming your user model is named "User"
-      required: true,
     }
   },
   { timestamps: true }

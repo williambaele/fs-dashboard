@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { useAuthContext } from "../hooks/useAuthContext";
 import { toast } from "react-toastify";
 import { useArticlesContext } from "../hooks/useArticlesContext";
 import { useNavigate } from "react-router-dom";
@@ -13,9 +12,6 @@ const NewArticleForm = ({ user }) => {
   const { dispatch } = useArticlesContext();
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
-
-  // SETTING UP USER'S ID TO BE SAVED WITH THE ARTICLE
-  // const user_id = user._id
 
   //ARTCILE CREATION
   const handleSubmit = async (e) => {
