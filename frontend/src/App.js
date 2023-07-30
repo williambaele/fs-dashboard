@@ -7,7 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import NewArticle from "./pages/NewArticle";
 import Articles from "./pages/Articles";
 import Dashboard from "./pages/Dashboard";
 import Article from "./pages/Article";
@@ -22,12 +21,6 @@ function App() {
         <div className="pages">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route
-              path="/new-article"
-              element={
-                user ? <NewArticle user={user} /> : <Navigate to="/login" />
-              }
-            />
             <Route path="/articles" element={<Articles />} />
             <Route
               path="/signup"

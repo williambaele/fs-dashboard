@@ -29,8 +29,8 @@ const TrendingTopics = () => {
     },
   ];
   return (
-    <div className="p-10">
-      <div className="bg-[#f3f4f6] m-10 rounded-xl p-10">
+    <div className="py-20 px-10">
+      <div className="bg-[#f3f4f6] rounded-xl p-10">
         <div className="mx-auto container px-4 md:px-0">
           <div className="grid space-y-6">
             <div className="space-y-2">

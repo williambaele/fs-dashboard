@@ -13,6 +13,7 @@ const NewArticleForm = ({ user }) => {
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
   console.log(user);
+  console.log(user._id);
   //ARTCILE CREATION
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -28,7 +28,7 @@ const ArticleCard = ({ article }) => {
             </div>
             <p className="text-gray-300 text-sm">09/03/2023</p>
           </div>
-          <h2 className="break-words font-extrabold text-xl w-full">
+          <h2 className="break-words font-bold text-xl w-full">
             {article.title.slice(0, 25)}
           </h2>
           <ArticleStats/>
