@@ -3,6 +3,15 @@ import { Link } from "react-router-dom";
 import ArticleStats from "./ArticleStats";
 
 const ArticleCard = ({ article }) => {
+
+
+  //FORMAT DATE
+  const dateObject = new Date(article.createdAt);
+  const day = String(dateObject.getDate()).padStart(2, "0");
+  const month = String(dateObject.getMonth() + 1).padStart(2, "0");
+  const year = String(dateObject.getFullYear()).slice(-2);
+
+  const classicDateFormat = `${day}/${month}/${year}`;
   return (
     <Link to={`/article/${article._id}`}>
       <div className="grid w-full">
@@ -26,12 +35,12 @@ const ArticleCard = ({ article }) => {
               />
               <p className="text-gray-900 text-md font-bold">John Doe</p>
             </div>
-            <p className="text-gray-300 text-sm">09/03/2023</p>
+            <p className="text-gray-300 text-sm">{classicDateFormat}</p>
           </div>
           <h2 className="break-words font-bold text-xl w-full">
             {article.title.slice(0, 25)}
           </h2>
-          <ArticleStats/>
+          <ArticleStats />
         </div>
       </div>
     </Link>
