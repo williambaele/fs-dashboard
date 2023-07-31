@@ -61,19 +61,18 @@ button {
 
 .swiper-button-next,
 .swiper-button-prev {
-  background-color: white;
+  background-color: transparent;
   padding: 8px 16px;
+  border: 1px solid #e2e8f0;
   border-radius: 100%;
-  color: red !important;
+  color: #FFFFFF !important;
   size: 10px !important;
-
   height: 40px !important;
   width: 40px !important;
-  font-size: 20px !important;
+  font-size: 1px !important;
 }
 
-.swiper-pagination-bullet {
-  width: 20px !important;
-  height: 20px !important;
-  background-color: purple !important;
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px !important;
 }
