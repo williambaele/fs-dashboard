@@ -3,29 +3,39 @@ import React from "react";
 const TrendingAuthors = () => {
   const authors = [
     {
-      name: "Sport",
+      name: "John Doe",
       image:
         "https://images.unsplash.com/photo-1526888935184-a82d2a4b7e67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+      background:
+        "https://images.unsplash.com/photo-1555400038-63f5ba517a47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
     },
     {
-      name: "Cooking",
+      name: "Marius Cornel",
       image:
         "https://images.unsplash.com/photo-1514986888952-8cd320577b68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1776&q=80",
+      background:
+        "https://plus.unsplash.com/premium_photo-1678303396234-4180231353df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
     },
     {
-      name: "Self development",
+      name: "Natacha Sinclair",
       image:
         "https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1099&q=80",
+      background:
+        "https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
     },
     {
-      name: "Finance",
+      name: "William Jislo",
       image:
         "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+      background:
+        "https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
     },
     {
-      name: "Finance",
+      name: "Alex Durant",
       image:
         "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+      background:
+        "https://images.unsplash.com/photo-1555400038-63f5ba517a47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
     },
   ];
   return (
@@ -43,8 +53,16 @@ const TrendingAuthors = () => {
               {authors.map((author, index) => (
                 <div key={index} className="space-y-4">
                   <div className="rounded-xl h-60 bg-red-200 grid">
-                    <div className="h-full bg-gray-200 relative rounded-t-xl">
-                      <div className="bg-gray-400 absolute top-2 left-2 rounded-xl h-6 w-1/4 flex items-center justify-center gap-2">
+                    <div
+                      className="h-full bg-gray-200 relative rounded-t-xl"
+                      style={{
+                        backgroundImage: `url(${author.background})`,
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                      }}
+                    >
+                      <div className="bg-gray-200 absolute top-2 left-2 rounded-xl h-6 w-1/4 flex items-center justify-center gap-2 shadow-sm">
                         <p className="text-lg font-large">5</p>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +86,10 @@ const TrendingAuthors = () => {
                         />
                       </div>
                     </div>
-                    <div className="h-full bg-green-900 rounded-b-xl"></div>
+                    <div className="h-full bg-gray-300 rounded-b-xl flex items-center justify-center flex-col">
+                      <h2 className="text-xl font-large">{author.name}</h2>
+                      <h3 className="text-md text-gray-400">@{author.name}</h3>
+                    </div>
                   </div>
                 </div>
               ))}
