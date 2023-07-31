@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <header
       aria-label="Site Header"
-      className="fixed top-0 left-0 right-0 shadow-sm bg-white"
+      className="h-16 fixed top-0 left-0 right-0 z-50 shadow-sm bg-white"
     >
       <div class="mx-auto max-w-screen-xl p-4 ">
         <div class="flex items-center justify-between gap-4 lg:gap-10">

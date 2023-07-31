@@ -5,9 +5,9 @@ import HeroBanner from "../components/HeroBanner";
 
 const Home = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col h-screen">
       <Navbar />
-      <div className="flex-1 bg-[#e5e7eb] pt-16 overflow-y-auto">
+      <div className="flex-grow pt-16 bg-[#e5e7eb]">
         <HeroBanner />
         <TrendingTopics />
       </div>
