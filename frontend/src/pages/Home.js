@@ -5,14 +5,14 @@ import HeroBanner from "../components/HeroBanner";
 
 const Home = () => {
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <Navbar />
-      <div className="h-full bg-[#e5e7eb]">
-        <HeroBanner/>
+      <div className="flex-1 bg-[#e5e7eb] overflow-y-auto">
+        <HeroBanner />
         <TrendingTopics />
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
