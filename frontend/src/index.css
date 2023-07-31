@@ -59,43 +59,21 @@ button {
   object-fit: cover;
 }
 
-.swiper-button-prev::after {
-  background-color: white;
-  padding: 10px;
-  border-radius: 100px;
-  color:red;
-  height: 10px !important;
-  width: 10px !important;
-  size: 10px !important;
-  line-height: 10px !important;
-  font-size: 25px !important;
-}
-.swiper-button-prev::before {
-  background-color: white;
-  padding: 10px;
-  border-radius: 100px;
-  color:purple;
-  height: 10px !important;
-  width: 10px !important;
-  size: 10px !important;
-  line-height: 10px !important;
-  width: 40px;
-  height: 40px;
-  font-size: 5px;
-}
+.swiper-button-next,
 .swiper-button-prev {
   background-color: white;
-  padding: 10px;
-  border-radius: 100px;
-  color:red;
-  line-height:10px !important;
-  width: 40px;
-  height: 40px;
-  font-size: 5px;
+  padding: 8px 16px;
+  border-radius: 100%;
+  color: red !important;
+  size: 10px !important;
+
+  height: 40px !important;
+  width: 40px !important;
+  font-size: 20px !important;
 }
 
-
 .swiper-pagination-bullet {
-
-  background-color: red;
+  width: 20px !important;
+  height: 20px !important;
+  background-color: purple !important;
 }
