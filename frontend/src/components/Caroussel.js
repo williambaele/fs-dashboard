@@ -35,6 +35,8 @@ const Caroussel = () => {
       <Swiper
         navigation={true}
         modules={[Navigation]}
+        loop={true}
+
         className="mySwiper h-full"
       >
         {slides.map((slide, index) => (
