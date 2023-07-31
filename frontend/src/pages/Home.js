@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <div className="flex-1 bg-[#e5e7eb] overflow-y-auto">
+      <div className="flex-1 bg-[#e5e7eb] pt-16 overflow-y-auto">
         <HeroBanner />
         <TrendingTopics />
       </div>
