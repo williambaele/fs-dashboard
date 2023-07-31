@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TrendingTopics from "../components/TrendingTopics";
 import HeroBanner from "../components/HeroBanner";
+import TrendingAuthors from "../TrendingAuthors";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <div className="flex-grow pt-16 bg-[#e5e7eb]">
         <HeroBanner />
         <TrendingTopics />
+        <TrendingAuthors/>
       </div>
       <Footer />
     </div>
