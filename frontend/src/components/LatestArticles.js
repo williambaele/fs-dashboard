@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import FiltersLatestArticles from "./FiltersLatestArticles";
 import LatestArticlesCard from "./LatestArticlesCard";
 
 const LatestArticles = ({ articles }) => {
+  const [activeFilter, setActiveFilter] = useState("Sport");
+
+  const handleFilterChange = (filter) => {
+    setActiveFilter(filter);
+  };
+
+  const filteredArticles = articles.filter((article) =>
+    activeFilter === "Sport" ? true : article.tags.includes(activeFilter)
+  );
   return (
     <div className="mx-auto container px-4 md:px-0 py-10 space-y-6 flex flex-col">
       <div className="flex flex-col space-y-4">
@@ -10,10 +19,13 @@ const LatestArticles = ({ articles }) => {
         <p className="text-gray-500 text-xl font-large">
           Discover the most outstanding articles in all topics of life.
         </p>
-        <FiltersLatestArticles />
+        <FiltersLatestArticles
+          activeFilter={activeFilter}
+          onFilterChange={handleFilterChange}
+        />
       </div>
-      {articles.map((article, index) => (
-        <LatestArticlesCard article={article} key={index}/>
+      {filteredArticles.slice(0, 10).map((article, index) => (
+        <LatestArticlesCard article={article} key={index} />
       ))}
     </div>
   );
