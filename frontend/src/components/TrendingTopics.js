@@ -40,7 +40,7 @@ const TrendingTopics = () => {
                 horizons
               </p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div className="grid md:grid-cols-5 gap-4">
               {topics.map((topic, index) => (
                 <div key={index} className="space-y-4">
                   <div

@@ -24,9 +24,11 @@ const LatestArticles = ({ articles }) => {
           onFilterChange={handleFilterChange}
         />
       </div>
-      {filteredArticles.slice(0, 10).map((article, index) => (
-        <LatestArticlesCard article={article} key={index} />
-      ))}
+      <div className="grid md:grid-cols-2 gap-4">
+        {filteredArticles.slice(0, 10).map((article, index) => (
+          <LatestArticlesCard article={article} key={index} />
+        ))}
+      </div>
     </div>
   );
 };

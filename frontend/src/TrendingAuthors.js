@@ -49,7 +49,7 @@ const TrendingAuthors = () => {
                 Discover the most active authors and their interesting articles
               </p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div className="grid md:grid-cols-5 gap-4">
               {authors.map((author, index) => (
                 <div key={index} className="space-y-4">
                   <div className="rounded-xl h-60 bg-red-200 grid">
