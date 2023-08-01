@@ -1,32 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useArticlesContext } from "../hooks/useArticlesContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ArticleCard from "../components/ArticleCard";
 import Filters from "../components/Filters";
 
-const Articles = () => {
-  const { articles, dispatch } = useArticlesContext();
-  const [isLoading, setIsLoading] = useState(true);
+const Articles = ({articles}) => {
 
-  useEffect(() => {
-    const fetchArticles = async () => {
-      const response = await fetch("/api/articles");
-      const json = await response.json();
-
-      if (response.ok) {
-        dispatch({ type: "SET_ARTICLES", payload: json });
-      }
-
-      setIsLoading(false);
-    };
-
-    fetchArticles();
-  }, [dispatch]);
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
 
   return (
     <div className="flex flex-col min-h-screen">
