@@ -43,7 +43,7 @@ const TrendingAuthors = () => {
       <div className="bg-[#f3f4f6] rounded-xl p-10">
         <div className="mx-auto container px-4 md:px-0">
           <div className="grid space-y-6">
-            <div className="space-y-2 text-center pb-10">
+            <div className="space-y-2 text-center pb-10c">
               <h2 className="text-4xl font-bold">Top trending authors</h2>
               <p className="text-gray-500 text-xl font-large">
                 Discover the most active authors and their interesting articles

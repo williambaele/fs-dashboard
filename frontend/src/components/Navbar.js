@@ -112,7 +112,7 @@ const Navbar = () => {
             {!user && (
               <div>
                 <Link to="/login">
-                  <button class="rounded-lg bg-[#F45050] hover:bg-[#f56262] px-5 py-2 text-sm font-medium text-white">
+                  <button class="rounded-lg bg-blue-500 hover:bg-blue-400 px-5 py-2 text-sm font-medium text-white">
                     Log in
                   </button>
                 </Link>
