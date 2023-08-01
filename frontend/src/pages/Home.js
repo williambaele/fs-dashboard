@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import TrendingTopics from "../components/TrendingTopics";
 import HeroBanner from "../components/HeroBanner";
 import TrendingAuthors from "../TrendingAuthors";
+import LatestArticles from "../components/LatestArticles";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <HeroBanner />
         <TrendingTopics />
         <TrendingAuthors/>
+        <LatestArticles/>
       </div>
       <Footer />
     </div>

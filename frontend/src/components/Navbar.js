@@ -29,7 +29,7 @@ const Navbar = () => {
           <div class="flex lg:w-0 lg:flex-1">
             <Link to="/">
               <span class="h-10 w-32 bg-gray-400 rounded-lg  flex items-center justify-center text-white font-bold">
-                T-Budy
+
               </span>
             </Link>
           </div>
