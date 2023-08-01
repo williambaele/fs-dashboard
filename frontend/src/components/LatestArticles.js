@@ -10,7 +10,7 @@ const LatestArticles = ({ articles }) => {
   };
 
   const filteredArticles = articles.filter((article) =>
-    activeFilter === "Sport" ? true : article.tags.includes(activeFilter)
+    activeFilter === "Garden" ? true : article.tags.includes(activeFilter)
   );
   return (
     <div className="mx-auto container px-4 md:px-0 py-10 space-y-6 flex flex-col">
