@@ -6,7 +6,7 @@ import HeroBanner from "../components/HeroBanner";
 import TrendingAuthors from "../TrendingAuthors";
 import LatestArticles from "../components/LatestArticles";
 
-const Home = () => {
+const Home = ({articles}) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -14,7 +14,7 @@ const Home = () => {
         <HeroBanner />
         <TrendingTopics />
         <TrendingAuthors/>
-        <LatestArticles/>
+        <LatestArticles articles={articles}/>
       </div>
       <Footer />
     </div>

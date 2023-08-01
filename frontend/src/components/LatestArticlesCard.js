@@ -1,9 +1,9 @@
 import React from 'react';
 
-const LatestArticlesCard = () => {
+const LatestArticlesCard = ({article}) => {
   return (
     <div className="h-10 bg-red-200 w-full">
-
+      {article.title}
     </div>
   );
 };
