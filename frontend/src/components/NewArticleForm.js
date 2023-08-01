@@ -24,7 +24,7 @@ const NewArticleForm = ({ user }) => {
       return;
     }
     //Adding data to the article's creation
-    const article = { text, title, topic, tags };
+    const article = { text, title, topic, tags, user_id: user._id }; // Send the user_id from the user object
     const response = await fetch("/api/articles", {
       method: "POST",
       body: JSON.stringify(article),

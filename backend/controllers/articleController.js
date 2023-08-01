@@ -27,7 +27,7 @@ const getArticle = async (req, res) => {
 // CREATE NEW ARTICLE
 const createArticle = async (req, res) => {
 
-  const { title, text, topic, tags} = req.body;
+  const { title, text, topic, tags, user_id } = req.body; // Extract user_id from the request body
   let emptyFields = [];
 
   if (!text) {
@@ -48,7 +48,6 @@ const createArticle = async (req, res) => {
       .status(400)
       .json({ error: "Please fill in all the fields", emptyFields });
   }
-  const user_id = user._id;
 
   const articleData = { title, text, topic, tags, user_id };
 
