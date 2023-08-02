@@ -16,7 +16,7 @@ const UserPosts = ({ user, articles }) => {
   }, [user, articles]);
 
   return (
-    <div className="grid gap-4">
+    <div className="grid gap-4 overflow-y-auto h-96">
       {userArticles &&
         userArticles.map((article) => (
           <UserPostCard key={article._id} article={article} />

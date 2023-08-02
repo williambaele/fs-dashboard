@@ -33,7 +33,7 @@ const Dashboard = ({ articles }) => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col h-screen">
       <div className="flex-grow pt-16 bg-[#e5e7eb]">
         <Navbar />
         <div className="bg-[#F0F0F0] h-screen">
@@ -63,7 +63,7 @@ const Dashboard = ({ articles }) => {
                     </div>
                   ))}
                 </div>
-                <div className="md:col-span-9">
+                <div className="md:col-span-9 h-full">
                   {activeMenu === "newArticle" ? (
                     <>
                       <NewArticleForm user={user} />
