@@ -1,6 +1,13 @@
 import React from "react";
 
-const ArticleHeader = ({ article, userArticle }) => {
+const ArticleHeader = ({ article, author }) => {
+  //FORMAT DATE
+  const dateObject = new Date(article.createdAt);
+  const day = String(dateObject.getDate()).padStart(2, "0");
+  const month = String(dateObject.getMonth() + 1).padStart(2, "0");
+  const year = String(dateObject.getFullYear()).slice(-2);
+  const classicDateFormat = `${day}/${month}/${year}`;
+
   return (
     <div className="grid gap-4 px-4 md:px-0 w-full md:w-1/2 mx-auto container pb-14">
       <p className="w-fit top-4 left-4 bg-purple-200 text-purple-500 px-2 text-xl rounded-lg">
@@ -17,8 +24,8 @@ const ArticleHeader = ({ article, userArticle }) => {
             className="rounded-full h-12"
           />
           <div className="grid gap-1">
-            <p className="text-gray-900 text-lg font-bold">John Doe</p>
-            <p className="text-gray-300 text-sm">09/03/2023</p>
+            <p className="text-gray-900 text-lg font-bold">{author}</p>
+            <p className="text-gray-300 text-sm">{classicDateFormat}</p>
           </div>
         </div>
       </div>

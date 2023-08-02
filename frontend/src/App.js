@@ -15,8 +15,6 @@ import { useEffect, useState } from "react";
 
 function App() {
   const { user } = useAuthContext();
-  console.log(user);
-
   //LOADING ARTICLES
   const { articles, dispatch } = useArticlesContext();
   const [isLoading, setIsLoading] = useState(true);
