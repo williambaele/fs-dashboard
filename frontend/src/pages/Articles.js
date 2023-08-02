@@ -13,7 +13,7 @@ const Articles = ({articles}) => {
         <Navbar />
         <div className="bg-[#F0F0F0] h-full">
           <Filters />
-          <div className="container mx-auto py-10 grid grid-cols-2 md:grid-cols-3 gap-4 w-full px-4 md:px-0">
+          <div className="container mx-auto py-10 grid  md:grid-cols-3 gap-4 w-full px-4 md:px-0">
             {articles.map((article) => (
               <ArticleCard key={article._id} article={article} />
             ))}

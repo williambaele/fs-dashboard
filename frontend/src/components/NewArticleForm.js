@@ -7,8 +7,8 @@ const NewArticleForm = ({ user }) => {
   const navigate = useNavigate();
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
-  const [topic, setTopic] = useState("");
-  const [tags, setTags] = useState("Garden");
+  const [topic, setTopic] = useState("Garden");
+  const [tags, setTags] = useState("");
   const { dispatch } = useArticlesContext();
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
@@ -72,17 +72,16 @@ const NewArticleForm = ({ user }) => {
           className="bg-white shadow-xs p-4 rounded-xl border border-gray-200 outline-none"
         />
         <input
-          type="topic"
-          value={topic}
-          onChange={(e) => setTopic(e.target.value)}
-          placeholder="Topic"
-          className="bg-white shadow-xs p-4 rounded-xl border border-gray-200 outline-none"
-        />
-        <select
           type="tags"
           value={tags}
           onChange={(e) => setTags(e.target.value)}
           placeholder="Tags"
+          className="bg-white shadow-xs p-4 rounded-xl border border-gray-200 outline-none"
+        />
+        <select
+          type="topic"
+          value={topic}
+          onChange={(e) => setTopic(e.target.value)}
           className="bg-white shadow-xs p-4 rounded-xl border border-gray-200 outline-none"
         >
           <option value="Garden">Garden</option>

@@ -10,6 +10,29 @@ const ArticleCard = ({ article }) => {
   const year = String(dateObject.getFullYear()).slice(-2);
   const classicDateFormat = `${day}/${month}/${year}`;
 
+  //TOPIC LABEL COLOR
+let topicColor = "red";
+const lowercaseTopic = article.topic.toLowerCase();
+
+switch (lowercaseTopic) {
+  case "sport":
+    topicColor = "yellow";
+    break;
+  case "fashion":
+    topicColor = "purple";
+    break;
+  case "garden":
+    topicColor = "green";
+    break;
+  case "food":
+    topicColor = "orange";
+    break;
+  default:
+    topicColor = "red";
+    break;
+}
+
+
   return (
     <Link to={`/article/${article._id}`}>
       <div className="grid w-full">
@@ -19,7 +42,9 @@ const ArticleCard = ({ article }) => {
             alt="hero"
             className="rounded-t-2xl h-48 bg-cover w-full"
           />
-          <p className="absolute top-4 left-4 bg-purple-200 text-purple-500 px-2 text-md rounded-lg">
+          <p
+            className={`absolute top-4 left-4 bg-${topicColor}-300 text-${topicColor}-500 px-2 text-md rounded-lg`}
+          >
             {article.topic}
           </p>
         </div>
