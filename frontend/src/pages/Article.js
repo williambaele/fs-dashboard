@@ -43,7 +43,6 @@ const Article = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex-grow pt-16 bg-[#e5e7eb]">
-        {" "}
         <Navbar />
         <div className="py-10 bg-[#F8F8F8]">
           <ArticleHeader article={article} userArticle={userArticle} />

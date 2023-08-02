@@ -24,7 +24,7 @@ export const useLogin = () => {
         setError(json.error)
       } else {
         const json = await response.json()
-
+        console.log(json)
         // Extract the user pseudo from the response data
         const { pseudo } = json;
 

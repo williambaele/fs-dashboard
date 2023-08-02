@@ -19,7 +19,11 @@ const articleSchema = new Schema(
     tags: {
       type: String,
       required: true,
-    }
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   { timestamps: true }
 );
