@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import UserPostCard from "./UserPostCard";
 
 const UserPosts = ({ user, articles }) => {
-  console.log(user);
-  console.log(articles);
   const [userArticles, setUserArticles] = useState(null);
 
   //RETRIEVE USER'S ARTCILES ONLY
