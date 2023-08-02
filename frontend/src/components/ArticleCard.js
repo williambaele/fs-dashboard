@@ -11,20 +11,19 @@ const ArticleCard = ({ article }) => {
   const classicDateFormat = `${day}/${month}/${year}`;
 
   //TOPIC LABEL COLOR
-let topicColor = "red";
-const lowercaseTopic = article.topic.toLowerCase();
+let topicColor = null;
 
-switch (lowercaseTopic) {
-  case "sport":
-    topicColor = "yellow";
+switch (article.topic) {
+  case "Sport":
+    topicColor = "blue";
     break;
-  case "fashion":
+  case "Fashion":
     topicColor = "purple";
     break;
-  case "garden":
+  case "Garden":
     topicColor = "green";
     break;
-  case "food":
+  case "Food":
     topicColor = "orange";
     break;
   default:

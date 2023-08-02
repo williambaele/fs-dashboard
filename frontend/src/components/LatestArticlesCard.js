@@ -2,12 +2,35 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const LatestArticlesCard = ({ article }) => {
+  //TOPIC LABEL COLOR
+  let topicColor = null;
+
+  switch (article.topic) {
+    case "Sport":
+      topicColor = "blue";
+      break;
+    case "Fashion":
+      topicColor = "purple";
+      break;
+    case "Garden":
+      topicColor = "green";
+      break;
+    case "Travel":
+      topicColor = "orange";
+      break;
+    default:
+      topicColor = "red";
+      break;
+  }
+
   return (
     <Link to={`/article/${article._id}`}>
       <div className="h-48 bg-white shadow-sm border border-gray-200 w-full rounded-xl p-4 grid grid-cols-3 gap-4">
         <div className="col-span-2 flex flex-col gap-2 p-2">
-          <p className="w-fit bg-purple-200 text-purple-500 px-2 text-sm rounded-lg">
-            {article.tags}
+          <p
+            className={`w-fit  px-2 text-sm rounded-lg bg-${topicColor}-300 text-${topicColor}-500 `}
+          >
+            {article.topic}
           </p>
           <h2 className="text-xl">{article.title}</h2>
           <p className="text-gray-400 text-md">

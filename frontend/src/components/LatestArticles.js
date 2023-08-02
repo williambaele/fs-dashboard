@@ -9,9 +9,24 @@ const LatestArticles = ({ articles }) => {
     setActiveFilter(filter);
   };
 
-  const filteredArticles = articles.filter((article) =>
-    activeFilter === "Garden" ? true : article.tags.includes(activeFilter)
-  );
+  const filteredArticles = articles.filter((article) => {
+    const lowerCaseActiveFilter = activeFilter.toLowerCase();
+    const lowerCaseArticleTopic = article.topic.toLowerCase();
+
+    switch (lowerCaseActiveFilter) {
+      case "sport":
+        return lowerCaseArticleTopic === "sport";
+      case "fashion":
+        return lowerCaseArticleTopic === "fashion";
+      case "garden":
+        return lowerCaseArticleTopic === "garden";
+      case "food":
+        return lowerCaseArticleTopic === "food";
+      default:
+        // For other filters, show articles that include the activeFilter in their topic
+        return lowerCaseArticleTopic.includes(lowerCaseActiveFilter);
+    }
+  });
   return (
     <div className="mx-auto container px-4 md:px-0 py-10 space-y-6 flex flex-col">
       <div className="flex flex-col space-y-4">
