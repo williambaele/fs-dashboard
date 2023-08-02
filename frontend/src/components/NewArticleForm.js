@@ -12,8 +12,7 @@ const NewArticleForm = ({ user }) => {
   const { dispatch } = useArticlesContext();
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
-  console.log(user);
-  console.log(user._id);
+
   //ARTCILE CREATION
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +23,7 @@ const NewArticleForm = ({ user }) => {
       return;
     }
     //Adding data to the article's creation
-    const article = { text, title, topic, tags, user_id: user._id }; // Send the user_id from the user object
+    const article = { text, title, topic, tags, user_id: user._id };
     const response = await fetch("/api/articles", {
       method: "POST",
       body: JSON.stringify(article),
@@ -94,12 +93,12 @@ const NewArticleForm = ({ user }) => {
         </select>
         {error && (
           <div className="error text-red-600 flex gap-1">
-            {error}:
-            <div className="flex gap-1">
+            {error}
+            <ul className="list-disc	ml-4 gap-1">
               {emptyFields.map((item) => (
-                <p>{item}</p>
+                <li>{item}</li>
               ))}
-            </div>
+            </ul>
           </div>
         )}
 

@@ -30,23 +30,23 @@ const createArticle = async (req, res) => {
   const { title, text, topic, tags, user_id } = req.body;
   let emptyFields = [];
 
-  if (!text) {
-    emptyFields.push("text");
+  if (!text || text.length < 200) {
+    emptyFields.push("Text length must be at least 200 characters");
   }
-  if (!title) {
-    emptyFields.push("title");
+  if (!title || title.length < 10 || title.length > 60) {
+    emptyFields.push("Title length must be between 10 and 60 characters");
   }
   if (!topic) {
-    emptyFields.push("topic");
+    emptyFields.push("Topic is not set");
   }
   if (!tags) {
-    emptyFields.push("tags");
+    emptyFields.push("Tags is not set");
   }
 
   if (emptyFields.length > 0) {
     return res
       .status(400)
-      .json({ error: "Please fill in all the fields", emptyFields });
+      .json({ error: "Please fill in all the fields :", emptyFields });
   }
 
   const articleData = { title, text, topic, tags, user:user_id };
