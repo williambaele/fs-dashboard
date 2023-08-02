@@ -6,7 +6,7 @@ import AccountForm from "../components/AccountForm";
 import NewArticleForm from "../components/NewArticleForm";
 import UserPosts from "../components/UserPosts";
 
-const Dashboard = () => {
+const Dashboard = ({ articles }) => {
   const { user } = useAuthContext();
   const menu = [
     {
@@ -71,7 +71,7 @@ const Dashboard = () => {
                   ) : null}
                   {activeMenu === "yourPosts" ? (
                     <>
-                      <UserPosts user={user} />
+                      <UserPosts user={user} articles={articles} />
                     </>
                   ) : null}
                   {activeMenu === "editProfile" ? (

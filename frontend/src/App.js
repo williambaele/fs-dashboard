@@ -55,7 +55,7 @@ function App() {
             />
             <Route
               path="/Dashboard"
-              element={user ? <Dashboard /> : <Navigate to="/login" />}
+              element={user ? <Dashboard articles={articles}/> : <Navigate to="/login" />}
             />
             <Route path="/article/:id" element={<Article />} />
           </Routes>
