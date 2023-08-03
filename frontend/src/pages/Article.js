@@ -6,6 +6,7 @@ import ArticleHeader from "../components/ArticleHeader";
 import ArticleCover from "../components/ArticleCover";
 import ArticleBody from "../components/ArticleBody";
 import CommentSection from "../components/CommentSection";
+import Loader from "../components/Loader";
 
 const Article = () => {
   const { id } = useParams();
@@ -17,21 +18,14 @@ const Article = () => {
     const fetchArticle = async () => {
       const response = await fetch(`/api/articles/${id}`);
       const json = await response.json();
-      console.log(json)
-
       if (response.ok) {
         setArticle(json);
         const author = json.user;
-        console.log('author id')
-        console.log(author)
         const userData = await fetch(`/api/user/${author}`);
         const userJson = await userData.json();
-        console.log(userJson)
-
         if (userData.ok) {
           const authorPseudo = userJson.pseudo;
           setAuthor(authorPseudo);
-          console.log(authorPseudo)
         }
       }
       setIsLoading(false);
@@ -40,7 +34,7 @@ const Article = () => {
     fetchArticle();
   }, [id]);
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
   return (
     <div className="flex flex-col min-h-screen">

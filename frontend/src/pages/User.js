@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import HeaderUser from "../components/HeaderUser";
 import UserPosts from "../components/UserPosts";
+import Loader from "../components/Loader";
 
 const User = ({ articles }) => {
   const { id } = useParams();
@@ -26,7 +27,7 @@ const User = ({ articles }) => {
     fetchUser();
   }, [id]);
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
   return (
     <div className="flex flex-col min-h-screen">

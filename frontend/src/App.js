@@ -13,6 +13,8 @@ import Dashboard from "./pages/Dashboard";
 import Article from "./pages/Article";
 import { useEffect, useState } from "react";
 import User from "./pages/User";
+import Loader from "./components/Loader";
+
 
 function App() {
   const { user } = useAuthContext();
@@ -36,7 +38,7 @@ function App() {
   }, [dispatch]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loader/>
   }
 
   return (
