@@ -67,7 +67,7 @@ function App() {
                 )
               }
             />
-            <Route path="/user/:id" element={<User />} />
+            <Route path="/user/:id" element={<User articles={articles}/>} />
             <Route path="/article/:id" element={<Article />} />
           </Routes>
           <ToastContainer

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import UserPostCard from "./UserPostCard";
 
-const UserPosts = (user, articles) => {
+const UserPostsDashboard = ({ user, articles }) => {
   const [userArticles, setUserArticles] = useState(null);
 
   //RETRIEVE USER'S ARTCILES ONLY
@@ -11,7 +12,15 @@ const UserPosts = (user, articles) => {
     );
     setUserArticles(filteredArticles);
   }, [user, articles]);
-  return <div></div>;
+
+  return (
+    <div className="grid gap-4 overflow-y-auto h-96">
+      {userArticles &&
+        userArticles.map((article) => (
+          <UserPostCard key={article._id} article={article} />
+        ))}
+    </div>
+  );
 };
 
-export default UserPosts;
+export default UserPostsDashboard;

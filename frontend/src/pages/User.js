@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import HeaderUser from "../components/HeaderUser";
+import UserPosts from "../components/UserPosts";
 
-const User = () => {
+const User = ({ articles }) => {
   const { id } = useParams();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -33,7 +34,7 @@ const User = () => {
       <div className="flex-grow pt-16 bg-[#e5e7eb]">
         <HeaderUser user={user} />
         <div className="mx-auto container">
-          <p>{user.pseudo}</p>
+          <UserPosts user={user} articles={articles} />
         </div>
       </div>
       <Footer />
