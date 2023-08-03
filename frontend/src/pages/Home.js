@@ -13,7 +13,7 @@ const Home = ({articles}) => {
       <Navbar />
       <div className="flex-grow pt-16 bg-[#e5e7eb]">
         {/* <HeroBanner /> */}
-        <HeroSlider/>
+        <HeroSlider articles={articles}/>
         <TrendingTopics />
         <TrendingAuthors/>
         <LatestArticles articles={articles}/>
