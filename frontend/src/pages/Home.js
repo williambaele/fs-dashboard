@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TrendingTopics from "../components/TrendingTopics";
-import HeroBanner from "../components/HeroBanner";
+// import HeroBanner from "../components/HeroBanner";
 import TrendingAuthors from "../TrendingAuthors";
 import LatestArticles from "../components/LatestArticles";
 import HeroSlider from "../components/HeroSlider";
