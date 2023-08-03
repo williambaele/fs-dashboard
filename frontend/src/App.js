@@ -12,6 +12,7 @@ import Articles from "./pages/Articles";
 import Dashboard from "./pages/Dashboard";
 import Article from "./pages/Article";
 import { useEffect, useState } from "react";
+import User from "./pages/User";
 
 function App() {
   const { user } = useAuthContext();
@@ -43,8 +44,11 @@ function App() {
       <BrowserRouter>
         <div className="pages">
           <Routes>
-            <Route path="/" element={<Home articles={articles}/>} />
-            <Route path="/articles" element={<Articles articles={articles}/>} />
+            <Route path="/" element={<Home articles={articles} />} />
+            <Route
+              path="/articles"
+              element={<Articles articles={articles} />}
+            />
             <Route
               path="/signup"
               element={!user ? <Signup /> : <Navigate to="/" />}
@@ -55,8 +59,15 @@ function App() {
             />
             <Route
               path="/Dashboard"
-              element={user ? <Dashboard articles={articles}/> : <Navigate to="/login" />}
+              element={
+                user ? (
+                  <Dashboard articles={articles} />
+                ) : (
+                  <Navigate to="/login" />
+                )
+              }
             />
+            <Route path="/user/:id" element={<User />} />
             <Route path="/article/:id" element={<Article />} />
           </Routes>
           <ToastContainer

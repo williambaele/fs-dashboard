@@ -50,7 +50,7 @@ const HeroSlider = () => {
               </div>
             </div>
             <ArticleStats />
-            <div className="absolute top-0 md:top-4 right-4 h-10 w-14 flex justify-between items-center">
+            <div className="absolute top-0 md:top-4 right-10 h-10 w-14 flex justify-between items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

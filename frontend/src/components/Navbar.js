@@ -91,6 +91,13 @@ const Navbar = () => {
                         <li>
                           <Link to="/dashboard">
                             <p class="block px-4 py-2 hover:bg-gray-100">
+                              My profile
+                            </p>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/dashboard">
+                            <p class="block px-4 py-2 hover:bg-gray-100">
                               My account
                             </p>
                           </Link>
