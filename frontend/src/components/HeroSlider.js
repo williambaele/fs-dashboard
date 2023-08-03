@@ -24,16 +24,16 @@ const HeroSlider = () => {
   // }
 
   return (
-    <div className="container mx-auto w-full pt-20 pb-10 px-4 md:px-0">
-      <div className="h-[300px] md:h-[500px] grid md:grid-cols-8">
-        <div className="md:col-span-3  h-full flex items-center -mr-10 z-10">
-          <div className="bg-white shadow-sm blur-10 h-80 w-full z-12 rounded-3xl flex flex-col space-y-6 p-10 relative">
+    <div className="container mx-auto w-full pt-10 md:pt-20 pb-10 px-4 md:px-0">
+      <div className="h-full md:h-[500px] grid md:grid-cols-8">
+        <div className="md:col-span-3 h-full flex items-center -mt-10 md:-mt-0 md:-mr-10 z-10">
+          <div className="bg-white shadow-sm blur-10 h-60 md:h-80 w-full z-12 rounded-3xl flex flex-col space-y-4 md:space-y-6 p-6 md:p-10 relative">
             <p
               className={`w-fit  px-2 text-sm rounded-lg bg-green-300 text-green-500 `}
             >
               Garden
             </p>
-            <h2 className="text-2xl font-large">
+            <h2 className="text-xl md:text-2xl font-large">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </h2>
             <div className="flex items-center gap-4">
@@ -43,12 +43,14 @@ const HeroSlider = () => {
                 className="rounded-full h-10"
               />
               <div className="grid gap-1">
-                <p className="text-gray-900 text-lg font-bold">John Doe</p>
+                <p className="text-gray-900 text-md md:text-lg font-bold">
+                  John Doe
+                </p>
                 <p className="text-gray-300 text-sm">22/08/2023</p>
               </div>
             </div>
             <ArticleStats />
-            <div className="absolute top-4 right-8 h-10 w-14 flex justify-between items-center">
+            <div className="absolute top-0 md:top-4 right-4 h-10 w-14 flex justify-between items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -79,7 +81,7 @@ const HeroSlider = () => {
           </div>
         </div>
         <div
-          className="md:col-span-5 bg-red-200 h-full bg-cover rounded-2xl z-1"
+          className="md:col-span-5 bg-red-200 h-80 order-first md:order-last	md:h-full bg-cover rounded-2xl z-1"
           style={{
             backgroundImage:
               'url("https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80")',
