@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ArticleHeader = ({ article, author }) => {
   //FORMAT DATE
@@ -17,6 +18,8 @@ const ArticleHeader = ({ article, author }) => {
         {article.title}
       </h1>
       <div className="grid-cols-2 grid">
+      <Link to={`/user/${article.user}`}>
+
         <div className="flex items-center gap-4">
           <img
             src="https://ncmaz-nextjs.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F3.054bee42.jpg&w=256&q=75"
@@ -28,6 +31,7 @@ const ArticleHeader = ({ article, author }) => {
             <p className="text-gray-300 text-sm">{classicDateFormat}</p>
           </div>
         </div>
+        </Link>
       </div>
     </div>
   );

@@ -34,7 +34,7 @@ const User = ({ articles }) => {
       <div className="flex-grow pt-16 bg-[#e5e7eb]">
         <HeaderUser user={user} />
         <div className="mx-auto container">
-          <UserPosts user={user} articles={articles} />
+          <UserPosts id={id} articles={articles} />
         </div>
       </div>
       <Footer />
