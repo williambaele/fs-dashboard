@@ -28,9 +28,7 @@ const Navbar = () => {
         <div class="flex items-center justify-between gap-4 lg:gap-10">
           <div class="flex lg:w-0 lg:flex-1">
             <Link to="/">
-              <span class="h-10 w-32 bg-gray-400 rounded-lg  flex items-center justify-center text-white font-bold">
-
-              </span>
+              <span class="h-10 w-32 bg-gray-400 rounded-lg  flex items-center justify-center text-white font-bold"></span>
             </Link>
           </div>
 
@@ -89,7 +87,7 @@ const Navbar = () => {
                         aria-labelledby="dropdownInformationButton"
                       >
                         <li>
-                          <Link to="/dashboard">
+                          <Link to={`/user/${user._id}`}>
                             <p class="block px-4 py-2 hover:bg-gray-100">
                               My profile
                             </p>
