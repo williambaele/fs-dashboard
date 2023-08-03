@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import HeaderUser from "../components/HeaderUser";
 
 const User = () => {
   const { id } = useParams();
@@ -30,6 +31,7 @@ const User = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <div className="flex-grow pt-16 bg-[#e5e7eb]">
+        <HeaderUser user={user} />
         <div className="mx-auto container">
           <p>{user.pseudo}</p>
         </div>
