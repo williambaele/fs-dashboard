@@ -5,13 +5,15 @@ import TrendingTopics from "../components/TrendingTopics";
 import HeroBanner from "../components/HeroBanner";
 import TrendingAuthors from "../TrendingAuthors";
 import LatestArticles from "../components/LatestArticles";
+import HeroSlider from "../components/HeroSlider";
 
 const Home = ({articles}) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <div className="flex-grow pt-16 bg-[#e5e7eb]">
-        <HeroBanner />
+        {/* <HeroBanner /> */}
+        <HeroSlider/>
         <TrendingTopics />
         <TrendingAuthors/>
         <LatestArticles articles={articles}/>
