@@ -4,7 +4,7 @@ const HeaderUser = ({ user }) => {
   return (
     <div className="flex flex-col h-full">
       <div
-        className="w-full h-48 bg-red-400 bg-cover bg-center"
+        className="w-full h-48 bg-white bg-cover bg-center"
         style={{
           backgroundImage:
             'url("https://ncmaz-nextjs.vercel.app/_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F459225%2Fpexels-photo-459225.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D2%26h%3D750%26w%3D1260&w=3840&q=75")',
