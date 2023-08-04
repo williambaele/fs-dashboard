@@ -41,6 +41,12 @@ const HeroSlider = ({ articles }) => {
               topicColor = "red";
               break;
           }
+          //FORMAT DATE
+          const dateObject = new Date(article.createdAt);
+          const day = String(dateObject.getDate()).padStart(2, "0");
+          const month = String(dateObject.getMonth() + 1).padStart(2, "0");
+          const year = String(dateObject.getFullYear()).slice(-2);
+          const classicDateFormat = `${day}/${month}/${year}`;
 
           return (
             <SwiperSlide key={index}>
@@ -67,7 +73,9 @@ const HeroSlider = ({ articles }) => {
                         <p className="text-gray-900 text-md md:text-lg font-bold">
                           John Doe
                         </p>
-                        <p className="text-gray-300 text-sm">22/08/2023</p>
+                        <p className="text-gray-300 text-sm">
+                        {classicDateFormat}
+                        </p>
                       </div>
                     </div>
                     <ArticleStats />
