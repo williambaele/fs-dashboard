@@ -44,7 +44,6 @@ const HeroSlider = ({ articles }) => {
 
           return (
             <SwiperSlide key={index}>
-              {/* ... rest of your code ... */}
               <div className="h-full md:h-[500px] grid md:grid-cols-8">
                 <div className="md:col-span-3 h-full flex items-center -mt-10 md:-mt-0 md:-mr-10 z-10">
                   <div
