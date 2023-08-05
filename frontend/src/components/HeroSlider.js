@@ -13,8 +13,9 @@ import { Navigation } from "swiper/modules";
 import SwiperNavButtons from "./SwiperNavButtons";
 
 const HeroSlider = ({ articles }) => {
-  const [users, setUsers] = useState({});
 
+  //AUTHOUR'S PSEUDO
+  const [users, setUsers] = useState({});
   useEffect(() => {
     async function fetchUsersPseudo() {
       const userPromises = articles.map(async (article) => {
@@ -43,9 +44,6 @@ const HeroSlider = ({ articles }) => {
         className="mySwiper h-full"
       >
         {articles.map((article, index) => {
-          //AUTHOUR'S PSEUDO
-          console.log(article.user);
-
           //TOPIC LABEL COLOR
           let topicColor = null;
 
@@ -97,9 +95,11 @@ const HeroSlider = ({ articles }) => {
                         className="rounded-full h-10"
                       />
                       <div className="grid gap-1 text-left">
-                        <p className="text-gray-900 text-md md:text-lg font-bold">
-                          {users[article.user]}
-                        </p>
+                        <Link to={`/user/${article.user}`}>
+                          <p className="text-gray-900 text-md md:text-lg font-bold">
+                            {users[article.user]}
+                          </p>
+                        </Link>
                         <p className="text-gray-300 text-sm">
                           {classicDateFormat}
                         </p>
