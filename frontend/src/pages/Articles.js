@@ -24,7 +24,7 @@ const Articles = ({ articles }) => {
     if (sortBy === "oldest") {
       return a.createdAt - b.createdAt;
     } else {
-      return b.createdAt - a.date;
+      return b.createdAt - a.createdAt;
     }
   });
 

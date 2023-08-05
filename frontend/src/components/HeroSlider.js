@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import ArticleStats from "./ArticleStats";
+import { Link } from "react-router-dom";
 
 //HERO
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -60,9 +61,11 @@ const HeroSlider = ({ articles }) => {
                     >
                       {article.topic}
                     </p>
-                    <h2 className="text-xl md:text-2xl font-large text-left">
-                      {article.title}
-                    </h2>
+                    <Link to={`/article/${article._id}`}>
+                      <h2 className="text-xl md:text-2xl font-large text-left">
+                        {article.title}
+                      </h2>
+                    </Link>
                     <div className="flex items-center gap-4">
                       <img
                         src="https://ncmaz-nextjs.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F3.054bee42.jpg&w=256&q=75"
@@ -74,7 +77,7 @@ const HeroSlider = ({ articles }) => {
                           John Doe
                         </p>
                         <p className="text-gray-300 text-sm">
-                        {classicDateFormat}
+                          {classicDateFormat}
                         </p>
                       </div>
                     </div>
