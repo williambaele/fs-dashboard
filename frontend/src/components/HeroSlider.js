@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ArticleStats from "./ArticleStats";
 import { Link } from "react-router-dom";
 
@@ -49,6 +49,7 @@ const HeroSlider = ({ articles }) => {
           const year = String(dateObject.getFullYear()).slice(-2);
           const classicDateFormat = `${day}/${month}/${year}`;
 
+         console.log(article.user)
           return (
             <SwiperSlide key={index}>
               <div className="h-full md:h-[500px] grid md:grid-cols-8">
