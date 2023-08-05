@@ -13,6 +13,27 @@ import { Navigation } from "swiper/modules";
 import SwiperNavButtons from "./SwiperNavButtons";
 
 const HeroSlider = ({ articles }) => {
+  const [users, setUsers] = useState({});
+
+  useEffect(() => {
+    async function fetchUsersPseudo() {
+      const userPromises = articles.map(async (article) => {
+        const response = await fetch(`/api/user/${article.user}`);
+        const userData = await response.json();
+        return { [article.user]: userData.pseudo };
+      });
+
+      const usersData = await Promise.all(userPromises);
+      const usersMap = usersData.reduce(
+        (acc, data) => ({ ...acc, ...data }),
+        {}
+      );
+      setUsers(usersMap);
+    }
+
+    fetchUsersPseudo();
+  }, [articles]);
+
   return (
     <div className="container mx-auto w-full pt-10 md:pt-20 pb-10 px-4 md:px-0">
       <Swiper
@@ -22,6 +43,9 @@ const HeroSlider = ({ articles }) => {
         className="mySwiper h-full"
       >
         {articles.map((article, index) => {
+          //AUTHOUR'S PSEUDO
+          console.log(article.user);
+
           //TOPIC LABEL COLOR
           let topicColor = null;
 
@@ -49,7 +73,6 @@ const HeroSlider = ({ articles }) => {
           const year = String(dateObject.getFullYear()).slice(-2);
           const classicDateFormat = `${day}/${month}/${year}`;
 
-         console.log(article.user)
           return (
             <SwiperSlide key={index}>
               <div className="h-full md:h-[500px] grid md:grid-cols-8">
@@ -73,9 +96,9 @@ const HeroSlider = ({ articles }) => {
                         alt=""
                         className="rounded-full h-10"
                       />
-                      <div className="grid gap-1">
+                      <div className="grid gap-1 text-left">
                         <p className="text-gray-900 text-md md:text-lg font-bold">
-                          John Doe
+                          {users[article.user]}
                         </p>
                         <p className="text-gray-300 text-sm">
                           {classicDateFormat}
