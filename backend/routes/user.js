@@ -1,7 +1,7 @@
 const express = require('express')
 
 // controller functions
-const { loginUser, signupUser, getUser, updateUser } = require('../controllers/userController')
+const { loginUser, signupUser, getUser, updateUser, getUsers } = require('../controllers/userController')
 
 const router = express.Router()
 
@@ -10,6 +10,10 @@ router.post('/login', loginUser)
 
 //GET a single user
 router.get('/:id', getUser)
+
+//GET EVERY USERS
+router.get('/', getUsers)
+
 
 //UPDATE USER
 router.patch('/:id', updateUser)
