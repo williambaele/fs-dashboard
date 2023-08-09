@@ -37,6 +37,7 @@ function App() {
     fetchArticles();
   }, [dispatch]);
 
+
   if (isLoading) {
     return <Loader/>
   }

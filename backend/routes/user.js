@@ -11,9 +11,8 @@ router.post('/login', loginUser)
 //GET a single user
 router.get('/:id', getUser)
 
-//GET EVERY USERS
+//GET ALL USERS
 router.get('/', getUsers)
-
 
 //UPDATE USER
 router.patch('/:id', updateUser)

@@ -32,24 +32,6 @@ const TrendingAuthors = () => {
     },
   ];
 
-  console.log("hi");
-  const [users, setUsers] = useState({});
-
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await fetch("/api/users");
-        if (!response.ok) {
-          throw new Error("Error fetching user data");
-        }
-        const json = await response.json();
-        setUsers(json);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchUsers();
-  }, []);
   return (
     <div className="px-10 py-20">
       <div className="bg-[#f3f4f6] rounded-xl p-10">

@@ -2,6 +2,13 @@ const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 
+
+// GET ALL USERS
+const getUsers = async (req, res) => {
+  const users = await User.find({}).sort({ createdAt: -1 });
+  res.status(200).json(users);
+};
+
 const createToken = (_id) => {
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
 };
@@ -87,10 +94,6 @@ const getUser = async (req, res) => {
   res.status(200).json(user);
 };
 
-// GET ALL USERS
-const getUsers = async (req, res) => {
-  const users = await User.find({}).sort({ createdAt: -1 });
-  res.status(200).json(users);
-};
+
 
 module.exports = { signupUser, loginUser, getUser, updateUser, getUsers };
