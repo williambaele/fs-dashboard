@@ -18,6 +18,9 @@ const LatestArticlesCard = ({ article }) => {
     case "Travel":
       topicColor = "orange";
       break;
+    case "Food":
+      topicColor = "red";
+      break;
     default:
       topicColor = "red";
       break;
@@ -25,8 +28,8 @@ const LatestArticlesCard = ({ article }) => {
 
   return (
     <Link to={`/article/${article._id}`}>
-      <div className="h-48 bg-white shadow-sm border border-gray-200 w-full rounded-xl p-4 grid grid-cols-3 gap-4">
-        <div className="col-span-2 flex flex-col gap-2 p-2">
+      <div className="grid w-full h-48 grid-cols-3 gap-4 p-4 bg-white border border-gray-200 shadow-sm rounded-xl">
+        <div className="flex flex-col col-span-2 gap-2 p-2">
           <p
             className={`w-fit  px-2 text-sm rounded-lg bg-${topicColor}-300 text-${topicColor}-500 `}
           >
@@ -37,8 +40,8 @@ const LatestArticlesCard = ({ article }) => {
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi,
             quo.
           </p>
-          <div className="flex gap-4 w-full">
-            <div className="flex items-center bg-gray-100 gap-2 p-1 px-3 rounded-xl">
+          <div className="flex w-full gap-4">
+            <div className="flex items-center gap-2 p-1 px-3 bg-gray-100 rounded-xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="10"
@@ -51,7 +54,7 @@ const LatestArticlesCard = ({ article }) => {
               </svg>
               <p className="text-sm">1</p>
             </div>
-            <div className="flex items-center bg-gray-100 gap-2 p-1 px-3 rounded-xl">
+            <div className="flex items-center gap-2 p-1 px-3 bg-gray-100 rounded-xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="10"

@@ -11,26 +11,28 @@ const ArticleCard = ({ article }) => {
   const classicDateFormat = `${day}/${month}/${year}`;
 
   //TOPIC LABEL COLOR
-let topicColor = null;
+  let topicColor = null;
 
-switch (article.topic) {
-  case "Sport":
-    topicColor = "blue";
-    break;
-  case "Fashion":
-    topicColor = "purple";
-    break;
-  case "Garden":
-    topicColor = "green";
-    break;
-  case "Food":
-    topicColor = "orange";
-    break;
-  default:
-    topicColor = "red";
-    break;
-}
-
+  switch (article.topic) {
+    case "Sport":
+      topicColor = "blue";
+      break;
+    case "Fashion":
+      topicColor = "purple";
+      break;
+    case "Garden":
+      topicColor = "green";
+      break;
+    case "Travel":
+      topicColor = "orange";
+      break;
+    case "Food":
+      topicColor = "red";
+      break;
+    default:
+      topicColor = "red";
+      break;
+  }
 
   return (
     <Link to={`/article/${article._id}`}>
@@ -39,7 +41,7 @@ switch (article.topic) {
           <img
             src="https://ncmaz-nextjs.vercel.app/_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F2662116%2Fpexels-photo-2662116.jpeg&w=2048&q=75"
             alt="hero"
-            className="rounded-t-2xl h-48 bg-cover w-full"
+            className="w-full h-48 bg-cover rounded-t-2xl"
           />
           <p
             className={`absolute top-4 left-4 bg-${topicColor}-300 text-${topicColor}-500 px-2 text-md rounded-lg`}
@@ -47,19 +49,19 @@ switch (article.topic) {
             {article.topic}
           </p>
         </div>
-        <div className="rounded-b-2xl bg-white p-4 grid w-full space-y-4">
+        <div className="grid w-full p-4 space-y-4 bg-white rounded-b-2xl">
           <div className="flex justify-between">
             <div className="flex items-center gap-4">
               <img
                 src="https://ncmaz-nextjs.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F3.054bee42.jpg&w=256&q=75"
                 alt=""
-                className="rounded-full h-8"
+                className="h-8 rounded-full"
               />
-              <p className="text-gray-900 text-md font-bold">John Doe</p>
+              <p className="font-bold text-gray-900 text-md">John Doe</p>
             </div>
-            <p className="text-gray-300 text-sm">{classicDateFormat}</p>
+            <p className="text-sm text-gray-300">{classicDateFormat}</p>
           </div>
-          <h2 className="break-words font-bold text-xl w-full">
+          <h2 className="w-full text-xl font-bold break-words">
             {article.title.slice(0, 25)}
           </h2>
           <ArticleStats />

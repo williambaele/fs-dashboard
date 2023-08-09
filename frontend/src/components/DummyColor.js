@@ -3,10 +3,12 @@ import React from 'react';
 const DummyColor = () => {
   return (
     <div>
-      <p className="bg-orange-300 text-orange-500">O</p>
-      <p className="bg-purple-300 text-purple-500">O</p>
-      <p className="bg-blue-300 text-blue-500">O</p>
-      <p className="bg-green-300 text-green-500">O</p>
+      <p className="text-orange-500 bg-orange-300">O</p>
+      <p className="text-purple-500 bg-purple-300">O</p>
+      <p className="text-blue-500 bg-blue-300">O</p>
+      <p className="text-green-500 bg-green-300">O</p>
+      <p className="text-red-500 bg-red-300">O</p>
+
     </div>
   );
 };
