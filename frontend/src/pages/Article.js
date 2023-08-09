@@ -44,7 +44,7 @@ const Article = () => {
           <ArticleHeader article={article} author={author} />
           <ArticleCover />
           <ArticleBody article={article} />
-          <CommentSection />
+          <CommentSection article={article}/>
         </div>
       </div>
       <Footer />

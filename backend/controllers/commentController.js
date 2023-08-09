@@ -9,7 +9,7 @@ const getComments = async (req, res) => {
 
 // CREATE NEW COMMENT
 const createComment = async (req, res) => {
-  const { content, user_id } = req.body;
+  const { content, user_id, article_id } = req.body;
   let emptyFields = [];
 
   if (!content) {
@@ -22,7 +22,7 @@ const createComment = async (req, res) => {
       .json({ error: "Please fill in all the fields :", emptyFields });
   }
 
-  const commentData = { content, user: user_id };
+  const commentData = { content, user: user_id, article: article_id };
   // ADD DOC TO DB
   try {
     const comment = await Comment.create(commentData);
