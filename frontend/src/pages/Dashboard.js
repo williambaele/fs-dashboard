@@ -37,19 +37,19 @@ const Dashboard = ({ articles }) => {
       <div className="flex-grow pt-16 bg-[#e5e7eb]">
         <Navbar />
         <div className="bg-[#F0F0F0] h-screen">
-          <div className="mx-auto container px-4 md:px-0 py-10">
-            <div className="bg-white p-8 rounded-2xl">
-              <div className="space-y-4 py-4">
-                <h1 className="text-5xl font-bold text-gray-900 text-center">
+          <div className="container px-4 py-10 mx-auto md:px-0">
+            <div className="p-8 bg-white rounded-2xl">
+              <div className="py-4 space-y-4">
+                <h1 className="text-5xl font-bold text-center text-gray-900">
                   Dashboard
                 </h1>
-                <p className="text-gray-400 text-lg text-center">
+                <p className="text-lg text-center text-gray-400">
                   View your dashboard, manage your posts, subscription and edit
                   and profile.
                 </p>
               </div>
-              <div className="grid md:grid-cols-12 h-full gap-4">
-                <div className="md:col-span-3 md:grid h-fit  gap-2">
+              <div className="grid h-full gap-4 md:grid-cols-12">
+                <div className="gap-2 md:col-span-3 md:grid h-fit">
                   {menu.map((item) => (
                     <div
                       key={item.key}
@@ -63,7 +63,7 @@ const Dashboard = ({ articles }) => {
                     </div>
                   ))}
                 </div>
-                <div className="md:col-span-9 h-full">
+                <div className="h-full md:col-span-9">
                   {activeMenu === "newArticle" ? (
                     <>
                       <NewArticleForm user={user} />

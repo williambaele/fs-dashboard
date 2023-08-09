@@ -21,30 +21,25 @@ const TrendingTopics = () => {
       name: "Finance",
       image:
         "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
-    },
-    {
-      name: "Finance",
-      image:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
-    },
+    }
   ];
   return (
-    <div className="py-20 px-10">
+    <div className="px-10 py-20">
       <div className="bg-[#f3f4f6] rounded-xl p-10">
-        <div className="mx-auto container px-4 md:px-0">
+        <div className="container px-4 mx-auto md:px-0">
           <div className="grid space-y-6">
             <div className="space-y-2">
               <h2 className="text-4xl font-bold">Top trending categories</h2>
-              <p className="text-gray-500 text-xl font-large">
+              <p className="text-xl text-gray-500 font-large">
                 Discover more than 10 categories to learn new stuffs and
                 horizons
               </p>
             </div>
-            <div className="grid md:grid-cols-5 gap-4">
+            <div className="grid gap-4 md:grid-cols-4">
               {topics.map((topic, index) => (
                 <div key={index} className="space-y-4">
                   <div
-                    className="rounded-xl TopicImg cursor-pointer"
+                    className="cursor-pointer rounded-xl TopicImg"
                     style={{
                       backgroundImage: `url(${topic.image})`,
                       backgroundSize: "cover",
@@ -56,7 +51,7 @@ const TrendingTopics = () => {
                     <h3 className="text-xl text-grey-800 font-large">
                       {topic.name}
                     </h3>
-                    <p className="text-md text-gray-500">12 articles</p>
+                    <p className="text-gray-500 text-md">12 articles</p>
                   </div>
                 </div>
               ))}
