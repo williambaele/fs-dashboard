@@ -8,30 +8,31 @@ const TasksTableRow = () => {
           <div class="flex items-center gap-x-3">
             <div class="grow">
               <span class="block text-sm font-semibold text-gray-800">
-                David Harrison
+                Product launch
               </span>
             </div>
           </div>
         </div>
       </td>
-      <td class="h-px w-48 whitespace-nowrap">
+      <td class="h-px w-40 whitespace-nowrap">
         <div class="px-6 py-3">
-          <span class="block text-sm font-semibold text-gray-500">
+          <span class="block text-sm text-gray-500">
             Seller has to introduce himself and
           </span>
         </div>
       </td>
       <td class="h-px w-20 whitespace-nowrap">
         <div class="px-6 py-3">
-          <span class="block text-sm font-semibold text-gray-800">
-            Seller
-          </span>
-          <span class="block text-sm text-gray-500">Branding products</span>
+          <img
+            class="inline-block h-[2.375rem] w-[2.375rem] rounded-full"
+            src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
+            alt="Imdage ddzp as"
+          />
         </div>
       </td>
       <td class="h-px w-px whitespace-nowrap">
         <div class="px-6 py-3">
-          <span class="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200">
+          <span class="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
             <svg
               class="w-2.5 h-2.5"
               xmlns="http://www.w3.org/2000/svg"
@@ -46,15 +47,15 @@ const TasksTableRow = () => {
           </span>
         </div>
       </td>
-      <td class="h-px w-px whitespace-nowrap">
+      <td class="h-px w-32 whitespace-nowrap">
         <div class="px-6 py-3">
           <div class="flex items-center gap-x-3">
             <span class="text-xs text-gray-500">3/5</span>
-            <div class="flex w-full h-1.5 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
+            <div class="flex w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
               <div
-                class="flex flex-col justify-center overflow-hidden bg-gray-800 dark:bg-gray-200"
+                class="flex flex-col justify-center overflow-hidden"
                 role="progressbar"
-                aria-valuenow="78"
+                aria-valuenow="20"
                 aria-valuemin="0"
                 aria-valuemax="100"
               ></div>

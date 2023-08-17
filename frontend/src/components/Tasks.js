@@ -3,10 +3,8 @@ import TasksTable from "./TasksTable";
 
 const Tasks = () => {
   return (
-    <div className="w-full h-full p-4 bg-orange-100">
-      <div className="grid p-4">
-        <TasksTable />
-      </div>
+    <div className="h-screen p-4 bg-gray-100">
+      <TasksTable />
     </div>
   );
 };

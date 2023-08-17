@@ -20,9 +20,9 @@ const Home = () => {
   const selectedComponent = menuComponents[activeMenu] || null;
 
   return (
-    <div className="flex">
+    <div className="flex w-full">
       <Sidebar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
-      <div className="flex-1">{selectedComponent}</div>
+      <div className="w-full h-full">{selectedComponent}</div>
     </div>
   );
 };
