@@ -14,6 +14,7 @@ const Home = () => {
     account: <Account />
   };
 
+  
   const selectedComponent = menuComponents[activeMenu] || null;
 
   return (
