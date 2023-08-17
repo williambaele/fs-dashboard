@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
 
 const Home = () => {
   return (
     <div className="min-h-screen bg-red-200">
-      <Navbar />
+      <Sidebar />
     </div>
   );
 };
