@@ -1,24 +1,10 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import TrendingTopics from "../components/TrendingTopics";
-import TrendingAuthors from "../TrendingAuthors";
-import LatestArticles from "../components/LatestArticles";
-import HeroSlider from "../components/HeroSlider";
-import Faq from "../components/Faq";
 
-const Home = ({ articles }) => {
+const Home = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="min-h-screen bg-red-200">
       <Navbar />
-      <div className="flex-grow pt-16 bg-[#e5e7eb]">
-        <HeroSlider articles={articles} />
-        <TrendingTopics />
-        <TrendingAuthors />
-        <LatestArticles articles={articles} />
-        <Faq/>
-      </div>
-      <Footer />
     </div>
   );
 };
