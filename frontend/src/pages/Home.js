@@ -3,6 +3,7 @@ import Sidebar from "../components/Sidebar";
 import Users from "../components/Users";
 import Account from "../components/Account"; 
 import Dashboard from "../components/Dashboard"; 
+import Tasks from "../components/Tasks"
 
 const Home = () => {
   const [activeMenu, setActiveMenu] = useState("dashboard");
@@ -11,7 +12,8 @@ const Home = () => {
   const menuComponents = {
     dashboard: <Dashboard />,
     user: <Users />,
-    account: <Account />
+    account: <Account />,
+    tasks: <Tasks/>
   };
 
   
