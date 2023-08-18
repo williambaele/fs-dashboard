@@ -1,6 +1,6 @@
 import React from "react";
 
-const TasksTableRow = () => {
+const TasksTableRow = ({task}) => {
   return (
     <tr>
       <td class="h-px w-px whitespace-nowrap">
@@ -8,7 +8,7 @@ const TasksTableRow = () => {
           <div class="flex items-center gap-x-3">
             <div class="grow">
               <span class="block text-sm font-semibold text-gray-500">
-                Product launch
+                {task.title}
               </span>
             </div>
           </div>

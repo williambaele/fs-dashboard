@@ -1,7 +1,7 @@
 import React from "react";
 import TasksTableRow from "./TasksTableRow";
 
-const TasksTable = ({ onAddTaskClick }) => {
+const TasksTable = ({ onAddTaskClick, tasks }) => {
   const tableHeadings = ["Title", "Description", "Users", "Status", "Progress"];
   return (
     <div className="flex">
@@ -68,7 +68,9 @@ const TasksTable = ({ onAddTaskClick }) => {
               </thead>
 
               <tbody class="divide-y divide-gray-200">
-                <TasksTableRow />
+                {tasks.map((task) =>
+                <TasksTableRow task={task}/>
+                )}
               </tbody>
             </table>
           </div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TasksTable from "./TasksTable";
 import TaskFormModal from "./TaskFormModal";
 
-const Tasks = ({user}) => {
+const Tasks = ({user, tasks}) => {
   const [isTaskFormVisible, setIsTaskFormVisible] = useState(false);
 
   const openTaskForm = () => {
@@ -20,7 +20,7 @@ const Tasks = ({user}) => {
       }`}
     >
       {isTaskFormVisible && <TaskFormModal onClose={closeTaskForm} isTaskFormVisible={isTaskFormVisible} user={user} />}
-      <TasksTable onAddTaskClick={openTaskForm} user={user}/>
+      <TasksTable onAddTaskClick={openTaskForm} user={user} tasks={tasks}/>
     </div>
   );
 };

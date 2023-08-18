@@ -36,10 +36,8 @@ const TaskFormModal = ({ onClose, isTaskFormVisible, user }) => {
       setEmptyFields(json.emptyFields);
     }
     if (response.ok) {
-      setTitle("");
-      setError(null);
-      setEmptyFields([]);
-      dispatch({ type: "CREATE_TASK", payload: json });
+      dispatch({ type: 'CREATE_TASK', payload: json });
+      onClose();
     }
   };
   return (
