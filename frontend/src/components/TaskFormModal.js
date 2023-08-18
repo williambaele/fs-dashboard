@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 const TaskFormModal = ({ onClose }) => {
+  const [taskLevel, setTaskLevel] = useState("");
   return (
     <div class="fixed inset-0 z-20 flex items-center justify-center">
       <div class="mt-0 sm:max-w-xl sm:w-full m-3 sm:mx-auto">
@@ -29,9 +30,7 @@ const TaskFormModal = ({ onClose }) => {
 
           <div class="p-4 sm:p-10 overflow-y-auto">
             <div class="mb-6 text-center">
-              <h3 class="mb-2 text-xl font-bold text-gray-400 ">
-                New task
-              </h3>
+              <h3 class="mb-2 text-xl font-bold text-gray-400 ">New task</h3>
               <p class="text-gray-500">
                 Add a new task to your dashbaord seamless
               </p>
@@ -44,13 +43,13 @@ const TaskFormModal = ({ onClose }) => {
                     for="hs-feedback-post-comment-name-1"
                     class="block mb-2 text-sm font-medium "
                   >
-                    Full name
+                    Title
                   </label>
                   <input
                     type="text"
                     id="hs-feedback-post-comment-name-1"
                     class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
-                    placeholder="Full name"
+                    placeholder="Title"
                   />
                 </div>
 
@@ -59,14 +58,52 @@ const TaskFormModal = ({ onClose }) => {
                     for="hs-feedback-post-comment-email-1"
                     class="block mb-2 text-sm font-medium "
                   >
-                    Email address
+                    User
                   </label>
-                  <input
-                    type="email"
+                  <select
+                    type="text"
                     id="hs-feedback-post-comment-email-1"
                     class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
                     placeholder="Email address"
-                  />
+                  >
+                    <option>William</option>
+                    <option>Martin</option>
+                    <option>Louis</option>
+                  </select>
+                </div>
+                <div class="mb-4 sm:mb-8">
+                  <label
+                    for="hs-feedback-post-comment-name-1"
+                    class="block mb-2 text-sm font-medium "
+                  >
+                    Status
+                  </label>
+                  <div className="grid justify-between grid-cols-3 gap-2">
+                    <button
+                      className={`px-8 py-2 text-gray-100 bg-green-600 rounded-md ${
+                        taskLevel === "cool" ? "border-2" : ""
+                      }`}
+                      onClick={() => setTaskLevel("cool")}
+                    >
+                      Cool
+                    </button>
+                    <button
+                      className={`px-8 py-2 text-gray-100 bg-yellow-600 rounded-md ${
+                        taskLevel === "middle" ? "border-2" : ""
+                      }`}
+                      onClick={() => setTaskLevel("middle")}
+                    >
+                      Middle
+                    </button>
+                    <button
+                      className={`px-8 py-2 text-gray-100 bg-red-600 rounded-md ${
+                        taskLevel === "urgent" ? "border-2" : ""
+                      }`}
+                      onClick={() => setTaskLevel("urgent")}
+                    >
+                      Urgent
+                    </button>
+                  </div>
                 </div>
 
                 <div>
@@ -74,7 +111,7 @@ const TaskFormModal = ({ onClose }) => {
                     for="hs-feedback-post-comment-textarea-1"
                     class="block mb-2 text-sm font-medium "
                   >
-                    Comment
+                    Description
                   </label>
                   <div class="mt-1">
                     <textarea
@@ -82,7 +119,7 @@ const TaskFormModal = ({ onClose }) => {
                       name="hs-feedback-post-comment-textarea-1"
                       rows="3"
                       class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
-                      placeholder="Leave your comment here..."
+                      placeholder="Leave your description here..."
                     ></textarea>
                   </div>
                 </div>
