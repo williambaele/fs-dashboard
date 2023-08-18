@@ -7,7 +7,7 @@ const TasksTableRow = () => {
         <div class="pl-6 pr-6 py-3">
           <div class="flex items-center gap-x-3">
             <div class="grow">
-              <span class="block text-sm font-semibold text-gray-800">
+              <span class="block text-sm font-semibold text-gray-500">
                 Product launch
               </span>
             </div>
@@ -71,7 +71,7 @@ const TasksTableRow = () => {
       <td class="h-px w-px whitespace-nowrap">
         <div class="px-6 py-1.5">
           <a
-            class="inline-flex items-center gap-x-1.5 text-sm text-blue-600 decoration-2 hover:underline font-medium"
+            class="inline-flex items-center gap-x-1.5 text-sm text-[#593EFE] decoration-2 hover:underline font-large"
             href="/"
           >
             Edit

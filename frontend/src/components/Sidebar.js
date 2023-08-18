@@ -10,7 +10,7 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
     logout();
   };
   return (
-    <div class="transition-all duration-300 transform hidden h-screen bg-white top-0 left-0 bottom-0 z-[60] w-64 border-r border-gray-200 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0">
+    <div class="transition-all duration-300 transform hidden h-screen bg-[#0b0b0b] text-white top-0 left-0 bottom-0 z-[60] w-64 border-r border-gray-700 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0">
       <div class="px-6">
         <a class="flex-none text-xl font-semibold " href="/">
           Brand
@@ -21,10 +21,10 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
         <ul class="space-y-1.5 ">
           <li onClick={() => setActiveMenu("dashboard")}>
             <div
-              className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-slate-700 rounded-md cursor-pointer ${
+              className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-gray-100 rounded-md cursor-pointer ${
                 activeMenu === "dashboard"
-                  ? "bg-gray-100 font-bold"
-                  : "hover:bg-gray-100"
+                  ? "bg-[#593EFE] font-bold"
+                  : "hover:bg-[#593EFE]"
               }`}
             >
               <svg
@@ -50,10 +50,10 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
 
           <li onClick={() => setActiveMenu("user")}>
             <div
-              className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-slate-700 rounded-md cursor-pointer ${
+              className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-gray-100 rounded-md cursor-pointer ${
                 activeMenu === "user"
-                  ? "bg-gray-100 font-bold"
-                  : "hover:bg-gray-100"
+                  ? "bg-[#593EFE] font-bold"
+                  : "hover:bg-[#593EFE]"
               }`}
             >
               <svg
@@ -71,10 +71,10 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
           </li>
           <li onClick={() => setActiveMenu("tasks")}>
             <div
-              className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-slate-700 rounded-md cursor-pointer ${
+              className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-gray-100 rounded-md cursor-pointer ${
                 activeMenu === "tasks"
-                  ? "bg-gray-100 font-bold"
-                  : "hover:bg-gray-100"
+                  ? "bg-[#593EFE] font-bold"
+                  : "hover:bg-[#593EFE]"
               }`}
             >
               <svg
@@ -93,10 +93,10 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
           </li>
           <li>
             <div
-              className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-slate-700 rounded-md cursor-pointer ${
+              className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-gray-100 rounded-md cursor-pointer ${
                 activeMenu === "calendar"
-                  ? "bg-gray-100 font-bold"
-                  : "hover:bg-gray-100"
+                  ? "bg-[#593EFE] font-bold"
+                  : "hover:bg-[#593EFE]"
               }`}
             >
               <svg
@@ -115,11 +115,11 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
           </li>
           <li>
             <div
-              className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-slate-700 rounded-md cursor-pointer ${
-                activeMenu === "documentation"
-                  ? "bg-gray-100 font-bold"
-                  : "hover:bg-gray-100"
-              }`}
+             className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-gray-100 rounded-md cursor-pointer ${
+              activeMenu === "documentation"
+                ? "bg-[#593EFE] font-bold"
+                : "hover:bg-[#593EFE]"
+            }`}
             >
               <svg
                 class="w-3.5 h-3.5"
@@ -136,11 +136,11 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
           </li>
           <li onClick={() => setActiveMenu("account")}>
             <div
-              className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-slate-700 rounded-md cursor-pointer ${
-                activeMenu === "account"
-                  ? "bg-gray-100 font-bold"
-                  : "hover:bg-gray-100"
-              }`}
+             className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-gray-100 rounded-md cursor-pointer ${
+              activeMenu === "account"
+                ? "bg-[#593EFE] font-bold"
+                : "hover:bg-[#593EFE]"
+            }`}
             >
               <svg
                 class="w-3.5 h-3.5"
@@ -161,7 +161,7 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
           </li>
         </ul>
         <button onClick={handleClick}>
-          <div class="flex items-center gap-x-3.5 py-2 px-2.5 bg-gray-200 text-sm text-slate-700 rounded-md hover:bg-gray-100 ">
+          <div class="flex items-center gap-x-3.5 py-2 px-2.5 bg-[#593EFE] text-sm text-gray-100 rounded-md hover:bg-[#593EFE]/80 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"

@@ -6,10 +6,10 @@ const TasksTable = () => {
   return (
     <div className="flex">
       <div class="p-1.5 min-w-full inline-block align-middle overflow-x-auto">
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+        <div class="bg-[#232323] rounded-xl shadow-sm overflow-hidden">
           <div class="px-6 py-4 gap-3 flex justify-between md:items-center border-b border-gray-200 ">
             <div>
-              <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
+              <h2 class="text-xl font-semibold text-gray-100">
                 Tasks
               </h2>
               <p class="text-sm text-gray-600 dark:text-gray-400">
@@ -20,7 +20,7 @@ const TasksTable = () => {
             <div>
               <div class="inline-flex gap-x-2">
                 <a
-                  class="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+                  class="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-[#49FBB5] text-white hover:bg-[#49FBB5]/80 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
                   href="/"
                 >
                   <svg
@@ -45,12 +45,12 @@ const TasksTable = () => {
           </div>
           <div className="overflow-auto">
             <table class="min-w-full divide-y divide-gray-200 md:table-fixed ">
-              <thead class="bg-gray-50">
+              <thead class="bg-[#171717]">
                 <tr>
                   {tableHeadings.map((heading) => (
                     <th scope="col" class="pl-6 py-3 text-left">
                       <div class="flex items-center gap-x-2">
-                        <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        <span class="text-xs font-semibold uppercase tracking-wide text-gray-100">
                           {heading}
                         </span>
                       </div>
@@ -59,7 +59,7 @@ const TasksTable = () => {
 
                   <th scope="col" class="px-6 py-3 text-left">
                     <div class="flex items-center gap-x-2">
-                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-100">
                         Created
                       </span>
                     </div>
@@ -77,8 +77,8 @@ const TasksTable = () => {
 
           <div class="px-6 py-4 gap-3 flex justify-between md:items-center border-t border-gray-200 ">
             <div>
-              <p class="text-sm text-gray-600 dark:text-gray-400">
-                <span class="font-semibold text-gray-800 dark:text-gray-200">
+              <p class="text-sm text-gray-500 ">
+                <span class="font-semibold">
                   6
                 </span>{" "}
                 results
