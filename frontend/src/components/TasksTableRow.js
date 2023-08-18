@@ -32,7 +32,7 @@ const TasksTableRow = () => {
       </td>
       <td class="h-px w-px whitespace-nowrap">
         <div class="px-6 py-3">
-          <span class="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+          <span class="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-[#FBE654] text-orange-800">
             <svg
               class="w-2.5 h-2.5"
               xmlns="http://www.w3.org/2000/svg"
