@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 
-const TaskFormModal = ({ onClose }) => {
+const TaskFormModal = ({ onClose, isTaskFormVisible }) => {
   const [taskLevel, setTaskLevel] = useState("");
   return (
-    <div class="fixed inset-0 z-20 flex items-center justify-center">
+    <div
+      className={`fixed inset-0 z-20 flex items-center justify-center ${
+        isTaskFormVisible === true ? "backdrop-blur-md	" : ""
+      }`}
+    >
       <div class="mt-0 sm:max-w-xl sm:w-full m-3 sm:mx-auto">
         <div class="relative flex flex-col shadow-sm rounded-xl overflow-hidden bg-[#0b0b0b] border">
           <div class="absolute top-2 right-2">
@@ -123,8 +127,8 @@ const TaskFormModal = ({ onClose }) => {
                     ></textarea>
                   </div>
                 </div>
-                <div class="flex justify-end items-center gap-x-2 py-3 bg-[#0b0b0b]">
-                  <button class="py-2.5 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-[#49FBB5] text-gray-800 hover:bg-[#49FBB5]/80 focus:outline-none text-sm">
+                <div class="flex justify-center items-center py-3 bg-[#0b0b0b]">
+                  <button class="py-2.5 px-10 inline-flex justify-center items-center gap-2 rounded-md text-gray-100 border border-transparent font-semibold bg-[#593EFE] hover:bg-[#593EFE]/80 focus:outline-none text-sm">
                     Add task
                   </button>
                 </div>

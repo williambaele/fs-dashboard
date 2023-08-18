@@ -19,7 +19,7 @@ const Tasks = () => {
         isTaskFormVisible === true ? "backdrop-blur-xl" : ""
       }`}
     >
-      {isTaskFormVisible && <TaskFormModal onClose={closeTaskForm} />}
+      {isTaskFormVisible && <TaskFormModal onClose={closeTaskForm} isTaskFormVisible={isTaskFormVisible} />}
       <TasksTable onAddTaskClick={openTaskForm} />
     </div>
   );
