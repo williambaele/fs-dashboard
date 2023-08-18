@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TasksTable from "./TasksTable";
 import TaskFormModal from "./TaskFormModal";
 
-const Tasks = () => {
+const Tasks = ({user}) => {
   const [isTaskFormVisible, setIsTaskFormVisible] = useState(false);
 
   const openTaskForm = () => {
@@ -19,8 +19,8 @@ const Tasks = () => {
         isTaskFormVisible === true ? "backdrop-blur-xl" : ""
       }`}
     >
-      {isTaskFormVisible && <TaskFormModal onClose={closeTaskForm} isTaskFormVisible={isTaskFormVisible} />}
-      <TasksTable onAddTaskClick={openTaskForm} />
+      {isTaskFormVisible && <TaskFormModal onClose={closeTaskForm} isTaskFormVisible={isTaskFormVisible} user={user} />}
+      <TasksTable onAddTaskClick={openTaskForm} user={user}/>
     </div>
   );
 };

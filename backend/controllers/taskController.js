@@ -1,4 +1,4 @@
-const Article = require("../models/taskModel");
+const Task = require("../models/taskModel");
 const mongoose = require("mongoose");
 
 // GET ALL TASKS
@@ -26,30 +26,25 @@ const getTask = async (req, res) => {
 
 // CREATE NEW TASK
 const createTask = async (req, res) => {
-
-  const { title, text, topic, tags, user_id } = req.body;
+  const { title, description, taskLevel, user_id } = req.body;
   let emptyFields = [];
 
-  if (!text || text.length < 200) {
-    emptyFields.push("Text length must be at least 200 characters");
+  if (!title) {
+    emptyFields.push("Title");
   }
-  if (!title || title.length < 10 || title.length > 60) {
-    emptyFields.push("Title length must be between 10 and 60 characters");
+  if (!description ) {
+    emptyFields.push("description");
   }
-  if (!topic) {
-    emptyFields.push("Topic is not set");
+  if (!taskLevel) {
+    emptyFields.push("taskLevel");
   }
-  if (!tags) {
-    emptyFields.push("Tags is not set");
-  }
-
   if (emptyFields.length > 0) {
     return res
       .status(400)
       .json({ error: "Please fill in all the fields :", emptyFields });
   }
 
-  const taskData = { title, text, topic, tags, user:user_id };
+  const taskData = { title, description, taskLevel, user:user_id };
   console.log(taskData)
   // ADD DOC TO DB
   try {

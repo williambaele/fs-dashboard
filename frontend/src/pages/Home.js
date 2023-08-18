@@ -5,7 +5,7 @@ import Account from "../components/Account";
 import Dashboard from "../components/Dashboard"; 
 import Tasks from "../components/Tasks"
 
-const Home = () => {
+const Home = ({user}) => {
   const [activeMenu, setActiveMenu] = useState("dashboard");
 
   // Map the active menu to its corresponding component
@@ -13,7 +13,7 @@ const Home = () => {
     dashboard: <Dashboard />,
     user: <Users />,
     account: <Account />,
-    tasks: <Tasks/>
+    tasks: <Tasks user={user}/>
   };
 
   
@@ -21,7 +21,7 @@ const Home = () => {
 
   return (
     <div className="flex w-full">
-      <Sidebar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+      <Sidebar activeMenu={activeMenu} setActiveMenu={setActiveMenu} user={user} />
       <div className="w-full h-full">{selectedComponent}</div>
     </div>
   );

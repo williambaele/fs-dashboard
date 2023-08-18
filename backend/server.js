@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const express = require('express')
 const mongoose = require('mongoose')
-const articleRoutes = require('./routes/articles')
+const taskRoutes = require('./routes/tasks')
 const userRoutes = require('./routes/user')
 
 // express app
@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 })
 
 // routes
-app.use('/api/articles', articleRoutes)
+app.use('/api/tasks', taskRoutes)
 app.use('/api/user', userRoutes)
 
 // connect to db

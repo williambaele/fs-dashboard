@@ -8,15 +8,11 @@ const taskSchema = new Schema(
       type: String,
       required: true,
     },
-    text: {
+    description: {
       type: String,
       required: true,
     },
-    topic: {
-      type: String,
-      required: true,
-    },
-    tags: {
+    taskLevel: {
       type: String,
       required: true,
     },

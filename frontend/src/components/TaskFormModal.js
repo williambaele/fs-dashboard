@@ -1,7 +1,47 @@
 import React, { useState } from "react";
+import { useTasksContext } from "../hooks/useTasksContext";
 
-const TaskFormModal = ({ onClose, isTaskFormVisible }) => {
+const TaskFormModal = ({ onClose, isTaskFormVisible, user }) => {
   const [taskLevel, setTaskLevel] = useState("");
+  const { dispatch } = useTasksContext();
+  const [error, setError] = useState(null);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [emptyFields, setEmptyFields] = useState([]);
+
+  //TASK CREATION
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    //Checking if the user is logged in
+    if (!user) {
+      setError("You must be logged in");
+      return;
+    }
+    //Adding data to the task's creation
+    const task = { title, description, taskLevel, user_id: user._id };
+    const response = await fetch("/api/tasks", {
+      method: "POST",
+      body: JSON.stringify(task),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+    const json = await response.json();
+
+    if (!response.ok) {
+      setError(json.error);
+      console.log("error");
+      setEmptyFields(json.emptyFields);
+    }
+    if (response.ok) {
+      setTitle("");
+      setError(null);
+      setEmptyFields([]);
+      dispatch({ type: "CREATE_TASK", payload: json });
+    }
+  };
   return (
     <div
       className={`fixed inset-0 z-20 flex items-center justify-center ${
@@ -41,7 +81,7 @@ const TaskFormModal = ({ onClose, isTaskFormVisible }) => {
             </div>
 
             <div class="space-y-4">
-              <form className="text-gray-400">
+              <form className="text-gray-400" onSubmit={handleSubmit}>
                 <div class="mb-4 sm:mb-8">
                   <label
                     for="hs-feedback-post-comment-name-1"
@@ -50,6 +90,8 @@ const TaskFormModal = ({ onClose, isTaskFormVisible }) => {
                     Title
                   </label>
                   <input
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                     type="text"
                     id="hs-feedback-post-comment-name-1"
                     class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
@@ -84,6 +126,7 @@ const TaskFormModal = ({ onClose, isTaskFormVisible }) => {
                   </label>
                   <div className="grid justify-between grid-cols-3 gap-2">
                     <button
+                      type="button"
                       className={`px-8 py-2 text-gray-100 bg-green-600 rounded-md ${
                         taskLevel === "cool" ? "border-2" : ""
                       }`}
@@ -92,6 +135,7 @@ const TaskFormModal = ({ onClose, isTaskFormVisible }) => {
                       Cool
                     </button>
                     <button
+                      type="button"
                       className={`px-8 py-2 text-gray-100 bg-yellow-600 rounded-md ${
                         taskLevel === "middle" ? "border-2" : ""
                       }`}
@@ -100,6 +144,7 @@ const TaskFormModal = ({ onClose, isTaskFormVisible }) => {
                       Middle
                     </button>
                     <button
+                      type="button"
                       className={`px-8 py-2 text-gray-100 bg-red-600 rounded-md ${
                         taskLevel === "urgent" ? "border-2" : ""
                       }`}
@@ -122,15 +167,30 @@ const TaskFormModal = ({ onClose, isTaskFormVisible }) => {
                       id="hs-feedback-post-comment-textarea-1"
                       name="hs-feedback-post-comment-textarea-1"
                       rows="3"
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
                       class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
                       placeholder="Leave your description here..."
                     ></textarea>
                   </div>
                 </div>
                 <div class="flex justify-center items-center py-3 bg-[#0b0b0b]">
-                  <button class="py-2.5 px-10 inline-flex justify-center items-center gap-2 rounded-md text-gray-100 border border-transparent font-semibold bg-[#593EFE] hover:bg-[#593EFE]/80 focus:outline-none text-sm">
+                  <button
+                    type="submit"
+                    class="py-2.5 px-10 inline-flex justify-center items-center gap-2 rounded-md text-gray-100 border border-transparent font-semibold bg-[#593EFE] hover:bg-[#593EFE]/80 focus:outline-none text-sm"
+                  >
                     Add task
                   </button>
+                  {error && (
+                    <div className="flex gap-1 text-red-600 error">
+                      {error}
+                      <ul className="gap-1 ml-4 list-disc">
+                        {emptyFields.map((item) => (
+                          <li>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}{" "}
                 </div>
               </form>
             </div>
