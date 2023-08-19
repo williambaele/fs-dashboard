@@ -60,17 +60,23 @@ const TasksTableRow = ({
     }
   };
 
-  console.log(task.startDate + "    " + task.dueDate);
 
-  //REMAINIGN TIME
-  const currentDateTime = new Date();
-  const dueDateTime = new Date(task.dueDate);
-  const remainingTime = dueDateTime - currentDateTime;
+ //REMAINING TIME
+const currentDateTime = new Date();
+const dueDateTime = new Date(task.dueDate);
+const remainingTime = dueDateTime - currentDateTime;
+const startDate = new Date(task.startDate);
+const totalTime = dueDateTime - startDate;
+let progressPercentage;
 
-  const startDate = new Date(task.startDate);
-  const totalTime = dueDateTime - startDate;
-  const progressPercentage = ((totalTime - remainingTime) / totalTime) * 100;
-  console.log(progressPercentage);
+if (startDate > currentDateTime) {
+  progressPercentage = 2; 
+} else {
+  progressPercentage = ((totalTime - remainingTime) / totalTime) * 100;
+}
+
+
+  
   return (
     <tr>
       <td class="h-px w-px whitespace-nowrap">
@@ -102,13 +108,9 @@ const TasksTableRow = ({
               style={{
                 width: `${progressPercentage}%`,
                 backgroundColor:
-                  progressPercentage >= 75
-                    ? "#593EFE"
-                    : progressPercentage >= 50
-                    ? "#593EFE"
-                    : "#ff0000",
+                "#593EFE"
               }}
-              className="flex w-full h-2 overflow-hidden bg-gray-200 rounded-full"
+              className="flex w-full h-2 overflow-hidden bg-gray-200 rounded-l-full"
             >
               <div
                 className="flex flex-col justify-center"
