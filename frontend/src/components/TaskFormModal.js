@@ -36,7 +36,7 @@ const TaskFormModal = ({ onClose, isTaskFormVisible, user }) => {
       setEmptyFields(json.emptyFields);
     }
     if (response.ok) {
-      dispatch({ type: 'CREATE_TASK', payload: json });
+      dispatch({ type: "CREATE_TASK", payload: json });
       onClose();
     }
   };
@@ -179,16 +179,21 @@ const TaskFormModal = ({ onClose, isTaskFormVisible, user }) => {
                   >
                     Add task
                   </button>
+                </div>
+                <div classsName="flex justify-center">
                   {error && (
-                    <div className="flex gap-1 text-red-600 error">
+                    <div className="flex justify-center text-[#593EFE]">
                       {error}
-                      <ul className="gap-1 ml-4 list-disc">
-                        {emptyFields.map((item) => (
-                          <li>{item}</li>
+                      <p>
+                        {emptyFields.map((item, index) => (
+                          <span key={index}>
+                            {item}
+                            {index !== emptyFields.length - 1 ? ", " : ""}
+                          </span>
                         ))}
-                      </ul>
+                      </p>
                     </div>
-                  )}{" "}
+                  )}
                 </div>
               </form>
             </div>

@@ -30,22 +30,22 @@ const createTask = async (req, res) => {
   let emptyFields = [];
 
   if (!title) {
-    emptyFields.push("Title");
+    emptyFields.push("title");
   }
-  if (!description ) {
+  if (!description) {
     emptyFields.push("description");
   }
   if (!taskLevel) {
-    emptyFields.push("taskLevel");
+    emptyFields.push("task status");
   }
   if (emptyFields.length > 0) {
     return res
       .status(400)
-      .json({ error: "Please fill in all the fields :", emptyFields });
+      .json({ error: "Some information is missing: ", emptyFields });
   }
 
-  const taskData = { title, description, taskLevel, user:user_id };
-  console.log(taskData)
+  const taskData = { title, description, taskLevel, user: user_id };
+  console.log(taskData);
   // ADD DOC TO DB
   try {
     const task = await Task.create(taskData);
