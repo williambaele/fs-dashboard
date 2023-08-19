@@ -1,6 +1,12 @@
 import React from "react";
 
 const TasksTableRow = ({task}) => {
+  const createdAtDate = new Date(task.createdAt);
+  const formattedDate = createdAtDate.toLocaleDateString('fr-FR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
   return (
     <tr>
       <td class="h-px w-px whitespace-nowrap">
@@ -17,7 +23,7 @@ const TasksTableRow = ({task}) => {
       <td class="h-px w-40 whitespace-nowrap">
         <div class="px-6 py-3">
           <span class="block text-sm text-gray-500">
-            Seller has to introduce himself and
+            {task.description}
           </span>
         </div>
       </td>
@@ -65,7 +71,7 @@ const TasksTableRow = ({task}) => {
       </td>
       <td class="h-px w-px whitespace-nowrap">
         <div class="px-6 py-3">
-          <span class="text-sm text-gray-500">20 Dec, 09:27</span>
+          <span class="text-sm text-gray-500">{formattedDate}</span>
         </div>
       </td>
       <td class="h-px w-px whitespace-nowrap">

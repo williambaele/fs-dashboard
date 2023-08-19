@@ -1,5 +1,6 @@
 import React from "react";
 import TasksTableRow from "./TasksTableRow";
+import { motion, AnimatePresence } from "framer-motion";
 
 const TasksTable = ({ onAddTaskClick, tasks }) => {
   const tableHeadings = ["Title", "Description", "Users", "Status", "Progress"];
@@ -41,9 +42,9 @@ const TasksTable = ({ onAddTaskClick, tasks }) => {
               </div>
             </div>
           </div>
-          <div className="overflow-auto">
-            <table class="min-w-full divide-y divide-gray-200 md:table-fixed ">
-              <thead class="bg-[#171717]">
+          <div className="overflow-auto max-h-[calc(100vh-200px)]"> 
+            <table class="min-w-full divide-y divide-gray-200 md:table-fixed">
+              <thead class="bg-[#171717] sticky top-0">
                 <tr>
                   {tableHeadings.map((heading) => (
                     <th scope="col" class="pl-6 py-3 text-left">
@@ -68,9 +69,17 @@ const TasksTable = ({ onAddTaskClick, tasks }) => {
               </thead>
 
               <tbody class="divide-y divide-gray-200">
-                {tasks.map((task) => (
-                  <TasksTableRow task={task} />
-                ))}
+                <AnimatePresence>
+                  {tasks.map((task) => (
+                    <TasksTableRow
+                      key={task.id}
+                      task={task}
+                      initial={{ x: 300, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      exit={{ x: -300, opacity: 0 }}
+                    />
+                  ))}
+                </AnimatePresence>
               </tbody>
             </table>
           </div>
