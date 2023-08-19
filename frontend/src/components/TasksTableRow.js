@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TaskStatusLabel from "./TaskStatusLabel";
 import { useTasksContext } from "../hooks/useTasksContext";
 
@@ -10,12 +10,19 @@ const TasksTableRow = ({
   isDropdownOpen,
   onOpenDropdown,
   onCloseDropdown,
-  user
+  user,
 }) => {
-  
   //DATE FORMAT
   const createdAtDate = new Date(task.createdAt);
   const formattedDate = createdAtDate.toLocaleDateString("fr-FR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  //DUE DATE FORMAT
+  const dueDate = new Date(task.dueDate);
+  const formattedDueDate = dueDate.toLocaleDateString("fr-FR", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -52,13 +59,25 @@ const TasksTableRow = ({
       onOpenDropdown();
     }
   };
+
+  console.log(task.startDate + "    " + task.dueDate);
+
+  //REMAINIGN TIME
+  const currentDateTime = new Date();
+  const dueDateTime = new Date(task.dueDate);
+  const remainingTime = dueDateTime - currentDateTime;
+
+  const startDate = new Date(task.startDate);
+  const totalTime = dueDateTime - startDate;
+  const progressPercentage = ((totalTime - remainingTime) / totalTime) * 100;
+  console.log(progressPercentage);
   return (
     <tr>
       <td class="h-px w-px whitespace-nowrap">
         <div class="pl-6 pr-6 py-3">
           <div class="flex items-center gap-x-3">
             <div class="grow">
-              <span class="block text-sm font-semibold text-gray-500">
+              <span class="block text-sm font-bold text-gray-400">
                 {task.title}
               </span>
             </div>
@@ -70,25 +89,31 @@ const TasksTableRow = ({
           <span class="block text-sm text-gray-500">{task.description}</span>
         </div>
       </td>
-      <td class="h-px w-20 whitespace-nowrap">
+      <TaskStatusLabel status={task.taskLevel} />
+      <td class="h-px w-px whitespace-nowrap">
         <div class="px-6 py-3">
-          <img
-            class="inline-block h-[2.375rem] w-[2.375rem] rounded-full"
-            src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
-            alt="Imdage ddzp as"
-          />
+          <span class="text-sm text-gray-500">{formattedDueDate}</span>
         </div>
       </td>
-      <TaskStatusLabel status={task.taskLevel} />
-      <td class="h-px w-32 whitespace-nowrap">
-        <div class="px-6 py-3">
-          <div class="flex items-center gap-x-3">
-            <span class="text-xs text-gray-500">3/5</span>
-            <div class="flex w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
+      <td className="w-32 h-px whitespace-nowrap">
+        <div className="px-6 py-3">
+          <div className="flex items-center bg-gray-200 rounded-md gap-x-3">
+            <div
+              style={{
+                width: `${progressPercentage}%`,
+                backgroundColor:
+                  progressPercentage >= 75
+                    ? "#593EFE"
+                    : progressPercentage >= 50
+                    ? "#593EFE"
+                    : "#ff0000",
+              }}
+              className="flex w-full h-2 overflow-hidden bg-gray-200 rounded-full"
+            >
               <div
-                class="flex flex-col justify-center overflow-hidden"
+                className="flex flex-col justify-center"
                 role="progressbar"
-                aria-valuenow="20"
+                aria-valuenow={progressPercentage}
                 aria-valuemin="0"
                 aria-valuemax="100"
               ></div>
@@ -96,11 +121,7 @@ const TasksTableRow = ({
           </div>
         </div>
       </td>
-      <td class="h-px w-px whitespace-nowrap">
-        <div class="px-6 py-3">
-          <span class="text-sm text-gray-500">{formattedDate}</span>
-        </div>
-      </td>
+
       <td className="w-px h-px whitespace-nowrap ">
         <div className="px-6 py-1.5 relative">
           <svg

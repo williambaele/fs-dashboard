@@ -12,6 +12,14 @@ const taskSchema = new Schema(
       type: String,
       required: true,
     },
+    startDate: {
+      type: Date,
+      required: true,
+    },
+    dueDate: {
+      type: Date,
+      required: true,
+    },
     taskLevel: {
       type: String,
       required: true,

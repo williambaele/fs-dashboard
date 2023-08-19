@@ -26,17 +26,23 @@ const getTask = async (req, res) => {
 
 // CREATE NEW TASK
 const createTask = async (req, res) => {
-  const { title, description, taskLevel, user_id } = req.body;
+  const { title, description, taskLevel, startDate, dueDate, user_id } = req.body;
   let emptyFields = [];
 
   if (!title) {
     emptyFields.push("title");
   }
+  if (!startDate) {
+    emptyFields.push("start date");
+  }
+  if (!dueDate) {
+    emptyFields.push("due date");
+  }
   if (!description) {
     emptyFields.push("description");
   }
   if (!taskLevel) {
-    emptyFields.push("task status");
+    emptyFields.push("status");
   }
   if (emptyFields.length > 0) {
     return res
@@ -44,8 +50,7 @@ const createTask = async (req, res) => {
       .json({ error: "Some information is missing: ", emptyFields });
   }
 
-  const taskData = { title, description, taskLevel, user: user_id };
-  console.log(taskData);
+  const taskData = { title, description, taskLevel, startDate, dueDate, user: user_id };
   // ADD DOC TO DB
   try {
     const task = await Task.create(taskData);

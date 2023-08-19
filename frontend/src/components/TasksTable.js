@@ -3,7 +3,7 @@ import TasksTableRow from "./TasksTableRow";
 import { motion, AnimatePresence } from "framer-motion";
 
 const TasksTable = ({ onAddTaskClick, tasks, user }) => {
-  const tableHeadings = ["Title", "Description", "Users", "Status", "Progress"];
+  const tableHeadings = ["Title", "Description", "Status", "Due date", "Remaining time"];
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
   const handleOpenDropdown = (index) => {
     setOpenDropdownIndex(index);
@@ -71,13 +71,7 @@ const TasksTable = ({ onAddTaskClick, tasks, user }) => {
                     </th>
                   ))}
 
-                  <th scope="col" class="px-6 py-3 text-left">
-                    <div class="flex items-center gap-x-2">
-                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-100">
-                        Created
-                      </span>
-                    </div>
-                  </th>
+                  
 
                   <th scope="col" class="px-6 py-3 text-right"></th>
                 </tr>

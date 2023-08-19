@@ -8,6 +8,8 @@ const TaskFormModal = ({ onClose, isTaskFormVisible, user }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [emptyFields, setEmptyFields] = useState([]);
+  const [dueDate, setDueDate] = useState("");
+  const [startDate, setStartDate] = useState("");
 
   //TASK CREATION
   const handleSubmit = async (e) => {
@@ -19,7 +21,14 @@ const TaskFormModal = ({ onClose, isTaskFormVisible, user }) => {
       return;
     }
     //Adding data to the task's creation
-    const task = { title, description, taskLevel, user_id: user._id };
+    const task = {
+      title,
+      description,
+      taskLevel,
+      startDate,
+      dueDate,
+      user_id: user._id,
+    };
     const response = await fetch("/api/tasks", {
       method: "POST",
       body: JSON.stringify(task),
@@ -80,7 +89,7 @@ const TaskFormModal = ({ onClose, isTaskFormVisible, user }) => {
 
             <div class="space-y-4">
               <form className="text-gray-400" onSubmit={handleSubmit}>
-                <div class="mb-4 sm:mb-8">
+                <div class="mb-3 sm:mb-4">
                   <label
                     for="hs-feedback-post-comment-name-1"
                     class="block mb-2 text-sm font-medium "
@@ -97,7 +106,7 @@ const TaskFormModal = ({ onClose, isTaskFormVisible, user }) => {
                   />
                 </div>
 
-                <div class="mb-4 sm:mb-8">
+                <div class="mb-3 sm:mb-4">
                   <label
                     for="hs-feedback-post-comment-email-1"
                     class="block mb-2 text-sm font-medium "
@@ -115,7 +124,7 @@ const TaskFormModal = ({ onClose, isTaskFormVisible, user }) => {
                     <option>Louis</option>
                   </select>
                 </div>
-                <div class="mb-4 sm:mb-8">
+                <div class="mb-3 sm:mb-4">
                   <label
                     for="hs-feedback-post-comment-name-1"
                     class="block mb-2 text-sm font-medium "
@@ -170,6 +179,36 @@ const TaskFormModal = ({ onClose, isTaskFormVisible, user }) => {
                       class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
                       placeholder="Leave your description here..."
                     ></textarea>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div class="mt-1">
+                      <label
+                        for="hs-feedback-post-comment-textarea-1"
+                        class="block mb-2 text-sm font-medium"
+                      >
+                        Start date
+                      </label>
+                      <input
+                        type="date"
+                        value={startDate}
+                        onChange={(e) => setStartDate(e.target.value)}
+                        class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
+                      />
+                    </div>
+                    <div class="mt-1">
+                      <label
+                        for="hs-feedback-post-comment-textarea-1"
+                        class="block mb-2 text-sm font-medium"
+                      >
+                        Due date
+                      </label>
+                      <input
+                        type="date"
+                        value={dueDate}
+                        onChange={(e) => setDueDate(e.target.value)}
+                        class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div class="flex justify-center items-center py-3 bg-[#0b0b0b]">
