@@ -1,6 +1,16 @@
 import React from "react";
 import TaskStatusLabel from "./TaskStatusLabel";
-const TasksTableRow = ({ task }) => {
+import TaskRowEditActions from "./TaskRowEditActions";
+
+const TasksTableRow = ({
+  task,
+  initial,
+  animate,
+  exit,
+  isDropdownOpen,
+  onOpenDropdown,
+  onCloseDropdown,
+}) => {
   const createdAtDate = new Date(task.createdAt);
   const formattedDate = createdAtDate.toLocaleDateString("fr-FR", {
     year: "numeric",
@@ -34,7 +44,7 @@ const TasksTableRow = ({ task }) => {
           />
         </div>
       </td>
-      <TaskStatusLabel status={task.taskLevel}/>
+      <TaskStatusLabel status={task.taskLevel} />
       <td class="h-px w-32 whitespace-nowrap">
         <div class="px-6 py-3">
           <div class="flex items-center gap-x-3">
@@ -56,16 +66,11 @@ const TasksTableRow = ({ task }) => {
           <span class="text-sm text-gray-500">{formattedDate}</span>
         </div>
       </td>
-      <td class="h-px w-px whitespace-nowrap">
-        <div class="px-6 py-1.5">
-          <a
-            class="inline-flex items-center gap-x-1.5 text-sm text-[#593EFE] decoration-2 hover:underline font-large"
-            href="/"
-          >
-            Edit
-          </a>
-        </div>
-      </td>
+      <TaskRowEditActions
+        isDropdownOpen={isDropdownOpen}
+        onOpenDropdown={onOpenDropdown}
+        onCloseDropdown={onCloseDropdown}
+      />{" "}
     </tr>
   );
 };

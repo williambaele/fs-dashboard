@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import TasksTableRow from "./TasksTableRow";
 import { motion, AnimatePresence } from "framer-motion";
 
 const TasksTable = ({ onAddTaskClick, tasks }) => {
   const tableHeadings = ["Title", "Description", "Users", "Status", "Progress"];
+  const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
+  const handleOpenDropdown = (index) => {
+    setOpenDropdownIndex(index);
+  };
+
+  const handleCloseDropdown = () => {
+    setOpenDropdownIndex(null);
+  };
+
+  const handleMarkAsDone = () => {
+    // Handle the "Mark as Done" action here
+  };
+
+  const handleDelete = () => {
+    // Handle the "Delete" action here
+  };
+
   return (
     <div className="flex">
       <div class="p-1.5 min-w-full inline-block align-middle overflow-x-auto">
@@ -42,9 +59,9 @@ const TasksTable = ({ onAddTaskClick, tasks }) => {
               </div>
             </div>
           </div>
-          <div className="overflow-auto max-h-[calc(100vh-200px)]"> 
+          <div className="overflow-auto max-h-[calc(100vh-200px)]">
             <table class="min-w-full divide-y divide-gray-200 md:table-fixed">
-              <thead class="bg-[#171717] sticky top-0">
+              <thead class="bg-[#171717] sticky top-0 z-20">
                 <tr>
                   {tableHeadings.map((heading) => (
                     <th scope="col" class="pl-6 py-3 text-left">
@@ -70,14 +87,19 @@ const TasksTable = ({ onAddTaskClick, tasks }) => {
 
               <tbody class="divide-y divide-gray-200">
                 <AnimatePresence>
-                  {tasks.map((task) => (
+                  {tasks.map((task, index) => (
                     <TasksTableRow
-                      key={task.id}
-                      task={task}
-                      initial={{ x: 300, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      exit={{ x: -300, opacity: 0 }}
-                    />
+                    key={task.id}
+                    task={task}
+                    initial={{ x: 300, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: -300, opacity: 0 }}
+                    isDropdownOpen={index === openDropdownIndex}
+                    onOpenDropdown={() => handleOpenDropdown(index)}
+                    onCloseDropdown={handleCloseDropdown}
+                    handleMarkAsDone={handleMarkAsDone}
+                    handleDelete={handleDelete}
+                  />
                   ))}
                 </AnimatePresence>
               </tbody>
