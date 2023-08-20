@@ -10,7 +10,7 @@ const Home = ({user, tasks}) => {
 
   // Map the active menu to its corresponding component
   const menuComponents = {
-    dashboard: <Dashboard />,
+    dashboard: <Dashboard user={user} tasks={tasks}/>,
     user: <Users />,
     account: <Account />,
     tasks: <Tasks user={user} tasks={tasks}/>

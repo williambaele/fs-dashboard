@@ -1,10 +1,8 @@
 import React from "react";
 import { useLogout } from "../hooks/useLogout";
-import { useAuthContext } from "../hooks/useAuthContext";
 
 const Sidebar = ({ activeMenu, setActiveMenu }) => {
   const { logout } = useLogout();
-  const { user } = useAuthContext();
 
   const handleClick = () => {
     logout();
@@ -12,9 +10,10 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
   return (
     <div class="transition-all duration-300 transform hidden h-screen bg-[#0b0b0b] text-white top-0 left-0 bottom-0 z-[60] w-64 border-r border-gray-700 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0">
       <div class="px-6">
-        <a class="flex-none text-xl font-semibold " href="/">
-          Brand
-        </a>
+        <span class="flex-none text-3xl font-semibold ml-2" href="/">
+          <span className="text-[#593EFE]/80">u</span>
+          Tasks
+        </span>
       </div>
 
       <nav class="p-6 w-full flex flex-col flex-wrap h-full justify-between">
@@ -115,11 +114,11 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
           </li>
           <li>
             <div
-             className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-gray-100 rounded-md cursor-pointer ${
-              activeMenu === "documentation"
-                ? "bg-[#593EFE] font-bold"
-                : "hover:bg-[#593EFE]"
-            }`}
+              className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-gray-100 rounded-md cursor-pointer ${
+                activeMenu === "documentation"
+                  ? "bg-[#593EFE] font-bold"
+                  : "hover:bg-[#593EFE]"
+              }`}
             >
               <svg
                 class="w-3.5 h-3.5"
@@ -136,11 +135,11 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
           </li>
           <li onClick={() => setActiveMenu("account")}>
             <div
-             className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-gray-100 rounded-md cursor-pointer ${
-              activeMenu === "account"
-                ? "bg-[#593EFE] font-bold"
-                : "hover:bg-[#593EFE]"
-            }`}
+              className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-gray-100 rounded-md cursor-pointer ${
+                activeMenu === "account"
+                  ? "bg-[#593EFE] font-bold"
+                  : "hover:bg-[#593EFE]"
+              }`}
             >
               <svg
                 class="w-3.5 h-3.5"
