@@ -23,8 +23,9 @@ const Charts = () => {
     },
   };
   return (
-    <div className="my-10 bg-[#232323] p-4 rounded h-fit">
-      <ReactECharts lazyUpdate={true} option={options} />;
+    <div className="my-4 bg-[#232323] p-4 rounded h-full space-y-4">
+      <h2 className="text-2xl text-gray-300">Your created tasks</h2>
+      {/* <ReactECharts lazyUpdate={true} option={options} /> */}
     </div>
   );
 };
