@@ -22,8 +22,8 @@ const StatsCard = ({ tasks }) => {
       svg: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
+          width="36"
+          height="36"
           fill="#593EFE"
           class="bi bi-check-all"
           viewBox="0 0 16 16"
@@ -66,7 +66,7 @@ const StatsCard = ({ tasks }) => {
   ];
 
   return (
-    <div className="grid h-full grid-cols-2 gap-4 my-4 md:my-10 md:h-20 md:grid-cols-4">
+    <div className="grid h-full grid-cols-2 gap-4 md:h-20 md:grid-cols-4">
       {cards.map((card) => (
         <div className="h-full grid grid-cols-4 p-4 rounded bg-[#232323] items-center shadow-xl">
           <div className="flex flex-col h-full col-span-3 space-y-2 ">
