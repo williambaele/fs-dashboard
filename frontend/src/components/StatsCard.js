@@ -66,9 +66,9 @@ const StatsCard = ({ tasks }) => {
   ];
 
   return (
-    <div className="grid h-20 grid-cols-2 gap-4 my-10 md:grid-cols-4">
+    <div className="grid h-full grid-cols-2 gap-4 my-4 md:my-10 md:h-20 md:grid-cols-4">
       {cards.map((card) => (
-        <div className="h-full grid grid-cols-4 p-4 rounded bg-[#232323] items-center">
+        <div className="h-full grid grid-cols-4 p-4 rounded bg-[#232323] items-center shadow-xl">
           <div className="flex flex-col h-full col-span-3 space-y-2 ">
             <p className="text-2xl text-gray-100 font-large">12</p>
             <h2 className="text-gray-300 text-md">{card.name}</h2>
