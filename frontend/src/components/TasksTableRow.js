@@ -12,19 +12,12 @@ const TasksTableRow = ({
   onCloseDropdown,
   user,
 }) => {
-  //DATE FORMAT
-  const createdAtDate = new Date(task.createdAt);
-  const formattedDate = createdAtDate.toLocaleDateString("fr-FR", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
 
   //DUE DATE FORMAT
   const dueDate = new Date(task.dueDate);
   const formattedDueDate = dueDate.toLocaleDateString("fr-FR", {
     year: "numeric",
-    month: "long",
+    month: "numeric",
     day: "numeric",
   });
 
@@ -60,23 +53,20 @@ const TasksTableRow = ({
     }
   };
 
+  //REMAINING TIME
+  const currentDateTime = new Date();
+  const dueDateTime = new Date(task.dueDate);
+  const remainingTime = dueDateTime - currentDateTime;
+  const startDate = new Date(task.startDate);
+  const totalTime = dueDateTime - startDate;
+  let progressPercentage;
 
- //REMAINING TIME
-const currentDateTime = new Date();
-const dueDateTime = new Date(task.dueDate);
-const remainingTime = dueDateTime - currentDateTime;
-const startDate = new Date(task.startDate);
-const totalTime = dueDateTime - startDate;
-let progressPercentage;
+  if (startDate > currentDateTime) {
+    progressPercentage = 4;
+  } else {
+    progressPercentage = ((totalTime - remainingTime) / totalTime) * 100;
+  }
 
-if (startDate > currentDateTime) {
-  progressPercentage = 2; 
-} else {
-  progressPercentage = ((totalTime - remainingTime) / totalTime) * 100;
-}
-
-
-  
   return (
     <tr>
       <td class="h-px w-px whitespace-nowrap">
@@ -107,10 +97,9 @@ if (startDate > currentDateTime) {
             <div
               style={{
                 width: `${progressPercentage}%`,
-                backgroundColor:
-                "#593EFE"
+                backgroundColor: "#593EFE",
               }}
-              className="flex w-full h-2 overflow-hidden bg-gray-200 rounded-l-full"
+              className="flex w-full h-2 overflow-hidden bg-gray-200 rounded-full"
             >
               <div
                 className="flex flex-col justify-center"
@@ -138,7 +127,7 @@ if (startDate > currentDateTime) {
             <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
           </svg>
           {isDropdownOpen && (
-            <div className="absolute top-0 right-14 z-10 mt-2 bg-[#171717] border rounded-lg shadow-lg text-gray-100 text-sm">
+            <div className="absolute top-0 right-20 z-10 mt-2 bg-[#171717] border rounded-lg shadow-lg text-gray-100 text-sm">
               <button className="flex items-center gap-3 w-full px-4 py-2 text-left hover:bg-[#232323] hover:rounded-t-md ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
