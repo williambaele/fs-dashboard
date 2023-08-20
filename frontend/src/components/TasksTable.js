@@ -1,9 +1,29 @@
 import React, { useState } from "react";
 import TasksTableRow from "./TasksTableRow";
-import { motion, AnimatePresence } from "framer-motion";
 
 const TasksTable = ({ onAddTaskClick, tasks, user }) => {
-  const tableHeadings = ["Title", "Description", "Status", "Due date", "Remaining time"];
+  const tableHeadings = [
+    {
+      name: "Title",
+      size: "w-2/12"
+    },
+    {
+      name: "Description",
+      size: "w-4/12"
+    }, 
+    {
+      name: "Status",
+      size: "w-1/12"
+    },
+    {
+      name: "Due date",
+      size: "w-1/12"
+    },
+    {
+      name: "Remaining time",
+      size: "w-2/12"
+    }
+  ];
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
   const handleOpenDropdown = (index) => {
     setOpenDropdownIndex(index);
@@ -11,12 +31,6 @@ const TasksTable = ({ onAddTaskClick, tasks, user }) => {
 
   const handleCloseDropdown = () => {
     setOpenDropdownIndex(null);
-  };
-
-  const itemVariant = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-    transition: { duration: 1 }
   };
 
   return (
@@ -58,42 +72,32 @@ const TasksTable = ({ onAddTaskClick, tasks, user }) => {
             </div>
           </div>
           <div className="overflow-auto max-h-[calc(100vh-200px)]">
-            <table class="min-w-full divide-y divide-gray-200 md:table-fixed">
+            <table class="w-full divide-y divide-gray-200 table-fixed">
               <thead class="bg-[#171717] sticky top-0 z-2">
                 <tr>
                   {tableHeadings.map((heading) => (
-                    <th scope="col" class="pl-6 py-3 text-left">
-                      <div class="flex items-center gap-x-2">
-                        <span class="text-xs font-semibold uppercase tracking-wide text-gray-100">
-                          {heading}
+                    <th scope="col" className={`${heading.size} py-3 pl-6 overflow-hidden text-left`}>
+                      <div className="flex items-center gap-x-2">
+                        <span className="text-xs font-semibold tracking-wide text-gray-100 uppercase">
+                          {heading.name}
                         </span>
                       </div>
                     </th>
                   ))}
-
-                  
-
-                  <th scope="col" class="px-6 py-3 text-right"></th>
+                  <th scope="col" className="w-1/12 px-6 py-3 text-center"></th>
                 </tr>
               </thead>
-
               <tbody class="divide-y divide-gray-200">
-                <AnimatePresence>
-                  {tasks.map((task, index) => (
-                    <TasksTableRow
-                      key={task.id}
-                      user={user}
-                      task={task}
-                      variant={itemVariant}
-                      initial="hidden"
-                      animate="visible"
-                      exit="hidden"
-                      isDropdownOpen={index === openDropdownIndex}
-                      onOpenDropdown={() => handleOpenDropdown(index)}
-                      onCloseDropdown={handleCloseDropdown}
-                    />
-                  ))}
-                </AnimatePresence>
+                {tasks.map((task, index) => (
+                  <TasksTableRow
+                    key={task.id}
+                    user={user}
+                    task={task}
+                    isDropdownOpen={index === openDropdownIndex}
+                    onOpenDropdown={() => handleOpenDropdown(index)}
+                    onCloseDropdown={handleCloseDropdown}
+                  />
+                ))}
               </tbody>
             </table>
           </div>

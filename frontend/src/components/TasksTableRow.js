@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TaskStatusLabel from "./TaskStatusLabel";
 import { useTasksContext } from "../hooks/useTasksContext";
 
@@ -69,29 +69,29 @@ const TasksTableRow = ({
 
   return (
     <tr>
-      <td class="h-px w-px whitespace-nowrap">
-        <div class="pl-6 pr-6 py-3">
+      <td class="h-px whitespace-nowrap w-1/6">
+        <div class="pl-6 pr-6 py-3 overflow-hidden">
           <div class="flex items-center gap-x-3">
             <div class="grow">
-              <span class="block text-sm font-bold text-gray-400">
+              <span class="block text-sm font-bold text-gray-400 overflow-hidden">
                 {task.title}
               </span>
             </div>
           </div>
         </div>
       </td>
-      <td class="h-px w-40 whitespace-nowrap">
-        <div class="px-6 py-3">
+      <td class="h-px whitespace-nowrap w-1/6">
+        <div class="px-6 py-3 overflow-hidden">
           <span class="block text-sm text-gray-500">{task.description}</span>
         </div>
       </td>
       <TaskStatusLabel status={task.taskLevel} />
-      <td class="h-px w-px whitespace-nowrap">
+      <td class="h-px w-1/6 whitespace-nowrap">
         <div class="px-6 py-3">
           <span class="text-sm text-gray-500">{formattedDueDate}</span>
         </div>
       </td>
-      <td className="w-32 h-px whitespace-nowrap">
+      <td className="w-1/6 whitespace-nowrap">
         <div className="px-6 py-3">
           <div className="flex items-center bg-gray-200 rounded-md gap-x-3">
             <div
@@ -113,7 +113,7 @@ const TasksTableRow = ({
         </div>
       </td>
 
-      <td className="w-px h-px whitespace-nowrap ">
+      <td className="w-1/6">
         <div className="px-6 py-1.5 relative">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +139,7 @@ const TasksTableRow = ({
                 >
                   <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992a.252.252 0 0 1 .02-.022zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486-.943 1.179z" />
                 </svg>
-                <p>Mark as done</p>
+                <p>Done</p>
               </button>
               <button
                 className="flex items-center w-full gap-4 px-4 py-2 text-left hover:bg-[#232323] hover:rounded-b-md hover:text-red-400"
