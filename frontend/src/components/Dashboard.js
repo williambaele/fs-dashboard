@@ -11,7 +11,7 @@ const Dashboard = ({ user, tasks }) => {
       <div className="space-y-8">
         <p className="text-4xl text-white">Welcome {user.pseudo} 👋🏼</p>
         <StatsCard tasks={tasks} />
-        <div className="grid gap-4 h-[200px] md:h-[360px] md:grid-cols-3">
+        <div className="grid gap-4 h-full md:h-[360px] md:grid-cols-3">
           <div className="md:col-span-2">
             <Charts />
           </div>
