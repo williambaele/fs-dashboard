@@ -5,6 +5,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 function App() {
   const { user } = useAuthContext();
@@ -26,8 +27,6 @@ function App() {
     fetchTasks();
   }, [dispatch]);
 
-
-  
   // USER'S TASKS
   const [userTasks, setUserTasks] = useState([]);
   useEffect(() => {
@@ -38,15 +37,21 @@ function App() {
     }
   }, [tasks, user]);
 
-
   return (
     <div>
+
       <BrowserRouter>
         <div className="pages">
           <Routes>
             <Route
               path="/"
-              element={!user ? <Login /> : <Home user={user} tasks={tasks} userTasks={userTasks}/>}
+              element={
+                !user ? (
+                  <Login />
+                ) : (
+                  <Home user={user} tasks={tasks} userTasks={userTasks} />
+                )
+              }
             />
             <Route
               path="/signup"
