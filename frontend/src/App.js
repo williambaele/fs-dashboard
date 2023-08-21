@@ -30,12 +30,18 @@ function App() {
   // USER'S TASKS
   const [userTasks, setUserTasks] = useState([]);
   useEffect(() => {
-    if (user) {
-      // Filter tasks based on user._id
-      const userTasks = tasks.filter((task) => task.user === user._id);
-      setUserTasks(userTasks);
+    if (user && tasks) {
+      // Using an immediately invoked async function
+      (async () => {
+        // Filter tasks based on user._id
+        const userTasks = tasks.filter((task) => task.user === user._id);
+        setUserTasks(userTasks);
+      })();
     }
   }, [tasks, user]);
+  
+
+  console.log(userTasks)
 
   return (
     <div>

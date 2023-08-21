@@ -5,17 +5,21 @@ const TaskStatusLabel = ({ status }) => {
 
   let color;
   if (status === "cool") {
-    color = "green";
+    color = "green-500";
   } else if (status === "middle") {
-    color = "yellow";
+    color = "yellow-500";
+  } else if (status === "urgent") {
+    color = "red-500";
   } else {
-    color = "red";
+    color = "[#593EFE]";
   }
 
   return (
     <td class="h-px w-px whitespace-nowrap">
       <div class="px-6 py-3">
-        <span class={`inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-${color}-500 text-${color}-800`}>
+        <span
+          class={`inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-${color} text-gray-900`}
+        >
           <svg
             class="w-2.5 h-2.5"
             xmlns="http://www.w3.org/2000/svg"

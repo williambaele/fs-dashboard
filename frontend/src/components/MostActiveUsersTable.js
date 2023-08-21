@@ -78,7 +78,7 @@ const MostActiveUsersTable = () => {
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-200">
-          {users.map((user, index) => (
+          {users.map((user) => (
             <MostActiveUsersRow key={user.id} user={user} />
           ))}
         </tbody>

@@ -4,15 +4,11 @@ import { useTasksContext } from "../hooks/useTasksContext";
 
 const TasksTableRow = ({
   task,
-  initial,
-  animate,
-  exit,
   isDropdownOpen,
   onOpenDropdown,
   onCloseDropdown,
   user,
 }) => {
-
   //DUE DATE FORMAT
   const dueDate = new Date(task.dueDate);
   const formattedDueDate = dueDate.toLocaleDateString("fr-FR", {
@@ -60,12 +56,38 @@ const TasksTableRow = ({
   const startDate = new Date(task.startDate);
   const totalTime = dueDateTime - startDate;
   let progressPercentage;
-
   if (startDate > currentDateTime) {
     progressPercentage = 4;
   } else {
     progressPercentage = ((totalTime - remainingTime) / totalTime) * 100;
   }
+
+  //MARK TASK AS DONE
+  const markTaskAsDone = async (taskId) => {
+    if (!user) {
+      console.log("You must be logged in");
+      return;
+    }
+
+    const updatedTask = { ...task, taskLevel: "finished" }; 
+    const response = await fetch(`/api/tasks/${taskId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+      body: JSON.stringify(updatedTask),
+    });
+
+    if (response.ok) {
+      // You might want to update your state or context to reflect the updated task
+      console.log("Task marked as done.");
+      dispatch({ type: "UPDATE_TASK", payload: updatedTask });
+
+    } else {
+      console.log("Error marking the task as done.");
+    }
+  };
 
   return (
     <tr>
@@ -112,7 +134,6 @@ const TasksTableRow = ({
           </div>
         </div>
       </td>
-
       <td className="w-1/6">
         <div className="px-6 py-1.5 relative">
           <svg
@@ -129,6 +150,26 @@ const TasksTableRow = ({
           {isDropdownOpen && (
             <div className="absolute top-0 right-20 z-10 mt-2 bg-[#171717] border rounded-lg shadow-lg text-gray-100 text-sm">
               <button className="flex items-center gap-3 w-full px-4 py-2 text-left hover:bg-[#232323] hover:rounded-t-md ">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-pencil-square"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                  <path
+                    fill-rule="evenodd"
+                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+                  />
+                </svg>
+                <p>Edit</p>
+              </button>
+              <button
+                className="flex items-center gap-3 w-full px-4 py-2 text-left hover:bg-[#232323]"
+                onClick={() => markTaskAsDone(task._id)}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"

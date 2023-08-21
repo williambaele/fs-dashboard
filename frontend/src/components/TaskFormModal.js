@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTasksContext } from "../hooks/useTasksContext";
 
-const TaskFormModal = ({ onClose, isTaskFormVisible, user }) => {
+const TaskFormModal = ({ onClose, isTaskFormVisible, user, editTask }) => {
   const [taskLevel, setTaskLevel] = useState("");
   const { dispatch } = useTasksContext();
   const [error, setError] = useState(null);
@@ -10,6 +10,8 @@ const TaskFormModal = ({ onClose, isTaskFormVisible, user }) => {
   const [emptyFields, setEmptyFields] = useState([]);
   const [dueDate, setDueDate] = useState("");
   const [startDate, setStartDate] = useState("");
+
+  
 
   //TASK CREATION
   const handleSubmit = async (e) => {
