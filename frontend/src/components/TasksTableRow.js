@@ -69,7 +69,7 @@ const TasksTableRow = ({
       return;
     }
 
-    const updatedTask = { ...task, taskLevel: "finished" }; 
+    const updatedTask = { ...task, taskLevel: "finished" };
     const response = await fetch(`/api/tasks/${taskId}`, {
       method: "PATCH",
       headers: {
@@ -83,7 +83,7 @@ const TasksTableRow = ({
       // You might want to update your state or context to reflect the updated task
       console.log("Task marked as done.");
       dispatch({ type: "UPDATE_TASK", payload: updatedTask });
-
+      onCloseDropdown();
     } else {
       console.log("Error marking the task as done.");
     }
