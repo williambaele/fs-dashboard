@@ -8,7 +8,7 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
     logout();
   };
   return (
-    <div class="transition-all duration-300 transform hidden h-screen bg-[#0b0b0b] text-white top-0 left-0 bottom-0 z-[60] w-64 border-r border-gray-700 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0">
+    <div class="transition-all duration-300 transform hidden h-screen bg-[#0b0b0b] text-white top-0 left-0 bottom-0 z-[60] w-64 border-r border-gray-700 pt-7 pb-10  scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0">
       <div class="px-6">
         <span class="flex-none text-3xl font-semibold ml-2" href="/">
           <span className="text-[#593EFE]/80">u</span>
