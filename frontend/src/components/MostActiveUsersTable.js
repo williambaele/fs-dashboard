@@ -47,9 +47,19 @@ const MostActiveUsersTable = () => {
       tasks: 12,
       finishedTasks: 8,
     },
+    {
+      name: "Louis",
+      tasks: 20,
+      finishedTasks: 8,
+    },
+    {
+      name: "Laurent",
+      tasks: 4,
+      finishedTasks: 1,
+    },
   ];
   return (
-    <div className="h-full overflow-auto">
+    <div className="overflow-auto max-h-80">
       <table class="w-full divide-y divide-gray-200 table-fixed">
         <thead class="bg-[#171717] sticky top-0 z-2">
           <tr>

@@ -17,7 +17,7 @@ const Dashboard = ({ user, tasks }) => {
           </div>
           <Doughtnut />
         </div>
-        <div className="grid md:grid-cols-3 gap-4 h-[240px]">
+        <div className="grid h-full gap-4 md:grid-cols-3">
           <div className="md:col-span-2">
             <MostActiveUsers />
           </div>
