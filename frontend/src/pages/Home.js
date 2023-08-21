@@ -5,15 +5,15 @@ import Account from "../components/Account";
 import Dashboard from "../components/Dashboard"; 
 import Tasks from "../components/Tasks"
 
-const Home = ({user, tasks}) => {
+const Home = ({user, tasks, userTasks}) => {
   const [activeMenu, setActiveMenu] = useState("dashboard");
 
   // Map the active menu to its corresponding component
   const menuComponents = {
-    dashboard: <Dashboard user={user} tasks={tasks}/>,
+    dashboard: <Dashboard user={user} tasks={tasks} userTasks={userTasks}/>,
     user: <Users />,
     account: <Account />,
-    tasks: <Tasks user={user} tasks={tasks}/>
+    tasks: <Tasks user={user} userTasks={userTasks}/>
   };
 
   

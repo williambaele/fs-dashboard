@@ -26,19 +26,18 @@ function App() {
     fetchTasks();
   }, [dispatch]);
 
+
+  
   // USER'S TASKS
   const [userTasks, setUserTasks] = useState([]);
-
   useEffect(() => {
     if (user) {
       // Filter tasks based on user._id
       const userTasks = tasks.filter((task) => task.user === user._id);
-
       setUserTasks(userTasks);
     }
   }, [tasks, user]);
 
-  console.log(userTasks);
 
   return (
     <div>
@@ -47,7 +46,7 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={!user ? <Login /> : <Home user={user} tasks={tasks} />}
+              element={!user ? <Login /> : <Home user={user} tasks={tasks} userTasks={userTasks}/>}
             />
             <Route
               path="/signup"

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TasksTableRow from "./TasksTableRow";
 
-const TasksTable = ({ onAddTaskClick, tasks, user }) => {
+const TasksTable = ({ onAddTaskClick, userTasks, user }) => {
   const tableHeadings = [
     {
       name: "Title",
@@ -88,7 +88,7 @@ const TasksTable = ({ onAddTaskClick, tasks, user }) => {
                 </tr>
               </thead>
               <tbody class="divide-y divide-gray-200">
-                {tasks.map((task, index) => (
+                {userTasks.map((task, index) => (
                   <TasksTableRow
                     key={task.id}
                     user={user}
@@ -105,7 +105,7 @@ const TasksTable = ({ onAddTaskClick, tasks, user }) => {
           <div class="px-6 py-4 gap-3 flex justify-between md:items-center border-t border-gray-200 ">
             <div>
               <p class="text-sm text-gray-500 ">
-                <span class="font-semibold">{tasks.length}</span> results
+                <span class="font-semibold">{userTasks.length}</span> results
               </p>
             </div>
 
