@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useTasksContext } from "../hooks/useTasksContext";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+
+
 const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
   const [taskLevel, setTaskLevel] = useState(task.taskLevel);
   const { dispatch } = useTasksContext();
@@ -137,7 +140,7 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
                   <div className="grid justify-between grid-cols-4 gap-2">
                     <button
                       type="button"
-                      className={`px-8 py-2 text-gray-100 bg-green-600 rounded-md ${
+                      className={` py-2 text-gray-100 bg-green-600 rounded-md ${
                         taskLevel === "cool" ? "border-2" : ""
                       }`}
                       onClick={() => setTaskLevel("cool")}
@@ -146,7 +149,7 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
                     </button>
                     <button
                       type="button"
-                      className={`px-8 py-2 text-gray-100 bg-yellow-600 rounded-md ${
+                      className={` py-2 text-gray-100 bg-yellow-600 rounded-md ${
                         taskLevel === "middle" ? "border-2" : ""
                       }`}
                       onClick={() => setTaskLevel("middle")}
@@ -155,7 +158,7 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
                     </button>
                     <button
                       type="button"
-                      className={`px-8 py-2 text-gray-100 bg-red-600 rounded-md ${
+                      className={` py-2 text-gray-100 bg-red-600 rounded-md ${
                         taskLevel === "urgent" ? "border-2" : ""
                       }`}
                       onClick={() => setTaskLevel("urgent")}
@@ -164,7 +167,7 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
                     </button>
                     <button
                       type="button"
-                      className={`px-8 py-2 text-gray-100 bg-[#593EFE] rounded-md ${
+                      className={` py-2 text-gray-100 bg-[#593EFE] rounded-md ${
                         taskLevel === "finished" ? "border-2" : ""
                       }`}
                       onClick={() => setTaskLevel("finished")}
