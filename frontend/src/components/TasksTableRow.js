@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import TaskStatusLabel from "./TaskStatusLabel";
 import { useTasksContext } from "../hooks/useTasksContext";
+import TaskFormModalEdit from "./TaskFormModalEdit"; // Import the task edit modal component
 
 const TasksTableRow = ({
   task,
@@ -68,7 +69,6 @@ const TasksTableRow = ({
       console.log("You must be logged in");
       return;
     }
-
     const updatedTask = { ...task, taskLevel: "finished" };
     const response = await fetch(`/api/tasks/${taskId}`, {
       method: "PATCH",
@@ -80,14 +80,15 @@ const TasksTableRow = ({
     });
 
     if (response.ok) {
-      // You might want to update your state or context to reflect the updated task
-      console.log("Task marked as done.");
       dispatch({ type: "UPDATE_TASK", payload: updatedTask });
       onCloseDropdown();
     } else {
       console.log("Error marking the task as done.");
     }
   };
+
+  //EDIT
+  const [isEditModalVisible, setIsEditModalVisible] = useState(false); // State for the edit modal
 
   return (
     <tr>
@@ -149,7 +150,10 @@ const TasksTableRow = ({
           </svg>
           {isDropdownOpen && (
             <div className="absolute top-0 right-20 z-10 mt-2 bg-[#171717] border rounded-lg shadow-lg text-gray-100 text-sm">
-              <button className="flex items-center gap-3 w-full px-4 py-2 text-left hover:bg-[#232323] hover:rounded-t-md ">
+              <button
+                className="flex items-center gap-3 w-full px-4 py-2 text-left hover:bg-[#232323] hover:rounded-t-md"
+                onClick={() => setIsEditModalVisible(true)}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -203,6 +207,14 @@ const TasksTableRow = ({
           )}
         </div>
       </td>
+      {isEditModalVisible && (
+        <TaskFormModalEdit
+          onClose={() => setIsEditModalVisible(false)} // Close the edit modal
+          isTaskFormVisible={isEditModalVisible}
+          user={user}
+          task={task} // Pass the task data to the modal
+        />
+      )}
     </tr>
   );
 };
