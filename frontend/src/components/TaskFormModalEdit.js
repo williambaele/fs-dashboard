@@ -132,7 +132,7 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
                   >
                     Status
                   </label>
-                  <div className="grid justify-between grid-cols-3 gap-2">
+                  <div className="grid justify-between grid-cols-4 gap-2">
                     <button
                       type="button"
                       className={`px-8 py-2 text-gray-100 bg-green-600 rounded-md ${
@@ -160,7 +160,17 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
                     >
                       Urgent
                     </button>
+                    <button
+                      type="button"
+                      className={`px-8 py-2 text-gray-100 bg-[#593EFE] rounded-md ${
+                        taskLevel === "finished" ? "border-2" : ""
+                      }`}
+                      onClick={() => setTaskLevel("finished")}
+                    >
+                      Finished
+                    </button>
                   </div>
+                  
                 </div>
 
                 <div>
@@ -191,7 +201,8 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
                       </label>
                       <input
                         type="date"
-                        value={startDate}
+                        value={startDate ? startDate.split("T")[0] : ""}
+
                         onChange={(e) => setStartDate(e.target.value)}
                         class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
                       />
@@ -205,7 +216,7 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
                       </label>
                       <input
                         type="date"
-                        value={task.dueDate}
+                        value={dueDate ? dueDate.split("T")[0] : ""}
                         onChange={(e) => setDueDate(e.target.value)}
                         class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
                       />
