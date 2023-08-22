@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import TaskStatusLabel from "./TaskStatusLabel";
 import { useTasksContext } from "../hooks/useTasksContext";
 import TaskFormModalEdit from "./TaskFormModalEdit"; 
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const TasksTableRow = ({
   task,
   isDropdownOpen,
@@ -36,6 +37,8 @@ const TasksTableRow = ({
     if (response.ok) {
       dispatch({ type: "DELETE_TASK", payload: { _id: taskId } });
       onCloseDropdown();
+      toast('Task deleted');
+
     } else {
       console.log("Error deleting the task.");
     }
