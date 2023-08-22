@@ -29,3 +29,6 @@ label,
 button {
   font-family: "Lato", sans-serif;
 }
+:root {
+  --toastify-color-progress-dark: #593EFE !important;
+}

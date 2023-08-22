@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTasksContext } from "../hooks/useTasksContext";
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const TaskFormModal = ({ onClose, isTaskFormVisible, user, editTask }) => {
   const [taskLevel, setTaskLevel] = useState("");
   const { dispatch } = useTasksContext();
@@ -49,6 +50,8 @@ const TaskFormModal = ({ onClose, isTaskFormVisible, user, editTask }) => {
     if (response.ok) {
       dispatch({ type: "CREATE_TASK", payload: json });
       onClose();
+      toast('Created task');
+
     }
   };
   return (

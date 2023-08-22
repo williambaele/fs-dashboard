@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTasksContext } from "../hooks/useTasksContext";
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
   const [taskLevel, setTaskLevel] = useState(task.taskLevel);
   const { dispatch } = useTasksContext();
@@ -40,8 +41,9 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
       const json = await response.json();
       if (response.ok) {
         onClose();
-        console.log(updatedTask)
+        console.log(updatedTask);
         dispatch({ type: "UPDATE_TASK", payload: updatedTask });
+        toast('Updated task');
       } else {
         setError(json.error);
         setEmptyFields(json.emptyFields);
@@ -86,9 +88,7 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
               <h3 class="mb-2 text-xl font-bold text-gray-400 ">
                 Edit your task
               </h3>
-              <p class="text-gray-500">
-                Edit your info's task seamless
-              </p>
+              <p class="text-gray-500">Edit your info's task seamless</p>
             </div>
 
             <div class="space-y-4">
