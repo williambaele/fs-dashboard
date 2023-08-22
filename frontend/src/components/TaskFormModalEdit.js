@@ -2,53 +2,58 @@ import React, { useState } from "react";
 import { useTasksContext } from "../hooks/useTasksContext";
 
 const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
-    const [taskLevel, setTaskLevel] = useState(task.taskLevel);
-    const { dispatch } = useTasksContext();
-    const [error, setError] = useState(null);
-    const [title, setTitle] = useState(task.title);
-    const [description, setDescription] = useState(task.description);
-    const [emptyFields, setEmptyFields] = useState([]);
-    const [dueDate, setDueDate] = useState(task.dueDate);
-    const [startDate, setStartDate] = useState(task.startDate);
+  const [taskLevel, setTaskLevel] = useState(task.taskLevel);
+  const { dispatch } = useTasksContext();
+  const [error, setError] = useState(null);
+  const [title, setTitle] = useState(task.title);
+  const [description, setDescription] = useState(task.description);
+  const [emptyFields, setEmptyFields] = useState([]);
+  const [dueDate, setDueDate] = useState(task.dueDate);
+  const [startDate, setStartDate] = useState(task.startDate);
 
   //TASK EDITING
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    //Checking if the user is logged in
     if (!user) {
       setError("You must be logged in");
       return;
     }
-    //Adding data to the task's creation
-    const task = {
+
+    const updatedTask = {
       title,
       description,
       taskLevel,
       startDate,
       dueDate,
-      user_id: user._id,
+      user_id: user._id
     };
-    const response = await fetch("/api/tasks", {
-      method: "POST",
-      body: JSON.stringify(task),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
-    const json = await response.json();
 
-    if (!response.ok) {
-      setError(json.error);
-      console.log("error");
-      setEmptyFields(json.emptyFields);
-    }
-    if (response.ok) {
-      dispatch({ type: "CREATE_TASK", payload: json });
-      onClose();
+    try {
+      const response = await fetch(`/api/tasks/${task._id}`, {
+        method: "PATCH",
+        body: JSON.stringify(updatedTask),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
+
+      const json = await response.json();
+
+      if (response.ok) {
+        console.log(updatedTask)
+        dispatch({ type: "UPDATE_TASK", payload: updatedTask });
+        onClose();
+      } else {
+        setError(json.error);
+        setEmptyFields(json.emptyFields);
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
     }
   };
+
   return (
     <div
       className={`fixed inset-0 z-20 flex items-center justify-center ${
@@ -85,7 +90,7 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
                 Edit your task
               </h3>
               <p class="text-gray-500">
-                Add a new task to your dashbaord seamless
+                Edit your info's task seamless
               </p>
             </div>
 
@@ -170,7 +175,6 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
                       Finished
                     </button>
                   </div>
-                  
                 </div>
 
                 <div>
@@ -202,7 +206,6 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
                       <input
                         type="date"
                         value={startDate ? startDate.split("T")[0] : ""}
-
                         onChange={(e) => setStartDate(e.target.value)}
                         class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
                       />
