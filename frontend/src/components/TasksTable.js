@@ -36,24 +36,39 @@ const TasksTable = ({ onAddTaskClick, userTasks, user }) => {
   //SEARCH FILTER
   const [searchValue, setSearchValue] = useState("");
 
+  //SELECT FILTER
+  const [selectFilter, setSelectFilter] = useState("all");
+  const handleSelectFilterChange = (event) => {
+    setSelectFilter(event.target.value);
+  };
   return (
     <div className="flex">
       <div class="p-1.5 min-w-full inline-block align-middle overflow-x-auto">
         <div class="bg-[#232323] rounded-xl shadow-sm overflow-hidden">
-          <div class="px-6 py-4 gap-3 flex justify-between md:items-center border-b border-gray-200 ">
+          <div class="px-6 py-4 gap-3 grid md:flex justify-between md:items-center border-b border-gray-200 ">
             <div>
               <h2 class="text-xl font-semibold text-gray-100">Tasks</h2>
               <p class="text-sm text-gray-600">Add users, edit and more.</p>
             </div>
-
             <div>
-              <div class="flex gap-6">
+              <div class="flex justify-between gap-2 md:gap-6">
                 <input
                   placeholder="Search a task"
                   class="cursor-pointer py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md font-semibold bg-[#171717] text-gray-400 hover:bg-[#171717]/80 focus:outline-none transition-all text-sm"
                   type="text"
                   onChange={(e) => setSearchValue(e.target.value)}
                 ></input>
+                <select
+                  onChange={handleSelectFilterChange}
+                  value={selectFilter}
+                  className="cursor-pointer py-2 px-3 gap-2 rounded-md font-semibold bg-[#171717] text-gray-400 hover:bg-[#171717]/80 focus:outline-none transition-all text-sm"
+                >
+                  <option value={"all"}>All</option>
+                  <option value={"urgent"}>Urgent</option>
+                  <option value={"middle"}>Middle</option>
+                  <option value={"cool"}>Cool</option>
+                  <option value={"finished"}>Finished</option>
+                </select>
                 <div
                   class="cursor-pointer py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md font-semibold bg-[#49FBB5] text-gray-800 hover:bg-[#49FBB5]/80 focus:outline-none transition-all text-sm"
                   onClick={onAddTaskClick}
@@ -94,13 +109,21 @@ const TasksTable = ({ onAddTaskClick, userTasks, user }) => {
                       </div>
                     </th>
                   ))}
-                  <th scope="col" className="w-20 px-6 py-3 text-center md:w-1/12"></th>
+                  <th
+                    scope="col"
+                    className="w-20 px-6 py-3 text-center md:w-1/12"
+                  ></th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-gray-200">
                 {userTasks
                   .filter((task) =>
                     task.title.toLowerCase().includes(searchValue.toLowerCase())
+                  )
+                  .filter((task) =>
+                    selectFilter === "all"
+                      ? true
+                      : task.taskLevel === selectFilter
                   )
                   .map((task, index) => (
                     <TasksTableRow

@@ -26,7 +26,6 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
       taskLevel,
       startDate,
       dueDate,
-      user_id: user._id
     };
 
     try {
@@ -38,13 +37,11 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
           Authorization: `Bearer ${user.token}`,
         },
       });
-
       const json = await response.json();
-
       if (response.ok) {
+        onClose();
         console.log(updatedTask)
         dispatch({ type: "UPDATE_TASK", payload: updatedTask });
-        onClose();
       } else {
         setError(json.error);
         setEmptyFields(json.emptyFields);

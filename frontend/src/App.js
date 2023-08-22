@@ -40,9 +40,6 @@ function App() {
     }
   }, [tasks, user]);
   
-
-  console.log(userTasks)
-
   return (
     <div>
 
