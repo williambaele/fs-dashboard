@@ -11,7 +11,7 @@ const Home = ({ user, tasks, userTasks }) => {
   const menuComponents = {
     dashboard: <Dashboard user={user} tasks={tasks} userTasks={userTasks} />,
     user: <Users />,
-    account: <Account />,
+    account: <Account user={user}/>,
     tasks: <Tasks user={user} userTasks={userTasks} />,
   };
 

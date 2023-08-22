@@ -1,37 +1,36 @@
 import React, { useState } from "react";
 import { useTasksContext } from "../hooks/useTasksContext";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
-  const [taskLevel, setTaskLevel] = useState(task.taskLevel);
   const { dispatch } = useTasksContext();
   const [error, setError] = useState(null);
+  const [emptyFields, setEmptyFields] = useState([]);
+  const [taskLevel, setTaskLevel] = useState(task.taskLevel);
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description);
-  const [emptyFields, setEmptyFields] = useState([]);
   const [dueDate, setDueDate] = useState(task.dueDate);
   const [startDate, setStartDate] = useState(task.startDate);
 
   //TASK EDITING
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (!user) {
       setError("You must be logged in");
       return;
     }
-
+  
     const updatedTask = {
+      ...task, // Keep other properties unchanged
       title,
       description,
       taskLevel,
       startDate,
       dueDate,
     };
-
+  
     try {
       const response = await fetch(`/api/tasks/${task._id}`, {
         method: "PATCH",
@@ -44,9 +43,8 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
       const json = await response.json();
       if (response.ok) {
         onClose();
-        console.log(updatedTask);
-        dispatch({ type: "UPDATE_TASK", payload: updatedTask });
-        toast('Updated task');
+        dispatch({ type: "UPDATE_TASK", payload: updatedTask }); // Update Redux state
+        toast("Updated task");
       } else {
         setError(json.error);
         setEmptyFields(json.emptyFields);

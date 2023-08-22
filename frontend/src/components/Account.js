@@ -1,11 +1,9 @@
 import React from "react";
-
-const Account = () => {
+import AccountForm from "./AccountForm";
+const Account = ({ user }) => {
   return (
-    <div className="h-full md:h-screen p-6 bg-[#0b0b0b] ">
-      <h2 className="text-2xl text-white">
-        Bonjour à tous et bienvenue sur mon super chouette site web
-      </h2>
+    <div className="h-full w-full md:h-screen p-6 bg-[#0b0b0b]">
+      <AccountForm user={user} />
     </div>
   );
 };
