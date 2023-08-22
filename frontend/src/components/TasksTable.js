@@ -5,23 +5,23 @@ const TasksTable = ({ onAddTaskClick, userTasks, user }) => {
   const tableHeadings = [
     {
       name: "Title",
-      size: "w-2/12",
+      size: "w-40  md:w-3/12",
     },
     {
       name: "Description",
-      size: "w-4/12",
+      size: "w-60 md:w-4/12",
     },
     {
       name: "Status",
-      size: "w-1/12",
+      size: "w-20 md:w-1/12",
     },
     {
       name: "Due date",
-      size: "w-1/12",
+      size: "w-32 md:w-1/12",
     },
     {
       name: "Remaining time",
-      size: "w-2/12",
+      size: "w-32 md:w-2/12",
     },
   ];
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
@@ -73,7 +73,7 @@ const TasksTable = ({ onAddTaskClick, userTasks, user }) => {
                       stroke-linecap="round"
                     />
                   </svg>
-                  Add task
+                  <p className="hidden lg:block">Add task</p>
                 </div>
               </div>
             </div>
@@ -94,7 +94,7 @@ const TasksTable = ({ onAddTaskClick, userTasks, user }) => {
                       </div>
                     </th>
                   ))}
-                  <th scope="col" className="w-1/12 px-6 py-3 text-center"></th>
+                  <th scope="col" className="w-20 px-6 py-3 text-center md:w-1/12"></th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-gray-200">
@@ -119,7 +119,9 @@ const TasksTable = ({ onAddTaskClick, userTasks, user }) => {
           <div class="px-6 py-4 gap-3 flex justify-between md:items-center border-t border-gray-200 ">
             <div>
               <p className="text-sm text-gray-500">
-                <span className="font-semibold">{userTasks.length} results</span>
+                <span className="font-semibold">
+                  {userTasks.length} results
+                </span>
               </p>
             </div>
           </div>
