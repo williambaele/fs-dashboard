@@ -11,7 +11,7 @@ const Charts = () => {
   ];
 
   const options = {
-    hAxis: { title: "Year", titleTextStyle: { color: "#333" } },
+    hAxis: { title: "Year", titleTextStyle: { color: "white" } },
     vAxis: { minValue: 0 },
     chartArea: { width: "70%", height: "70%" },
     series: {
@@ -21,9 +21,12 @@ const Charts = () => {
       1: {
         color: "#ac9fff",
       },
-     
     },
     backgroundColor: "",
+    legend: {
+      titleTextStyle: { color: "#FFFFF" },
+      textStyle: { fontSize: 11 },
+    },
   };
 
   const [activePeriod, setActivePeriod] = useState("month");
