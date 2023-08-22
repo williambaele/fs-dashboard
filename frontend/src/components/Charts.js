@@ -3,18 +3,27 @@ import { Chart } from "react-google-charts";
 
 const Charts = () => {
   const data = [
-    ["Year", "Sales", "Expenses", "Profit"],
-    ["2014", 1000, 400, 200],
-    ["2015", 1170, 460, 250],
-    ["2016", 660, 1120, 300],
-    ["2017", 1030, 540, 350],
+    ["Year", "Finished", "Pending"],
+    ["2013", 1000, 400],
+    ["2014", 1170, 460],
+    ["2015", 660, 1120],
+    ["2016", 1030, 540],
   ];
 
   const options = {
-    chart: {
-      title: "Company Performance",
-      subtitle: "Sales, Expenses, and Profit: 2014-2017",
+    hAxis: { title: "Year", titleTextStyle: { color: "#333" } },
+    vAxis: { minValue: 0 },
+    chartArea: { width: "70%", height: "70%" },
+    series: {
+      0: {
+        color: "#593efe",
+      },
+      1: {
+        color: "#ac9fff",
+      },
+     
     },
+    backgroundColor: "",
   };
 
   const [activePeriod, setActivePeriod] = useState("month");
@@ -45,9 +54,9 @@ const Charts = () => {
           </button>
         </div>
       </div>
-      <div className="h-full bg-green-50">
+      <div className="h-full">
         <Chart
-          chartType="Bar"
+          chartType="AreaChart"
           width="100%"
           height="100%"
           data={data}

@@ -12,7 +12,7 @@ const Dashboard = ({ user, userTasks }) => {
         <p className="text-4xl text-white">Welcome {user.pseudo} 👋🏼</p>
         <StatsCard userTasks={userTasks} />
       </div>
-      <div className="grid row-span-3 gap-4 h-[400px] md:grid-cols-3 w-full py-10">
+      <div className="grid row-span-3 gap-4 h-[500px] md:grid-cols-3 w-full py-10">
         <div className="md:col-span-2">
           <Charts />
         </div>
