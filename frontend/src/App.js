@@ -39,25 +39,30 @@ function App() {
     }
   }, [tasks, user]);
 
-  // LOADING GROUPS
+  // ALL GROUPS
   useEffect(() => {
     const fetchGroups = async () => {
-      const response = await fetch("/api/groups", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
-      const json = await response.json();
+      if (user) {
+        const response = await fetch("/api/groups", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+        });
+        const json = await response.json();
 
-      if (response.ok) {
-        console.log(json);
-        groupsDispatch({ type: "SET_GROUPS", payload: json });
+        if (!response.ok) {
+          console.log("error");
+        }
+        if (response.ok) {
+          groupsDispatch({ type: "SET_GROUPS", payload: json });
+          console.log(json);
+        }
       }
     };
     fetchGroups();
-  }, [groupsDispatch]);
+  }, [groupsDispatch, user]);
 
   // USER'S GROUPS
   const [userGroups, setUserGroups] = useState([]);
@@ -71,6 +76,7 @@ function App() {
       })();
     }
   }, [groups, user]);
+  console.log("user group:" + userGroups);
 
   return (
     <div>

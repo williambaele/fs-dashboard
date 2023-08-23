@@ -12,7 +12,8 @@ const router = express.Router();
 router.post("/", requireAuth, createGroup);
 router.delete("/:id", requireAuth, deleteGroup);
 // router.patch("/:id", requireAuth, updateTask);
-router.get("/", requireAuth, getGroups);
-router.get("/:id", requireAuth, getGroup);
+// GET routes don't require auth
+router.get("/", getGroups);
+router.get("/:id", getGroup);
 
 module.exports = router;

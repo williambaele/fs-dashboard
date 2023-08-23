@@ -37,8 +37,9 @@ export const groupsReducer = (state = initialState, action) => {
 
 export const GroupsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(groupsReducer, {
-    items: null,
+    groups: [], // Use "groups" instead of "items"
   });
+
 
   return (
     <GroupsContext.Provider value={{ ...state, dispatch }}>
