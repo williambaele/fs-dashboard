@@ -77,7 +77,32 @@ function App() {
       })();
     }
   }, [groups, user]);
-  console.log(userGroups);
+
+  //ALL USERS
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    const fetchUsers = async () => {
+      if (user) {
+        const response = await fetch("/api/users", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+        });
+        const json = await response.json();
+
+        if (!response.ok) {
+          console.log("error");
+        }
+        if (response.ok) {
+          console.log(json);
+          setUsers(json)
+        }
+      }
+    };
+    fetchUsers();
+  }, [groupsDispatch, user]);
 
   return (
     <div>
