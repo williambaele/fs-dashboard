@@ -3,14 +3,14 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useGroupsContext } from "../hooks/useGroupsContext";
 
-const GroupForm = ({ onClose, isTaskFormVisible, user }) => {
+const GroupForm = ({ onClose, isTaskFormVisible, user, allUsers }) => {
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
   const { dispatch } = useGroupsContext();
 
   //GROUP CREATION
   const [name, setName] = useState("");
-
+  const [groupMembers, setGroupMembers] = useState([]);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -22,6 +22,7 @@ const GroupForm = ({ onClose, isTaskFormVisible, user }) => {
     //Adding data to the group's creation
     const group = {
       name,
+      groupMembers,
       user_id: user._id,
     };
     const response = await fetch("/api/groups", {
@@ -103,21 +104,31 @@ const GroupForm = ({ onClose, isTaskFormVisible, user }) => {
                 </div>
 
                 <div class="mb-3 sm:mb-4">
-                  <label
-                    for="hs-feedback-post-comment-email-1"
-                    class="block mb-2 text-sm font-medium "
-                  >
+                  <label for="users" class="block mb-2 text-sm font-medium ">
                     User
                   </label>
+                  {groupMembers}
                   <select
+                    multiple
                     type="text"
-                    id="hs-feedback-post-comment-email-1"
-                    class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
-                    placeholder="Email address"
+                    id="users"
+                    value={groupMembers} // Set the value to the userGroup array
+                    onChange={(e) =>
+                      setGroupMembers(
+                        Array.from(
+                          e.target.selectedOptions,
+                          (option) => option.value
+                        )
+                      )
+                    }
+                    placeholder="Select users"
+                    className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
                   >
-                    <option>William</option>
-                    <option>Martin</option>
-                    <option>Louis</option>
+                    {allUsers.map((user) => (
+                      <option key={user._id} value={user._id}>
+                        {user.pseudo}
+                      </option>
+                    ))}
                   </select>
                 </div>
 

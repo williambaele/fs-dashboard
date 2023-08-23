@@ -79,7 +79,7 @@ function App() {
   }, [groups, user]);
 
   //ALL USERS
-  const [users, setUsers] = useState([]);
+  const [allUsers, setAllUsers] = useState([]);
   useEffect(() => {
     const fetchUsers = async () => {
       if (user) {
@@ -97,7 +97,7 @@ function App() {
         }
         if (response.ok) {
           console.log(json);
-          setUsers(json)
+          setAllUsers(json)
         }
       }
     };
@@ -129,6 +129,7 @@ function App() {
                 ) : (
                   <Home
                     user={user}
+                    allUsers={allUsers}
                     tasks={tasks}
                     userGroups={userGroups}
                     userTasks={userTasks}

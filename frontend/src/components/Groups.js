@@ -3,7 +3,7 @@ import TasksTableGroup from "./TasksTableGroup";
 import GroupForm from "./GroupForm";
 import GroupFormEdit from "./GroupFormEdit";
 
-const Groups = ({ user, userGroups }) => {
+const Groups = ({ user, userGroups, allUsers }) => {
   const [isGroupFormVisible, setIsGroupFormVisible] = useState(false);
   const [isGroupFormEditVisible, setIsGroupFormEditVisible] = useState(false);
 
@@ -79,6 +79,7 @@ const Groups = ({ user, userGroups }) => {
           onClose={() => setIsGroupFormVisible(false)}
           isTaskFormVisible={isGroupFormVisible}
           user={user}
+          allUsers={allUsers}
         />
       )}
       {isGroupFormEditVisible && (

@@ -9,11 +9,14 @@ const getGroups = async (req, res) => {
 
 // CREATE NEW GROUP
 const createGroup = async (req, res) => {
-  const { name, user_id } = req.body;
+  const { name, user_id, groupMembers } = req.body; 
   let emptyFields = [];
 
   if (!name) {
     emptyFields.push("name");
+  }
+  if (!groupMembers) {
+    emptyFields.push("group members");
   }
   if (emptyFields.length > 0) {
     return res
@@ -24,6 +27,7 @@ const createGroup = async (req, res) => {
   const groupData = {
     name,
     user: user_id,
+    members: groupMembers, 
   };
   // ADD DOC TO DB
   try {
