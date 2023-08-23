@@ -2,9 +2,16 @@ import React, { useState } from "react";
 import TasksTableGroup from "./TasksTableGroup";
 import GroupForm from "./GroupForm";
 
-const Groups = ({user}) => {
+const Groups = ({ user, userGroups }) => {
   const [isGroupFormVisible, setIsGroupFormVisible] = useState(false);
+  console.log(userGroups);
 
+  //SELECT FILTER
+  //Group 1 selected by default
+  const [selectFilter, setSelectFilter] = useState(userGroups[0].name);
+  const handleSelectFilterChange = (event) => {
+    setSelectFilter(event.target.value);
+  };
   return (
     <div
       className={`h-screen p-6 bg-[#0b0b0b] gap-10 w-full  ${
@@ -14,12 +21,14 @@ const Groups = ({user}) => {
       <div className="flex justify-between">
         <h2 className="text-3xl text-gray-100">Your groups</h2>
         <div className="flex gap-4">
-          <select className="cursor-pointer py-2 px-3 rounded-md font-semibold bg-[#232323] text-gray-300 hover:bg-[#232323]/80 focus:outline-none transition-all text-sm">
-            <option value={"all"}>All</option>
-            <option value={"urgent"}>Urgent</option>
-            <option value={"middle"}>Middle</option>
-            <option value={"cool"}>Cool</option>
-            <option value={"finished"}>Finished</option>
+          <select
+            onChange={handleSelectFilterChange}
+            value={selectFilter}
+            className="cursor-pointer py-2 px-3 rounded-md font-semibold bg-[#232323] text-gray-300 hover:bg-[#232323]/80 focus:outline-none transition-all text-sm"
+          >
+            {userGroups.map((group) => (
+              <option value={group.a}>{group.name}</option>
+            ))}
           </select>
           <div
             onClick={() => setIsGroupFormVisible(true)}

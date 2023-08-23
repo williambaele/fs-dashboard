@@ -5,12 +5,12 @@ import Account from "../components/Account";
 import Dashboard from "../components/Dashboard";
 import Tasks from "../components/Tasks";
 
-const Home = ({ user, tasks, userTasks }) => {
+const Home = ({ user, tasks, userTasks, userGroups }) => {
   const [activeMenu, setActiveMenu] = useState("dashboard");
 
   const menuComponents = {
     dashboard: <Dashboard user={user} tasks={tasks} userTasks={userTasks} />,
-    group: <Groups user={user} />,
+    group: <Groups user={user} userGroups={userGroups} />,
     account: <Account user={user}/>,
     tasks: <Tasks user={user} userTasks={userTasks} />,
   };

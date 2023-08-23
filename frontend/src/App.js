@@ -70,13 +70,14 @@ function App() {
     if (user && groups) {
       // Using an immediately invoked async function
       (async () => {
-        // Filter tasks based on user._id
+        // Filter groups based on user._id
         const userGroups = groups.filter((group) => group.user === user._id);
+
         setUserGroups(userGroups);
       })();
     }
   }, [groups, user]);
-  console.log("user group:" + userGroups);
+  console.log(userGroups);
 
   return (
     <div>
@@ -101,7 +102,12 @@ function App() {
                 !user ? (
                   <Login />
                 ) : (
-                  <Home user={user} tasks={tasks} userTasks={userTasks} />
+                  <Home
+                    user={user}
+                    tasks={tasks}
+                    userGroups={userGroups}
+                    userTasks={userTasks}
+                  />
                 )
               }
             />
