@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
-import Users from "../components/Users";
+import Groups from "../components/Groups";
 import Account from "../components/Account";
 import Dashboard from "../components/Dashboard";
 import Tasks from "../components/Tasks";
@@ -10,7 +10,7 @@ const Home = ({ user, tasks, userTasks }) => {
 
   const menuComponents = {
     dashboard: <Dashboard user={user} tasks={tasks} userTasks={userTasks} />,
-    user: <Users />,
+    group: <Groups />,
     account: <Account user={user}/>,
     tasks: <Tasks user={user} userTasks={userTasks} />,
   };

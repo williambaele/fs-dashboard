@@ -16,7 +16,7 @@ const Tasks = ({user, userTasks}) => {
   return (
     <div
       className={`h-screen p-4 bg-[#0b0b0b] relative ${
-        isTaskFormVisible === true ? "backdrop-blur-xl" : ""
+        isTaskFormVisible === true ? "backdrop-blur-xs" : ""
       }`}
     >
       {isTaskFormVisible && <TaskFormModal onClose={closeTaskForm} isTaskFormVisible={isTaskFormVisible} user={user} />}
