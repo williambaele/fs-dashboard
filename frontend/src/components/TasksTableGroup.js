@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import TasksTableGroupRow from "./TasksTableGroupRow";
 
 const TasksTableGroup = () => {
   const tableHeadings = [
@@ -41,6 +40,8 @@ const TasksTableGroup = () => {
   const handleSelectFilterChange = (event) => {
     setSelectFilter(event.target.value);
   };
+
+
   return (
     <div className="flex">
       <div class="min-w-full inline-block align-middle overflow-x-auto">
@@ -73,7 +74,6 @@ const TasksTableGroup = () => {
                 </select>
                 <div
                   class="cursor-pointer py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md font-semibold bg-[#49FBB5] text-gray-800 hover:bg-[#49FBB5]/80 focus:outline-none transition-all text-sm"
-                  //   onClick={onAddTaskClick}
                 >
                   <svg
                     class="w-3 h-3"
@@ -151,6 +151,7 @@ const TasksTableGroup = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

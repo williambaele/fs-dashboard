@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import TasksTableGroup from "./TasksTableGroup";
+import GroupForm from "./GroupForm";
 
 const Groups = () => {
+  const [isGroupFormVisible, setIsGroupFormVisible] = useState(false); 
+
   return (
-    <div className="h-screen p-6 bg-[#0b0b0b] gap-10 w-full space-y-6">
+    <div className={`h-screen p-6 bg-[#0b0b0b] gap-10 w-full  ${
+      isGroupFormVisible === true ? "	" : "space-y-6"
+    }`}>
       <div className="flex justify-between">
         <h2 className="text-3xl text-gray-100">Your groups</h2>
         <div className="flex gap-4">
@@ -30,11 +35,22 @@ const Groups = () => {
                 stroke-linecap="round"
               />
             </svg>
-            <p className="hidden lg:block">Add group</p>
+            <button
+              onClick={() => setIsGroupFormVisible(true)}
+              className="hidden lg:block"
+            >
+              Add group
+            </button>
           </div>
         </div>
       </div>
-      <TasksTableGroup/>
+      {isGroupFormVisible && (
+        <GroupForm
+          onClose={() => setIsGroupFormVisible(false)}
+          isTaskFormVisible={isGroupFormVisible}
+        />
+      )}
+      <TasksTableGroup />
     </div>
   );
 };
