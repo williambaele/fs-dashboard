@@ -9,7 +9,7 @@ const Home = ({ user, tasks, userTasks, userGroups, allUsers }) => {
   const [activeMenu, setActiveMenu] = useState("dashboard");
 
   const menuComponents = {
-    dashboard: <Dashboard user={user} tasks={tasks} userTasks={userTasks} />,
+    dashboard: <Dashboard user={user} tasks={tasks} userTasks={userTasks} userGroups={userGroups} />,
     group: <Groups user={user} userGroups={userGroups} allUsers={allUsers} />,
     account: <Account user={user}/>,
     tasks: <Tasks user={user} userTasks={userTasks} />,

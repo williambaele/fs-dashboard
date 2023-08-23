@@ -64,8 +64,6 @@ function App() {
     fetchGroups();
   }, [groupsDispatch, user]);
 
-  console.log(groups);
-
   // USER'S GROUPS
   const [userGroups, setUserGroups] = useState([]);
   useEffect(() => {
@@ -80,6 +78,7 @@ function App() {
       })();
     }
   }, [groups, user]);
+  console.log(userGroups)
 
   //ALL USERS
   const [allUsers, setAllUsers] = useState([]);
