@@ -80,7 +80,7 @@ const GroupFormEdit = ({ onClose, isTaskFormVisible, user }) => {
               <h3 class="mb-2 text-xl font-bold text-gray-400 ">
                 Edit your group
               </h3>
-              <p class="text-gray-500">Add a name and some users !</p>
+              <p class="text-gray-500">Edit the name and group's members !</p>
             </div>
 
             <div class="space-y-4">

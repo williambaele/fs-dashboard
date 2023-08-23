@@ -7,16 +7,14 @@ const Groups = ({ user, userGroups, allUsers }) => {
   const [isGroupFormVisible, setIsGroupFormVisible] = useState(false);
   const [isGroupFormEditVisible, setIsGroupFormEditVisible] = useState(false);
 
-  console.log(userGroups);
-
   //SELECT FILTER
   //Group 1 selected by default
-  const [selectFilter, setSelectFilter] = useState(userGroups[0].name);
+  const [selectFilter, setSelectFilter] = useState("");
   const handleSelectFilterChange = (event) => {
     setSelectFilter(event.target.value);
   };
 
-  console.log(selectFilter)
+  console.log(selectFilter);
   return (
     <div
       className={`h-screen p-6 bg-[#0b0b0b] gap-10 w-full  ${

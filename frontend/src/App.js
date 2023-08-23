@@ -64,14 +64,17 @@ function App() {
     fetchGroups();
   }, [groupsDispatch, user]);
 
+  console.log(groups);
+
   // USER'S GROUPS
   const [userGroups, setUserGroups] = useState([]);
   useEffect(() => {
     if (user && groups) {
-      // Using an immediately invoked async function
       (async () => {
-        // Filter groups based on user._id
-        const userGroups = groups.filter((group) => group.user === user._id);
+        // Filter groups based on ID or MEMBERS 
+        const userGroups = groups.filter(
+          (group) => group.user === user._id || group.members.includes(user._id)
+        );
 
         setUserGroups(userGroups);
       })();
@@ -97,7 +100,7 @@ function App() {
         }
         if (response.ok) {
           console.log(json);
-          setAllUsers(json)
+          setAllUsers(json);
         }
       }
     };
