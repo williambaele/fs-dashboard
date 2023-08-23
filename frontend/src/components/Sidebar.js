@@ -90,8 +90,7 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
               Tasks
             </div>
           </li>
-         
-          
+
           <li onClick={() => setActiveMenu("account")}>
             <div
               className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-gray-100 rounded-md cursor-pointer ${

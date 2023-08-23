@@ -83,7 +83,7 @@ function App() {
   useEffect(() => {
     const fetchUsers = async () => {
       if (user) {
-        const response = await fetch("/api/users", {
+        const response = await fetch("/api/user", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
