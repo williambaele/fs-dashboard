@@ -48,7 +48,9 @@ const TasksTableGroup = () => {
           <div class="px-6 py-4 gap-3 grid md:flex justify-between md:items-center border-b border-gray-200 ">
             <div>
               <h2 class="text-xl font-semibold text-gray-100">Tasks</h2>
-              <p class="text-sm text-gray-600">Add users, task, edit and more.</p>
+              <p class="text-sm text-gray-600">
+                Add users, task, edit and more.
+              </p>
             </div>
             <div>
               <div class="flex justify-between gap-2 md:gap-6">
@@ -71,7 +73,7 @@ const TasksTableGroup = () => {
                 </select>
                 <div
                   class="cursor-pointer py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md font-semibold bg-[#49FBB5] text-gray-800 hover:bg-[#49FBB5]/80 focus:outline-none transition-all text-sm"
-                //   onClick={onAddTaskClick}
+                  //   onClick={onAddTaskClick}
                 >
                   <svg
                     class="w-3 h-3"
