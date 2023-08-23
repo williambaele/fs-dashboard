@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import TasksTableGroup from "./TasksTableGroup";
 import GroupForm from "./GroupForm";
+import GroupFormEdit from "./GroupFormEdit";
 
 const Groups = ({ user, userGroups }) => {
   const [isGroupFormVisible, setIsGroupFormVisible] = useState(false);
+  const [isGroupFormEditVisible, setIsGroupFormEditVisible] = useState(false);
+
   console.log(userGroups);
 
   //SELECT FILTER
@@ -12,17 +15,19 @@ const Groups = ({ user, userGroups }) => {
   const handleSelectFilterChange = (event) => {
     setSelectFilter(event.target.value);
   };
+
+  console.log(selectFilter)
   return (
     <div
       className={`h-screen p-6 bg-[#0b0b0b] gap-10 w-full  ${
-        isGroupFormVisible === true ? "	" : "space-y-6"
+        isGroupFormVisible || isGroupFormEditVisible === true ? "	" : "space-y-6"
       }`}
     >
       <div className="flex justify-between">
-        <h2 className="text-xl text-gray-100 mdtext-3xl">Your groups</h2>
+        <h2 className="text-xl text-gray-100 md:text-3xl">Your groups</h2>
         <div className="flex gap-4">
           <div
-            onClick={() => setIsGroupFormVisible(true)}
+            onClick={() => setIsGroupFormEditVisible(true)}
             class="cursor-pointer py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md font-semibold bg-[#232323] text-gray-300 hover:bg-[#232323]/80 focus:outline-none transition-all text-sm"
           >
             <svg
@@ -73,6 +78,13 @@ const Groups = ({ user, userGroups }) => {
         <GroupForm
           onClose={() => setIsGroupFormVisible(false)}
           isTaskFormVisible={isGroupFormVisible}
+          user={user}
+        />
+      )}
+      {isGroupFormEditVisible && (
+        <GroupFormEdit
+          onClose={() => setIsGroupFormEditVisible(false)}
+          isTaskFormVisible={isGroupFormEditVisible}
           user={user}
         />
       )}
