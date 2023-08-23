@@ -1,8 +1,50 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useGroupsContext } from "../hooks/useGroupsContext";
 
-const GroupForm = ({ onClose, isTaskFormVisible }) => {
+const GroupForm = ({ onClose, isTaskFormVisible, user }) => {
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
+  const { dispatch } = useGroupsContext();
+
+  //GROUP CREATION
+  const [name, setName] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    //Checking if the user is logged in
+    if (!user) {
+      setError("You must be logged in");
+      return;
+    }
+    //Adding data to the group's creation
+    const group = {
+      name,
+      user_id: user._id,
+    };
+    const response = await fetch("/api/groups", {
+      method: "POST",
+      body: JSON.stringify(group),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+    const json = await response.json();
+
+    if (!response.ok) {
+      setError(json.error);
+      console.log("error");
+      setEmptyFields(json.emptyFields);
+    }
+    if (response.ok) {
+      dispatch({ type: "CREATE_GROUP", payload: json });
+      onClose();
+      toast("Group created");
+    }
+  };
   return (
     <div
       className={`fixed inset-0 z-20 flex items-center justify-center ${
@@ -36,23 +78,26 @@ const GroupForm = ({ onClose, isTaskFormVisible }) => {
           <div class="p-4 sm:p-10 overflow-y-auto">
             <div class="mb-6 text-center">
               <h3 class="mb-2 text-xl font-bold text-gray-400 ">
-                Edit your task
+                Create your group
               </h3>
-              <p class="text-gray-500">Edit your info's task seamless</p>
+              <p class="text-gray-500">Add a name and some users !</p>
             </div>
 
             <div class="space-y-4">
-              <form className="text-gray-400">
+              <form className="text-gray-400" onSubmit={handleSubmit}>
                 <div class="mb-3 sm:mb-4">
                   <label
-                    for="hs-feedback-post-comment-name-1"
+                    for="group-name"
                     class="block mb-2 text-sm font-medium "
                   >
-                    Title
+                    Name
                   </label>
                   <input
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     type="text"
-                    id="hs-feedback-post-comment-name-1"
+                    id="group-name"
+                    placeholder="Name"
                     class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
                   />
                 </div>
@@ -75,93 +120,13 @@ const GroupForm = ({ onClose, isTaskFormVisible }) => {
                     <option>Louis</option>
                   </select>
                 </div>
-                <div class="mb-3 sm:mb-4">
-                  <label
-                    for="hs-feedback-post-comment-name-1"
-                    class="block mb-2 text-sm font-medium "
-                  >
-                    Status
-                  </label>
-                  <div className="grid justify-between grid-cols-4 gap-2">
-                    <button
-                      type="button"
-                      className={` py-2 text-gray-100 bg-green-600 rounded-md`}
-                    >
-                      Cool
-                    </button>
-                    <button
-                      type="button"
-                      className={` py-2 text-gray-100 bg-yellow-600 rounded-md}`}
-                    >
-                      Middle
-                    </button>
-                    <button
-                      type="button"
-                      className={` py-2 text-gray-100 bg-red-600 rounded-md }`}
-                    >
-                      Urgent
-                    </button>
-                    <button
-                      type="button"
-                      className={` py-2 text-gray-100 bg-[#593EFE] rounded-md`}
-                      //   onClick={() => setTaskLevel("finished")}
-                    >
-                      Finished
-                    </button>
-                  </div>
-                </div>
 
-                <div>
-                  <label
-                    for="hs-feedback-post-comment-textarea-1"
-                    class="block mb-2 text-sm font-medium "
-                  >
-                    Description
-                  </label>
-                  <div class="mt-1">
-                    <textarea
-                      id="hs-feedback-post-comment-textarea-1"
-                      name="hs-feedback-post-comment-textarea-1"
-                      rows="3"
-                      //   value={description}
-                      //   onChange={(e) => setDescription(e.target.value)}
-                      class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
-                      placeholder="Leave your description here..."
-                    ></textarea>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div class="mt-1">
-                      <label
-                        for="hs-feedback-post-comment-textarea-1"
-                        class="block mb-2 text-sm font-medium"
-                      >
-                        Start date
-                      </label>
-                      <input
-                        type="date"
-                        class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
-                      />
-                    </div>
-                    <div class="mt-1">
-                      <label
-                        for="hs-feedback-post-comment-textarea-1"
-                        class="block mb-2 text-sm font-medium"
-                      >
-                        Due date
-                      </label>
-                      <input
-                        type="date"
-                        class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
-                      />
-                    </div>
-                  </div>
-                </div>
                 <div class="flex justify-center items-center py-3 bg-[#0b0b0b]">
                   <button
                     type="submit"
                     class="py-2.5 px-10 inline-flex justify-center items-center gap-2 rounded-md text-gray-100 border border-transparent font-semibold bg-[#593EFE] hover:bg-[#593EFE]/80 focus:outline-none text-sm"
                   >
-                    Save edited task
+                    Create the group
                   </button>
                 </div>
                 <div classsName="flex justify-center">

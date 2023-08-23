@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.post("/", requireAuth, createGroup);
 router.delete("/:id", requireAuth, deleteGroup);
-router.patch("/:id", requireAuth, updateTask);
+// router.patch("/:id", requireAuth, updateTask);
 router.get("/", requireAuth, getGroups);
 router.get("/:id", requireAuth, getGroup);
 

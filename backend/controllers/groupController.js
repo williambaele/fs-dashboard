@@ -1,4 +1,4 @@
-const User = require("../models/userModel");
+const Group = require("../models/groupModel");
 const mongoose = require("mongoose");
 
 // GET ALL GROUPS

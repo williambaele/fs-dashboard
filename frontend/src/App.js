@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
 import { useTasksContext } from "./hooks/useTasksContext";
+import { useGroupsContext } from "./hooks/useGroupsContext";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
@@ -9,9 +10,8 @@ import { ToastContainer, toast } from "react-toastify";
 
 function App() {
   const { user } = useAuthContext();
-
-  //LOADING TASKS
-  const { tasks, dispatch } = useTasksContext();
+  const { tasks, dispatch: tasksDispatch } = useTasksContext();
+  const { groups, dispatch: groupsDispatch } = useGroupsContext();
 
   //ALL TASKS
   useEffect(() => {
@@ -20,12 +20,12 @@ function App() {
       const json = await response.json();
 
       if (response.ok) {
-        dispatch({ type: "SET_TASKS", payload: json });
+        tasksDispatch({ type: "SET_TASKS", payload: json });
       }
     };
 
     fetchTasks();
-  }, [dispatch]);
+  }, [tasksDispatch]);
 
   // USER'S TASKS
   const [userTasks, setUserTasks] = useState([]);
@@ -39,6 +39,43 @@ function App() {
       })();
     }
   }, [tasks, user]);
+
+  // Loading groups
+  useEffect(() => {
+    const fetchGroups = async () => {
+      const response = await fetch("/api/groups", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
+      const json = await response.json();
+
+      if (!response.ok) {
+        console.log("eror");
+      }
+      if (response.ok) {
+        console.log(json);
+        groupsDispatch({ type: "SET_GROUPS", payload: json });
+      }
+    };
+    fetchGroups();
+  }, [groupsDispatch]);
+
+  // USER'S GROUPS
+  const [userGroups, setUserGroups] = useState([]);
+  useEffect(() => {
+    if (user && groups) {
+      // Using an immediately invoked async function
+      (async () => {
+        // Filter tasks based on user._id
+        const userGroups = groups.filter((group) => group.user === user._id);
+        setUserGroups(userGroups);
+      })();
+    }
+  }, [groups, user]);
+  console.log(userGroups);
 
   return (
     <div>

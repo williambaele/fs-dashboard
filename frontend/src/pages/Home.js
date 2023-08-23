@@ -10,7 +10,7 @@ const Home = ({ user, tasks, userTasks }) => {
 
   const menuComponents = {
     dashboard: <Dashboard user={user} tasks={tasks} userTasks={userTasks} />,
-    group: <Groups />,
+    group: <Groups user={user} />,
     account: <Account user={user}/>,
     tasks: <Tasks user={user} userTasks={userTasks} />,
   };

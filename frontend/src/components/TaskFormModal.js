@@ -50,7 +50,7 @@ const TaskFormModal = ({ onClose, isTaskFormVisible, user, editTask }) => {
     if (response.ok) {
       dispatch({ type: "CREATE_TASK", payload: json });
       onClose();
-      toast('Created task');
+      toast('Task created' );
 
     }
   };

@@ -8,16 +8,16 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
     logout();
   };
   return (
-    <div class="hidden md:block h-screen bg-[#0b0b0b] text-white sticky top-0 left-0 bottom-0 z-[60] w-64 border-r border-gray-700 pt-7 pb-10 overflow-y-auto scrollbar-y">
-      <div class="px-6">
-        <span class="flex-none text-3xl font-semibold ml-2" href="/">
+    <div className="hidden md:block h-screen bg-[#0b0b0b] text-white sticky top-0 left-0 bottom-0 z-[60] w-64 border-r border-gray-700 pt-7 pb-10 overflow-y-auto scrollbar-y">
+      <div className="px-6">
+        <span className="flex-none ml-2 text-3xl font-semibold" href="/">
           <span className="text-[#593EFE]/80">u</span>
           Tasks
         </span>
       </div>
 
-      <nav class="p-6 w-full flex flex-col flex-wrap h-full justify-between">
-        <ul class="space-y-1.5 ">
+      <nav className="flex flex-col flex-wrap justify-between w-full h-full p-6">
+        <ul className="space-y-1.5 ">
           <li onClick={() => setActiveMenu("dashboard")}>
             <div
               className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-gray-100 rounded-md cursor-pointer ${
@@ -27,7 +27,7 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
               }`}
             >
               <svg
-                class="w-3.5 h-3.5"
+                className="w-3.5 h-3.5"
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
@@ -35,11 +35,11 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
                 viewBox="0 0 16 16"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"
                 />
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"
                 />
               </svg>
@@ -56,7 +56,7 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
               }`}
             >
               <svg
-                class="w-3.5 h-3.5"
+                className="w-3.5 h-3.5"
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
@@ -77,7 +77,7 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
               }`}
             >
               <svg
-                class="w-3.5 h-3.5"
+                className="w-3.5 h-3.5"
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
@@ -101,7 +101,7 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
               }`}
             >
               <svg
-                class="w-3.5 h-3.5"
+                className="w-3.5 h-3.5"
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
@@ -110,7 +110,7 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
               >
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
                 />
               </svg>
@@ -119,21 +119,21 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
           </li>
         </ul>
         <button onClick={handleClick}>
-          <div class="flex items-center gap-x-3.5 py-2 px-2.5 bg-[#593EFE] text-sm text-gray-100 rounded-md hover:bg-[#593EFE]/80 ">
+          <div className="flex items-center gap-x-3.5 py-2 px-2.5 bg-[#593EFE] text-sm text-gray-100 rounded-md hover:bg-[#593EFE]/80 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-box-arrow-right"
+              className="bi bi-box-arrow-right"
               viewBox="0 0 16 16"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"
               />
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
               />
             </svg>
