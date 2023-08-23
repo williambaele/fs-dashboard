@@ -6,7 +6,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import { useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const { user } = useAuthContext();
@@ -31,7 +31,6 @@ function App() {
   const [userTasks, setUserTasks] = useState([]);
   useEffect(() => {
     if (user && tasks) {
-      // Using an immediately invoked async function
       (async () => {
         // Filter tasks based on user._id
         const userTasks = tasks.filter((task) => task.user === user._id);
@@ -40,7 +39,7 @@ function App() {
     }
   }, [tasks, user]);
 
-  // Loading groups
+  // LOADING GROUPS
   useEffect(() => {
     const fetchGroups = async () => {
       const response = await fetch("/api/groups", {
@@ -52,9 +51,6 @@ function App() {
       });
       const json = await response.json();
 
-      if (!response.ok) {
-        console.log("eror");
-      }
       if (response.ok) {
         console.log(json);
         groupsDispatch({ type: "SET_GROUPS", payload: json });
@@ -75,7 +71,6 @@ function App() {
       })();
     }
   }, [groups, user]);
-  console.log(userGroups);
 
   return (
     <div>
