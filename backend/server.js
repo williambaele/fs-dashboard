@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const taskRoutes = require('./routes/tasks')
 const userRoutes = require('./routes/user')
 const groupRoutes = require('./routes/groups')
+const groupTasksRoutes = require('./routes/groupTasks')
 
 // express app
 const app = express()
@@ -18,6 +19,7 @@ app.use((req, res, next) => {
 })
 
 // routes
+app.use('/api/groupTasks', groupTasksRoutes)
 app.use('/api/groups', groupRoutes)
 app.use('/api/tasks', taskRoutes)
 app.use('/api/user', userRoutes)

@@ -72,7 +72,7 @@ const getGroup = async (req, res) => {
   res.status(200).json(group);
 };
 
-// UPDATE A TASK
+// UPDATE A GROUP
 const updateGroup = async (req, res) => {
   const { id } = req.params;
 
