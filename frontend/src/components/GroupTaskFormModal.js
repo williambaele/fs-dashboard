@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useTasksContext } from "../hooks/useTasksContext";
+// import { useTasksContext } from "../hooks/useTasksContext";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const GroupTaskFormModal = ({ onClose, isGroupTaskFormVisible, user, selectedGroup }) => {
   const [taskLevel, setTaskLevel] = useState("");
-  const { dispatch } = useTasksContext();
+  // const { dispatch } = useTasksContext();
   const [error, setError] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -13,7 +13,7 @@ const GroupTaskFormModal = ({ onClose, isGroupTaskFormVisible, user, selectedGro
   const [startDate, setStartDate] = useState("");
 
   
-
+console.log(selectedGroup._id)
   //TASK CREATION
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,17 +24,17 @@ const GroupTaskFormModal = ({ onClose, isGroupTaskFormVisible, user, selectedGro
       return;
     }
     //Adding data to the task's creation
-    const task = {
+    const grouptask = {
       title,
       description,
       taskLevel,
       startDate,
       dueDate,
-      user_id: user._id,
+      group_id: selectedGroup._id,
     };
-    const response = await fetch("/api/tasks", {
+    const response = await fetch("/api/grouptasks", {
       method: "POST",
-      body: JSON.stringify(task),
+      body: JSON.stringify(grouptask),
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${user.token}`,
@@ -48,7 +48,7 @@ const GroupTaskFormModal = ({ onClose, isGroupTaskFormVisible, user, selectedGro
       setEmptyFields(json.emptyFields);
     }
     if (response.ok) {
-      dispatch({ type: "CREATE_TASK", payload: json });
+      // dispatch({ type: "CREATE_TASK", payload: json });
       onClose();
       toast('Task created' );
 

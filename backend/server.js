@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 })
 
 // routes
-app.use('/api/groupTasks', groupTasksRoutes)
+app.use('/api/grouptasks', groupTasksRoutes)
 app.use('/api/groups', groupRoutes)
 app.use('/api/tasks', taskRoutes)
 app.use('/api/user', userRoutes)

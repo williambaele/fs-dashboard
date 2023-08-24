@@ -24,9 +24,9 @@ const getGroupTask = async (req, res) => {
   res.status(200).json(task);
 };
 
-// CREATE NEW TASK
+// CREATE NEW  GROUP TASK
 const createGroupTask = async (req, res) => {
-  const { title, description, taskLevel, startDate, dueDate, user_id } =
+  const { title, description, taskLevel, startDate, dueDate, group_id, } =
     req.body;
   let emptyFields = [];
 
@@ -57,7 +57,7 @@ const createGroupTask = async (req, res) => {
     taskLevel,
     startDate,
     dueDate,
-    user: user_id,
+    group: group_id
   };
   // ADD DOC TO DB
   try {
