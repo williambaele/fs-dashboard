@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTasksContext } from "../hooks/useTasksContext";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const GroupTaskFormModal = ({ onClose, isTaskFormVisible, user, editTask }) => {
+const GroupTaskFormModal = ({ onClose, isGroupTaskFormVisible, user, selectedGroup }) => {
   const [taskLevel, setTaskLevel] = useState("");
   const { dispatch } = useTasksContext();
   const [error, setError] = useState(null);
@@ -57,7 +57,7 @@ const GroupTaskFormModal = ({ onClose, isTaskFormVisible, user, editTask }) => {
   return (
     <div
       className={`fixed inset-0 z-20 flex items-center justify-center ${
-        isTaskFormVisible === true ? "backdrop-blur-md	" : ""
+        isGroupTaskFormVisible === true ? "backdrop-blur-md	" : ""
       }`}
     >
       <div class="mt-0 sm:max-w-xl sm:w-full m-3 sm:mx-auto">
@@ -86,9 +86,9 @@ const GroupTaskFormModal = ({ onClose, isTaskFormVisible, user, editTask }) => {
 
           <div class="p-4 sm:p-10 overflow-y-auto">
             <div class="mb-6 text-center">
-              <h3 class="mb-2 text-xl font-bold text-gray-400 ">New task</h3>
+              <h3 class="mb-2 text-xl font-bold text-gray-400 ">New {selectedGroup.name}'s task </h3>
               <p class="text-gray-500">
-                Add a new task to your dashbaord seamless
+                Add a new task to your group's dashbaord seamless
               </p>
             </div>
 

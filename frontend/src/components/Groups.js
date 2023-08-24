@@ -28,8 +28,8 @@ const Groups = ({ user, userGroups, allUsers }) => {
   };
   return (
     <div
-      className={`h-screen p-6 bg-[#0b0b0b] gap-10 w-full  relative space-y-6 ${
-        isGroupTaskFormVisible === true ? "	" : "blur-xs"
+      className={`h-screen p-6 bg-[#0b0b0b] gap-10 w-full  relative  ${
+        isGroupTaskFormVisible === true ? "" : "space-y-6"
       }`}
     >
       <div className="flex justify-between">
@@ -105,6 +105,7 @@ const Groups = ({ user, userGroups, allUsers }) => {
           onClose={closeTaskForm}
           isGroupTaskFormVisible={isGroupTaskFormVisible}
           user={user}
+          selectedGroup={selectedGroup}
         />
       )}
 
