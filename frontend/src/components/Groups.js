@@ -8,8 +8,10 @@ const Groups = ({ user, userGroups, allUsers }) => {
   const [isGroupFormEditVisible, setIsGroupFormEditVisible] = useState(false);
 
   //SELECT FILTER
-  //Group 1 selected by default
-  const [selectFilter, setSelectFilter] = useState("");
+    // Set the first group by default or null if no user's group
+    let firstUserGroup = userGroups && userGroups.length > 0 ? userGroups[0] : "";
+    
+  const [selectFilter, setSelectFilter] = useState(firstUserGroup);
   const handleSelectFilterChange = (event) => {
     setSelectFilter(event.target.value);
   };
@@ -85,6 +87,8 @@ const Groups = ({ user, userGroups, allUsers }) => {
           onClose={() => setIsGroupFormEditVisible(false)}
           isTaskFormVisible={isGroupFormEditVisible}
           user={user}
+          allUsers={allUsers}
+
         />
       )}
       <TasksTableGroup />

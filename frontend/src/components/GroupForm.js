@@ -112,7 +112,7 @@ const GroupForm = ({ onClose, isTaskFormVisible, user, allUsers }) => {
                     multiple
                     type="text"
                     id="users"
-                    value={groupMembers} // Set the value to the userGroup array
+                    value={groupMembers}
                     onChange={(e) =>
                       setGroupMembers(
                         Array.from(
