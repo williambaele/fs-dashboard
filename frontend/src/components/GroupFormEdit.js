@@ -30,7 +30,7 @@ const GroupFormEdit = ({
     const updatedGroup = {
       ...selectedGroup,
       name,
-      groupMembers,
+      members: groupMembers,
     };
 
     try {
@@ -47,6 +47,8 @@ const GroupFormEdit = ({
         onClose();
         dispatch({ type: "UPDATE_GROUP", payload: updatedGroup }); 
         toast("Updated group");
+        console.log("Updated Group:", updatedGroup);
+
       } else {
         setError(json.error);
         setEmptyFields(json.emptyFields);

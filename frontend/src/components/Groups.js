@@ -8,18 +8,15 @@ const Groups = ({ user, userGroups, allUsers }) => {
   const [isGroupFormEditVisible, setIsGroupFormEditVisible] = useState(false);
 
   // Set the first group by default or null if no user's group
-  let firstUserGroup = userGroups && userGroups.length > 0 ? userGroups[0] : "";
+  let firstUserGroup = userGroups && userGroups.length > 0 ? userGroups[0].name : "";
   const [selectFilter, setSelectFilter] = useState(firstUserGroup);
   const handleSelectFilterChange = (event) => {
-    console.log("Selected value:", event.target.value);
     setSelectFilter(event.target.value);
   };
 
   // Find the selected group based on selectFilter value
   const selectedGroup = userGroups.find((group) => group.name === selectFilter);
-  console.log("selectedGroup:", selectedGroup);
 
-  console.log(selectedGroup)
   return (
     <div
       className={`h-screen p-6 bg-[#0b0b0b] gap-10 w-full  ${
