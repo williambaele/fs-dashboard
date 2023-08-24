@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TasksTableGroup = ({selectedGroup}) => {
+const TasksTableGroup = ({ selectedGroup, onAddTaskClick }) => {
   const tableHeadings = [
     {
       name: "Title",
@@ -41,14 +41,15 @@ const TasksTableGroup = ({selectedGroup}) => {
     setSelectFilter(event.target.value);
   };
 
-
   return (
     <div className="flex">
       <div class="min-w-full inline-block align-middle overflow-x-auto">
         <div class="bg-[#232323] rounded-xl shadow-sm overflow-hidden">
           <div class="px-6 py-4 gap-3 grid md:flex justify-between md:items-center border-b border-gray-200 ">
             <div>
-              <h2 class="text-xl font-semibold text-gray-100">{selectedGroup.name}'s tasks</h2>
+              <h2 class="text-xl font-semibold text-gray-100">
+                {selectedGroup.name}'s tasks
+              </h2>
               <p class="text-sm text-gray-600">
                 Add users, task, edit and more.
               </p>
@@ -73,6 +74,7 @@ const TasksTableGroup = ({selectedGroup}) => {
                   <option value={"finished"}>Finished</option>
                 </select>
                 <div
+                  onClick={onAddTaskClick}s
                   class="cursor-pointer py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md font-semibold bg-[#49FBB5] text-gray-800 hover:bg-[#49FBB5]/80 focus:outline-none transition-all text-sm"
                 >
                   <svg
@@ -151,7 +153,6 @@ const TasksTableGroup = ({selectedGroup}) => {
           </div>
         </div>
       </div>
-      
     </div>
   );
 };

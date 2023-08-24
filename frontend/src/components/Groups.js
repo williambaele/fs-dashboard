@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import TasksTableGroup from "./TasksTableGroup";
 import GroupForm from "./GroupForm";
 import GroupFormEdit from "./GroupFormEdit";
-
+import GroupTaskFormModal from "./GroupTaskFormModal";
 const Groups = ({ user, userGroups, allUsers }) => {
   const [isGroupFormVisible, setIsGroupFormVisible] = useState(false);
   const [isGroupFormEditVisible, setIsGroupFormEditVisible] = useState(false);
 
   // Set the first group by default or null if no user's group
-  let firstUserGroup = userGroups && userGroups.length > 0 ? userGroups[0].name : "";
+  let firstUserGroup =
+    userGroups && userGroups.length > 0 ? userGroups[0].name : "";
   const [selectFilter, setSelectFilter] = useState(firstUserGroup);
   const handleSelectFilterChange = (event) => {
     setSelectFilter(event.target.value);
@@ -17,10 +18,18 @@ const Groups = ({ user, userGroups, allUsers }) => {
   // Find the selected group based on selectFilter value
   const selectedGroup = userGroups.find((group) => group.name === selectFilter);
 
+  //NEW TASK MODAL
+  const [isGroupTaskFormVisible, setIsGroupTaskFormVisible] = useState(false);
+  const openTaskForm = () => {
+    setIsGroupTaskFormVisible(true);
+  };
+  const closeTaskForm = () => {
+    setIsGroupTaskFormVisible(false);
+  };
   return (
     <div
-      className={`h-screen p-6 bg-[#0b0b0b] gap-10 w-full  ${
-        isGroupFormVisible || isGroupFormEditVisible === true ? "	" : "space-y-6"
+      className={`h-screen p-6 bg-[#0b0b0b] gap-10 w-full  relative space-y-6 ${
+        isGroupTaskFormVisible === true ? "	" : "blur-xs"
       }`}
     >
       <div className="flex justify-between">
@@ -88,10 +97,21 @@ const Groups = ({ user, userGroups, allUsers }) => {
           isTaskFormVisible={isGroupFormEditVisible}
           user={user}
           allUsers={allUsers}
-          selectedGroup={selectedGroup} 
+          selectedGroup={selectedGroup}
         />
       )}
-      <TasksTableGroup selectedGroup={selectedGroup} />
+      {isGroupTaskFormVisible && (
+        <GroupTaskFormModal
+          onClose={closeTaskForm}
+          isGroupTaskFormVisible={isGroupTaskFormVisible}
+          user={user}
+        />
+      )}
+
+      <TasksTableGroup
+        onAddTaskClick={openTaskForm}
+        selectedGroup={selectedGroup}
+      />
     </div>
   );
 };
