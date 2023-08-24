@@ -1,10 +1,10 @@
-const Task = require("../models/taskModel");
+const GroupTask = require("../models/groupTaskModel");
 const mongoose = require("mongoose");
 
 // GET ALL GROUP'S TASKS
 const getGroupTasks = async (req, res) => {
-  const tasks = await Task.find({}).sort({ createdAt: -1 });
-  res.status(200).json(tasks);
+  const groupTasks = await GroupTask.find({}).sort({ createdAt: -1 });
+  res.status(200).json(groupTasks);
 };
 
 // GET A SINGLE GROUP'S TASK
@@ -12,16 +12,16 @@ const getGroupTask = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such task" });
+    return res.status(404).json({ error: "No such group task" });
   }
 
-  const task = await Task.findById(id);
+  const groupTask = await GroupTask.findById(id);
 
-  if (!task) {
-    return res.status(404).json({ error: "No such task" });
+  if (!groupTask) {
+    return res.status(404).json({ error: "No such group task" });
   }
 
-  res.status(200).json(task);
+  res.status(200).json(groupTask);
 };
 
 // CREATE NEW  GROUP TASK
@@ -51,7 +51,7 @@ const createGroupTask = async (req, res) => {
       .json({ error: "Some information is missing: ", emptyFields });
   }
 
-  const taskData = {
+  const groupTaskData = {
     title,
     description,
     taskLevel,
@@ -61,8 +61,8 @@ const createGroupTask = async (req, res) => {
   };
   // ADD DOC TO DB
   try {
-    const task = await Task.create(taskData);
-    res.status(200).json(task);
+    const groupTask = await GroupTask.create(groupTaskData);
+    res.status(200).json(groupTask);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -73,16 +73,16 @@ const deleteGroupTask = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such task" });
+    return res.status(404).json({ error: "No such group task" });
   }
 
-  const task = await Task.findOneAndDelete({ _id: id });
+  const groupTask = await Task.findOneAndDelete({ _id: id });
 
-  if (!task) {
-    return res.status(400).json({ error: "No such task" });
+  if (!groupTask) {
+    return res.status(400).json({ error: "No such groupTask" });
   }
 
-  res.status(200).json(task);
+  res.status(200).json(groupTask);
 };
 
 // UPDATE A TASK
@@ -90,21 +90,21 @@ const updateGroupTask = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such task" });
+    return res.status(404).json({ error: "No such groupTask" });
   }
 
-  const task = await Task.findOneAndUpdate(
+  const groupTask = await GroupTask.findOneAndUpdate(
     { _id: id },
     {
       ...req.body,
     }
   );
 
-  if (!task) {
-    return res.status(400).json({ error: "No such task" });
+  if (!groupTask) {
+    return res.status(400).json({ error: "No such groupTask" });
   }
 
-  res.status(200).json(task);
+  res.status(200).json(groupTask);
 };
 
 module.exports = {

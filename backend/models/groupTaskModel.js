@@ -32,4 +32,4 @@ const taskGroupSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Task", taskGroupSchema);
+module.exports = mongoose.model("GroupTask", taskGroupSchema);

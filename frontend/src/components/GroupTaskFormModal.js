@@ -13,7 +13,6 @@ const GroupTaskFormModal = ({ onClose, isGroupTaskFormVisible, user, selectedGro
   const [startDate, setStartDate] = useState("");
 
   
-console.log(selectedGroup._id)
   //TASK CREATION
   const handleSubmit = async (e) => {
     e.preventDefault();
