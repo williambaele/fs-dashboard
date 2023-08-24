@@ -7,16 +7,18 @@ const Groups = ({ user, userGroups, allUsers }) => {
   const [isGroupFormVisible, setIsGroupFormVisible] = useState(false);
   const [isGroupFormEditVisible, setIsGroupFormEditVisible] = useState(false);
 
-  //SELECT FILTER
-    // Set the first group by default or null if no user's group
-    let firstUserGroup = userGroups && userGroups.length > 0 ? userGroups[0] : "";
-    
+  // Set the first group by default or null if no user's group
+  let firstUserGroup = userGroups && userGroups.length > 0 ? userGroups[0] : "";
   const [selectFilter, setSelectFilter] = useState(firstUserGroup);
   const handleSelectFilterChange = (event) => {
     setSelectFilter(event.target.value);
   };
 
-  console.log(selectFilter);
+  // Find the selected group based on selectFilter value
+  const selectedGroup = userGroups.find((group) => group.a === selectFilter);
+
+
+  console.log(selectedGroup)
   return (
     <div
       className={`h-screen p-6 bg-[#0b0b0b] gap-10 w-full  ${
@@ -88,7 +90,7 @@ const Groups = ({ user, userGroups, allUsers }) => {
           isTaskFormVisible={isGroupFormEditVisible}
           user={user}
           allUsers={allUsers}
-
+          selectedGroup={selectedGroup} 
         />
       )}
       <TasksTableGroup />

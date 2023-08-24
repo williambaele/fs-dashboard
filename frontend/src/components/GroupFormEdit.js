@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useGroupsContext } from "../hooks/useGroupsContext";
 
-const GroupFormEdit = ({ onClose, isTaskFormVisible, user, allUsers }) => {
+const GroupFormEdit = ({ onClose, isTaskFormVisible, user, allUsers, selectedGroup }) => {
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
   const { dispatch } = useGroupsContext();
@@ -94,7 +94,7 @@ const GroupFormEdit = ({ onClose, isTaskFormVisible, user, allUsers }) => {
                     Name
                   </label>
                   <input
-                    value={name}
+                    value={selectedGroup.name}
                     onChange={(e) => setName(e.target.value)}
                     type="text"
                     id="group-name"
