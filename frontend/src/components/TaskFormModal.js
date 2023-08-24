@@ -111,24 +111,7 @@ const TaskFormModal = ({ onClose, isTaskFormVisible, user, editTask }) => {
                   />
                 </div>
 
-                <div class="mb-3 sm:mb-4">
-                  <label
-                    for="hs-feedback-post-comment-email-1"
-                    class="block mb-2 text-sm font-medium "
-                  >
-                    User
-                  </label>
-                  <select
-                    type="text"
-                    id="hs-feedback-post-comment-email-1"
-                    class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
-                    placeholder="Email address"
-                  >
-                    <option>William</option>
-                    <option>Martin</option>
-                    <option>Louis</option>
-                  </select>
-                </div>
+              
                 <div class="mb-3 sm:mb-4">
                   <label
                     for="hs-feedback-post-comment-name-1"

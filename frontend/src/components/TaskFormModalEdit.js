@@ -16,12 +16,12 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
   //TASK EDITING
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (!user) {
       setError("You must be logged in");
       return;
     }
-  
+
     const updatedTask = {
       ...task, // Keep other properties unchanged
       title,
@@ -30,7 +30,7 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
       startDate,
       dueDate,
     };
-  
+
     try {
       const response = await fetch(`/api/tasks/${task._id}`, {
         method: "PATCH",
@@ -110,24 +110,6 @@ const TaskFormModalEdit = ({ onClose, isTaskFormVisible, user, task }) => {
                   />
                 </div>
 
-                <div class="mb-3 sm:mb-4">
-                  <label
-                    for="hs-feedback-post-comment-email-1"
-                    class="block mb-2 text-sm font-medium "
-                  >
-                    User
-                  </label>
-                  <select
-                    type="text"
-                    id="hs-feedback-post-comment-email-1"
-                    class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
-                    placeholder="Email address"
-                  >
-                    <option>William</option>
-                    <option>Martin</option>
-                    <option>Louis</option>
-                  </select>
-                </div>
                 <div class="mb-3 sm:mb-4">
                   <label
                     for="hs-feedback-post-comment-name-1"

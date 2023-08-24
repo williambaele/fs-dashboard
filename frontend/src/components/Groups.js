@@ -11,12 +11,13 @@ const Groups = ({ user, userGroups, allUsers }) => {
   let firstUserGroup = userGroups && userGroups.length > 0 ? userGroups[0] : "";
   const [selectFilter, setSelectFilter] = useState(firstUserGroup);
   const handleSelectFilterChange = (event) => {
+    console.log("Selected value:", event.target.value);
     setSelectFilter(event.target.value);
   };
 
   // Find the selected group based on selectFilter value
-  const selectedGroup = userGroups.find((group) => group.a === selectFilter);
-
+  const selectedGroup = userGroups.find((group) => group.name === selectFilter);
+  console.log("selectedGroup:", selectedGroup);
 
   console.log(selectedGroup)
   return (

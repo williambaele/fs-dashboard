@@ -3,49 +3,59 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useGroupsContext } from "../hooks/useGroupsContext";
 
-const GroupFormEdit = ({ onClose, isTaskFormVisible, user, allUsers, selectedGroup }) => {
+const GroupFormEdit = ({
+  onClose,
+  isTaskFormVisible,
+  user,
+  allUsers,
+  selectedGroup,
+}) => {
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
   const { dispatch } = useGroupsContext();
 
   //GROUP EDITING
-  const [name, setName] = useState();
+  const [name, setName] = useState(selectedGroup.name);
   const [groupMembers, setGroupMembers] = useState([]);
 
+  //TASK EDITING
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    //Checking if the user is logged in
     if (!user) {
       setError("You must be logged in");
       return;
     }
-    //Adding data to the group's creation
-    const group = {
-      name,
-      user_id: user._id,
-    };
-    const response = await fetch("/api/groups", {
-      method: "POST",
-      body: JSON.stringify(group),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
-    const json = await response.json();
 
-    if (!response.ok) {
-      setError(json.error);
-      console.log("error");
-      setEmptyFields(json.emptyFields);
-    }
-    if (response.ok) {
-      dispatch({ type: "CREATE_GROUP", payload: json });
-      onClose();
-      toast("Group created");
+    const updatedGroup = {
+      ...selectedGroup,
+      name,
+      groupMembers,
+    };
+
+    try {
+      const response = await fetch(`/api/groups/${selectedGroup._id}`, {
+        method: "PATCH",
+        body: JSON.stringify(updatedGroup),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
+      const json = await response.json();
+      if (response.ok) {
+        onClose();
+        dispatch({ type: "UPDATE_GROUP", payload: updatedGroup }); 
+        toast("Updated group");
+      } else {
+        setError(json.error);
+        setEmptyFields(json.emptyFields);
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
     }
   };
+
   return (
     <div
       className={`fixed inset-0 z-20 flex items-center justify-center ${
@@ -94,7 +104,7 @@ const GroupFormEdit = ({ onClose, isTaskFormVisible, user, allUsers, selectedGro
                     Name
                   </label>
                   <input
-                    value={selectedGroup.name}
+                    defaultValue={selectedGroup.name}
                     onChange={(e) => setName(e.target.value)}
                     type="text"
                     id="group-name"
@@ -108,13 +118,12 @@ const GroupFormEdit = ({ onClose, isTaskFormVisible, user, allUsers, selectedGro
                     for="hs-feedback-post-comment-email-1"
                     class="block mb-2 text-sm font-medium "
                   >
-                    User
+                    Members
                   </label>
                   <select
                     multiple
                     type="text"
                     id="users"
-                    value={groupMembers}
                     onChange={(e) =>
                       setGroupMembers(
                         Array.from(
@@ -127,7 +136,11 @@ const GroupFormEdit = ({ onClose, isTaskFormVisible, user, allUsers, selectedGro
                     className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm sm:p-4 bg-[#232323] focus:outline-none"
                   >
                     {allUsers.map((user) => (
-                      <option key={user._id} value={user._id}>
+                      <option
+                        key={user._id}
+                        value={user._id}
+                        selected={selectedGroup.members.includes(user._id)} // Set the selected attribute based on membership
+                      >
                         {user.pseudo}
                       </option>
                     ))}
@@ -139,7 +152,7 @@ const GroupFormEdit = ({ onClose, isTaskFormVisible, user, allUsers, selectedGro
                     type="submit"
                     class="py-2.5 px-10 inline-flex justify-center items-center gap-2 rounded-md text-gray-100 border border-transparent font-semibold bg-[#593EFE] hover:bg-[#593EFE]/80 focus:outline-none text-sm"
                   >
-                    Create the group
+                    Edit the group
                   </button>
                 </div>
                 <div classsName="flex justify-center">
