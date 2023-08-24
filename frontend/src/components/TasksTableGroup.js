@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TasksTableGroup = () => {
+const TasksTableGroup = ({selectedGroup}) => {
   const tableHeadings = [
     {
       name: "Title",
@@ -48,7 +48,7 @@ const TasksTableGroup = () => {
         <div class="bg-[#232323] rounded-xl shadow-sm overflow-hidden">
           <div class="px-6 py-4 gap-3 grid md:flex justify-between md:items-center border-b border-gray-200 ">
             <div>
-              <h2 class="text-xl font-semibold text-gray-100">Tasks</h2>
+              <h2 class="text-xl font-semibold text-gray-100">{selectedGroup.name}'s tasks</h2>
               <p class="text-sm text-gray-600">
                 Add users, task, edit and more.
               </p>

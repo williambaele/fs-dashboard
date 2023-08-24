@@ -91,7 +91,7 @@ const Groups = ({ user, userGroups, allUsers }) => {
           selectedGroup={selectedGroup} 
         />
       )}
-      <TasksTableGroup />
+      <TasksTableGroup selectedGroup={selectedGroup} />
     </div>
   );
 };
