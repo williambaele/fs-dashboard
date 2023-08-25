@@ -3,6 +3,7 @@ import TaskStatusLabel from "./TaskStatusLabel";
 import { useGroupTasksContext } from "../hooks/useGroupTasksContext";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import GroupTaskFormModalEdit from "./GroupTaskFormModalEdit"
 const TasksTableGroupRow = ({
   groupTask,
   user,
@@ -209,14 +210,14 @@ const TasksTableGroupRow = ({
           )}
         </div>
       </td>
-      {/* {isEditModalVisible && (
-        <TaskFormModalEdit
+      {isEditModalVisible && (
+        <GroupTaskFormModalEdit
           onClose={() => setIsEditModalVisible(false)} // Close the edit modal
           isTaskFormVisible={isEditModalVisible}
           user={user}
           groupTask={groupTask} // Pass the task data to the modal
         />
-      )} */}
+      )}
     </tr>
   );
 };
