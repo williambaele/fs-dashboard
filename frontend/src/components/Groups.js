@@ -28,7 +28,6 @@ const Groups = ({ user, userGroups, allUsers, groupTasks }) => {
       setSelectedGroupTasks(tasks);
     }
   }, [groupTasks, selectedGroup]);
-  console.log(selectedGroupTasks);
 
   //NEW TASK MODAL
   const [isGroupTaskFormVisible, setIsGroupTaskFormVisible] = useState(false);
@@ -122,6 +121,7 @@ const Groups = ({ user, userGroups, allUsers, groupTasks }) => {
       )}
 
       <TasksTableGroup
+        selectedGroupTasks={selectedGroupTasks}
         onAddTaskClick={openTaskForm}
         selectedGroup={selectedGroup}
       />

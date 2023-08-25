@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
-const TasksTableGroup = ({ selectedGroup, onAddTaskClick }) => {
+import TasksTableGroupRow from "./TasksTableGroupRow"
+const TasksTableGroup = ({ selectedGroup, onAddTaskClick, selectedGroupTasks }) => {
   const tableHeadings = [
     {
       name: "Title",
@@ -120,24 +120,24 @@ const TasksTableGroup = ({ selectedGroup, onAddTaskClick }) => {
                 </tr>
               </thead>
               <tbody class="divide-y divide-gray-200">
-                {/* {userTasks
-                  .filter((task) =>
-                    task.title.toLowerCase().includes(searchValue.toLowerCase())
+                {selectedGroupTasks
+                  .filter((groupTask) =>
+                  groupTask.title.toLowerCase().includes(searchValue.toLowerCase())
                   )
-                  .filter((task) =>
+                  .filter((groupTask) =>
                     selectFilter === "all"
                       ? true
-                      : task.taskLevel === selectFilter
+                      : groupTask.taskLevel === selectFilter
                   )
-                  .map((task, index) => (
+                  .map((groupTask, index) => (
                     <TasksTableGroupRow
-                      key={task.id}
-                      task={task}
+                      key={groupTask.id}
+                      groupTask={groupTask}
                       isDropdownOpen={index === openDropdownIndex}
                       onOpenDropdown={() => handleOpenDropdown(index)}
                       onCloseDropdown={handleCloseDropdown}
                     />
-                  ))} */}
+                  ))}
               </tbody>
             </table>
           </div>
@@ -146,7 +146,7 @@ const TasksTableGroup = ({ selectedGroup, onAddTaskClick }) => {
             <div>
               <p className="text-sm text-gray-500">
                 <span className="font-semibold">
-                  {/* {userTasks.length} results */}
+                  {selectedGroupTasks.length} results
                 </span>
               </p>
             </div>
