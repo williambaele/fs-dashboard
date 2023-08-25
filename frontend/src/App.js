@@ -34,9 +34,8 @@ function App() {
   //ALL GROUPS TASKS
   useEffect(() => {
     const fetchTasks = async () => {
-      const response = await fetch("/api/tasks");
+      const response = await fetch("/api/grouptasks");
       const json = await response.json();
-
       if (response.ok) {
         groupTasksDispatch({ type: "SET_GROUPTASKS", payload: json });
       }

@@ -17,30 +17,18 @@ const Groups = ({ user, userGroups, allUsers, groupTasks }) => {
 
   // Find the selected group based on selectFilter value
   const selectedGroup = userGroups.find((group) => group.name === selectFilter);
-
+  console.log(groupTasks)
 
   //LOAD SELECTED GROUP'S TASKS 
-  // const [selectedGroupTasks, setSelectedGroupTasks] = useState([])
-  // useEffect(() => {
-  //   const fetchGroupTasks = async () => {
-  //     if (selectedGroup) {
-  //       const response = await fetch("/api/grouptasks");
-  //       const json = await response.json();
-
-  //       if (!response.ok) {
-  //         console.log("error");
-  //       }
-  //       if (response.ok) {
-  //         console.log("json" + json)
-  //         const tasks = json.filter((task) => task._id === selectedGroup._id);
-  //         setSelectedGroupTasks(tasks);
-  //       }
-  //     }
-  //   };
-  //   fetchGroupTasks();
+  const [selectedGroupTasks, setSelectedGroupTasks] = useState("")
+  useEffect(() => {
+    if(selectedGroup && groupTasks){
+      const tasks = groupTasks.filter((groupTask) => groupTask.group === selectedGroup._id);
+      setSelectedGroupTasks(tasks);
+    }
   
-  // }, [selectedGroup]);
-
+  }, [groupTasks, selectedGroup]);
+console.log("résultat" + selectedGroupTasks)
 
   //NEW TASK MODAL
   const [isGroupTaskFormVisible, setIsGroupTaskFormVisible] = useState(false);
