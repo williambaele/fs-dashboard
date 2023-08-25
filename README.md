@@ -9,7 +9,7 @@ uTasks is the place to track all your duties and create groups to increase produ
 * Group 
     * Create group
     * Edit group's members
-* Group 
+* Task 
     * Title
     * Description
     * Task level
