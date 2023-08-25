@@ -19,7 +19,7 @@ function App() {
   //ALL TASKS
   useEffect(() => {
     const fetchTasks = async () => {
-      const response = await fetch("/api/grouptasks");
+      const response = await fetch("/api/tasks");
       const json = await response.json();
 
       if (response.ok) {
