@@ -24,7 +24,7 @@ export const groupTasksReducer = (state = initialState, action) => {
     case "UPDATE_GROUPTASK":
       return {
         ...state,
-        grouoTasks: state.groupTasks.map((groupTask) =>
+        groupTasks: state.groupTasks.map((groupTask) =>
         groupTask._id === action.payload._id ? action.payload : groupTask
         ),
       };

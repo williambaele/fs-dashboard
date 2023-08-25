@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import TaskStatusLabel from "./TaskStatusLabel";
 import { useGroupTasksContext } from "../hooks/useGroupTasksContext";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import GroupTaskFormModalEdit from "./GroupTaskFormModalEdit"
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import GroupTaskFormModalEdit from "./GroupTaskFormModalEdit";
 const TasksTableGroupRow = ({
   groupTask,
   user,
@@ -24,8 +24,8 @@ const TasksTableGroupRow = ({
     progressPercentage = ((totalTime - remainingTime) / totalTime) * 100;
   }
 
-   //DROPDOWN VISIBILITY
-   const handleToggleVisibility = () => {
+  //DROPDOWN VISIBILITY
+  const handleToggleVisibility = () => {
     if (isDropdownOpen) {
       onCloseDropdown();
     } else {
@@ -34,7 +34,6 @@ const TasksTableGroupRow = ({
   };
 
   const [isEditModalVisible, setIsEditModalVisible] = useState(false); // State for the edit modal
-
 
   //DUE DATE FORMAT
   const dueDate = new Date(groupTask.dueDate);
@@ -87,6 +86,7 @@ const TasksTableGroupRow = ({
     if (response.ok) {
       dispatch({ type: "UPDATE_GROUPTASK", payload: updatedTask });
       onCloseDropdown();
+      toast("Task marked as done");
     } else {
       console.log("Error marking the task as done.");
     }

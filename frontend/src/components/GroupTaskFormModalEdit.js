@@ -7,7 +7,7 @@ const GroupTaskFormModalEdit = ({ onClose, isTaskFormVisible, user, groupTask })
     const { dispatch } = useGroupTasksContext();
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
-    const [taskLevel, setTaskLevel] = useState(groupTask.groupTaskLevel);
+    const [taskLevel, setTaskLevel] = useState(groupTask.taskLevel);
     const [title, setTitle] = useState(groupTask.title);
     const [description, setDescription] = useState(groupTask.description);
     const [dueDate, setDueDate] = useState(groupTask.dueDate);
@@ -23,7 +23,7 @@ const GroupTaskFormModalEdit = ({ onClose, isTaskFormVisible, user, groupTask })
       }
   
       const updatedTask = {
-        ...groupTask, // Keep other properties unchanged
+        ...groupTask, 
         title,
         description,
         taskLevel,
