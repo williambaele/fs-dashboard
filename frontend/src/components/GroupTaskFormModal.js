@@ -2,9 +2,11 @@ import React, { useState } from "react";
 // import { useTasksContext } from "../hooks/useTasksContext";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useGroupTasksContext } from "../hooks/useGroupTasksContext";
+
 const GroupTaskFormModal = ({ onClose, isGroupTaskFormVisible, user, selectedGroup }) => {
   const [taskLevel, setTaskLevel] = useState("");
-  // const { dispatch } = useTasksContext();
+  const { dispatch } = useGroupTasksContext();
   const [error, setError] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -47,7 +49,7 @@ const GroupTaskFormModal = ({ onClose, isGroupTaskFormVisible, user, selectedGro
       setEmptyFields(json.emptyFields);
     }
     if (response.ok) {
-      // dispatch({ type: "CREATE_TASK", payload: json });
+      dispatch({ type: "CREATE_GROUPTASK", payload: json });
       onClose();
       toast('Task created' );
 

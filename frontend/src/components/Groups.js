@@ -17,18 +17,18 @@ const Groups = ({ user, userGroups, allUsers, groupTasks }) => {
 
   // Find the selected group based on selectFilter value
   const selectedGroup = userGroups.find((group) => group.name === selectFilter);
-  console.log(groupTasks)
 
-  //LOAD SELECTED GROUP'S TASKS 
-  const [selectedGroupTasks, setSelectedGroupTasks] = useState("")
+  //LOAD SELECTED GROUP'S TASKS
+  const [selectedGroupTasks, setSelectedGroupTasks] = useState([]);
   useEffect(() => {
-    if(selectedGroup && groupTasks){
-      const tasks = groupTasks.filter((groupTask) => groupTask.group === selectedGroup._id);
+    if (selectedGroup && groupTasks) {
+      const tasks = groupTasks.filter(
+        (groupTask) => groupTask.group === selectedGroup._id
+      );
       setSelectedGroupTasks(tasks);
     }
-  
   }, [groupTasks, selectedGroup]);
-console.log("résultat" + selectedGroupTasks)
+  console.log(selectedGroupTasks);
 
   //NEW TASK MODAL
   const [isGroupTaskFormVisible, setIsGroupTaskFormVisible] = useState(false);
