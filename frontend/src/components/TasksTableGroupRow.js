@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import TaskStatusLabel from "./TaskStatusLabel";
-const TasksTableGroupRow = ({ groupTask }) => {
-
-    //REMAINING TIME
+import { useGroupTasksContext } from "../hooks/useGroupTasksContext";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+const TasksTableGroupRow = ({
+  groupTask,
+  user,
+  isDropdownOpen,
+  onOpenDropdown,
+  onCloseDropdown,
+}) => {
+  //REMAINING TIME
   const currentDateTime = new Date();
   const dueDateTime = new Date(groupTask.dueDate);
   const remainingTime = dueDateTime - currentDateTime;
@@ -15,14 +23,73 @@ const TasksTableGroupRow = ({ groupTask }) => {
     progressPercentage = ((totalTime - remainingTime) / totalTime) * 100;
   }
 
+   //DROPDOWN VISIBILITY
+   const handleToggleVisibility = () => {
+    if (isDropdownOpen) {
+      onCloseDropdown();
+    } else {
+      onOpenDropdown();
+    }
+  };
 
-   //DUE DATE FORMAT
-   const dueDate = new Date(groupTask.dueDate);
-   const formattedDueDate = dueDate.toLocaleDateString("fr-FR", {
-     year: "numeric",
-     month: "numeric",
-     day: "numeric",
-   });
+  const [isEditModalVisible, setIsEditModalVisible] = useState(false); // State for the edit modal
+
+
+  //DUE DATE FORMAT
+  const dueDate = new Date(groupTask.dueDate);
+  const formattedDueDate = dueDate.toLocaleDateString("fr-FR", {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  });
+
+  //DELETE TASK
+  const { dispatch } = useGroupTasksContext();
+  const handleDeleteTask = async (taskId) => {
+    if (!user) {
+      console.log("You must be logged in");
+      return;
+    }
+    const response = await fetch(`/api/tasks/${taskId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+
+    if (response.ok) {
+      dispatch({ type: "DELETE_TASK", payload: { _id: taskId } });
+      onCloseDropdown();
+      toast("Task deleted");
+    } else {
+      console.log("Error deleting the task.");
+    }
+  };
+
+  //MARK TASK AS DONE
+  const markTaskAsDone = async (taskId) => {
+    if (!user) {
+      console.log("You must be logged in");
+      return;
+    }
+    const updatedTask = { ...groupTask, taskLevel: "finished" };
+    const response = await fetch(`/api/grouptasks/${taskId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+      body: JSON.stringify(updatedTask),
+    });
+
+    if (response.ok) {
+      dispatch({ type: "UPDATE_GROUPTASK", payload: updatedTask });
+      onCloseDropdown();
+    } else {
+      console.log("Error marking the task as done.");
+    }
+  };
   return (
     <tr>
       <td class="h-px whitespace-nowrap w-1/6">
@@ -38,7 +105,9 @@ const TasksTableGroupRow = ({ groupTask }) => {
       </td>
       <td class="h-px whitespace-nowrap w-1/6">
         <div class="px-6 py-3 overflow-hidden">
-          <span class="block text-sm text-gray-500">{groupTask.description}</span>
+          <span class="block text-sm text-gray-500">
+            {groupTask.description}
+          </span>
         </div>
       </td>
       <TaskStatusLabel status={groupTask.taskLevel} />
@@ -105,7 +174,7 @@ const TasksTableGroupRow = ({ groupTask }) => {
               </button>
               <button
                 className="flex items-center gap-3 w-full px-4 py-2 text-left hover:bg-[#232323]"
-                onClick={() => markTaskAsDone(task._id)}
+                onClick={() => markTaskAsDone(groupTask._id)}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -140,14 +209,14 @@ const TasksTableGroupRow = ({ groupTask }) => {
           )}
         </div>
       </td>
-      {isEditModalVisible && (
+      {/* {isEditModalVisible && (
         <TaskFormModalEdit
           onClose={() => setIsEditModalVisible(false)} // Close the edit modal
           isTaskFormVisible={isEditModalVisible}
           user={user}
           groupTask={groupTask} // Pass the task data to the modal
         />
-      )}
+      )} */}
     </tr>
   );
 };

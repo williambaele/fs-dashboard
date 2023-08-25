@@ -124,6 +124,7 @@ const Groups = ({ user, userGroups, allUsers, groupTasks }) => {
         selectedGroupTasks={selectedGroupTasks}
         onAddTaskClick={openTaskForm}
         selectedGroup={selectedGroup}
+        user={user}
       />
     </div>
   );

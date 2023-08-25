@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TasksTableGroupRow from "./TasksTableGroupRow"
-const TasksTableGroup = ({ selectedGroup, onAddTaskClick, selectedGroupTasks }) => {
+const TasksTableGroup = ({ selectedGroup, onAddTaskClick, selectedGroupTasks, user }) => {
   const tableHeadings = [
     {
       name: "Title",
@@ -132,6 +132,7 @@ const TasksTableGroup = ({ selectedGroup, onAddTaskClick, selectedGroupTasks }) 
                   .map((groupTask, index) => (
                     <TasksTableGroupRow
                       key={groupTask.id}
+                      user={user}
                       groupTask={groupTask}
                       isDropdownOpen={index === openDropdownIndex}
                       onOpenDropdown={() => handleOpenDropdown(index)}
