@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
 import { useTasksContext } from "./hooks/useTasksContext";
 import { useGroupsContext } from "./hooks/useGroupsContext";
+import { useGroupTasksContext } from "./hooks/useGroupTasksContext";
+
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
@@ -12,11 +14,12 @@ function App() {
   const { user } = useAuthContext();
   const { tasks, dispatch: tasksDispatch } = useTasksContext();
   const { groups, dispatch: groupsDispatch } = useGroupsContext();
+  const { groupTasks, dispatch: groupTasksDispatch } = useGroupTasksContext();
 
   //ALL TASKS
   useEffect(() => {
     const fetchTasks = async () => {
-      const response = await fetch("/api/tasks");
+      const response = await fetch("/api/grouptasks");
       const json = await response.json();
 
       if (response.ok) {
@@ -26,6 +29,23 @@ function App() {
 
     fetchTasks();
   }, [tasksDispatch]);
+
+
+  //ALL GROUPS TASKS
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const response = await fetch("/api/tasks");
+      const json = await response.json();
+
+      if (response.ok) {
+        groupTasksDispatch({ type: "SET_GROUPTASKS", payload: json });
+      }
+    };
+
+    fetchTasks();
+  }, [groupTasksDispatch]);
+
+
 
   // USER'S TASKS
   const [userTasks, setUserTasks] = useState([]);
@@ -136,6 +156,7 @@ function App() {
                     tasks={tasks}
                     userGroups={userGroups}
                     userTasks={userTasks}
+                    groupTasks={groupTasks}
                   />
                 )
               }

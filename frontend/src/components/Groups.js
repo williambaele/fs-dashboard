@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TasksTableGroup from "./TasksTableGroup";
 import GroupForm from "./GroupForm";
 import GroupFormEdit from "./GroupFormEdit";
 import GroupTaskFormModal from "./GroupTaskFormModal";
-const Groups = ({ user, userGroups, allUsers }) => {
+const Groups = ({ user, userGroups, allUsers, groupTasks }) => {
   const [isGroupFormVisible, setIsGroupFormVisible] = useState(false);
   const [isGroupFormEditVisible, setIsGroupFormEditVisible] = useState(false);
 
@@ -17,6 +17,30 @@ const Groups = ({ user, userGroups, allUsers }) => {
 
   // Find the selected group based on selectFilter value
   const selectedGroup = userGroups.find((group) => group.name === selectFilter);
+
+
+  //LOAD SELECTED GROUP'S TASKS 
+  // const [selectedGroupTasks, setSelectedGroupTasks] = useState([])
+  // useEffect(() => {
+  //   const fetchGroupTasks = async () => {
+  //     if (selectedGroup) {
+  //       const response = await fetch("/api/grouptasks");
+  //       const json = await response.json();
+
+  //       if (!response.ok) {
+  //         console.log("error");
+  //       }
+  //       if (response.ok) {
+  //         console.log("json" + json)
+  //         const tasks = json.filter((task) => task._id === selectedGroup._id);
+  //         setSelectedGroupTasks(tasks);
+  //       }
+  //     }
+  //   };
+  //   fetchGroupTasks();
+  
+  // }, [selectedGroup]);
+
 
   //NEW TASK MODAL
   const [isGroupTaskFormVisible, setIsGroupTaskFormVisible] = useState(false);
