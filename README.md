@@ -1,7 +1,5 @@
-## uTasks
-
-## Purpose
-uTasks is the place to track all your duties and create groups to increase productivity and be productive together. You have a personnal space to track your own tasks but also groups to union forces.
+## uTasks purpose
+uTasks is the place to track all your duties and create groups to increase productivity and be productive together. You have a personnal space to track your own tasks but also groups to union forces. 
 
 
 ## Basic Features
@@ -11,7 +9,13 @@ uTasks is the place to track all your duties and create groups to increase produ
 * Group 
     * Create group
     * Edit group's members
-
+* Group 
+    * Title
+    * Description
+    * Task level
+    * Start date
+    * Due date  
+ 
 ## Tasks Features
 * Personnal tasks
     * Create
