@@ -25,9 +25,15 @@ const Dashboard = ({ user, userTasks, userGroups }) => {
     //     <HelpCard />
     //   </div>
     // </div>
-    <div className="h-full md:h-screen bg-[#0b0b0b] py-10 px-4 space-y-4 md:space-y-6">
-      <h2 className="text-3xl text-white md:text-4xl">Welcome {user.pseudo} 👋🏼</h2>
+    <div className="h-full md:h-screen bg-[#0b0b0b] py-10 px-4 space-y-4 md:space-y-10">
+      <h2 className="text-3xl text-white md:text-4xl">
+        Welcome {user.pseudo} 👋🏼
+      </h2>
       <StatsCard userTasks={userTasks} userGroups={userGroups} />
+      <div className="h-[400px]">
+        <Charts />
+      </div>
+      <HelpCard />
     </div>
   );
 };
