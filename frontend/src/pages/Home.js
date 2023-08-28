@@ -18,7 +18,7 @@ const Home = ({ user, tasks, userTasks, userGroups, allUsers, groupTasks }) => {
   const selectedComponent = menuComponents[activeMenu] || null;
 
   return (
-    <div className="flex w-full">
+    <div className="flex flex-wrap w-full md:flex-nowrap">
       <Sidebar
         activeMenu={activeMenu}
         setActiveMenu={setActiveMenu}

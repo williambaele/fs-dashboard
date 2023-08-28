@@ -15,7 +15,7 @@ const Dashboard = ({ user, userTasks, userGroups }) => {
         <StatsCard userTasks={userTasks} userGroups={userGroups} />
       </div>
       <div className=" h-96">
-        <Charts />
+        <Charts userTasks={userTasks}/>
       </div>
       <div className="h-20 ">
         <HelpCard />

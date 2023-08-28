@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Chart } from "react-google-charts";
 
-const Charts = () => {
+const Charts = ({userTasks}) => {
   const data = [
     ["Year", "Finished", "Pending"],
     ["2013", 1000, 400],
@@ -10,6 +10,7 @@ const Charts = () => {
     ["2016", 1030, 540],
   ];
 
+  console.log(userTasks)
   const options = {
     hAxis: { title: "Year", titleTextStyle: { color: "white" } },
     vAxis: { minValue: 0 },
