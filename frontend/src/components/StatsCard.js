@@ -17,8 +17,8 @@ const StatsCard = ({ userTasks, userGroups }) => {
       svg: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
+          width="36"
+          height="36"
           fill="#593EFE"
           className="bi bi-hourglass-split"
           viewBox="0 0 16 16"
@@ -33,8 +33,8 @@ const StatsCard = ({ userTasks, userGroups }) => {
       svg: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="36"
-          height="36"
+          width="42"
+          height="42"
           fill="#593EFE"
           className="bi bi-check-all"
           viewBox="0 0 16 16"
@@ -49,8 +49,8 @@ const StatsCard = ({ userTasks, userGroups }) => {
       svg: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
+          width="36"
+          height="36"
           fill="#593EFE"
           className="bi bi-calendar-range"
           viewBox="0 0 16 16"
@@ -66,8 +66,8 @@ const StatsCard = ({ userTasks, userGroups }) => {
       svg: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
+          width="36"
+          height="36"
           fill="#593EFE"
           className="bi bi-people-fill"
           viewBox="0 0 16 16"
@@ -80,12 +80,12 @@ const StatsCard = ({ userTasks, userGroups }) => {
   ];
 
   return (
-    <div className="grid h-full grid-cols-2 gap-4 md:h-20 md:grid-cols-4">
+    <div className="grid h-full grid-cols-2 gap-4 md:grid-cols-4">
       {cards.map((card) => (
         <div className="h-full grid grid-cols-4 p-4 rounded bg-[#232323] items-center shadow-xl">
-          <div className="flex flex-col h-full col-span-3 space-y-2 ">
-            <p className="text-2xl text-gray-100 font-large">{card.number}</p>
-            <h2 className="text-gray-300 text-md">{card.name}</h2>
+          <div className="grid h-full col-span-3 space-y-2">
+            <p className="text-2xl text-gray-100 md:text-3xl font-large">{card.number}</p>
+            <h2 className="text-gray-300 text-md md:text-lg">{card.name}</h2>
           </div>
           <div className="flex items-center justify-center h-full rounded">
             {card.svg}
