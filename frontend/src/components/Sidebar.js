@@ -23,10 +23,10 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
       name: "Tasks",
       link: "tasks",
     },
-    {
-      name: "Account",
-      link: "account",
-    },
+    // {
+    //   name: "Account",
+    //   link: "account",
+    // },
   ];
   return (
     <>
@@ -152,7 +152,7 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
               </div>
             </li>
 
-            <li onClick={() => setActiveMenu("account")}>
+            {/* <li onClick={() => setActiveMenu("account")}>
               <div
                 className={`flex items-center gap-x-3.5 py-2 px-2.5  text-sm text-gray-100 rounded-md cursor-pointer ${
                   activeMenu === "account"
@@ -176,7 +176,7 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
                 </svg>
                 Account
               </div>
-            </li>
+            </li> */}
           </ul>
           <button onClick={handleClick}>
             <div className="flex items-center gap-x-3.5 py-2 px-2.5 bg-[#593EFE] text-sm text-gray-100 rounded-md hover:bg-[#593EFE]/80 ">
