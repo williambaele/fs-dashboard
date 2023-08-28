@@ -2,7 +2,7 @@ import React from "react";
 
 const HelpCard = () => {
   return (
-    <div className="h-20 bg-[#593EFE] rounded p-4 flex  gap-4 items-center justify-between hover:bg-[#593EFE]/80 cursor-pointer">
+    <div className="h-full bg-[#593EFE] rounded p-4 flex  gap-4 items-center justify-between hover:bg-[#593EFE]/80 cursor-pointer">
       <h2 className="text-xl text-white">Help needed ?</h2>
       <svg
         xmlns="http://www.w3.org/2000/svg"
