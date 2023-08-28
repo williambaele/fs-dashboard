@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
 import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("admin@admin.com");
+  const [password, setPassword] = useState("Azerty123!");
 
   const { login, error, isLoading } = useLogin();
 

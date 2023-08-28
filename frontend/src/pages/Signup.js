@@ -16,7 +16,7 @@ const Signup = () => {
     <div class="h-screen">
       <body class="bg-[#0b0b0b] flex h-full items-center py-16">
         <main class="w-full max-w-md mx-auto p-6">
-          <div class="mt-7 bg-[#232323] border border-gray-200 rounded-xl shadow-sm">
+          <div class="mt-7 bg-[#232323]  border-gray-200 rounded-xl shadow-sm">
             <div class="p-4 sm:p-7">
               <div class="text-center">
                 <h1 class="block text-2xl font-bold text-gray-200">Sign up</h1>
@@ -33,8 +33,11 @@ const Signup = () => {
               <div class="mt-5">
                 <form onSubmit={handleSubmit}>
                   <div class="grid gap-y-4">
-                  <div>
-                      <label for="pseudo" class="block text-sm mb-2 text-gray-400">
+                    <div>
+                      <label
+                        for="pseudo"
+                        class="block text-sm mb-2 text-gray-400"
+                      >
                         Pseudo
                       </label>
                       <div class="relative">
@@ -46,11 +49,13 @@ const Signup = () => {
                           class="py-3 px-4 block w-full  rounded-md text-sm border-gray-200 border"
                           required
                         />
-                       
                       </div>
                     </div>
                     <div>
-                      <label for="email" class="block text-sm mb-2 text-gray-400">
+                      <label
+                        for="email"
+                        class="block text-sm mb-2 text-gray-400"
+                      >
                         Email address
                       </label>
                       <div class="relative">
@@ -63,11 +68,13 @@ const Signup = () => {
                           required
                           aria-describedby="email-error"
                         />
-                       
                       </div>
                     </div>
                     <div>
-                      <label for="password" class="block text-sm mb-2 text-gray-400">
+                      <label
+                        for="password"
+                        class="block text-sm mb-2 text-gray-400"
+                      >
                         Password
                       </label>
                       <div class="relative">
@@ -79,29 +86,6 @@ const Signup = () => {
                           class="py-3 px-4 block w-full  rounded-md text-sm border-gray-200 border"
                           required
                         />
-                       
-                      </div>
-                    </div>
-
-                    <div class="flex items-center">
-                      <div class="flex">
-                        <input
-                          id="remember-me"
-                          name="remember-me"
-                          type="checkbox"
-                          class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 pointer-events-none focus:ring-blue-500 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                        />
-                      </div>
-                      <div class="ml-3">
-                        <label for="remember-me" class="text-sm text-gray-400">
-                          I accept the{" "}
-                          <a
-                            href="/"
-                            class="text-[#593EFE] decoration-2 hover:underline font-medium"
-                          >
-                            Terms and Conditions
-                          </a>
-                        </label>
                       </div>
                     </div>
 
