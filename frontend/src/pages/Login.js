@@ -5,7 +5,7 @@ const Login = () => {
   const [email, setEmail] = useState("admin@admin.com");
   const [password, setPassword] = useState("Azerty123!");
 
-  const { login, error, isLoading } = useLogin();
+  const { login, error } = useLogin();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
