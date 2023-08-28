@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLogout } from "../hooks/useLogout";
-
+import { Link } from "react-router-dom";
 const Sidebar = ({ activeMenu, setActiveMenu }) => {
   const { logout } = useLogout();
 
@@ -70,12 +70,14 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
       )}
 
       <div className="hidden md:block h-screen bg-[#0b0b0b] text-white sticky top-0 left-0 bottom-0 z-[60] w-64 border-r border-gray-700 pt-7 pb-10 ">
+        <Link to="/">
         <div className="px-6">
           <span className="flex-none ml-2 text-3xl font-semibold" href="/">
             <span className="text-[#593EFE]/80">u</span>
             Tasks
           </span>
         </div>
+        </Link>
 
         <nav className="flex flex-col flex-wrap justify-between w-full h-full p-6">
           <ul className="space-y-1.5 ">
